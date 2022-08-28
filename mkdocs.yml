@@ -1,0 +1,15 @@
+site_name: Explang Documentation Site
+markdown_extensions:
+  - pymdownx.snippets:
+      check_paths: true
+
+nav:
+  - Home: index.md
+  - License: LICENSE.md
+  - Functions: functions.md
+    
+theme:
+  name: readthedocs
+  features:
+    - navigation.sections
+    
