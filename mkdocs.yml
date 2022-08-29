@@ -2,11 +2,15 @@ site_name: Explang Documentation Site
 markdown_extensions:
   - pymdownx.snippets:
       check_paths: true
+# add attributes like {: style='color: red;' }      
+  - attr_list
+  - def_list
+      
 
 nav:
   - Home: index.md
   - License: LICENSE.md
-  - Functions: functions.md
+  - Functions by Package: functions.md
     
 theme:
   name: readthedocs
