@@ -1,6 +1,6 @@
-# Explang Built-in functions by package
+# Explang Built-in Functions by Package
+
 packages: [base.math, base.text, io, ffi, base.bindings, base.funcs, runtime, threads, loops, base.version, base.coercion, base.logic, base.lang, base.arithmetics, base.seq, base.control, base.regex, dwim, base.docs, user, base.types]
-letters: [@, A, B, C, D, E, F, G, H, I, L, M, N, O, P, Q, R, S, T, V, W, %, *, +, -, ., /, <, =, >]
 
 ## base.math
 
@@ -1301,7 +1301,7 @@ Get list of names of defined functions. If names are given use them as filter ex
 N/A
 
 
-**compiled compiled function** defined at  **printref.l:line=45:pos=0:o=996:len=0**
+**compiled compiled function** defined at  **printref.l:line=51:pos=0:o=1320:len=0**
 
 ### `PRINTFUNC`
 
@@ -1310,7 +1310,7 @@ N/A
 N/A
 
 
-**compiled compiled function** defined at  **printref.l:line=45:pos=0:o=996:len=0**
+**compiled compiled function** defined at  **printref.l:line=51:pos=0:o=1320:len=0**
 
 ## base.types
 

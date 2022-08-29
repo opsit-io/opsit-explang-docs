@@ -10,7 +10,8 @@ markdown_extensions:
 nav:
   - Home: index.md
   - License: LICENSE.md
-  - Functions by Package: functions.md
+  - "Functions by Package": funcs-by-package.md
+  - "Functions by Name": funcs-by-name.md    
     
 theme:
   name: readthedocs
