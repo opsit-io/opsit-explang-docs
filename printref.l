@@ -5,20 +5,21 @@
   (str funcname " "  args))
 
 (defun printfunc(descr)
-  (print (format "
-### %s
+  (with-bindings descr
+    (print (format "
+### `%s`
+
+**%s**
 
 %s
 
-%s
 
-
-%s %s defined at  %s
+**%s %s** defined at  **%s**
 "
-		 (get descr "name")
-		 (format-funcall (get descr "name") (get descr "argDescr"))
-		 (get descr "docstring")
-		 (if (get descr "builtIn") "builtin" "compiled") (get descr "codeType") (get  descr "defLocation"))))
+		 name
+		 (format-funcall name argDescr)
+		 docstring
+		 (if builtIn "builtin" "compiled") codeType defLocation))))
 
 (let ((fnames  (functions-names))
       (descrs (map
