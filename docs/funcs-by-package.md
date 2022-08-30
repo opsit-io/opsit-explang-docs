@@ -7,36 +7,44 @@ packages: [base.math, base.text, io, ffi, base.bindings, base.funcs, runtime, th
 
 ### `EXP`
 
-**EXP [x, &OPTIONAL, base]**
+**Perform exponentiation.**
 
-Perform exponentiation. If base is not given it returns e raised to power x. Returns a Double value.
+**(EXP  x &OPTIONAL base)**
+
+If base is not given it returns e raised to power x. Returns a Double value.
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$EXP**
 
 ### `LOG`
 
-**LOG [x, &OPTIONAL, base]**
+**Computes logarithm.**
 
-Computes logarithm. If base is not given it computes natural logarithm. Returns a Double value.
+**(LOG  x &OPTIONAL base)**
+
+If base is not given it computes natural logarithm. Returns a Double value.
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$LOG**
 
 ### `RANDOM`
 
-**RANDOM [limit]**
+**Produce Pseudo-Random Number.**
 
-Produce Pseudo-Random Number. Returns a pseudo-random number that is a non-negative number less than limit and of the same numeric type as limit. Implemented uding Java Math.random()
+**(RANDOM  limit)**
+
+Returns a pseudo-random number that is a non-negative number less than limit and of the same numeric type as limit. Implemented uding Java Math.random()
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$RANDOM**
 
 ### `SQRT`
 
-**SQRT [x]**
+**Computes square root of the argument.**
 
-Computes square root of the argument. Returns double value.
+**(SQRT  x)**
+
+Returns double value.
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$SQRT**
@@ -46,18 +54,22 @@ Computes square root of the argument. Returns double value.
 
 ### `FORMAT`
 
-**FORMAT [format, &REST, values]**
+**Format String.**
 
-Format String. Returns a formatted string using the specified format string (in the format of java.util.Formatter) and arguments. Arguments referenced by the format specifiers in the format string. If there are more arguments than format specifiers, the extra arguments are ignored. Throws IllegalFormatException - If a format string contains an illegal syntax, a format specifier that is incompatible with the given arguments, insufficient arguments given the format string, or other illegal conditions.
+**(FORMAT  format &REST values)**
+
+Returns a formatted string using the specified format string (in the format of java.util.Formatter) and arguments. Arguments referenced by the format specifiers in the format string. If there are more arguments than format specifiers, the extra arguments are ignored. Throws IllegalFormatException - If a format string contains an illegal syntax, a format specifier that is incompatible with the given arguments, insufficient arguments given the format string, or other illegal conditions.
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$FORMAT**
 
 ### `STR`
 
-**STR [&REST, values]**
+**Concatenate Strings.**
 
-Concatenate Strings. Returns concatenation of string representationx of the function arguments
+**(STR  &REST values)**
+
+Returns concatenation of string representationx of the function arguments
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$STR**
@@ -67,25 +79,31 @@ Concatenate Strings. Returns concatenation of string representationx of the func
 
 ### `LOAD`
 
-**LOAD [file-spec]**
+**Execute program from a file/stream.**
 
-Execute program from a file/stream. Sequentially executes each form it encounters in the input file/or stream named by resource-spec. Returns exception if input could not be read or there were exceptions while compiling or executing forms an exception will be raised. file-spec may be a java.io.File object, file path as String or opened InputStream.
+**(LOAD  file-spec)**
+
+Sequentially executes each form it encounters in the input file/or stream named by resource-spec. Returns exception if input could not be read or there were exceptions while compiling or executing forms an exception will be raised. file-spec may be a java.io.File object, file path as String or opened InputStream.
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$LOAD**
 
 ### `LOADR`
 
-**LOADR [resource-spec]**
+**Execute program from Java resource.**
 
-Execute program from Java resource. Sequentially executes each form it encounters in the java resource file named by resource-spec. Returns exception if file could not be read or there were exceptions while compiling or executing forms an exception will be raised.
+**(LOADR  resource-spec)**
+
+Sequentially executes each form it encounters in the java resource file named by resource-spec. Returns exception if file could not be read or there were exceptions while compiling or executing forms an exception will be raised.
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$LOADR**
 
 ### `PRINT`
 
-**PRINT [&REST, args]**
+
+
+**(PRINT  &REST args)**
 
 Print Arguments on standard output.
 
@@ -94,9 +112,11 @@ Print Arguments on standard output.
 
 ### `READ-FROM-STRING`
 
-**READ-FROM-STRING [string]**
+**Parse expression from string.**
 
-Parse expression from string. Reads expression from string using default parser. Returns expression or NIL if no expression has been read
+**(READ-FROM-STRING  string)**
+
+Reads expression from string using default parser. Returns expression or NIL if no expression has been read
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$READ_FROM_STRING**
@@ -106,36 +126,44 @@ Parse expression from string. Reads expression from string using default parser.
 
 ### `.`
 
-**. [object, &REST, call-args]**
+**Call Java Object Method/Read FieldCall method of java object or read contend of object field.**
 
-Call Java Object Method/Read FieldCall method of java object or read contend of object field. 
+**(.  object &REST call-args)**
+
+
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$DOT**
 
 ### `.N`
 
-**.N [class, &OPTIONAL, arglist, typeslist]**
+**Return New Class Instance.**
 
-Return New Class Instance. Optional arglist and typeslist parameters specify parameters to be passed to cosnstructor and their types. When typelist not given it tries to find most narrowly matching constructor on the basis of types of the arguments in arglist. If typeslist is provided exactly matching constructor will be used.
+**(.N  class &OPTIONAL arglist typeslist)**
+
+Optional arglist and typeslist parameters specify parameters to be passed to cosnstructor and their types. When typelist not given it tries to find most narrowly matching constructor on the basis of types of the arguments in arglist. If typeslist is provided exactly matching constructor will be used.
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$DOTN**
 
 ### `.S`
 
-**.S [class, &REST, call-args]**
+**Call Static Java Method/Read Static FieldCall method of java object or read contend of object field.**
 
-Call Static Java Method/Read Static FieldCall method of java object or read contend of object field. 
+**(.S  class &REST call-args)**
+
+
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$DOTS**
 
 ### `CLASS`
 
-**CLASS [class-spec]**
+**Return Class by Class Name.Return class object according to it's fully qualified class name.**
 
-Return Class by Class Name.Return class object according to it's fully qualified class name. class-spec may be string, symbol or any object,which string representation will be used
+**(CLASS  class-spec)**
+
+class-spec may be string, symbol or any object,which string representation will be used
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$CLASS**
@@ -145,25 +173,31 @@ Return Class by Class Name.Return class object according to it's fully qualified
 
 ### `BEAN`
 
-**BEAN [object, &OPTIONAL, prefix, suffix]**
+**Convert Java Bean to a Map.**
 
-Convert Java Bean to a Map. Returns a Map based on getters in the passed java object. Accepts optional prefix and suffics arguments that are used to modify the generated keys.
+**(BEAN  object &OPTIONAL prefix suffix)**
+
+Returns a Map based on getters in the passed java object. Accepts optional prefix and suffics arguments that are used to modify the generated keys.
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$BEAN**
 
 ### `BOUNDP`
 
-**BOUNDP [&REST, symbols]**
+**Check if Symbols are Bound.**
 
-Check if Symbols are Bound. Returns True if all the arguments are bound symbols or names of bound symbols; otherwise, returns False.
+**(BOUNDP  &REST symbols)**
+
+Returns True if all the arguments are bound symbols or names of bound symbols; otherwise, returns False.
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$BOUNDP**
 
 ### `DLET`
 
-**DLET args**
+
+
+**(DLET args ...)**
 
 Destructuring LET construct.
 
@@ -172,7 +206,9 @@ Destructuring LET construct.
 
 ### `FUNCTION`
 
-**FUNCTION args**
+
+
+**(FUNCTION args ...)**
 
 Get Function Given it's symbol.
 
@@ -181,16 +217,20 @@ Get Function Given it's symbol.
 
 ### `GETPROP`
 
-**GETPROP [symbol, property-key]**
+**Get Variable Property.**
 
-Get Variable Property. Returns value of a property from variable property map
+**(GETPROP  symbol property-key)**
+
+Returns value of a property from variable property map
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$GETPROP**
 
 ### `GETPROPS`
 
-**GETPROPS [symbol]**
+
+
+**(GETPROPS  symbol)**
 
 Get Properties Map for a Variable.
 
@@ -199,25 +239,31 @@ Get Properties Map for a Variable.
 
 ### `LET`
 
-**LET args**
+**Evaluate code with given var.**
 
-Evaluate code with given var. bindings.
+**(LET args ...)**
+
+bindings.
 
 
 **builtin form** defined at  **class io.opsit.explang.Compiler$LET**
 
 ### `MAKUNBOUND`
 
-**MAKUNBOUND [symbol]**
+**Unbind variable given by symbol.**
 
-Unbind variable given by symbol. Always returns symbol.
+**(MAKUNBOUND  symbol)**
+
+Always returns symbol.
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$MAKUNBOUND**
 
 ### `NEW-CTX`
 
-**NEW-CTX []**
+
+
+**(NEW-CTX )**
 
 Create New Empty Context
 
@@ -226,25 +272,31 @@ Create New Empty Context
 
 ### `SET`
 
-**SET symbol value { level | uplevel }?**
+**Change variable value in specified context.**
 
-Change variable value in specified context. Set changes the contents of variable symbol in the dynamic context to the given value. If uplevel is set the value will be set in the uplevel-ths previous context. If level is set the value will be changed in the level-th context from the level0 
+**(SET  symbol value &KEY uplevel level)**
+
+Set changes the contents of variable symbol in the dynamic context to the given value. If uplevel is set the value will be set in the uplevel-ths previous context. If level is set the value will be changed in the level-th context from the level0 
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$SET**
 
 ### `SETPROP`
 
-**SETPROP [symbol, property-key, property-value]**
+**Set variable property.**
 
-Set variable property. Sets property value in variable property map
+**(SETPROP  symbol property-key property-value)**
+
+Sets property value in variable property map
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$SETPROP**
 
 ### `SETPROPS`
 
-**SETPROPS [symbol, properties-map]**
+
+
+**(SETPROPS  symbol properties-map)**
 
 Set Properties Map for a Variable
 
@@ -253,11 +305,16 @@ Set Properties Map for a Variable
 
 ### `SETQ`
 
-**SETQ {var form}***
+**Variable assignment, glocal if not exists.**
 
-Variable assignment, glocal if not exists. If variable is already assigned it's value will be replaced by result of form evaluation. If not new global binding will be created in the global scope
+**(SETQ  &REST args)**
+
+If variable is already assigned it's value will be replaced by result of form evaluation. If not new global binding will be created in the global scope
+
 var - a symbol naming a variable.
+
 form - an expression, which evaluation result will be assigned to var
+
 Returns: value of the last form, or nil if no pairs were supplied.
 
 
@@ -265,11 +322,16 @@ Returns: value of the last form, or nil if no pairs were supplied.
 
 ### `SETV`
 
-**SETV {var form}***
+**Varianle assignmentm, global if not exists.**
 
-Varianle assignmentm, global if not exists. If variable is already assigned it's value will be replaced by result of form evaluation. If not new global binding will be created in the global scope
+**(SETV  &REST args)**
+
+If variable is already assigned it's value will be replaced by result of form evaluation. If not new global binding will be created in the global scope
+
 var - a symbol naming a variable.
+
 form - an expression, which evaluation result will be assigned to var
+
 Returns: value of the last form, or nil if no pairs were supplied.
 
 
@@ -277,7 +339,9 @@ Returns: value of the last form, or nil if no pairs were supplied.
 
 ### `SYMBOL`
 
-**SYMBOL [symbol-name]**
+
+
+**(SYMBOL  symbol-name)**
 
 Makes new Symbol for a string
 
@@ -286,7 +350,9 @@ Makes new Symbol for a string
 
 ### `TRY`
 
-**TRY args**
+
+
+**(TRY args ...)**
 
 Try-Catch-Final construction.
 
@@ -295,7 +361,9 @@ Try-Catch-Final construction.
 
 ### `WITH-BINDINGS`
 
-**WITH-BINDINGS args**
+
+
+**(WITH-BINDINGS args ...)**
 
 Evaluate code with bindings from a Java Map.
 
@@ -304,7 +372,9 @@ Evaluate code with bindings from a Java Map.
 
 ### `WITH-CTX`
 
-**WITH-CTX args**
+
+
+**(WITH-CTX args ...)**
 
 Evaluate code in given context.
 
@@ -316,25 +386,31 @@ Evaluate code in given context.
 
 ### `APPLY`
 
-**APPLY [f, &PIPE, &REST, arguments]**
+**Apply function to arguments.**
 
-Apply function to arguments. arguments must be a spreadable list designator, i.e. if the last argument is a list, it contents will be appended to the list of arguments.
+**(APPLY  f &REST arguments)**
+
+arguments must be a spreadable list designator, i.e. if the last argument is a list, it contents will be appended to the list of arguments.
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$APPLY**
 
 ### `BACKTRACE`
 
-**BACKTRACE []**
+**Return callstack backtrace.**
 
-Return callstack backtrace. Returns string representation of current stack frame.
+**(BACKTRACE )**
+
+Returns string representation of current stack frame.
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$BACKTRACE**
 
 ### `DEFUN`
 
-**DEFUN args**
+
+
+**(DEFUN args ...)**
 
 Define named function
 
@@ -343,27 +419,33 @@ Define named function
 
 ### `FUNCALL`
 
-**FUNCALL [function, &PIPE, &REST, arguments]**
+**Apply Arguments to a Function.**
 
-Apply Arguments to a Function. Function must be a function object
+**(FUNCALL  function &REST arguments)**
+
+Function must be a function object
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$FUNCALL**
 
 ### `FUNCTIONP`
 
-**FUNCTIONP [object]**
+**Check if object is a function.**
 
-Check if object is a function. Returns true if object is a function (built-in or user defined); otherwise, returns false. A function is an object that represents code to be executed when an appropriate number of arguments is supplied. A function can be directly invoked by using it as the first argument to funcall, apply.
+**(FUNCTIONP  object)**
+
+Returns true if object is a function (built-in or user defined); otherwise, returns false. A function is an object that represents code to be executed when an appropriate number of arguments is supplied. A function can be directly invoked by using it as the first argument to funcall, apply.
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$FUNCTIONP**
 
 ### `SYMBOL-FUNCTION`
 
-**SYMBOL-FUNCTION [symbol]**
+**Returns function bound to given symbol.**
 
-Returns function bound to given symbol. If no function bound raises an error. The returned object may be a built-in function, compiled function or built-in special form.
+**(SYMBOL-FUNCTION  symbol)**
+
+If no function bound raises an error. The returned object may be a built-in function, compiled function or built-in special form.
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$SYMBOL_FUNCTION**
@@ -373,9 +455,11 @@ Returns function bound to given symbol. If no function bound raises an error. Th
 
 ### `ARGV`
 
-**ARGV [&OPTIONAL, n]**
+**Access command line arguments.**
 
-Access command line arguments. When n is provided return nth argument as String, when not -- return list of command line arguments. If n is out of range return NIL.
+**(ARGV  &OPTIONAL n)**
+
+When n is provided return nth argument as String, when not -- return list of command line arguments. If n is out of range return NIL.
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$ARGV**
@@ -385,9 +469,11 @@ Access command line arguments. When n is provided return nth argument as String,
 
 ### `NEW-THREAD`
 
-**NEW-THREAD [fn, &OPTIONAL, name]**
+**Create new Java thread.**
 
-Create new Java thread. Creates new Java thread and prepare it for execution of given function fn.fn must not require parameters for it's execution. The created thread is not started.
+**(NEW-THREAD  fn &OPTIONAL name)**
+
+Creates new Java thread and prepare it for execution of given function fn.fn must not require parameters for it's execution. The created thread is not started.
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$NEW_THREAD**
@@ -397,9 +483,11 @@ Create new Java thread. Creates new Java thread and prepare it for execution of 
 
 ### `WHILE`
 
-**WHILE args**
+**While loop construction.**
 
-While loop construction. Execute sequnce of expressions while the consition is true
+**(WHILE args ...)**
+
+Execute sequnce of expressions while the consition is true
 
 
 **builtin form** defined at  **class io.opsit.explang.Compiler$WHILE**
@@ -409,9 +497,11 @@ While loop construction. Execute sequnce of expressions while the consition is t
 
 ### `VERSION`
 
-**VERSION [spec]**
+**Create Version from text specification.**
 
-Create Version from text specification. 
+**(VERSION  spec)**
+
+
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$VERSION**
@@ -421,16 +511,26 @@ Create Version from text specification.
 
 ### `BOOL`
 
-**BOOL [value]**
+**Coerce Value to Boolean.**
 
-Coerce Value to Boolean. Value may be a Character, a Number, a Boolean, a Byte, a String, any object or NIL:
+**(BOOL  value)**
+
+Value may be a Character, a Number, a Boolean, a Byte, a String, any object or NIL:
+
 * Boolean value will be returned as is
+
 * NIL is false
+
 * Character    is false.
+
 * any Number which is equal to zero is false
+
 * an empty String is false
+
 * An empty collection is false 
+
 * Any other object is true.
+
 
 
 
@@ -438,25 +538,37 @@ Coerce Value to Boolean. Value may be a Character, a Number, a Boolean, a Byte, 
 
 ### `BYTE`
 
-**BYTE [value]**
+**Coerce Value to Byte.**
 
-Coerce Value to Byte. Value may be a Number, String, any object or NIL.String will be parsed as number using same rules as numeric literals. The floating point values will be truncated.
+**(BYTE  value)**
+
+Value may be a Number, String, any object or NIL.String will be parsed as number using same rules as numeric literals. The floating point values will be truncated.
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$BYTE**
 
 ### `CHAR`
 
-**CHAR [value]**
+**Coerce Value to Character.**
 
-Coerce Value to Character. Value may be a Character, a Number, a Boolean, a Byte, a Stringor NIL:
+**(CHAR  value)**
+
+Value may be a Character, a Number, a Boolean, a Byte, a Stringor NIL:
+
 * Character value will be returned as is.
+
 * NIL will be converted to unicode value # .
+
 * a Boolean True value will be returned as character 'T', False as ' '.
+
 * a Number (other than Byte) will be truncated to short (if needed) and the character at corresponding Unicode code unit will be returned.
+
 * a Byte value will be treated as unsigned integer value and processed as described above.
+
 * a String will be parsed as number using same rules as numeric literals and the resulting value will be used as described above. Conversion to number may fail.
+
 * Any other object will cause conversion error.
+
 
 
 
@@ -464,54 +576,66 @@ Coerce Value to Character. Value may be a Character, a Number, a Boolean, a Byte
 
 ### `DOUBLE`
 
-**DOUBLE [value]**
+**Coerce Value to Double.**
 
-Coerce Value to Double. Value may be a Number, String, any object or NIL.String will be parsed as number using same rules as numeric literals. The floating point values will be truncated.
+**(DOUBLE  value)**
+
+Value may be a Number, String, any object or NIL.String will be parsed as number using same rules as numeric literals. The floating point values will be truncated.
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$DOUBLE**
 
 ### `FLOAT`
 
-**FLOAT [value]**
+**Coerce Value to Float.**
 
-Coerce Value to Float. Value may be a Number, String, any object or NIL.String will be parsed as number using same rules as numeric literals. The floating point values will be truncated.
+**(FLOAT  value)**
+
+Value may be a Number, String, any object or NIL.String will be parsed as number using same rules as numeric literals. The floating point values will be truncated.
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$FLOAT**
 
 ### `INT`
 
-**INT [value]**
+**Coerce value to Integer.**
 
-Coerce value to Integer. Value may be a Number, String, any object or NIL.String will be parsed as number using same rules as numeric literals. The floating point value will be truncated.
+**(INT  value)**
+
+Value may be a Number, String, any object or NIL.String will be parsed as number using same rules as numeric literals. The floating point value will be truncated.
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$INT**
 
 ### `LONG`
 
-**LONG [value]**
+**Coerce Value to Long.**
 
-Coerce Value to Long. Value may be a Number, String, any object or NIL.String will be parsed as number using same rules as numeric literals. The floating point values will be truncated.
+**(LONG  value)**
+
+Value may be a Number, String, any object or NIL.String will be parsed as number using same rules as numeric literals. The floating point values will be truncated.
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$LONG**
 
 ### `SHORT`
 
-**SHORT [value]**
+**Coerce Value to Short.**
 
-Coerce Value to Short. Value may be a Number, String, any object or NIL.String will be parsed as number using same rules as numeric literals. The floating point values will be truncated.
+**(SHORT  value)**
+
+Value may be a Number, String, any object or NIL.String will be parsed as number using same rules as numeric literals. The floating point values will be truncated.
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$SHORT**
 
 ### `STRING`
 
-**STRING [value]**
+**Coerce Value to String.**
 
-Coerce Value to String. Value may be any object or NIL: NIL is converted to String "NIL", any other object converted using it's toString() method
+**(STRING  value)**
+
+Value may be any object or NIL: NIL is converted to String "NIL", any other object converted using it's toString() method
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$STRING**
@@ -521,85 +645,108 @@ Coerce Value to String. Value may be any object or NIL: NIL is converted to Stri
 
 ### `<`
 
-**< [x, &REST, args]**
+**Less Than - Numeric Comparison.**
 
-Less Than - Numeric Comparison. Returns True if all arguments are monotonically increasing order.  Returns True if only one argument is given
+**(<  x &REST args)**
+
+Returns True if all arguments are monotonically increasing order.  Returns True if only one argument is given
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$NUMLT**
 
 ### `<=`
 
-**<= [x, &REST, args]**
+**Less or Equal - Numeric comparison.**
 
-Less or Equal - Numeric comparison. Returns True if all arguments are monotonically non-decreasing order.  Returns True if only one argument is given
+**(<=  x &REST args)**
+
+Returns True if all arguments are monotonically non-decreasing order.  Returns True if only one argument is given
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$NUMLE**
 
 ### `=`
 
-**= [x, &REST, args]**
+**Test numeric equality.**
 
-Test numeric equality. Returns True if all arguments are numerically equal. Returns True if only one argument is given
+**(=  x &REST args)**
+
+Returns True if all arguments are numerically equal. Returns True if only one argument is given
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$NUMEQ**
 
 ### `==`
 
-**== [x, y]**
+**Check Value Equality.**
 
-Check Value Equality. Returns true if x equal to y according to call to Java method x.equals(y) or if both objects are NIL. If they are not, it  returns true if  thy are equal numerically or structurally.
+**(==  x y)**
+
+Returns true if x equal to y according to call to Java method x.equals(y) or if both objects are NIL. If they are not, it  returns true if  thy are equal numerically or structurally.
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$SEQUAL**
 
 ### `===`
 
-**=== [x, y]**
+**Check Object Equality.**
 
-Check Object Equality. Objects identity check: returns true if Object x is same as Object y. Uses java operator == to check objects identity
+**(===  x y)**
+
+Objects identity check: returns true if Object x is same as Object y. Uses java operator == to check objects identity
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$EQ**
 
 ### `>`
 
-**> [x, &REST, args]**
+**Greater Than - Numeric comparison.**
 
-Greater Than - Numeric comparison. Returns True if all arguments are monotonically decreasing order.  Returns True if only one argument is given
+**(>  x &REST args)**
+
+Returns True if all arguments are monotonically decreasing order.  Returns True if only one argument is given
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$NUMGT**
 
 ### `>=`
 
-**>= [x, &REST, args]**
+**Greater or Equal - Numeric comparison.**
 
-Greater or Equal - Numeric comparison. Returns True if all arguments are monotonically non-increasing order. Returns True if only one argument is given
+**(>=  x &REST args)**
+
+Returns True if all arguments are monotonically non-increasing order. Returns True if only one argument is given
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$NUMGE**
 
 ### `AND`
 
-**AND [&LAZY, &REST, forms]**
+**Logical AND.**
 
-Logical AND. Function AND lazily evaluates each argument form, one at a time from left to right. As soon as any form evaluates to NIL, AND returns NIL without evaluating the remaining forms. If all forms but the last evaluate to true values, AND returns the results produced by evaluating the last form. If no forms are supplied, (AND) returns true.
+**(AND  &REST &LAZY forms)**
+
+Function AND lazily evaluates each argument form, one at a time from left to right. As soon as any form evaluates to NIL, AND returns NIL without evaluating the remaining forms. If all forms but the last evaluate to true values, AND returns the results produced by evaluating the last form. If no forms are supplied, (AND) returns true.
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$AND**
 
 ### `DWIM-MATCHES`
 
-**DWIM-MATCHES {object pattern}**
+**Perform DWIM find operation.**
 
-Perform DWIM find operation. When pattern is an Regexp tries to find the regexp in String Representation of object.
+**(DWIM-MATCHES  arg0 &OPTIONAL arg2)**
+
+When pattern is an Regexp tries to find the regexp in String Representation of object.
+
   When pattern is a String it tries to find its occurences in the String Representation of object.
+
  When pattern is a Number then numeric equality check is performed. 
+
  When pattern is any other object the equality test is performed. 
+
  If there were matches the function returns list of matches. 
+
 If there is no match an empty list is returned.
 
 
@@ -607,27 +754,33 @@ If there is no match an empty list is returned.
 
 ### `EQUAL`
 
-**EQUAL [x, y]**
+**Check Object Equality.**
 
-Check Object Equality. Returns true if x equal to y according to call to Java method x.equals(y) or if both objects are NIL.
+**(EQUAL  x y)**
+
+Returns true if x equal to y according to call to Java method x.equals(y) or if both objects are NIL.
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$EQUAL**
 
 ### `NOT`
 
-**NOT [x]**
+**Logical Negation.**
 
-Logical Negation. Returns True if x has false logical value; otherwise, returns False.Parameter x can be any object. Only NIL, the empty list (), the empty String "", 0  and FALSE have false logical value. All other objects have true logical value
+**(NOT  x)**
+
+Returns True if x has false logical value; otherwise, returns False.Parameter x can be any object. Only NIL, the empty list (), the empty String "", 0  and FALSE have false logical value. All other objects have true logical value
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$NOT**
 
 ### `OR`
 
-**OR [&LAZY, &REST, args]**
+**Logical OR.**
 
-Logical OR. Function OR lazily evaluates each form, one at a time, from left to right. The evaluation of all forms terminates when a form evaluates to true (i.e., something other than nil) and OR immediately returns that value without evaluating the remaining forms.
+**(OR  &REST &LAZY args)**
+
+Function OR lazily evaluates each form, one at a time, from left to right. The evaluation of all forms terminates when a form evaluates to true (i.e., something other than nil) and OR immediately returns that value without evaluating the remaining forms.
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$OR**
@@ -637,16 +790,20 @@ Logical OR. Function OR lazily evaluates each form, one at a time, from left to 
 
 ### `EVAL`
 
-**EVAL [form]**
+**Evaluate a Parsed Expression.**
 
-Evaluate a Parsed Expression. Evaluates parsed form in the current dynamic context and return result of evaluation'
+**(EVAL  form)**
+
+Evaluates parsed form in the current dynamic context and return result of evaluation'
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$EVAL**
 
 ### `QUOTE`
 
-**QUOTE args**
+
+
+**(QUOTE args ...)**
 
 Return its argument without evaluation.
 
@@ -658,9 +815,12 @@ Return its argument without evaluation.
 
 ### `%`
 
-**% [x, y]**
+**Compute Remainder.**
 
-Compute Remainder. Generalizations of the remainder function. When both operands are integer returns result of the remainder operation . If one of them is floating point returns result of 
+**(%  x y)**
+
+Generalizations of the remainder function. When both operands are integer returns result of the remainder operation . If one of them is floating point returns result of 
+
 	 number - truncate_to_zero (number / divisor) * divisor (same semantic as for the Java % operator.
 
 
@@ -668,63 +828,78 @@ Compute Remainder. Generalizations of the remainder function. When both operands
 
 ### `*`
 
-*** [&REST, args]**
+**Compute Product.**
 
-Compute Product. Returns the product of it's arguments , performing any necessary type conversions in the process. If no numbers are supplied, 1 is returned.
+**(*  &REST args)**
+
+Returns the product of it's arguments , performing any necessary type conversions in the process. If no numbers are supplied, 1 is returned.
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$MULOP**
 
 ### `+`
 
-**+ [&REST, args]**
+**Compute Sum.**
 
-Compute Sum. Returns the sum of numeric values of it's arguments, performing any necessary type conversions in the process. If no numbers are supplied, 0 is returned.
+**(+  &REST args)**
+
+Returns the sum of numeric values of it's arguments, performing any necessary type conversions in the process. If no numbers are supplied, 0 is returned.
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$ADDOP**
 
 ### `-`
 
-**- [&REST, args]**
+**Performs subtraction or negation.**
 
-Performs subtraction or negation. If only one number is supplied, the negation of that number is returned. If more than one argument is given, it subtracts rest of the arguments from the first one and returns the result. The function performs necessary type conversions.
+**(-  &REST args)**
+
+If only one number is supplied, the negation of that number is returned. If more than one argument is given, it subtracts rest of the arguments from the first one and returns the result. The function performs necessary type conversions.
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$SUBOP**
 
 ### `/`
 
-**/ [&REST, args]**
+**Performs Division or Reciprocation.**
 
-Performs Division or Reciprocation. If no denominators are supplied, the function / returns the reciprocal of number. If at least one denominator is supplied, the function / divides the numerator by all of the denominators and returns the resulting quotient. If each argument is either an integer or a ratio, and the result is not an integer, then it is a ratio. The function / performs necessary type conversions. 
+**(/  &REST args)**
+
+If no denominators are supplied, the function / returns the reciprocal of number. If at least one denominator is supplied, the function / divides the numerator by all of the denominators and returns the resulting quotient. If each argument is either an integer or a ratio, and the result is not an integer, then it is a ratio. The function / performs necessary type conversions. 
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$DIVOP**
 
 ### `MAX`
 
-**MAX [x, &REST, args]**
+**Find maximum.**
 
-Find maximum. Returns the maximum of numeric values of it's arguments, performing any necessary type conversions in the process. 
+**(MAX  x &REST args)**
+
+Returns the maximum of numeric values of it's arguments, performing any necessary type conversions in the process. 
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$MAXOP**
 
 ### `MIN`
 
-**MIN [x, &REST, args]**
+**Find minimum.**
 
-Find minimum. Returns the maximum of numeric values of it's arguments, performing any necessary type conversions in the process. 
+**(MIN  x &REST args)**
+
+Returns the maximum of numeric values of it's arguments, performing any necessary type conversions in the process. 
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$MINOP**
 
 ### `MOD`
 
-**MOD [number, divisor]**
+**Compute Modulus.**
 
-Compute Modulus. Generalizations of the modulus function. When both operands are integer returns result of the modulus operation. If one of them is floating point returns result of 
+**(MOD  number divisor)**
+
+Generalizations of the modulus function. When both operands are integer returns result of the modulus operation. If one of them is floating point returns result of 
+
 	 number - ⌊ (number / divisor) ⌋ * divisor 
 
 
@@ -732,9 +907,12 @@ Compute Modulus. Generalizations of the modulus function. When both operands are
 
 ### `REM`
 
-**REM [x, y]**
+**Compute Remainder.**
 
-Compute Remainder. Generalizations of the remainder function. When both operands are integer returns result of the remainder operation . If one of them is floating point returns result of 
+**(REM  x y)**
+
+Generalizations of the remainder function. When both operands are integer returns result of the remainder operation . If one of them is floating point returns result of 
+
 	 number - truncate_to_zero (number / divisor) * divisor (same semantic as for the Java % operator.
 
 
@@ -742,9 +920,11 @@ Compute Remainder. Generalizations of the remainder function. When both operands
 
 ### `SIGNUM`
 
-**SIGNUM [x]**
+**Return Number Sign.**
 
-Return Number Sign. Determines a numerical value that indicates whether number is negative, zero, or positive. Returns one of -1, 0, or 1 according to whether number is negative, zero, or positive. The type of the result is of the same numeric type as x
+**(SIGNUM  x)**
+
+Determines a numerical value that indicates whether number is negative, zero, or positive. Returns one of -1, 0, or 1 according to whether number is negative, zero, or positive. The type of the result is of the same numeric type as x
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$SIGNUM**
@@ -754,7 +934,9 @@ Return Number Sign. Determines a numerical value that indicates whether number i
 
 ### `->`
 
-**-> args**
+
+
+**(-> args ...)**
 
 Threading form on first argument
 
@@ -763,45 +945,54 @@ Threading form on first argument
 
 ### `APPEND`
 
-**APPEND [&REST, sequences]**
+**Concatenate sequences (non-destructive).**
 
-Concatenate sequences (non-destructive). append returns a new sequence that is the concatenation of the elements of the arguments. All the argument remain unchanged. The resulting sequence is of the same type as the first argument. In no arguments were given an empty list is returned. If target sequence is an array necessary coercions will be performed automatically.
+**(APPEND  &REST sequences)**
+
+append returns a new sequence that is the concatenation of the elements of the arguments. All the argument remain unchanged. The resulting sequence is of the same type as the first argument. In no arguments were given an empty list is returned. If target sequence is an array necessary coercions will be performed automatically.
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$APPEND**
 
 ### `APPEND!`
 
-**APPEND! [&REST, sequences]**
+**Concatenate sequences (destructive).**
 
-Concatenate sequences (destructive). Adds to the first given sequence (target sequence) all the elements ofall of the following sequences and return the target sequence.  If no sequences were given an empty list will be returned. Target sequence must be extendable, that means that objects like Arrays or String cannot be target of this operation
+**(APPEND!  &REST sequences)**
+
+Adds to the first given sequence (target sequence) all the elements ofall of the following sequences and return the target sequence.  If no sequences were given an empty list will be returned. Target sequence must be extendable, that means that objects like Arrays or String cannot be target of this operation
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$NAPPEND**
 
 ### `AREF`
 
-**AREF [array, index]**
+**Get Array element value.**
 
-Get Array element value. Return array element at specified index. Throws ArrayOutOfBoundsException if index is invalid
+**(AREF  array index)**
+
+Return array element at specified index. Throws ArrayOutOfBoundsException if index is invalid
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$AREF**
 
 ### `ASET`
 
-**ASET [array, index, object]**
+**Sat array element value.**
 
-Sat array element value. Set value of array element at index to object. If java array is typed (i.e. not array of java.lang.Objects) and object type does not match this function will attempt to perform necessary coercion operations. The coercions work in the same way as INT, FLOAT, STRING and rest of the built-in coercion functions.
+**(ASET  array index object)**
+
+Set value of array element at index to object. If java array is typed (i.e. not array of java.lang.Objects) and object type does not match this function will attempt to perform necessary coercion operations. The coercions work in the same way as INT, FLOAT, STRING and rest of the built-in coercion functions.
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$ASET**
 
 ### `ASSOC`
 
-**ASSOC map {key val}+**
+**Associates value with key in an map structure.**
 
-Associates value with key in an map structure. 
+**(ASSOC  map key val &REST kvpairs)**
+
 Return new instance of the structure, the original is left unchanged.
 
 
@@ -809,9 +1000,10 @@ Return new instance of the structure, the original is left unchanged.
 
 ### `ASSOC!`
 
-**ASSOC! map {key val}+**
+**Associates value with key in an map structure.**
 
-Associates value with key in an map structure. 
+**(ASSOC!  map key val &REST kvpairs)**
+
 Modifies the object and returns it as the result.
 
 
@@ -819,7 +1011,9 @@ Modifies the object and returns it as the result.
 
 ### `CONS`
 
-**CONS [object-1, object-2]**
+
+
+**(CONS  object-1 object-2)**
 
 Prepend element to a sequence.
 
@@ -828,28 +1022,34 @@ Prepend element to a sequence.
 
 ### `FILTER`
 
-**FILTER [test, &PIPE, sequence]**
+**Filter operation.**
 
-Filter operation. test is a function of one argument that returns boolean, seq is input sequence. Return a sequence from which the elements that do not satisfy the test have been removed.
+**(FILTER  test sequence)**
+
+test is a function of one argument that returns boolean, seq is input sequence. Return a sequence from which the elements that do not satisfy the test have been removed.
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$FILTER**
 
 ### `FIRST`
 
-**FIRST [sequence]**
+**Returns the first element of the sequence.**
 
-Returns the first element of the sequence. Returns NIL when sequence is NIL or empty
+**(FIRST  sequence)**
+
+Returns NIL when sequence is NIL or empty
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$FIRST**
 
 ### `FOREACH`
 
-**FOREACH [(, VAR, SEQUENCE, &OPTIONAL, RESULT, ), &REST, body]**
+**Foreach Loop over a sequence.**
 
-Foreach Loop over a sequence. 
+**(FOREACH  ( VAR SEQUENCE &OPTIONAL RESULT ) &REST body)**
+
 Evaluate body with VAR bound to each element from SEQUENCE, in turn.
+
 Then evaluate RESULT to get return value, default NIL.
 
 
@@ -857,10 +1057,12 @@ Then evaluate RESULT to get return value, default NIL.
 
 ### `GET`
 
-**GET [structure, key, &OPTIONAL, not-found]**
+**Returns the value from an associative structure.**
 
-Returns the value from an associative structure. 
+**(GET  structure key &OPTIONAL not-found)**
+
 Return value from an associative structure struct, 
+
  Returns NIL if the key is not present, or the not-found value if supplied.
 
 
@@ -868,11 +1070,14 @@ Return value from an associative structure struct,
 
 ### `GET-IN`
 
-**GET-IN [structure, ks, &OPTIONAL, not-found]**
+**Returns the value from an associative structure.**
 
-Returns the value from an associative structure. 
+**(GET-IN  structure ks &OPTIONAL not-found)**
+
 Return value from an associative structure struct, 
+
 where ks is a sequence of keys. Returns NIL if the key
+
  is not present, or the not-found value if supplied.
 
 
@@ -880,101 +1085,124 @@ where ks is a sequence of keys. Returns NIL if the key
 
 ### `HASHMAP`
 
-**HASHMAP [&REST, pairs]**
+**Create a HashMap.**
 
-Create a HashMap. Returns new HashMap filled with given keys and values. Throws InvalidParametersException if non-even number of arguments is given.
+**(HASHMAP  &REST pairs)**
+
+Returns new HashMap filled with given keys and values. Throws InvalidParametersException if non-even number of arguments is given.
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$HASHMAP**
 
 ### `HASHSET`
 
-**HASHSET [&REST, args]**
+**Create a HashSet.**
 
-Create a HashSet. Returns a set containing the supplied objects. 
+**(HASHSET  &REST args)**
+
+Returns a set containing the supplied objects. 
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$HASHSET**
 
 ### `IN`
 
-**IN [elt, &PIPE, sequence]**
+**Check if an element is contained in a sequence.**
 
-Check if an element is contained in a sequence. 
+**(IN  elt sequence)**
+
+
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$IN**
 
 ### `LENGTH`
 
-**LENGTH [sequence]**
+**Return length of a sequence.**
 
-Return length of a sequence. Parameter may be any supported sequence (collection, array, character sequence) or NIL (0 will be returned).
+**(LENGTH  sequence)**
+
+Parameter may be any supported sequence (collection, array, character sequence) or NIL (0 will be returned).
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$LENGTH**
 
 ### `LIST`
 
-**LIST [&REST, args]**
+**Create a list.**
 
-Create a list. Returns a list containing the supplied objects. 
+**(LIST  &REST args)**
+
+Returns a list containing the supplied objects. 
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$LIST**
 
 ### `MAKE-ARRAY`
 
-**MAKE-ARRAY [size, &KEY, element-type]**
+**Ceate an Array.**
 
-Ceate an Array. Creates array of objects of specified size. Optional :element-type argument specifies type of array elements. The default is java.lang.Object
+**(MAKE-ARRAY  size &KEY element-type)**
+
+Creates array of objects of specified size. Optional :element-type argument specifies type of array elements. The default is java.lang.Object
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$MAKE_ARRAY**
 
 ### `MAP`
 
-**MAP [func, &PIPE, &REST, lists]**
+**Apply function on elements of collections.**
 
-Apply function on elements of collections. Returns a sequence consisting of the result of applying func to the set of first items of each list, followed by applying func to the set of second items in each list, until any one of the lists is exhausted.  Any remaining items in other lists are ignored. Function func should accept number arguments that is equal to number of lists.
+**(MAP  func &REST lists)**
+
+Returns a sequence consisting of the result of applying func to the set of first items of each list, followed by applying func to the set of second items in each list, until any one of the lists is exhausted.  Any remaining items in other lists are ignored. Function func should accept number arguments that is equal to number of lists.
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$MAP**
 
 ### `MAPPROD`
 
-**MAPPROD [f, &PIPE, &REST, lists]**
+**Apply function on cartesioan product of lists.**
 
-Apply function on cartesioan product of lists. Returns a sequence consisting of the result of applying func to the cartesian product of the lists. Function func should accept number arguments that is equal to number of lists.
+**(MAPPROD  f &REST lists)**
+
+Returns a sequence consisting of the result of applying func to the cartesian product of the lists. Function func should accept number arguments that is equal to number of lists.
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$MAPPROD**
 
 ### `NTH`
 
-**NTH [n, &PIPE, sequence]**
+**Locates the nth element of a sequence.**
 
-Locates the nth element of a sequence. n may be any non-negative number. Returns NIL when sequence is NIL or n is out of bounds
+**(NTH  n sequence)**
+
+n may be any non-negative number. Returns NIL when sequence is NIL or n is out of bounds
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$NTH**
 
 ### `RANGE`
 
-**RANGE [start, stop, &OPTIONAL, step]**
+**Return sequence of numbers.**
 
-Return sequence of numbers. Returns sequence of numbers  from start to stop (inclusively) with .
+**(RANGE  start stop &OPTIONAL step)**
+
+Returns sequence of numbers  from start to stop (inclusively) with .
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$RANGE**
 
 ### `REDUCE`
 
-**REDUCE [func, &OPTIONAL, val, &PIPE, &REQUIRED, seq]**
+**Reduce operation.**
 
-Reduce operation.
- func is a function of 2 arguments, value - optional starting value, seq is input sequence.
+**(REDUCE  func &OPTIONAL val &REQUIRED seq)**
+
+func is a function of 2 arguments, value - optional starting value, seq is input sequence.
+
 When val is not given:  apply func to the first 2 items in the seq, then to the result and 3rd, etc. If seq contains no items, func must accept no arguments, return (func).If seq has 1 item, return it without calling func;
+
 If value is supplied, apply func on value and the first seq element, then on the result and the second element, etc. If there is no elements - return val;
 
 
@@ -982,7 +1210,9 @@ If value is supplied, apply func on value and the first seq element, then on the
 
 ### `REST`
 
-**REST [sequence]**
+
+
+**(REST  sequence)**
 
 Return 2nd and further elements of sqeuence.
 
@@ -991,7 +1221,9 @@ Return 2nd and further elements of sqeuence.
 
 ### `REVERSE`
 
-**REVERSE [sequence]**
+
+
+**(REVERSE  sequence)**
 
 Reverse a sequence (non-destructive).
 
@@ -1000,7 +1232,9 @@ Reverse a sequence (non-destructive).
 
 ### `REVERSE!`
 
-**REVERSE! [sequence]**
+
+
+**(REVERSE!  sequence)**
 
 Reverse a sequence (destructive).
 
@@ -1009,16 +1243,20 @@ Reverse a sequence (destructive).
 
 ### `SELECT-KEYS`
 
-**SELECT-KEYS [object, keyseq]**
+**Returns a map containing only those entries in map whose key is in keys.**
 
-Returns a map containing only those entries in map whose key is in keys. 
+**(SELECT-KEYS  object keyseq)**
+
+
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$SELECT_KEYS**
 
 ### `SEQ`
 
-**SEQ [object]**
+
+
+**(SEQ  object)**
 
 Coerce object into a sequence.
 
@@ -1027,7 +1265,9 @@ Coerce object into a sequence.
 
 ### `SEQUENCEP`
 
-**SEQUENCEP [object]**
+
+
+**(SEQUENCEP  object)**
 
 Check if an object is a sequence.
 
@@ -1036,7 +1276,9 @@ Check if an object is a sequence.
 
 ### `SORT`
 
-**SORT [&OPTIONAL, f, &PIPE, &REQUIRED, sequence]**
+
+
+**(SORT  &OPTIONAL f &REQUIRED sequence)**
 
 Sort a sequence (non destructively).
 
@@ -1045,7 +1287,9 @@ Sort a sequence (non destructively).
 
 ### `SORT!`
 
-**SORT! [&OPTIONAL, f, &PIPE, &REQUIRED, sequence]**
+
+
+**(SORT!  &OPTIONAL f &REQUIRED sequence)**
 
 Sort a sequence (destructively).
 
@@ -1054,18 +1298,22 @@ Sort a sequence (destructively).
 
 ### `SUBSEQ`
 
-**SUBSEQ [sequence, start, &OPTIONAL, end]**
+**Return subsequnce of a sequence.**
 
-Return subsequnce of a sequence. subseq creates a sequence that is a copy of the subsequence of sequence bounded by start and end. Start specifies an offset into the original sequence and marks the beginning position of the subsequence. end marks the position following the last element of the subsequence. subseq always allocates a new sequence for a result; it never shares storage with an old sequence. The result subsequence is of the same kind as sequence.
+**(SUBSEQ  sequence start &OPTIONAL end)**
+
+subseq creates a sequence that is a copy of the subsequence of sequence bounded by start and end. Start specifies an offset into the original sequence and marks the beginning position of the subsequence. end marks the position following the last element of the subsequence. subseq always allocates a new sequence for a result; it never shares storage with an old sequence. The result subsequence is of the same kind as sequence.
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$SUBSEQ**
 
 ### `TAKE`
 
-**TAKE [n, &PIPE, seq]**
+**Return  first n elements of a sequence.**
 
-Return  first n elements of a sequence. take creates new sequence with first n elements of seq. If n is bigger than length of the sequence all the elementsare returned. The result subsequence is of the same kind as sequence.
+**(TAKE  n seq)**
+
+take creates new sequence with first n elements of seq. If n is bigger than length of the sequence all the elementsare returned. The result subsequence is of the same kind as sequence.
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$TAKE**
@@ -1075,7 +1323,9 @@ Return  first n elements of a sequence. take creates new sequence with first n e
 
 ### `->>`
 
-**->> args**
+
+
+**(->> args ...)**
 
 Threading form on last argument.
 
@@ -1084,7 +1334,9 @@ Threading form on last argument.
 
 ### `@->`
 
-**@-> args**
+
+
+**(@-> args ...)**
 
 Threading form on &PIPE or first argument
 
@@ -1093,7 +1345,9 @@ Threading form on &PIPE or first argument
 
 ### `AS->`
 
-**AS-> args**
+
+
+**(AS-> args ...)**
 
 Threading form on named argument
 
@@ -1102,19 +1356,32 @@ Threading form on named argument
 
 ### `COND`
 
-**COND {test-form form*}***
+**Conditional switch construct.**
 
-Conditional switch construct. COND allows the execution of forms to be dependent on test-form.
+**(COND  &REST args)**
+
+COND allows the execution of forms to be dependent on test-form.
+
 Test-forms are evaluated one at a time in the order in
+
 which they are given in the argument list until a
+
 test-form is found that evaluates to true.  If there
+
 are no forms in that clause, the value of the test-form
+
 is returned by the COND form.  Otherwise, the forms
+
 associated with this test-form are evaluated in order,
+
 left to right and the value returned by the last form
+
 is returned by the COND form.  Once one test-form has
+
 yielded true, no additional test-forms are
+
 evaluated. If no test-form yields true, nil is
+
 returned.
 
 
@@ -1122,7 +1389,9 @@ returned.
 
 ### `IF`
 
-**IF args**
+
+
+**(IF args ...)**
 
 If-else conditional construct.
 
@@ -1131,7 +1400,9 @@ If-else conditional construct.
 
 ### `LAMBDA`
 
-**LAMBDA args**
+
+
+**(LAMBDA args ...)**
 
 Define anonymous function
 
@@ -1140,7 +1411,9 @@ Define anonymous function
 
 ### `PROGN`
 
-**PROGN args**
+
+
+**(PROGN args ...)**
 
 Evaluate sequence of expressions.
 
@@ -1149,9 +1422,11 @@ Evaluate sequence of expressions.
 
 ### `THROW`
 
-**THROW [exception]**
+**Throw Java Exception.**
 
-Throw Java Exception. The exception may be a java Throwable object or String. In the latter case a new ExecutionException with given message will be created and thrown.
+**(THROW  exception)**
+
+The exception may be a java Throwable object or String. In the latter case a new ExecutionException with given message will be created and thrown.
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$THROW**
@@ -1161,13 +1436,20 @@ Throw Java Exception. The exception may be a java Throwable object or String. In
 
 ### `RE-FIND`
 
-**RE-FIND {pattern schar-seq | matcher}**
+**Perform Regexp Find.**
 
-Perform Regexp Find. When called With two arguments creates java.util.regex.Matcher using pattern and char-seq.
+**(RE-FIND  arg0 &OPTIONAL arg2)**
+
+When called With two arguments creates java.util.regex.Matcher using pattern and char-seq.
+
   When called with one arguments it uses given Matcher. 
+
  Returns the next ,match, if any, of string to pattern, using Matcher.find(). 
+
  if no groups were defined it returns the matched string.
+
  If groups were defined it returns a list consisting of the full match and matched groups
+
  If there is no match NIL is returned
 
 
@@ -1175,20 +1457,27 @@ Perform Regexp Find. When called With two arguments creates java.util.regex.Matc
 
 ### `RE-GLOB`
 
-**RE-GLOB [pattern]**
+**Compile a Globbing Pattern.**
 
-Compile a Globbing Pattern. On success returns a java.util.regex.Pattern object. On error raises exception.
+**(RE-GLOB  pattern)**
+
+On success returns a java.util.regex.Pattern object. On error raises exception.
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$RE_GLOB**
 
 ### `RE-GROUPS`
 
-**RE-GROUPS [matcher]**
+**Return Groups for a Regexp Match.**
 
-Return Groups for a Regexp Match. Returns the groups from the most recent match/find.
+**(RE-GROUPS  matcher)**
+
+Returns the groups from the most recent match/find.
+
 If there are no nested groups, returns a string of the entire
+
 match. If there are nested groups, returns a list of the groups,
+
 the first element being the entire match.
 
 
@@ -1196,22 +1485,31 @@ the first element being the entire match.
 
 ### `RE-MATCHER`
 
-**RE-MATCHER [pattern, &PIPE, char-seq]**
+**Return Regexp Matcher.**
 
-Return Regexp Matcher. Returns an instance of java.util.regex.Matcher, for use, e.g. in RE-FIND.
+**(RE-MATCHER  pattern char-seq)**
+
+Returns an instance of java.util.regex.Matcher, for use, e.g. in RE-FIND.
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$RE_MATCHER**
 
 ### `RE-MATCHES`
 
-**RE-MATCHES {pattern schar-seq | matcher}**
+**Perform regexp match.**
 
-Perform regexp match. When called With two arguments created java.util.regex.Matcher using pattern and char-seq.
+**(RE-MATCHES  arg0 &OPTIONAL arg2)**
+
+When called With two arguments created java.util.regex.Matcher using pattern and char-seq.
+
   When called with one arguments it uses given Matcher. 
+
  Returns the match, if any, of string to pattern, using Matcher.matches(). 
+
  if no groups were defined it returns the matched string.
+
  If groups were defined it returns a list consisting of the full match and matched groups
+
  If there is no match NIL is returned
 
 
@@ -1219,22 +1517,31 @@ Perform regexp match. When called With two arguments created java.util.regex.Mat
 
 ### `RE-PATTERN`
 
-**RE-PATTERN [pattern]**
+**Compile A Regexp Pattern.**
 
-Compile A Regexp Pattern. On success returns a java.util.regex.Pattern objec. On error raises exception.
+**(RE-PATTERN  pattern)**
+
+On success returns a java.util.regex.Pattern objec. On error raises exception.
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$RE_PATTERN**
 
 ### `RE-SEQ`
 
-**RE-SEQ {pattern schar-seq | matcher}**
+**Return Results of Regexp Find as a Lazy Sequence.**
 
-Return Results of Regexp Find as a Lazy Sequence. When called With two arguments created java.util.regex.Matcher using pattern and char-seq.
+**(RE-SEQ  arg0 &OPTIONAL arg2)**
+
+When called With two arguments created java.util.regex.Matcher using pattern and char-seq.
+
   Returns lazy iterable sequence (instance of Iterable) of matches of string to pattern, using Matcher.find(). 
+
  When called with one arguments it uses given Matcher. 
+
  if no groups were defined the elements of the sequence are the matched string.
+
  If groups were defined it returns a list consisting of the full match and matched groups
+
  If there is no match empty sequence is returned
 
 
@@ -1245,18 +1552,22 @@ Return Results of Regexp Find as a Lazy Sequence. When called With two arguments
 
 ### `DWIM-SEARCH`
 
-**DWIM-SEARCH [sequence, test]**
+**Perform DWIM search of an item in a sequence of objects.**
 
-Perform DWIM search of an item in a sequence of objects. 
+**(DWIM-SEARCH  sequence test)**
+
+
 
 
 **builtin form** defined at  **class io.opsit.explang.Compiler$DWIM_SEARCH**
 
 ### `DWIM_FIELDS`
 
-**DWIM_FIELDS [object, keyseq]**
+**Returns a map containing only those entries in map whose key is in keys.**
 
-Returns a map containing only those entries in map whose key is in keys. 
+**(DWIM_FIELDS  object keyseq)**
+
+
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$DWIM_FIELDS**
@@ -1266,27 +1577,33 @@ Returns a map containing only those entries in map whose key is in keys.
 
 ### `DESCRIBE-FUNCTION`
 
-**DESCRIBE-FUNCTION [function]**
+**Describe function.**
 
-Describe function. Return textual description of given function or built-in form. function is a symbol or function name or a lambda
+**(DESCRIBE-FUNCTION  function)**
+
+Return textual description of given function or built-in form. function is a symbol or function name or a lambda
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$DESCRIBE_FUNCTION**
 
 ### `DOCUMENTATION`
 
-**DOCUMENTATION [function-name]**
+**Get Function Docstring.**
 
-Get Function Docstring. Return documentation string of given function or built-in form. function is a symbol or function name or a lambda
+**(DOCUMENTATION  function-name)**
+
+Return documentation string of given function or built-in form. function is a symbol or function name or a lambda
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$DOCUMENTATION**
 
 ### `FUNCTIONS-NAMES`
 
-**FUNCTIONS-NAMES [&REST, names]**
+**Get list of names of defined functions.**
 
-Get list of names of defined functions. If names are given use them as filter expressions:  only those which match at least one of filter expressions will be returned. Filters may be strings (substring match) or regular expressions (java.util.regex.Pattern objects).
+**(FUNCTIONS-NAMES  &REST names)**
+
+If names are given use them as filter expressions:  only those which match at least one of filter expressions will be returned. Filters may be strings (substring match) or regular expressions (java.util.regex.Pattern objects).
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$FUNCTIONS_NAMES**
@@ -1294,41 +1611,60 @@ Get list of names of defined functions. If names are given use them as filter ex
 ## user
 
 
-### `FORMAT-FUNCALL`
+### `FORMAT-DETAILS`
 
-**FORMAT-FUNCALL [funcname, args]**
+
+
+**(FORMAT-DETAILS  details)**
 
 N/A
 
 
-**compiled compiled function** defined at  **printref.l:line=51:pos=0:o=1320:len=0**
+**compiled compiled function** defined at  **printref.l:line=61:pos=0:o=1663:len=0**
+
+### `FORMAT-FUNCALL`
+
+
+
+**(FORMAT-FUNCALL  funcname args)**
+
+N/A
+
+
+**compiled compiled function** defined at  **printref.l:line=61:pos=0:o=1663:len=0**
 
 ### `PRINTFUNC`
 
-**PRINTFUNC [descr]**
+
+
+**(PRINTFUNC  descr)**
 
 N/A
 
 
-**compiled compiled function** defined at  **printref.l:line=51:pos=0:o=1320:len=0**
+**compiled compiled function** defined at  **printref.l:line=61:pos=0:o=1663:len=0**
 
 ## base.types
 
 
 ### `TYPE-OF`
 
-**TYPE-OF [object]**
+**Return Object Type.**
 
-Return Object Type. Returns type (as class) of the given object. For NIL argument return NIL.
+**(TYPE-OF  object)**
+
+Returns type (as class) of the given object. For NIL argument return NIL.
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$TYPE_OF**
 
 ### `TYPEP`
 
-**TYPEP [object, type-specifier]**
+**Check if Object is of Specified Type.**
 
-Check if Object is of Specified Type. Returns True if object is of the specified type. Type specifier may be a Class object or string or symbol which is a valid type-specifier.
+**(TYPEP  object type-specifier)**
+
+Returns True if object is of the specified type. Type specifier may be a Class object or string or symbol which is a valid type-specifier.
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$TYPEP**

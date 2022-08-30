@@ -1,10 +1,19 @@
 (defun format-funcall (funcname args)
-  (str funcname " "  args))
+  (str "(" funcname " "  args ")"))
+
+(defun format-details (details)
+  (. details "replace" '("\n" "\n\n")))
 
 (defun printfunc(descr)
   (with-bindings descr
-    (print (format "
+    (let ((matches (re-matches (re-matcher
+				(re-pattern "(?s)^(.*?\\.)[ \\n\\t\\r]+(.*)$") docstring)))
+	  (summary (if matches (str "**" (get matches 1) "**") ""))
+	  (details (if matches (get matches 2) docstring)))
+      (print (format "
 ### `%s`
+
+%s
 
 **%s**
 
@@ -13,10 +22,11 @@
 
 **%s %s** defined at  **%s**
 "
-		 name
-		 (format-funcall name argDescr)
-		 docstring
-		 (if builtIn "builtin" "compiled") codeType defLocation))))
+		     name
+		     summary
+		     (format-funcall name argDescr)
+		     (format-details details)
+		     (if builtIn "builtin" "compiled") codeType defLocation)))))
 
 (let ((fnames  (functions-names))
       (descrs (map
@@ -27,7 +37,7 @@
 			(map
 			 (lambda (descr) (get descr "packageName"))
 			 descrs))))
-	(PRINT "# Explang Built-in Functions by Package\n\n")
+	(print "# Explang Built-in Functions by Package\n\n")
 	(print (str "packages: " packages "\n"))
 	(foreach (package (append (list) packages))
 		 (print (str "\n## " package "\n\n"))
