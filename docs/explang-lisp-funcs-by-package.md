@@ -1,4 +1,4 @@
-# Explang Built-in Functions by Package
+# Explang/lisp Built-in Functions by Package
 
 packages: [base.math, base.text, io, ffi, base.bindings, base.funcs, runtime, threads, loops, base.version, base.coercion, base.logic, base.lang, base.arithmetics, base.seq, base.control, base.regex, dwim, base.docs, user, base.types]
 
@@ -1631,7 +1631,7 @@ If names are given use them as filter expressions:  only those which match at le
 N/A
 
 
-**compiled compiled function** defined at  **printref.l:line=61:pos=0:o=1668:len=0**
+**compiled compiled function** defined at  **printref.l:line=61:pos=0:o=1678:len=0**
 
 ### `FORMAT-FUNCALL`
 
@@ -1642,7 +1642,7 @@ N/A
 N/A
 
 
-**compiled compiled function** defined at  **printref.l:line=61:pos=0:o=1668:len=0**
+**compiled compiled function** defined at  **printref.l:line=61:pos=0:o=1678:len=0**
 
 ### `PRINTFUNC`
 
@@ -1653,7 +1653,7 @@ N/A
 N/A
 
 
-**compiled compiled function** defined at  **printref.l:line=61:pos=0:o=1668:len=0**
+**compiled compiled function** defined at  **printref.l:line=61:pos=0:o=1678:len=0**
 
 ## base.types
 

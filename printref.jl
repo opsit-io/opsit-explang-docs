@@ -52,7 +52,7 @@ else
 
     foreach([letter,append(list(), letters)],
             begin
-                print(i"\n## $(letter)\n\n"));
+                print(i"\n## $(letter)\n\n");
                 foreach([descr, filter(dsc -> letter == dsc.name[0], descrs)],
                         printfunc(descr));
             end);

@@ -1,4 +1,4 @@
-# Explang Built-in Functions by Package
+# Explang/Alg Built-in Functions by Package
 
 packages: [base.math, base.text, io, ffi, base.bindings, base.funcs, runtime, threads, loops, base.version, base.coercion, base.logic, base.lang, base.arithmetics, base.seq, base.control, base.regex, dwim, base.docs, user, base.types]
 
