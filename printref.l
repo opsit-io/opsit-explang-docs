@@ -2,7 +2,7 @@
   (str "(" funcname " "  args ")"))
 
 (defun format-details (details)
-  (. details "replace" '("\n" "\n\n")))
+  (replace details "\n" "\n\n"))
 
 (defun printfunc(descr)
   (with-bindings descr
@@ -50,7 +50,7 @@
 			     (map
 			      (lambda (fname) (get fname 0))
 			      fnames))))
-	(PRINT "# Explang Built-in Functions by Name\n\n")
+	(print "# Explang Built-in Functions by Name\n\n")
 	(print (str "letters: " letters "\n"))
 	(foreach (letter (append (list) letters))
 		 (print (str "\n## " letter "\n\n"))
