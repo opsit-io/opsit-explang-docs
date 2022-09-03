@@ -1208,6 +1208,17 @@ If value is supplied, apply func on value and the first seq element, then on the
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$REDUCE**
 
+### `REPLACE`
+
+**Replace eache subsequence in seq that equals to target with replacement sequence.**
+
+**(REPLACE  seq target &OPTIONAL replacement)**
+
+Return resulting sequence. The original sequence is not modified.
+
+
+**builtin function** defined at  **class io.opsit.explang.Funcs$REPLACE**
+
 ### `REST`
 
 
@@ -1620,7 +1631,7 @@ If names are given use them as filter expressions:  only those which match at le
 N/A
 
 
-**compiled compiled function** defined at  **printref.l:line=61:pos=0:o=1663:len=0**
+**compiled compiled function** defined at  **printref.l:line=61:pos=0:o=1668:len=0**
 
 ### `FORMAT-FUNCALL`
 
@@ -1631,7 +1642,7 @@ N/A
 N/A
 
 
-**compiled compiled function** defined at  **printref.l:line=61:pos=0:o=1663:len=0**
+**compiled compiled function** defined at  **printref.l:line=61:pos=0:o=1668:len=0**
 
 ### `PRINTFUNC`
 
@@ -1642,7 +1653,7 @@ N/A
 N/A
 
 
-**compiled compiled function** defined at  **printref.l:line=61:pos=0:o=1663:len=0**
+**compiled compiled function** defined at  **printref.l:line=61:pos=0:o=1668:len=0**
 
 ## base.types
 

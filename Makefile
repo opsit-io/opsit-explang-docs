@@ -1,23 +1,30 @@
 
 EXPLANG=./opsit-explang-alg-parser-0.0.3-SNAPSHOT-runnable.jar
-FORMATTER=printref.l
+FORMATTER=printref
 
-build: $(EXPLANG) docs/funcs-by-package.md docs/funcs-by-name.md 
+build: $(EXPLANG) docs/explang-lisp-funcs-by-package.md docs/explang-lisp-funcs-by-name.md  docs/explang-alg-funcs-by-package.md docs/explang-alg-funcs-by-name.md 
 	mkdocs build
 
 clean:
 	rm -rf site/
-	rm -f docs/funcs-by-package.md docs/funcs-by-name.md 
+	rm -f docs/explang-*-funcs-by-*.md
 
 realclean: clean
 	rm -f $(EXPLANG)
 
 
-docs/funcs-by-package.md: $(EXPLANG) $(FORMATTER)
-	java -jar $(EXPLANG) -r lisp -f uc $(FORMATTER) by-package > $@
+docs/explang-lisp-funcs-by-package.md: $(EXPLANG) $(FORMATTER).l
+	java -jar $(EXPLANG) -r lisp -f uc $(FORMATTER).l by-package > $@
 
-docs/funcs-by-name.md: $(EXPLANG) $(FORMATTER)
-	java -jar $(EXPLANG) -r lisp -f uc $(FORMATTER) by-name > $@
+docs/explang-lisp-funcs-by-name.md: $(EXPLANG) $(FORMATTER).l
+	java -jar $(EXPLANG) -r lisp -f uc $(FORMATTER).l by-name > $@
+
+docs/explang-alg-funcs-by-package.md: $(EXPLANG) $(FORMATTER).jl
+	java -jar $(EXPLANG) -r alg $(FORMATTER).jl by-package > $@
+
+docs/explang-alg-funcs-by-name.md: $(EXPLANG) $(FORMATTER).jl
+	java -jar $(EXPLANG) -r alg  $(FORMATTER).jl by-name > $@
+
 
 
 $(EXPLANG):

@@ -10,8 +10,10 @@ markdown_extensions:
 nav:
   - Home: index.md
   - License: LICENSE.md
-  - "Functions by Package": funcs-by-package.md
-  - "Functions by Name": funcs-by-name.md    
+  - "Explang/Lisp funcs by Package": explang-lisp-funcs-by-package.md
+  - "Explang/Lisp funcs by Name": explang-lisp-funcs-by-name.md    
+  - "Explang/Alg funcs by Package": explang-alg-funcs-by-package.md
+  - "Explang/Alg funcs by Name": explang-alg-funcs-by-name.md    
     
 theme:
   name: readthedocs

@@ -37,7 +37,7 @@
 			(map
 			 (lambda (descr) (get descr "packageName"))
 			 descrs))))
-	(print "# Explang Built-in Functions by Package\n\n")
+	(print "# Explang/lisp Built-in Functions by Package\n\n")
 	(print (str "packages: " packages "\n"))
 	(foreach (package (append (list) packages))
 		 (print (str "\n## " package "\n\n"))
@@ -50,7 +50,7 @@
 			     (map
 			      (lambda (fname) (get fname 0))
 			      fnames))))
-	(print "# Explang Built-in Functions by Name\n\n")
+	(print "# Explang/lisp Built-in Functions by Name\n\n")
 	(print (str "letters: " letters "\n"))
 	(foreach (letter (append (list) letters))
 		 (print (str "\n## " letter "\n\n"))
