@@ -1,5 +1,6 @@
 site_name: Explang Documentation Site
 markdown_extensions:
+  - footnotes
   - pymdownx.snippets:
       check_paths: true
 # add attributes like {: style='color: red;' }      

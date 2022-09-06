@@ -28,7 +28,7 @@ subexpressions. Expressions are separated by whitespace.
 - TRUE FALSE boolean literals
 - ()   Empty list
 - v"1.0.0-beta2" Version literal
-- #\a  Character literal
+- \#\a  Character literal [^*]
 
 The Literals are evaluated into correspondent Java objects.
 
@@ -37,10 +37,11 @@ The Literals are evaluated into correspondent Java objects.
 Simple expressions that are not recognized as literals are recognized as Symbols and
 in most cases are evaluated as variables.
 
-In default configuration wvaluation of a variable, which does not
+In the default configuration evaluation of a variable, which does not
 exists in current context, will cause an Execution Exception to be
-thrown. This behaviour can be switched off [FIXME: link] so that
-reference of unknown variables will return NIL.
+thrown[^1]. 
+
+[^1]: This behaviour can be switched off [FIXME: link] so that reference of unknown variables will return NIL.
 
  
 ### Effective Boolean values
@@ -50,7 +51,6 @@ In addition to java Boolean objects any object has effective boolean value:
 NIL, the empty string, empty lists and zero numeric values of all numeric types has effective boolean value of FALSE.
 
 Rest of objects have effective boolean value of TRUE.
-
 
 ### Complex expressions
 
