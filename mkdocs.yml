@@ -10,14 +10,18 @@ markdown_extensions:
 nav:
   - "Explang Home": index.md
   - "Explang Goals and Features" : explang-goals-and-features.md
+  - "Explang Core Quick Start" : explang-core-quick-start.md  
   - "Using Explang with Algebraic Syntax" : explang-alg.md
   - "Calling Explang from Java" : explang-from-java.md
   - "Extending Explang in Java" : explang-extending.md
   - "Explang/Alg funcs by Package": explang-alg-funcs-by-package.md
   - "Explang/Alg funcs by Name": explang-alg-funcs-by-name.md
+  - "Explang/Alg Examples": explang-examples-alg.md            
   - "Using Explang with Lisp Syntax" : explang-lisp.md
   - "Explang/Lisp funcs by Package": explang-lisp-funcs-by-package.md
-  - "Explang/Lisp funcs by Name": explang-lisp-funcs-by-name.md    
+  - "Explang/Lisp funcs by Name": explang-lisp-funcs-by-name.md
+  - "Explang/Lisp Examples": explang-examples-lisp.md
+  - "Explang REPL reference" : REPL-reference.md
 
   - License: LICENSE.md
 

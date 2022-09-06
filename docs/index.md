@@ -24,7 +24,8 @@ print(i"5! = $(fact(5))\n");
 
 ```
 
-Read more in [Using Explang with Algebraic Syntax](explang-alg.md)
+Read more in [Using Explang with Algebraic Syntax](explang-alg.md),
+[Examples With Algebraic Syntax](explang-examples-alg.md).
 
 
 Lisp Syntax
@@ -41,14 +42,18 @@ Lisp Syntax
 ```
 
 
-Read more in [Using Explang with Lisp Syntax](explang-lisp.md)
+Read more in [Explang Core Quick Start](explang-core-quick-start.md),
+[Using Explang with Lisp Syntax](explang-lisp.md),
+[Examples With Lisp Syntax](explang-examples-lisp.md).
 
 
-BBBB
-____
 
-- [Calling Explang from Java](explang-from-java.md)
-- [Extensing Explang in Java](explang-extending.md)
+Further Information
+-------------------
+
+- [Using Explang from Java Code](explang-from-java.md)
+- [Extending and Customizing the Language](explang-extending.md)
+- [REPL Reference](REPL-reference.md).
 - [Explang License](LICENSE.md)
 
 
