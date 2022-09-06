@@ -40,8 +40,10 @@ may want to it with some kind of wrapper such as [rlwrap](https://github.com/han
 VS Code [repeater REPL extension](https://github.com/RegisMelgaco/repeater--repl-tool), 
 [Emacs inferior lisp mode](https://www.gnu.org/software/emacs/manual/html_mono/emacs.html#External-Lisp).
 
-There is a REPL implementation with editing support in the separate project 
+There is a REPL implementation with editing and history support in a separate project 
 [Explang JLine REPL](https://github.com/opsit-io/opsit-explang-jline-repl).
+
+To exit press ^D (^Z on Windows console) on a new line.
 
 
 Executing Explang Scripts

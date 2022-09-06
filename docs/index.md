@@ -15,12 +15,7 @@ Algebraic Syntax
 ----------------
 
 ```julia
-function fact(n)
-    "Compute factorial";
-    if n  fact(n - 1) * n  else  1;  end;
-end;
-        
-print(i"5! = $(fact(5))\n");
+--8<-- "examples/alg/fact.jl"
 
 ```
 
@@ -32,12 +27,7 @@ Lisp Syntax
 -----------
 
 ```lisp
-(defun fact(n)
-  "Compute factorial"
-  (if n (* (fact (- n 1)) n)
-      1))
-
-(print (str "5! = " (fact 5) "\n"))
+--8<-- "examples/lisp/fact.l"
 
 ```
 
@@ -55,8 +45,4 @@ Further Information
 - [Extending and Customizing the Language](explang-extending.md)
 - [REPL Reference](REPL-reference.md).
 - [Explang License](LICENSE.md)
-
-
-
-
 
