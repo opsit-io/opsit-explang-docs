@@ -26,7 +26,6 @@ nav:
   - License: LICENSE.md
 
 theme:
-
   name: readthedocs
   custom_dir: explang_theme/
   logo: site_logo.png
