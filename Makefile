@@ -1,13 +1,14 @@
 
 EXPLANG=./opsit-explang-alg-parser-0.0.3-SNAPSHOT-runnable.jar
 FORMATTER=printref
+GENERATED=docs/explang-lisp-funcs-by-name.md docs/explang-lisp-funcs-by-package.md docs/explang-alg-funcs-by-package.md docs/explang-alg-funcs-by-name.md
 
-build: $(EXPLANG) docs/explang-lisp-funcs-by-package.md docs/explang-lisp-funcs-by-name.md  docs/explang-alg-funcs-by-package.md docs/explang-alg-funcs-by-name.md 
+build: $(EXPLANG) $(GENERATED) docs/*.md
 	mkdocs build
 
 clean:
-	rm -rf site/
-	rm -f docs/explang-*-funcs-by-*.md
+	rm -rvf site/
+	rm -vf $(GENERATED)
 
 realclean: clean
 	rm -f $(EXPLANG)
