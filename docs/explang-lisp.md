@@ -1,10 +1,8 @@
 Using Explang with Lisp Syntax
 ==============================
 
-Introduction into the language
-------------------------------
-
-## Expressions
+Tutorial
+--------
 
 Explang program is a sequence of one or more expressions which are evaluated
 from the beginning to the end.
@@ -27,7 +25,7 @@ evaluate to themselves.
 
 Several expressions enclosed between parentheses are also an expression,
 they are called lists. When a list is evaluated its first item
-is considered as operation and the rest of items are passed as 
+is considered as function and the rest of items are passed as 
 parameters. In most cases parameters are evaluated from left to right 
 and then the operation uses their computed values as arguments. 
 The return value of the operation is the value of the expression.
@@ -39,22 +37,141 @@ For example,
 => 6
 ```
 
-First +, 1, 2 and  3 were evaluated, returning the plus function, 1, 2 and 3.
-1, 2  and 3 were then passed to the plus function, which returned 6.
+First the subexpressions +, 1, 2 and 3 were evaluated, returning the
+plus function, 1, 2 and 3.  1, 2 and 3 were then passed to the plus
+function, which returned 6.
 
 
 Such expressions may be complex:
 ```lisp
-> (+ (+ 1 2) (+ 3 (+ 4 5)))
+> (+ (* 2 3) 1)
 
-=> 15
+=> 7
+```
+
+The expressions `+` and `*` here are Symbols. 
+Symbols don’t evaluate to themselves but return values they have been assigned.
+If we give `b` the value 10, it will return 10 when evaluated:
+
+
+```lisp
+> (setv b 10)
+
+=> 10
+> b
+
+=> 10
+```
+
+If we try to evaluate a Symbol that has not been assigned a value we'll get error[^1].
+
+Note that evaluation `(setv b 10)` when `b` still was unassigned did
+not cause an error.  This is because there are some operations (they
+are called special forms) that violate the usual evaluation rule, and
+`setv` is one of them.  Its first argument isn’t evaluated.
+
+You can turn off evaluation by using the `quote` special form:
+
+```lisp
+> (quote b)
+
+=> b
+```
+
+This can be abbreviated by putting a single quote character before an expression: 
+
+```lisp
+> 'b
+
+=> b
+```
+
+When you quote a list, you get back the list itself.
+
+```
+> (+ 1 2)
+
+=> 3
+
+> '(+ 1 2)
+
+=> [+, 1, 2]
+```
+
+The first expression returns the number 3. The second, because it was
+quoted, returns a list consisting of the symbol + and the numbers 1
+and 2.
+
+To create a list with use `list` function:
+
+```lisp
+> (list 1 (+ 2 3) "foo" 'b)
+
+=> [1, 5, foo, b]
+```
+
+We’ve already seen some functions: `+`, `*`, `list`. You can define
+new ones with `defun`, which takes a symbol to use as the name, a list
+of symbols that describe the parameters, and then zero or more
+expressions called the body. When the function is called, those
+expressions will be evaluated in order with the parameter symbols in
+the body temporarily set (“bound”) to the corresponding argument
+values. Whatever the last expression returns will be returned as the
+value of the call.  Here’s a function that takes two numbers and
+returns their average:
+
+```
+> (defun average (x y)
+	(/ (+ x y) 2))
+
+=> io.opsit.explang.Compiler$LAMBDA$1@5e9f23b4
+
+```
+
+The body of the function consists of one expression, `(/ (+ x y) 2)`
+It’s common for functions to consist of one expression; in purely
+functional code (code with no side-effects) they always do.
+
+Notice that `defun`, like `setv`, doesn’t evaluate all its arguments.
+It is another of those special forms with its own evaluation rule.
+
+What’s the object returned as the value of the def expression?  That’s
+the Java Object that represents the function.
+
+
+Now the symbol `average` is assigned function value and you can invoke
+it in the same way you invoke the built-in functions like `+` or `*`:
+
+```
+> (average 100 200)
+
+=> 150
+```
+
+As the literal representation of a string is a series of characters
+surrounded by double quotes, the literal representation of a function
+is a list consisting of the symbol `lambda`, followed by its
+parameters, followed by its body. So you could represent a function to
+return the average of two numbers as:
+
+```
+> (lambda (x y) (/ (+ x y) 2))
+
+=> io.opsit.explang.Compiler$LAMBDA$1@37a71e93
+```
+
+And can use a literal function wherever you could use a symbol whose value is one, e.g.
+
+```
+> ((lambda (x y) (/ (+ x y) 2)) 100 200)
+
+=> 150
 ```
 
 
 
 
-The expressions can be simple (Atoms) or complex (Lists) that consist of several 
-subexpressions. 
+
 
 ## Case Sensitivity
 
