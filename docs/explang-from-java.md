@@ -92,7 +92,6 @@ String code = "(+ a b)";
 engine.put("a", 2);
 engine.put("b", 1.5);
 
-//Object result;
 Object result = engine.eval("(+ a b)");
 System.out.println("eval Result: " + result);
 
@@ -103,4 +102,4 @@ engine.eval(""
 + ");
 result = ((Invocable) engine).invokeFunction("fact", 5);
 System.out.println("invoke function result: " + result);
-
+```

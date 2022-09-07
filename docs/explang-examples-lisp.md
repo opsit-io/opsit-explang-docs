@@ -10,7 +10,7 @@ Hello, world
 
 
 Factorial (recursive)
-=====================
+---------------------
 
 ```lisp
 --8<-- "examples/lisp/fact.l"
@@ -18,7 +18,7 @@ Factorial (recursive)
 ```
 
 Frequency Table
-===============
+---------------
 
 ```lisp
 --8<-- "examples/lisp/freqtable.l"
@@ -26,7 +26,7 @@ Frequency Table
 ```
 
 Quicksort
-=========
+---------
 
 ```lisp
 --8<-- "examples/lisp/quicksort.l"
@@ -34,7 +34,7 @@ Quicksort
 ```
 
 Multi-threaded quicksort
-=========
+---------
 
 ```lisp
 --8<-- "examples/lisp/mt-quicksort.l"
@@ -42,7 +42,7 @@ Multi-threaded quicksort
 ```
 
 Expression Evaluation
-=====================
+---------------------
 
 ```lisp
 --8<-- "examples/lisp/evaluation.l"

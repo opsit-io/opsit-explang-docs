@@ -4,23 +4,99 @@ Using Explang with Lisp Syntax
 Introduction into the language
 ------------------------------
 
-## Data types
-
-The language works mostly with standard Java Objects such like
-Strings, Numbers, Arrays, etc. 
-
 ## Expressions
 
-The language works with expressions that return values. There are no statements.
-The expressions can be simple (Atoms) or complex (Lists) that consist of several 
-subexpressions. Expressions are separated by whitespace. 
+Explang program is a sequence of one or more expressions which are evaluated
+from the beginning to the end.
 
-### Self evaluated expressions (literals)
+The language works with expressions that return values. There are no statements.
+
+The simplest expressions are things like numbers, booleans or strings, which
+evaluate to themselves.
+
+```lisp
+> 10
+
+=> 10
+
+> true
+
+=> true
+
+```
+
+Several expressions enclosed between parentheses are also an expression,
+they are called lists. When a list is evaluated its first item
+is considered as operation and the rest of items are passed as 
+parameters. In most cases parameters are evaluated from left to right 
+and then the operation uses their computed values as arguments. 
+The return value of the operation is the value of the expression.
+
+For example,
+```lisp
+> (+ 1 2 3)
+
+=> 6
+```
+
+First +, 1, 2 and  3 were evaluated, returning the plus function, 1, 2 and 3.
+1, 2  and 3 were then passed to the plus function, which returned 6.
+
+
+Such expressions may be complex:
+```lisp
+> (+ (+ 1 2) (+ 3 (+ 4 5)))
+
+=> 15
+```
+
+
+
+
+The expressions can be simple (Atoms) or complex (Lists) that consist of several 
+subexpressions. 
+
+## Case Sensitivity
+
+
+
+## Difference between the `lisp` and `sexp` parsers.
+
+
+Data Types and Values
+---------------------
+
+Explang is a dynamically typed language.  There are no type
+definitions in the language: each value carries its own type.
+
+The language can work with Java Objects of any type and it has
+built-in support for standard data types such as Strings, Numbers,
+Arrays, etc. 
+
+### NIL or NULL
+
+NIL represents absense of a useful value, it is implemented as Java `null`. 
+
+### Booleans and Boolean values.
+
+The boolean type has two values, `FALSE` and `TRUE`, which are represented by Java Boolean objects. 
+
+In Explang in conditional or logical  expressions any object has an implicit boolean value:
+NIL, empty list (), empty string, and 0 numeric values are considered FALSE, other objects are considered as TRUE.
+
+### Numbers
+
+Explang works with Java numeric types:
+
+- 1b, 0b  -- Byte 
+- 1s, 2s  -- Short
+- 1, -2   -- Integer 
+
 
 - "foo" "a bar"  String literal
-- 1, -2   Integer literals
+
 - 1b, 0b  Byte literals
-- 1s, 2s  Short literals
+
 - 1L  0L  Long literals
 - 0.5 0e2 Double literals
 - 0.5f    Float literals
@@ -30,7 +106,20 @@ subexpressions. Expressions are separated by whitespace.
 - v"1.0.0-beta2" Version literal
 - \#\a  Character literal [^*]
 
+### Strings
+
 The Literals are evaluated into correspondent Java objects.
+
+### Characters
+
+### Bytes
+
+### Version
+
+
+
+
+
 
 ### Variable expansion
 
@@ -48,9 +137,6 @@ thrown[^1].
 
 In addition to java Boolean objects any object has effective boolean value:
 
-NIL, the empty string, empty lists and zero numeric values of all numeric types has effective boolean value of FALSE.
-
-Rest of objects have effective boolean value of TRUE.
 
 ### Complex expressions
 

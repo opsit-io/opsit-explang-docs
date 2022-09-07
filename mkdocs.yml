@@ -1,6 +1,8 @@
 site_name: Explang Documentation Site
 markdown_extensions:
   - footnotes
+  - pymdownx.highlight
+  - pymdownx.superfences
   - pymdownx.snippets:
       check_paths: true
 # add attributes like {: style='color: red;' }      
@@ -22,14 +24,16 @@ nav:
   - "Explang/Lisp funcs by Package": explang-lisp-funcs-by-package.md
   - "Explang/Lisp funcs by Name": explang-lisp-funcs-by-name.md
   - "Explang/Lisp Examples": explang-examples-lisp.md
-  - "Explang REPL reference" : REPL-reference.md
+  - "Using Explang REPL" : using-explang-REPL.md
 
   - License: LICENSE.md
 
 theme:
-  name: readthedocs
+  name: material
+  #readthedocs
   custom_dir: explang_theme/
   logo: site_logo.png
+  highlightjs: true
   features:
     - navigation.sections
     

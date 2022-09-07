@@ -43,6 +43,6 @@ Further Information
 
 - [Using Explang from Java Code](explang-from-java.md)
 - [Extending and Customizing the Language](explang-extending.md)
-- [REPL Reference](REPL-reference.md).
+- [Using Explang REPL](using-explang-REPL.md).
 - [Explang License](LICENSE.md)
 

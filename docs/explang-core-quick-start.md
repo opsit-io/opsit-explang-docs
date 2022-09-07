@@ -59,7 +59,7 @@ Further Steps
 -------------
 
 - Learn more about the language in [Using Explang with Lisp Syntax](explang-lisp.md).
-- See more information on using REPL in [REPL Reference](REPL-reference.md).
+- See more information on using REPL in [Using Explang REPL](using-explang-REPL.md)
 - See how to call Explang from Java code in [Using Explang from Java Code](explang-from-java.md). 
 - See how to extend the language [Extending and Customizing the Language](explang-extending.md). 
 

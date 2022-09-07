@@ -10,7 +10,7 @@ Hello, world
 
 
 Factorial (recursive)
-=====================
+---------------------
 
 ```julia
 --8<-- "examples/alg/fact.jl"
@@ -18,7 +18,7 @@ Factorial (recursive)
 ```
 
 Frequency Table
-===============
+---------------
 
 ```julia
 --8<-- "examples/alg/freqtable.jl"
@@ -26,7 +26,7 @@ Frequency Table
 ```
 
 Quicksort
-=========
+---------
 
 ```julia
 --8<-- "examples/alg/quicksort.jl"
