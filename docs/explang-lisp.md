@@ -67,8 +67,9 @@ If we try to evaluate a Symbol that has not been assigned a value we'll get erro
 
 Note that evaluation `(setv b 10)` when `b` still was unassigned did
 not cause an error.  This is because there are some operations (they
-are called special forms) that violate the usual evaluation rule, and
-`setv` is one of them.  Its first argument isn’t evaluated.
+are called special operators or special formd) that violate the usual
+evaluation rule, and `setv` is one of them.  Its first argument isn’t
+evaluated.
 
 You can turn off evaluation by using the `quote` special form:
 
@@ -166,6 +167,41 @@ And can use a literal function wherever you could use a symbol whose value is on
 > ((lambda (x y) (/ (+ x y) 2)) 100 200)
 
 => 150
+```
+
+Notice that if you try to get the function object simply by referencing the `average` symbol you get an error.
+
+```
+> average
+EXECUTION ERROR: java.lang.RuntimeException: variable 'average' does not exist in this context at:
+```
+
+This is because of imprtant property of Explang: named functions and ordinary data variables are 
+living in separate namespaces, that is you may assign value to variable `average` without 
+overwriting the function `average`:
+
+```
+> (setv average 100)
+
+=> 100
+> (average average 200)
+=> 150
+```
+
+To reference the value of the defined function one must use the `function` special operator
+(which can be abbreviated as `#'`:
+
+```
+> (function average)
+
+=> io.opsit.explang.Compiler$LAMBDA$1@5e9f23b4
+```
+
+And to set the function binding one can use the `fset` function, all the def does is 
+basically:
+
+```
+(fset 'average (lambda (x y) (/ (+ x y) 2)))
 ```
 
 
