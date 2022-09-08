@@ -336,6 +336,86 @@ that returns thruthiness value of an expression.
 => false
 ```
 
+#### `COND` Operator
+
+The `cond` conditional operator is used to choose between arbitrary number of alternatives 
+
+Syntax for cond is
+
+```
+(cond   ((test1    action1 ...)
+   (test2    action2 ... )
+   ...
+   (testn   actionn ...)))
+```
+
+Each clause within the cond statement consists of a conditional test and an list of actions to be performed.
+
+If the first test following cond, test1, is evaluated to be true, then the related actions are executed, 
+and value of the its value is returned and the rest of the clauses are skipped over.
+
+If test1 evaluates to be nil, then control moves to the second clause without executing action1, and the same process is followed.
+
+If none of the test conditions are evaluated to be true, then the cond statement returns nil.
+
+```list
+(setv x 2)
+(cond ((< x 0)
+	(println x " < 0") NIL)
+       (true
+	(println x " >= 0") (sqrt x)))
+2 >= 0
+
+=> 1.4142135623730951
+```
+
+#### The Logical operators
+
+The logical negation fnction is called `not`, it returns Boolean value, which is inverse of the
+the truth value of its argument:
+
+```lisp
+> (not true)
+
+=> false
+> (not false)
+
+=> true
+> (NOT "foo")
+
+=> false
+```
+
+Logical operators `and` and `or`:
+
+```
+(or true false)
+
+=> true
+```
+
+They operate like conditionals because they don’t evaluate more arguments than they have to and 
+return the last value that was computed
+
+
+```lisp
+> (and true 0  (println "you'll never see this"))
+
+=> 0
+
+> (or false 0 "foo"  (println "you'll never see this too"))
+
+=> foo
+```
+
+
+
+
+
+
+
+
+
 
 
 ## Case Sensitivity
