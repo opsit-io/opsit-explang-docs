@@ -4,6 +4,8 @@ Using Explang with Lisp Syntax
 Tutorial
 --------
 
+### Expressions
+
 Explang program is a sequence of one or more expressions which are evaluated
 from the beginning to the end.
 
@@ -49,6 +51,8 @@ Such expressions may be complex:
 => 7
 ```
 
+### Symbols and their Values
+
 The expressions `+` and `*` here are Symbols. 
 Symbols don’t evaluate to themselves but return values they have been assigned.
 If we give `b` the value 10, it will return 10 when evaluated:
@@ -71,6 +75,9 @@ are called special operators or special formd) that violate the usual
 evaluation rule, and `setv` is one of them.  Its first argument isn’t
 evaluated.
 
+
+### Quoting
+
 You can turn off evaluation by using the `quote` special form:
 
 ```lisp
@@ -89,7 +96,7 @@ This can be abbreviated by putting a single quote character before an expression
 
 When you quote a list, you get back the list itself.
 
-```
+```lisp
 > (+ 1 2)
 
 => 3
@@ -103,6 +110,9 @@ The first expression returns the number 3. The second, because it was
 quoted, returns a list consisting of the symbol + and the numbers 1
 and 2.
 
+
+### The `list` function
+
 To create a list with use `list` function:
 
 ```lisp
@@ -110,6 +120,9 @@ To create a list with use `list` function:
 
 => [1, 5, foo, b]
 ```
+
+### Defining Functions
+
 
 We’ve already seen some functions: `+`, `*`, `list`. You can define
 new ones with `defun`, which takes a symbol to use as the name, a list
@@ -121,7 +134,7 @@ values. Whatever the last expression returns will be returned as the
 value of the call.  Here’s a function that takes two numbers and
 returns their average:
 
-```
+```lisp
 > (defun average (x y)
 	(/ (+ x y) 2))
 
@@ -143,7 +156,7 @@ the Java Object that represents the function.
 Now the symbol `average` is assigned function value and you can invoke
 it in the same way you invoke the built-in functions like `+` or `*`:
 
-```
+```lisp
 > (average 100 200)
 
 => 150
@@ -155,7 +168,7 @@ is a list consisting of the symbol `lambda`, followed by its
 parameters, followed by its body. So you could represent a function to
 return the average of two numbers as:
 
-```
+```lisp
 > (lambda (x y) (/ (+ x y) 2))
 
 => io.opsit.explang.Compiler$LAMBDA$1@37a71e93
@@ -163,15 +176,18 @@ return the average of two numbers as:
 
 And can use a literal function wherever you could use a symbol whose value is one, e.g.
 
-```
+```lisp
 > ((lambda (x y) (/ (+ x y) 2)) 100 200)
 
 => 150
 ```
 
+### Function Values
+
+
 Notice that if you try to get the function object simply by referencing the `average` symbol you get an error.
 
-```
+```lisp
 > average
 EXECUTION ERROR: java.lang.RuntimeException: variable 'average' does not exist in this context at:
 ```
@@ -180,18 +196,19 @@ This is because of imprtant property of Explang: named functions and ordinary da
 living in separate namespaces, that is you may assign value to variable `average` without 
 overwriting the function `average`:
 
-```
+```lisp
 > (setv average 100)
 
 => 100
 > (average average 200)
+
 => 150
 ```
 
 To reference the value of the defined function one must use the `function` special operator
 (which can be abbreviated as `#'`:
 
-```
+```lisp
 > (function average)
 
 => io.opsit.explang.Compiler$LAMBDA$1@5e9f23b4
@@ -200,12 +217,124 @@ To reference the value of the defined function one must use the `function` speci
 And to set the function binding one can use the `fset` function, all the def does is 
 basically:
 
-```
+```lisp
 (fset 'average (lambda (x y) (/ (+ x y) 2)))
 ```
 
+### Printing values
 
 
+So far we’ve only had things printed out implicity as a result of
+evaluating them. The standard way to print things out in the middle of
+evaluation is with `print` or `println`. They take multiple arguments and print
+them in order; `println` also prints a newline at the end. Here’s a variant
+of average that tells us what its arguments were:
+
+```lisp
+> (defun average (x y)
+       (println "my arguments were: " (list x y) "\n")
+       (/ (+ x y) 2))
+> (average 100 200)
+my arguments were: [100 200]
+
+=> 150
+```
+
+
+### Conditionals
+
+#### `If` Operator
+
+The standard conditional operator is `if`. Like `setv` and `defun`, it
+doesn’t evaluate all its arguments. When given three arguments, it
+evaluates the first, and if that returns true, it returns the value of
+the second, otherwise the value of the third:
+
+```lisp
+> (if (> 2 1) 'a 'b)
+
+=> a
+> (if (> 1 2) 'a 'b)
+
+=> b
+```
+
+The second argument (then) to `if` is a single expression. so if you
+want to do there multiple things, combine them into one expression with `progn`:
+
+```lisp
+(setv x 70)
+(if (>= x 0)
+    (progn 
+      (println "can compute square root")
+      (sqrt x))
+  (println "nope"))
+can compute square root
+
+=> 8.366600265340756
+```
+
+If you  want several expressions to be evaluated when the condition is false, you 
+can add them as additional arguments:
+
+```lisp
+> (setv x 70)
+
+=> 70
+
+> (if (< x 0)
+      (println "nope")
+    (println "can compute square root")
+    (sqrt x))
+
+can compute square root
+
+=> 8.366600265340756
+```
+
+In fact the third `if` argument is optional, if it not provided and the condition does not hold
+`if` will return null.
+
+```lisp
+(setv x -2)
+(if (>= x 0) (sqrt x))
+
+=> NIL
+```
+
+#### Truth values
+
+The `if` operator checks the truth value of the first argument. The comparison functions
+like `<` or `>=`  return Java Boolean objects `true` or `false`:
+
+```lisp
+> (< 1 0)
+
+=> false
+```
+
+but in Explang all expressions have implicit truth values and thus can
+be used in conditional expressions.
+
+Generally, False, NIL, zero numbers, empty lists, sets, strings  and other sequences 
+have implicit `False` truth value. Other object thruth value of `true`. 
+
+For example 
+
+```lisp
+> (if 0 'yes 'no)
+
+=> no
+```
+
+To check truthyness of an expression one can use built-in function `bool`
+that returns thruthiness value of an expression. 
+
+```lisp
+> (bool "")
+
+=> false
+```
 
 
 
