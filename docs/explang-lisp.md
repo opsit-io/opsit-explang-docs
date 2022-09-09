@@ -113,13 +113,14 @@ and 2.
 
 ### The `list` function
 
-To create a list with use `list` function:
+To create a list  use the `list` function:
 
 ```lisp
 > (list 1 (+ 2 3) "foo" 'b)
 
 => [1, 5, foo, b]
 ```
+
 
 ### Defining Functions
 
@@ -407,6 +408,117 @@ return the last value that was computed
 
 => foo
 ```
+
+#### Equality Check Operators
+
+##### `=='
+
+The `==` operator compares two objects in sort of 
+"Do What I Mean" fashion: it returns true if two objects are 
+equal structurally or numerically:
+
+```lisp
+> (== nil nil)
+
+=> true
+
+> (== 5 5)
+
+=> true
+```
+
+Numerically equal Integer and Long numbers:
+```lisp
+> (== 5 5L)
+
+=> true
+```
+
+Numerically equal Integer and Double numbers:
+
+```lisp
+
+> (== 5 5.0)
+
+=> true
+```
+
+Same structurally inside lists:
+
+```lisp
+
+> (== '(1.0 2) '(1 2L))
+
+=> true
+```
+
+Numerically unequal Integer and Long numbers:
+```lisp
+(== 5 5.1)
+
+=> false
+```
+
+##### `equal`
+
+The `equal` operator checks two objects for equality by applying the
+equals() java method of the first argument on the scond one.  It will
+return true also if both the arguments are NILs.
+
+Comparing using java Object's equals method: java.util.List.equals(),
+which checks that both objects are lists of equal length with equal
+elements at the same indexes.
+
+```lisp
+> (equal (list 1 2 3) (list 1 2 3)) 
+
+=> true
+
+> (equal null null)
+
+=> true
+
+> (equal 555 555)
+
+=> true
+```
+
+Different numeric types (Integer and Long)
+```
+> (equal 555 555L)
+
+=> false
+
+```
+
+##### `===`
+
+The most strict of the equality checks is the objects identity check
+`===`: it returns true if Object x is same as Object y or if both
+values are NIL.  Internally it uses the java operator `==` to check
+objects identity.
+
+```
+(=== (list 1 2 3) (list 1 2 3))  ;; check that two variables contain the same object, they are not: 
+
+=> false
+
+```
+
+Note that the `===` operator inherits some quirks from the underlying java operator:
+
+```lisp
+> (=== 5 5)
+
+=> true
+> (=== 5555 5555)
+
+=> false
+```
+
+
+
+
 
 
 
