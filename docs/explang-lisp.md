@@ -51,6 +51,17 @@ Such expressions may be complex:
 => 7
 ```
 
+### Comments
+
+A semicolon ';' starts a comment. The comment continues until end of line.
+
+```lisp
+> "foo" ; a comment
+
+=> "foo"
+```
+
+
 ### Symbols and their Values
 
 The expressions `+` and `*` here are Symbols. 
@@ -552,6 +563,11 @@ Implicit numeric values:
 
 => true
 ```
+
+
+## 
+
+
 
 
 
