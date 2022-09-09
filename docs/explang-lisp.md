@@ -348,7 +348,7 @@ that returns thruthiness value of an expression.
 => false
 ```
 
-#### `COND` Operator
+#### `cond` Operator
 
 The `cond` conditional operator is used to choose between arbitrary number of alternatives 
 
@@ -529,7 +529,7 @@ Note that the `===` operator inherits some quirks from the underlying java opera
 ```
 
 
-#### `=`
+##### `=` Numeric equality operator
 
 The '=' operator checks the arguments for numeric equality taking in account their implicit numeric values.
 Unlike other equality operators it takes any number of arguments. It returns true if all of them are equal.
@@ -564,8 +564,27 @@ Implicit numeric values:
 => true
 ```
 
+##### Comparison operators `<`, `<=`, `>=`, `>`
 
-#### in - test if a sequence contains a value.
+
+These operators take any number of arguments and check that all of their arguments are in specified order.
+
+```lisp
+> (< 0 1)
+
+=> true
+
+> (< -1 0 1 2 3)
+
+=> true
+
+> (< 0 1 2 1.5)
+
+=> false
+```
+
+
+##### in - test if a sequence contains a value.
 
 If you want to test whether something is one of several alternatives, you could say 
 `(or (== x y) (== x z) ...)`, but this situation is common enough that there’s an operator for it.
@@ -588,6 +607,8 @@ If you want to test whether something is one of several alternatives, you could 
 => true
 
 ```
+
+
 
 ###  Iteration Operators
 
