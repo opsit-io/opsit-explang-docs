@@ -411,6 +411,7 @@ return the last value that was computed
 
 #### Equality Check Operators
 
+
 ##### `=='
 
 The `==` operator compares two objects in sort of 
@@ -443,7 +444,7 @@ Numerically equal Integer and Double numbers:
 => true
 ```
 
-Same structurally inside lists:
+Same inside lists:
 
 ```lisp
 
@@ -517,16 +518,40 @@ Note that the `===` operator inherits some quirks from the underlying java opera
 ```
 
 
+#### `=`
 
+The '=' operator checks the arguments for numeric equality taking in account their implicit numeric values.
+Unlike other equality operators it takes any number of arguments. It returns true if all of them are equal.
 
+```lisp
+> (= 1 1.0)
 
+=> true
 
+> (= 1 1.0 1L 1b 1.0f)
 
+=> true
+```
 
+Implicit numeric values:
 
+```lisp
+> (= nil 0L)
 
+=> true
 
+> (= 1 (list 1))
 
+=> true
+
+> (= 0 '() "")
+
+=> true
+
+> (= 33 "33.0" "33" "33.0f" #\!) ;; ASCII code of ! is 33
+
+=> true
+```
 
 
 
