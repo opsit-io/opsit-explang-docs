@@ -595,16 +595,13 @@ If you want to test whether something is one of several alternatives, you could 
 To iterate through the elements of a list or string, use `foreach`.
 
 ```lisp
-> (foreach (c "Hello!" x)
+> (foreach (c (list 1 2 3))
     (println c))
-H
-e
-l
-l
-o
-!
+1
+2
+3
 
-=> END
+=> NIL
 ```
 
 The NIL you see at the end is not printed out by the code in the loop.
@@ -621,9 +618,81 @@ and used as return value.
 => 9
 ```
 
+To continue iterating while some condition is true, use `while`.
+
+```
+> (setv x 10)
+
+=> 10
+
+> (while (> x 5)
+    (setv x (- x 1))
+    (println x))
+9
+8
+7
+6
+5
+
+=> 5
+```
+
+The `map` function takes a function and a list and returns the result of applying the function to successive elements.
 
 
+```lisp
+> (map (lambda (x) (+ x 10)) '(1 2 3))
 
+
+=> [11, 12, 13]
+```
+
+Actually it can take any number of sequences, and keeps going till the shortest runs out:
+
+```
+> (map #'+ '(1 2 3 4) '(100 200 300))
+
+=> [101, 202, 303]
+```
+
+There are functions like `map` that apply functions to successive
+elements of sequences. The most commonly used is `filter`, which
+returns the elements satisfying some test.
+
+```
+> (filter (lambda (x) (> x 0)) '(-2 -1 0 1 2 3))
+
+=> [1, 2, 3]
+```
+
+`mapprod` returns a sequence consisting of the result of applying 
+func to the cartesian product of the lists:
+
+```lisp
+(mapprod #'str '("A" "B" "C") '("1" "2" "3"))
+
+=> [A1, B1, C1, A2, B2, C2, A3, B3, C3]
+```
+
+
+`reduce` allows to apply function to each sequence element while
+accumulating the results.  The function must accept two
+arguments. Initially it applies the function on the initial value and
+the first element of the sequence, then `reduce` applies the function
+on its previous result and next element in the list. `reduce` returns
+result of it's last function application.
+
+In this example we compute frequencies table for elements of a list of objects.
+
+```lisp
+> (reduce 
+    (lambda (m x)                    ; function of m - hashmap, x - next element
+        (assoc m x (+ 1 (get m x)))) ; increase counter for current word and return updated map
+    (hashmap)                        ; initial value of m - empty hashmap of counters
+    (list 0 1 0 1 2 1 0 1 2 3 2 1 0 1 2 3 4 3 2 1 0)) 
+
+=> {0=5, 1=7, 2=5, 3=3, 4=1}
+```
 
 ## Case Sensitivity
 
