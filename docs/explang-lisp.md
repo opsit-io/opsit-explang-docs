@@ -565,7 +565,61 @@ Implicit numeric values:
 ```
 
 
-## 
+#### in - test if a sequence contains a value.
+
+If you want to test whether something is one of several alternatives, you could say 
+`(or (== x y) (== x z) ...)`, but this situation is common enough that there’s an operator for it.
+
+```lisp 
+> (in 3 '(list 1 2 3 "foo" null))
+
+=> true
+
+(in null '(list 1 2 3 "foo" null))
+
+=> true
+
+(in 5 '(list 1 2 3 "foo" null))
+
+=> false
+
+> (in #\o in "hello!") 
+
+=> true
+
+```
+
+###  Iteration Operators
+
+
+To iterate through the elements of a list or string, use `foreach`.
+
+```lisp
+> (foreach (c "Hello!" x)
+    (println c))
+H
+e
+l
+l
+o
+!
+
+=> END
+```
+
+The NIL you see at the end is not printed out by the code in the loop.
+They’re the return values of the iteration expressions. One can give 
+one additional argument that will be computed after end of the iteration
+and used as return value.
+
+
+```lisp
+> (foreach (c (list 2 3 4) x) 
+    (println c)
+    (setv x (+ x c)))
+
+=> 9
+```
 
 
 
