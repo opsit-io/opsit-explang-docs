@@ -373,7 +373,6 @@ numeric types from other numeric types as well as from string representation:
 Strings
 -------
 
-
 Explang strings are Java Strings. Strings are constant, that is one cannot
 change an existing string but have to create new one.
 
@@ -463,6 +462,39 @@ See [java.util.Formatter](https://docs.oracle.com/javase/8/docs/api/java/util/Fo
 for details on building the format strings.
 
 Explang considers Strings as Sequences of Character, see below on both.
+
+
+Character Type
+--------------
+
+Explang Characters represent Unicode 16bit characters and implemented using Java 
+[java.lang.Character](https://docs.oracle.com/javase/8/docs/api/java/lang/Character.html).
+
+Character literals are delimited using the #\C, #\UHEX or #\ESCAPE notation:
+
+```lisp
+> '(#\H #\e #\l #\l #\o #\NEWLINE #\u263a )
+
+=> [H, e, l, l, o, 
+, ☺]
+```
+
+
+The `char` operator allows to create Characters from their numeric code:
+
+```lisp
+> char(33)
+
+=> !
+```
+
+Characters can be used as operand of arithmetic expressions:
+
+```lisp
+(char (+ 1 #\A))
+
+=> B
+```
 
 
 Conditionals
