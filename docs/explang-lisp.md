@@ -132,7 +132,6 @@ To create a list  use the `list` function:
 => [1, 5, foo, b]
 ```
 
-
 ### Defining Functions
 
 
@@ -252,6 +251,115 @@ my arguments were: [100 200]
 => 150
 ```
 
+### Data Types and Values
+
+
+Explang is a dynamically typed language.  There are no type
+definitions in the language: each value carries its own type.
+
+The language can work with Java Objects of any type and it has
+built-in support for standard data types such as Strings, Numbers,
+Arrays, etc. 
+
+To get type of a value we use function `type-of`:
+
+```lisp
+> (type-of "foo")
+
+=> class java.lang.String
+
+> (type-of 1.0)
+
+=> class java.lang.Double
+```
+
+### NIL values
+
+NIL represents absense of a useful value, it is implemented as Java `null`. 
+It is not really a data type.
+
+```
+(type-of NIL)
+
+=> NIL
+
+```
+
+### Booleans 
+
+The boolean type has two values, `false` and `true`. It is implemented using
+as Java Boolean objects. 
+
+
+### Numeric Types
+
+Explang works with Java numeric types. 
+
+Here table of types with examples of literals,
+
+- 1b, 0b  -- Byte 
+- 1s, 2s  -- Short (16 bit signed integer)
+- 1, -2   -- Integer (32 bit signed integer)
+- 1L  0L  -- Long literals (64 bit signed integer)
+- 0.5f 1.2e-2f   -- Float literals (32 bit floating point)
+- 0.5 1.2e-2 -- Double literals (64 bit floating point)
+
+```lisp
+> (type-of 1)
+
+=> class java.lang.Integer
+
+> (type-of 1b)
+
+=> class java.lang.Byte
+
+> 0.1e4
+
+=> 1000.0
+
+```
+
+### Numeric Types Promotions
+
+When one performs arithmetic operations between different numeric types Explang 
+performs automatic promotion of numeric types, i.e. the result of the operation 
+will be of the type of the argument with highest precision. Operations between 
+integer types and floating types are promoted to floating point types:
+
+```lisp
+> (type-of (+ 1b 1s))
+
+=> class java.lang.Short
+
+> (type-of (+ 1b 1s 1 1L 1.0))
+
+=> class java.lang.Double
+```
+
+Note that Explang does not perform promotion for overflows between operations:
+
+```lisp
+> (* 100s 1000s)   ; 100000 won't fit into 16 bit Short Integer,
+                   ; we'll get wrong result
+
+=> -31072
+```
+
+### Converting to Numeric Types
+
+The operators `byte`, `double`, `float`, `int`, `long`, `short` convert to corresponding
+numeric types from other numeric types as well as from string representation:
+
+```lisp
+> (double 1L)
+
+=> 1.0
+
+> (double "1E4")
+
+=> 10000.0
+
+```
 
 ### Conditionals
 
@@ -608,10 +716,7 @@ If you want to test whether something is one of several alternatives, you could 
 
 ```
 
-
-
 ###  Iteration Operators
-
 
 To iterate through the elements of a list or string, use `foreach`.
 
@@ -714,6 +819,11 @@ In this example we compute frequencies table for elements of a list of objects.
 
 => {0=5, 1=7, 2=5, 3=3, 4=1}
 ```
+
+
+
+
+
 
 ## Case Sensitivity
 
