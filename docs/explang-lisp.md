@@ -260,11 +260,14 @@ Data Types and Values
 ---------------------
 
 Explang is a dynamically typed language.  There are no type
-definitions in the language: each value carries its own type.
+definitions in the language: each value carries its own type and 
+those types are Java types.
 
 The language can work with Java Objects of any type and it has
 built-in support for standard data types such as Strings, Numbers,
 Arrays, etc. 
+
+
 
 To get type of a value we use function `type-of`:
 
@@ -276,6 +279,47 @@ To get type of a value we use function `type-of`:
 > (type-of 1.0)
 
 => class java.lang.Double
+```
+
+To check if object is of some type use the `typep` operator:
+
+```lisp
+> (typep "abc" 'java.lang.String)
+
+=> true
+```
+
+Base Java type from the [java.lang](https://docs.oracle.com/javase/8/docs/api/java/lang/package-frame.html)
+can be specified without package:
+
+```lisp
+> (typep "abc" 'String)
+
+=> true
+```
+
+The check returns true for the specific class as well as for class parents and the interfaces that it implements:
+
+```lisp
+> (typep "abc" 'CharSequence)  ;; String implements CharSequence
+
+=> true
+```
+
+The second arguments can be a string as well as symbol:
+
+```lisp
+> (typep "abc" "Object")  ;; String implements CharSequence
+
+=> true
+```
+
+The type of NIL is NIL.
+
+```lisp
+> (typep NIL NIL)
+
+=> NIL
 ```
 
 NIL values
@@ -495,6 +539,31 @@ Characters can be used as operand of arithmetic expressions:
 
 => B
 ```
+
+Collection and Sequence types
+-----------------------------
+
+Explang attempts to provide operators that can be used 
+on sequence and collection like objects of different types: 
+lists, arrays, sets, hash maps and so on.
+
+### Lists
+
+Use `list` operator to create lists ilmplemented by 
+[java.util.ArrayList](https://docs.oracle.com/javase/8/docs/api/java/lang/Character.html).
+
+
+### HashMaps
+
+
+
+### Operations on collections and sequences
+
+Explang attempts to provide operators that can be used 
+on sequence and collection like objects of different types: 
+lists, arrays, sets, hash maps and so on.
+
+
 
 
 Conditionals
