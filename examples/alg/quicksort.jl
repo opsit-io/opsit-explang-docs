@@ -1,4 +1,4 @@
-### implement quicksort in explang
+### Quicksort
 
 function swap(a, i, j) 
     "swap two elements in an indexable sequence";

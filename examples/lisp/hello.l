@@ -1,3 +1,3 @@
 ;; Hello world
-(PRINT "Hello world\n")
+(PRINTLN "Hello world")
 

@@ -31,6 +31,14 @@ docs/explang-alg-funcs-by-name.md: $(EXPLANG) $(FORMATTER).jl
 $(EXPLANG):
 	mvn org.apache.maven.plugins:maven-dependency-plugin:2.8:get -Dartifact=io.opsit:opsit-explang-alg-parser:0.0.3-SNAPSHOT:jar:runnable   -Dtransitive=false -Ddest=$(EXPLANG)
 
+make_examples: make_examples_lisp make_examples_alg
+
+make_examples_lisp: $(EXPLANG) examples/lisp/*.l
+	./make_examples.sh $(EXPLANG) lisp "Examples with Lisp Syntax" examples/lisp/*.l > docs/explang-examples-lisp.md
+
+make_examples_alg: $(EXPLANG) examples/alg/*.jl
+	./make_examples.sh $(EXPLANG) alg "Examples with Algebraic Syntax" examples/alg/*.jl > docs/explang-examples-alg.md
+
 
 update_examples:
 	mkdir -vp examples/lisp
@@ -38,4 +46,4 @@ update_examples:
 	mkdir -vp examples/alg
 	cp -v ../opsit-explang-alg-parser/examples/*.jl examples/alg/
 
-.PHONY: clean realclean build update_examples
+.PHONY: clean realclean build update_examples make_examples_lisp make_examples_alg make_examples

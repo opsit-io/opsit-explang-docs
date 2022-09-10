@@ -1,41 +1,51 @@
 Examples with Algebraic Syntax
 ==============================
 
-Hello, world
-------------
+Compute Factorial (recursive)
+-----------------------------
 
-```julia
+```lisp
+--8<-- "examples/alg/fact.jl"
+```
+
+Output:
+```
+--8<-- "examples/alg/fact.jl.output"
+```
+
+Frequencey Table
+----------------
+
+```lisp
+--8<-- "examples/alg/freqtable.jl"
+```
+
+Output:
+```
+--8<-- "examples/alg/freqtable.jl.output"
+```
+
+Hello, World!
+-------------
+
+```lisp
 --8<-- "examples/alg/hello.jl"
 ```
 
-
-Factorial (recursive)
----------------------
-
-```julia
---8<-- "examples/alg/fact.jl"
-
+Output:
 ```
-
-Frequency Table
----------------
-
-```julia
---8<-- "examples/alg/freqtable.jl"
-
+--8<-- "examples/alg/hello.jl.output"
 ```
 
 Quicksort
 ---------
 
-```julia
+```lisp
 --8<-- "examples/alg/quicksort.jl"
-
 ```
 
-
-
-
-
-
+Output:
+```
+--8<-- "examples/alg/quicksort.jl.output"
+```
 

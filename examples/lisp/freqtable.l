@@ -1,4 +1,7 @@
+;;; Frequency Table
+;;;
 ;;; prints sorted frequency table for a sequence
+
 (defun freqcount(seq)
   ;; create map of counters
   (let ((m (hashmap)))
@@ -20,18 +23,18 @@
             ⁠'Twill flow, and cease to burn my brain")
       (numbers (map (lambda (x) (random 100))
 		    (make-array 10 :element-type "int"))))
-  (print (str "Word frequency table for text\n"  txt "\n"
-	      (freqcount
-	       (map #'lowercase
-		    (append () (re-seq
-				(re-pattern "\\w+") txt))))
-	      "\n\n"))
+  (print "Word frequency table for text\n"  txt "\n"
+	 (freqcount
+	  (map #'lowercase
+	       (append () (re-seq
+			   (re-pattern "\\w+") txt))))
+	 "\n\n")
 	 
-  (print (str "Character frequency table for text\n"  txt "\n"
-	      (freqcount txt )
-	      "\n\n"))
-  (print (str "Frequency table for array of numbers\n"  numbers "\n"
-	      (freqcount numbers )
-	      "\n\n")))
+  (print "Character frequency table for text\n"  txt "\n"
+	 (freqcount txt )
+	 "\n\n")
+  (print "Frequency table for array of numbers\n"  numbers "\n"
+	 (freqcount numbers )
+	 "\n\n"))
 
 

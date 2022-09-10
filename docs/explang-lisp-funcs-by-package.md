@@ -63,16 +63,38 @@ Returns a formatted string using the specified format string (in the format of j
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$FORMAT**
 
+### `LOWERCASE`
+
+
+
+**(LOWERCASE  value)**
+
+Convert character, string or character sequence to lower case.
+
+
+**builtin function** defined at  **class io.opsit.explang.Funcs$LOWERCASE**
+
 ### `STR`
 
 **Concatenate Strings.**
 
 **(STR  &REST values)**
 
-Returns concatenation of string representationx of the function arguments
+Returns concatenation of string representationx of the function arguments. NIL arguments are ignored.
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$STR**
+
+### `UPPERCASE`
+
+
+
+**(UPPERCASE  value)**
+
+Convert character, string or character sequence to upper case.
+
+
+**builtin function** defined at  **class io.opsit.explang.Funcs$UPPERCASE**
 
 ## io
 
@@ -109,6 +131,17 @@ Print Arguments on standard output.
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$PRINT**
+
+### `PRINTLN`
+
+
+
+**(PRINTLN  &REST args)**
+
+Print Arguments on standard output and print newline.
+
+
+**builtin function** defined at  **class io.opsit.explang.Funcs$PRINTLN**
 
 ### `READ-FROM-STRING`
 
@@ -203,6 +236,17 @@ Destructuring LET construct.
 
 
 **builtin form** defined at  **class io.opsit.explang.Compiler$DLET**
+
+### `FSET`
+
+
+
+**(FSET  symbol value)**
+
+Set symbol's function value to value and return previous value or NIL.
+
+
+**builtin function** defined at  **class io.opsit.explang.Funcs$FSET**
 
 ### `FUNCTION`
 
@@ -1214,7 +1258,7 @@ If value is supplied, apply func on value and the first seq element, then on the
 
 **(REPLACE  seq target &OPTIONAL replacement)**
 
-Return resulting sequence. The original sequence is not modified.
+Return resulting sequence.  The original sequence is not modified. If replacement is not provided or is NIL  the target sequences will be deleted.
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$REPLACE**

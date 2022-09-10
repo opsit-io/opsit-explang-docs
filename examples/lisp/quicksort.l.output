@@ -1,0 +1,20 @@
+Using quick sort on:  class java.util.ArrayList
+input:  [76, 43, 59, 68, 0, 51, 41, 36, 14, 36, 36, 89, 34, 56, 84, 43, 40, 98, 97, 49, 63, 38, 93, 35, 93, 55, 99, 84, 54, 42, 42, 26]
+output: [0, 14, 26, 34, 35, 36, 36, 36, 38, 40, 41, 42, 42, 43, 43, 49, 51, 54, 55, 56, 59, 63, 68, 76, 84, 84, 89, 93, 93, 97, 98, 99]
+
+Using quick sort on:  class [Ljava.lang.Object;
+input:  [34, 52, 47, 52, 27, 36, 15, 70, 97, 48, 11, 86, 99, 26, 24, 34, 28, 8, 35, 65, 84, 43, 16, 84, 53, 89, 14, 53, 9, 45, 92, 63]
+output: [8, 9, 11, 14, 15, 16, 24, 26, 27, 28, 34, 34, 35, 36, 43, 45, 47, 48, 52, 52, 53, 53, 63, 65, 70, 84, 84, 86, 89, 92, 97, 99]
+
+Using quick sort on:  class java.lang.StringBuffer
+input:  Hello people! How do you do?
+output:      !?HHddeeelllooooooppuwy
+
+Using quick sort on:  class java.util.ArrayList
+input:  [H, e, l, l, o,  , p, e, o, p, l, e, !,  , H, o, w,  , d, o,  , y, o, u,  , d, o, ?]
+output: [ ,  ,  ,  ,  , !, ?, H, H, d, d, e, e, e, l, l, l, o, o, o, o, o, o, p, p, u, w, y]
+
+Using quick sort on:  class java.util.ArrayList
+input:  [0.1.2, 0.1.2-pre1, 0.1.2-pre2, 0.1.3, 0.1.2-pre1+10, 1.2.3]
+output: [0.1.2-pre1+10, 0.1.2-pre1, 0.1.2-pre2, 0.1.2, 0.1.3, 1.2.3]
+

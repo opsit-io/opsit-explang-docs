@@ -1,4 +1,6 @@
+### Frequencey Table
 ### prints sorted frequency table for a sequence
+
 function  freqcount(seq)
     ## create map of counters
     m := hashmap();

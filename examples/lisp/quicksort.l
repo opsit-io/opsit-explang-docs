@@ -1,4 +1,4 @@
-;;; implement quicksort in explang
+;;; Quicksort
 (defun swap (a i j)
   "swap two elements in an indexable sequence"
   (let ((tmp (get a i)))
@@ -42,9 +42,10 @@
 		     ;; semantic versions
 		     (map #'version '("0.1.2" "0.1.2-pre1" "0.1.2-pre2" "0.1.3" "0.1.2-pre1+10" "1.2.3")))))   
   (foreach (sample samples)
-	   (print (str "Using quick sort on:  " (type-of sample) "\n"))
-	   (print (str "input:  " sample "\n"))
+	   (println "Using quick sort on:  " (type-of sample))
+	   (println "input:  " sample)
 	   (quick-sort sample)
-	   (print (str "output: " sample "\n\n"))))
+	   (println "output: " sample)
+	   (println)))
 
 

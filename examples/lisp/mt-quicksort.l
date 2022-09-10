@@ -1,4 +1,4 @@
-;;; implement multithreaded quicksort in explang
+;;; Multithreaded Quicksort
 (defun swap (a i j)
   "swap two elements in an indexable sequence"
   (let ((tmp (get a i)))
@@ -38,6 +38,6 @@
   a)
 
 (let ((data (random-list 32 100)))
-  (print (str "Quick sort in:  " data "\n"))
+  (println "Quick sort in:  " data)
   (quick-sort data)
-  (print (str "Quick sort out: " data "\n")))
+  (println "Quick sort out: " data))

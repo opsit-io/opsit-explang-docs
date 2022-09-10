@@ -1,0 +1,12 @@
+reading and evaluation test:
+before read-eval: (+ 1 2 3)
+after read-eval:  6
+
+evaluation test:
+before eval: [+, 1, 2, 3]
+after eval:  6
+
+quine evaluation:
+before eval: [[LAMBDA, [X], [LIST, X, [LIST, [QUOTE, QUOTE], X]]], [QUOTE, [LAMBDA, [X], [LIST, X, [LIST, [QUOTE, QUOTE], X]]]]]
+after eval:  [[LAMBDA, [X], [LIST, X, [LIST, [QUOTE, QUOTE], X]]], [QUOTE, [LAMBDA, [X], [LIST, X, [LIST, [QUOTE, QUOTE], X]]]]]
+
