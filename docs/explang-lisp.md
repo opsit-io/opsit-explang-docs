@@ -1,10 +1,8 @@
-Using Explang with Lisp Syntax
-==============================
+Tutorial on Using Explang with Lisp Syntax
+==========================================
 
-Tutorial
---------
-
-### Expressions
+Expressions
+-----------
 
 Explang program is a sequence of one or more expressions which are evaluated
 from the beginning to the end.
@@ -54,7 +52,8 @@ Such expressions may be complex:
 => 7
 ```
 
-### Comments
+Comments
+--------
 
 A semicolon ';' starts a comment. The comment continues until end of line.
 
@@ -65,7 +64,8 @@ A semicolon ';' starts a comment. The comment continues until end of line.
 ```
 
 
-### Symbols and their Values
+Symbols and their Values
+------------------------
 
 The expressions `+` and `*` here are Symbols. 
 Symbols don’t evaluate to themselves but return values they have been assigned.
@@ -90,7 +90,8 @@ evaluation rule, and `setv` is one of them.  Its first argument isn’t
 evaluated.
 
 
-### Quoting
+Quoting
+-------
 
 You can turn off evaluation by using the `quote` special form:
 
@@ -125,7 +126,8 @@ quoted, returns a list consisting of the symbol + and the numbers 1
 and 2.
 
 
-### The `list` function
+The `list` function
+-------------------
 
 To create a list  use the `list` function:
 
@@ -135,8 +137,8 @@ To create a list  use the `list` function:
 => [1, 5, foo, b]
 ```
 
-### Defining Functions
-
+Defining Functions
+------------------
 
 We’ve already seen some functions: `+`, `*`, `list`. You can define
 new ones with `defun`, which takes a symbol to use as the name, a list
@@ -196,8 +198,8 @@ And can use a literal function wherever you could use a symbol whose value is on
 => 150
 ```
 
-### Function Values
-
+Function Values
+---------------
 
 Notice that if you try to get the function object simply by referencing the `average` symbol you get an error.
 
@@ -235,8 +237,8 @@ basically:
 (fset 'average (lambda (x y) (/ (+ x y) 2)))
 ```
 
-### Printing values
-
+Printing values
+---------------
 
 So far we’ve only had things printed out implicity as a result of
 evaluating them. The standard way to print things out in the middle of
@@ -254,8 +256,8 @@ my arguments were: [100 200]
 => 150
 ```
 
-### Data Types and Values
-
+Data Types and Values
+---------------------
 
 Explang is a dynamically typed language.  There are no type
 definitions in the language: each value carries its own type.
@@ -276,7 +278,8 @@ To get type of a value we use function `type-of`:
 => class java.lang.Double
 ```
 
-### NIL values
+NIL values
+----------
 
 NIL represents absense of a useful value, it is implemented as Java `null`. 
 It is not really a data type.
@@ -288,7 +291,8 @@ It is not really a data type.
 
 ```
 
-### Booleans 
+Booleans 
+--------
 
 The boolean type has two values, `false` and `true`. It is implemented using
 as Java Boolean objects. 
@@ -322,7 +326,8 @@ Here table of types with examples of literals,
 
 ```
 
-### Numeric Types Promotions
+Numeric Types Promotions
+------------------------
 
 When one performs arithmetic operations between different numeric types Explang 
 performs automatic promotion of numeric types, i.e. the result of the operation 
@@ -348,7 +353,8 @@ Note that Explang does not perform promotion for overflows between operations:
 => -31072
 ```
 
-### Converting to Numeric Types
+Converting to Numeric Types
+---------------------------
 
 The operators `byte`, `double`, `float`, `int`, `long`, `short` convert to corresponding
 numeric types from other numeric types as well as from string representation:
@@ -364,7 +370,8 @@ numeric types from other numeric types as well as from string representation:
 
 ```
 
-### Strings
+Strings
+-------
 
 
 Explang strings are Java Strings. Strings are constant, that is one cannot
@@ -458,9 +465,10 @@ for details on building the format strings.
 Explang considers Strings as Sequences of Character, see below on both.
 
 
-### Conditionals
+Conditionals
+------------
 
-#### `If` Operator
+### `If` Operator
 
 The standard conditional operator is `if`. Like `setv` and `defun`, it
 doesn’t evaluate all its arguments. When given three arguments, it
@@ -519,7 +527,7 @@ In fact the third `if` argument is optional, if it not provided and the conditio
 => NIL
 ```
 
-#### Truth values
+### Truth values
 
 The `if` operator checks the truth value of the first argument. The comparison functions
 like `<` or `>=`  return Java Boolean objects `true` or `false`:
@@ -553,7 +561,7 @@ that returns thruthiness value of an expression.
 => false
 ```
 
-#### `cond` Operator
+### `cond` Operator
 
 The `cond` conditional operator is used to choose between arbitrary number of alternatives 
 
@@ -586,7 +594,8 @@ If none of the test conditions are evaluated to be true, then the cond statement
 => 1.4142135623730951
 ```
 
-#### The Logical operators
+The Logical operators
+---------------------
 
 The logical negation fnction is called `not`, it returns Boolean value, which is inverse of the
 the truth value of its argument:
@@ -625,10 +634,11 @@ return the last value that was computed
 => foo
 ```
 
-#### Equality Check Operators
+Equality Check and Comparison Operators
+---------------------------------------
 
 
-##### `=='
+### `=='
 
 The `==` operator compares two objects in sort of 
 "Do What I Mean" fashion: it returns true if two objects are 
@@ -676,7 +686,7 @@ Numerically unequal Integer and Long numbers:
 => false
 ```
 
-##### `equal`
+### `equal`
 
 The `equal` operator checks two objects for equality by applying the
 equals() java method of the first argument on the scond one.  It will
@@ -708,7 +718,7 @@ Different numeric types (Integer and Long)
 
 ```
 
-##### `===`
+### `===`
 
 The most strict of the equality checks is the objects identity check
 `===`: it returns true if Object x is same as Object y or if both
@@ -734,7 +744,7 @@ Note that the `===` operator inherits some quirks from the underlying java opera
 ```
 
 
-##### `=` Numeric equality operator
+### `=` Numeric equality operator
 
 The '=' operator checks the arguments for numeric equality taking in account their implicit numeric values.
 Unlike other equality operators it takes any number of arguments. It returns true if all of them are equal.
@@ -769,7 +779,7 @@ Implicit numeric values:
 => true
 ```
 
-##### Comparison operators `<`, `<=`, `>=`, `>`
+### Comparison operators `<`, `<=`, `>=`, `>`
 
 
 These operators take any number of arguments and check that all of their arguments are in specified order.
@@ -789,7 +799,7 @@ These operators take any number of arguments and check that all of their argumen
 ```
 
 
-##### in - test if a sequence contains a value.
+### in - test if a sequence contains a value.
 
 If you want to test whether something is one of several alternatives, you could say 
 `(or (== x y) (== x z) ...)`, but this situation is common enough that there’s an operator for it.
@@ -813,7 +823,8 @@ If you want to test whether something is one of several alternatives, you could 
 
 ```
 
-###  Iteration Operators
+Iteration Operators
+-------------------
 
 To iterate through the elements of a list or string, use `foreach`.
 
@@ -916,7 +927,5 @@ In this example we compute frequencies table for elements of a list of objects.
 
 => {0=5, 1=7, 2=5, 3=3, 4=1}
 ```
-
-
 
 
