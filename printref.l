@@ -20,13 +20,13 @@
 %s
 
 
-**%s %s** defined at  **%s**
+**%s %s** defined at  **%s** in package **%s**
 "
 		     name
 		     summary
 		     (format-funcall name argDescr)
 		     (format-details details)
-		     (if builtIn "builtin" "compiled") codeType defLocation)))))
+		     (if builtIn "builtin" "compiled") codeType defLocation packageName)))))
 
 (let ((fnames  (functions-names))
       (descrs (map
@@ -40,12 +40,14 @@
 	(print "# Explang/lisp Built-in Functions by Package\n\n")
 	(print (str "packages: " packages "\n"))
 	(foreach (package (append (list) packages))
-		 (print (str "\n## " package "\n\n"))
-		 (foreach (descr (filter
-				  (lambda (descr)
-				    (equal package (get descr "packageName")))
-				  descrs))
-			  (printfunc descr))))
+		 (if (not (== package "user"))
+		     (progn 
+		       (print (str "\n## " package "\n\n"))
+		       (foreach (descr (filter
+					(lambda (descr)
+					  (equal package (get descr "packageName")))
+					descrs))
+				(printfunc descr))))))
       (let ((letters (append (hashset)
 			     (map
 			      (lambda (fname) (get fname 0))
@@ -58,4 +60,5 @@
 				  (lambda (descr)
 				    (equal letter (get (get descr "name") 0)))
 				  descrs))
-			  (printfunc descr))))))
+			  (if (not (== (get descr "packageName") "user"))
+			      (printfunc descr)))))))
