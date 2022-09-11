@@ -8,6 +8,13 @@ function format_details(details)
    replace(details, "\n", "\n\n");
 end;
 
+function format_toc (items)
+    foreach([item, items],
+      	    print( "[", item, "](#",
+		           replace(lowercase(string(item)), ".", ""),
+		           ") "));
+    println();
+end;
 
 function printfunc(descr)
     matches := re_matches(re_matcher(r"(?s)^(.*?\.)[ \n\t\r]+(.*)$", descr.docstring));
@@ -37,8 +44,7 @@ if argv(0) == "by-package"
     packages := append(hashset(),
                        map( descr -> descr.packageName, descrs));
     print("# Explang/Alg Built-in Functions by Package\n\n");
-	print(str("packages: ", packages, "\n"));
-
+    format_toc(packages);
     foreach([package, append(list(), packages)],
             begin
                 if not (package == "user" )
@@ -50,8 +56,7 @@ if argv(0) == "by-package"
 else
     letters := append(hashset(), map ( fname -> fname[0], fnames));
  	print("# Explang/Alg Built-in Functions by Name\n\n");
-    print(str("letters: ", letters,  "\n"));
-
+    format_toc(letters);
     foreach([letter,append(list(), letters)],
             begin
                 print(i"\n## $(letter)\n\n");
