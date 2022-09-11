@@ -632,6 +632,67 @@ By defaults `make-array` creates array of type Object that can contain any java 
 
 ```
 
+Character Sequences
+-------------------
+
+Regular string objects that we've seen earlier is one of the types that 
+are called Character Sequences. In Java these objects 
+implement interface
+[java.lang.CharSequence](https://docs.oracle.com/javase/8/docs/api/java/lang/CharSequence.html)).
+
+There are other such types that, unlike strings, can be modified in place:
+
+The `string-buffer` function creates a 
+[StringBuffer](https://docs.oracle.com/javase/8/docs/api/java/lang/StringBuffer.html) object:
+```lisp
+> (string-buffer) ;; creates empty StringBuffer
+
+=> 
+
+> (string-buffer "foo" "bar")  ;; create stringbuffer with text
+
+=> "foobar"
+```
+
+The `string-buffer` function creates a StringBuffer object:
+```lisp
+> (string-buffer) ;; creates empty StringBuffer
+
+=> 
+
+> (string-buffer "foo" "bar")  ;; create stringbuffer with text
+
+=> "foobar"
+```
+
+The `string-builder` function creates a 
+[StringBuilder](https://docs.oracle.com/javase/8/docs/api/java/lang/StringBuilder.html) object.
+StringBuilder is similar to StringBuffer, but unlike StringBuffer it can be safely 
+modified from differennt threads.
+
+```lisp
+> (string-builder) ;; creates empty StringBuilder
+
+=> 
+
+> (string-builder "foo" "bar")  ;; create stringbuilder with text
+
+=> "foobar"
+```
+
+The `string-builder` function creates a StringBuilder object:
+```lisp
+> (string-builder) ;; creates empty StringBuilder
+
+=> 
+
+> (string-builder "foo" "bar")  ;; create StringBuilder with text
+
+=> "foobar"
+```
+
+In the following chapter we'll learn to operate on data in sequence types.
+
 
 
 ### Operations on collections and sequences
