@@ -1,6 +1,6 @@
 # Explang/lisp Built-in Functions by Package
 
-packages: [base.math, base.text, io, ffi, base.bindings, base.funcs, runtime, threads, loops, base.version, base.coercion, base.logic, base.lang, base.arithmetics, base.seq, base.control, base.regex, dwim, base.docs, user, base.types]
+[base.math](#basemath) [base.text](#basetext) [io](#io) [ffi](#ffi) [base.bindings](#basebindings) [base.funcs](#basefuncs) [runtime](#runtime) [threads](#threads) [loops](#loops) [base.version](#baseversion) [base.coercion](#basecoercion) [base.logic](#baselogic) [base.lang](#baselang) [base.arithmetics](#basearithmetics) [base.seq](#baseseq) [base.control](#basecontrol) [base.regex](#baseregex) [dwim](#dwim) [base.docs](#basedocs) [user](#user) [base.types](#basetypes) 
 
 ## base.math
 

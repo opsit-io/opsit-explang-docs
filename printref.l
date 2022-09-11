@@ -4,6 +4,14 @@
 (defun format-details (details)
   (replace details "\n" "\n\n"))
 
+(defun format-toc (items)
+  (foreach (item items)
+	   (print "[" item "](#"
+		  (replace (lowercase (string item)) "." "")
+		  ") "))
+  (println))
+	   
+
 (defun printfunc(descr)
   (with-bindings descr
     (let ((matches (re-matches (re-matcher
@@ -38,7 +46,7 @@
 			 (lambda (descr) (get descr "packageName"))
 			 descrs))))
 	(print "# Explang/lisp Built-in Functions by Package\n\n")
-	(print (str "packages: " packages "\n"))
+	(format-toc packages)
 	(foreach (package (append (list) packages))
 		 (if (not (== package "user"))
 		     (progn 
@@ -53,7 +61,7 @@
 			      (lambda (fname) (get fname 0))
 			      fnames))))
 	(print "# Explang/lisp Built-in Functions by Name\n\n")
-	(print (str "letters: " letters "\n"))
+	(format-toc letters)
 	(foreach (letter (append (list) letters))
 		 (print (str "\n## " letter "\n\n"))
 		 (foreach (descr (filter
