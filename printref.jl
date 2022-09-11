@@ -24,7 +24,7 @@ $(summary)
 $(format_details(details))
 
 
-**$(funcType) $(descr.codeType)** defined at  **$(descr.defLocation)**
+**$(funcType) $(descr.codeType)** defined at  **$(descr.defLocation)** in package **$(descr.packageName)**
 "
           );
 end;
@@ -41,9 +41,11 @@ if argv(0) == "by-package"
 
     foreach([package, append(list(), packages)],
             begin
-                print(str(i"\n## $(package)\n\n"));
-                foreach([descr,  filter(dsc -> package == dsc.packageName, descrs)],
-                        printfunc(descr));
+                if not (package == "user" )
+                    print(str(i"\n## $(package)\n\n"));
+                    foreach([descr,  filter(dsc -> package == dsc.packageName, descrs)],
+                            printfunc(descr));
+                end;
             end);
 else
     letters := append(hashset(), map ( fname -> fname[0], fnames));
@@ -54,6 +56,9 @@ else
             begin
                 print(i"\n## $(letter)\n\n");
                 foreach([descr, filter(dsc -> letter == dsc.name[0], descrs)],
-                        printfunc(descr));
+                        if not (descr.packageName == "user" )
+                            printfunc(descr);
+                        end
+                        );
             end);
 end;            
