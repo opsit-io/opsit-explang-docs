@@ -549,11 +549,88 @@ lists, arrays, sets, hash maps and so on.
 
 ### Lists
 
-Use `list` operator to create lists ilmplemented by 
+Lists contains entries (objects or null) in slots that can be
+addressed by their zero-based index. Lists do not have fixed size,
+they grow/shring dynamically when elements are added/removed.
+
+The `list` operator creates and initializes a list. The lists created are implemented by 
 [java.util.ArrayList](https://docs.oracle.com/javase/8/docs/api/java/lang/Character.html).
 
 
-### HashMaps
+```lisp
+> (list 1 2 (list 3 4))
+
+[1, 2, [3, 4]]
+```
+
+### Maps
+
+Use the `hashmap` to create and initialize a Map 
+(implemented by [java.util.HashMap](https://docs.oracle.com/javase/8/docs/api/java/util/HashMap.html)).
+
+
+```lisp
+ > (hashmap "a" 1 "b" "foo" "c" (hashmap "d" "e"))
+ 
+ => {a=1, b=foo, c={d=e}}
+```
+
+### Sets
+
+A Set is a collection that contains no duplicate elements. More
+formally, sets contain no pair of elements e1 and e2 such that `(equal
+e1 e2) return true. As implied by its name, this type models the
+mathematical set abstraction.
+
+The `hashset` operator creates a set and initializes it with the specified elements.
+
+```lisp
+(hashset 1 2 3 7)
+
+=> [1, 2, 3, 7]
+```
+
+```lisp
+(hashset 1 1 (list 1 2 3) (list 1 2 3) NIL NIL)
+
+=> [null, 1, [1, 2, 3]]
+```
+
+### Arrays
+
+Arrays are areas of memory that contain entries in slots that can be
+addressed by their zero-based index.  Arrays have fixed size that
+determined at their creation time. Unlike lists arrays are created 
+to contain objects or primitive values of given type.
+
+The `make-array` operator creates array and initializes it with 
+specified elements. 
+
+By defaults `make-array` creates array of type Object that can contain any java object.
+
+```
+> (make-array 1 "123" (list 1 2) NIL) ;; array with specified objects
+
+=> [1, 123, [1, 2], null]
+
+> (make-array :size 5) ;; array of specified size 
+
+=> [null, null, null, null, null]
+
+> (make-array :size 5 :element-type "double") ;; array for storing primitive double values
+
+=> [0.0, 0.0, 0.0, 0.0, 0.0]
+
+
+> (make-array :size 10      ; array of size 10 
+    :element-type "char"    ; for storing primitive character values
+    #\H #\E #\L #\L  #\O)   ; partially filled
+
+=> [0.0, 0.0, 0.0, 0.0, 0.0]
+
+=> [H, E, L, L, O,  ,  ,  ,  ,  ]
+
+```
 
 
 
