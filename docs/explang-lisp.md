@@ -701,6 +701,64 @@ Explang attempts to provide operators that can be used
 on sequence and collection like objects of different types: 
 lists, arrays, sets, hash maps and so on.
 
+#### `get' - value accessor
+
+The `get` function returns a Sequence element by its index
+or a Map entry by its key:
+
+```lisp
+> (setv lst (list "foo" 'bar 1 null))
+
+=> [foo, bar, 1, null]
+
+> (setv m (hashmap "a" 1 "b" "2"))
+
+=> {a=1, b=2}
+
+> (get lst 0)
+
+=> fooo
+
+> (get lst 1)
+
+=> bar
+
+> (get m "a")
+
+=> 1
+
+```
+
+When provided an invalid index `get` returns NIL:
+
+```lisp
+> (get lst 10)
+
+=> NIL
+```
+
+`get` accepts an optional third argument -- default value. 
+If index is invalid or key is missing it will return the value of the
+third argument:
+
+> (get lst 10 "No such index")
+
+=> No such index
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
