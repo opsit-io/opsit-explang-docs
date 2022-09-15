@@ -2,8 +2,8 @@
 (defun swap (a i j)
   "swap two elements in an indexable sequence"
   (let ((tmp (get a i)))
-    (aset a i  (get a j))
-    (aset a j tmp)))
+    (put! a i  (get a j))
+    (put! a j tmp)))
 
 (defun random-list (size maxr)
   "make list of length size of random number from 0 upto maxr"
@@ -34,7 +34,7 @@
 
 (let ((samples (list (random-list 32 100) ; list of random integers
 		     ;; array of random integers
-		     (append (make-array 0) (random-list 32 100)) 
+		     (append (make-array :size 0) (random-list 32 100)) 
 		     ;; StringBuffer
 		     (.N "StringBuffer" '("Hello people! How do you do?")) 
 		     ;; list of Characters

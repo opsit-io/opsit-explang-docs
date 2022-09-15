@@ -1,6 +1,18 @@
 Examples with Lisp Syntax
 =========================
 
+The 8 Queens Problem
+--------------------
+
+```lisp
+--8<-- "examples/lisp/8queens.l"
+```
+
+Output:
+```
+--8<-- "examples/lisp/8queens.l.output"
+```
+
 Expression Reading and Evaluation
 ---------------------------------
 

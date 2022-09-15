@@ -1,4 +1,4 @@
-### Frequencey Table
+### Frequency Table
 ### prints sorted frequency table for a sequence
 
 function  freqcount(seq)

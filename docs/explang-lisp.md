@@ -632,8 +632,7 @@ By defaults `make-array` creates array of type Object that can contain any java 
 
 ```
 
-Character Sequences
--------------------
+### Character Sequences
 
 Regular string objects that we've seen earlier is one of the types that 
 are called Character Sequences. In Java these objects 
@@ -691,17 +690,60 @@ The `string-builder` function creates a StringBuilder object:
 => "foobar"
 ```
 
-In the following chapter we'll learn to operate on data in sequence types.
+In the following chapters we'll learn to operate on data in sequence types.
 
 
+Getting Inforrmation About Collections and Sequences
+----------------------------------------------------
 
-### Operations on collections and sequences
 
-Explang attempts to provide operators that can be used 
-on sequence and collection like objects of different types: 
-lists, arrays, sets, hash maps and so on.
+Length returns number of objects in a collection or sequence:
 
-#### `get' - value accessor
+```lisp
+> (list (length "Hello") 
+        (length (hashmap "a" 1))  
+        (length (hashset 1 2 3)) 
+        (length (range 1 10)))
+
+=> [5, 1, 3, 10]
+```
+
+The collection predicates return `true` or `false` allow to check if an objects have some 
+property or ability. By convention their name ends by _p_ - predicate.
+
+
+`collp` returns true if the object is a collection of some kind, for example:
+
+```lisp
+> (list  (collp ())
+         (collp (make-array))
+         (collp "foo")        ; string is a CharSequence
+         (collp (range 1 2))
+         (collp nil) ;; non-object 
+         (collp 1))  ;; individual object
+
+=> [true, true, true, true, false, false]
+```
+
+`seqp` returns true if the object is a sequence, that is collection with specific order.
+
+`indexedp` returns true if objects in the collection can be addressed by integer index.
+
+`mapp` returns true if objects in the collection can be addressed by key objects.
+
+`mapp` returns true if the object is a Set.
+
+`associativep` returns true if objects in collection are indexed or have keys.
+
+
+Accessing data in collections and sequences
+-------------------------------------------
+
+Explang attempts to provide data access operators that can be used on
+all kinds of sequences and collections like lists, arrays, sets, hash
+maps and so on.
+
+### `get` - value accessor
 
 The `get` function returns a Sequence element by its index
 or a Map entry by its key:
@@ -746,17 +788,108 @@ third argument:
 => No such index
 
 
+### `get-in` access values in nested structures
 
 
+When the structure is complex like in the following example using get may become cumbersome and require
+use of several nesting expressions.
+
+```lisp
+> (setv data
+      (hashmap 'people (hashmap 1 (hashmap 'name "John"
+                                           'surname "Doe" 
+                                           'relatives (hashmap 'motherId 3
+                                                               'fatherId 2)
+				           'friendIds (list 4))
+                                2 (hashmap 'name "Jack"
+                                           'surname "Doe")
+                                3 (hashmap 'name "Ann"
+                                           'surname "Roe")
+				4 (hashmap 'name "Bill"
+					   'surname "Moe"))))
+
+=> {people={1={friendIds=[4], surname=Doe, name=John, 
+relatives={motherId=3, fatherId=2}}, 2={surname=Doe, name=Jack}, 
+3={surname=Roe, name=Ann}, 4={surname=Moe, name=Bill}}}
+```
+
+`get-in' accepts list of keys to specify path to the needed value:
 
 
+```lisp
+> (get-in data '(people 1 relatives motherId))
+
+=> 3
+```
+
+When there is no mapping get-in returns provided default value or NIL when no default specified:
+
+```lisp
+> (get-in data '(people 2 relatives motherId))
+
+=> NIL
+
+> (get-in data '(people 2 relatives motherId) "N/A")
+
+=> N/A
+```
+
+`get-in' works not only with Maps but with lists and other sequences:
+
+```lisp
+> (get-in data '(people 1 friendIds 0))
+
+=> 4
+
+> (get-in data '(people 1 name 0))
+
+=> J
+```
+
+### `select-keys` select entries by their keys/indices
+
+Returns map of  entries selected  by their keys/indices
+
+```lisp
+> (select-keys (hashmap "a" 1 "b" 2 "c" 3) (list "a" "b"))
+
+=> {a=1, b=2}
+
+> (select-keys (list "a" "b" "c") (list 0 2))
+
+=> {2=c, 0=a}
+
+```
+
+The returned Map is actually kind of view into the original object, 
+that is it refkects changes in the original:
+
+```lisp
+> (setv m (hashmap "a" 1 "b" 2))
+
+=> {a=1, b=2}
+
+> (setv s (select-keys m (list "a" "c")))
+
+=> {a=1}
+
+> (assoc! m "c" "3")
+
+=> {a=1, b=2, c=3}
+
+> s
+
+=> {a=1, c=3} ;; now s got new entry c=3
+```
+
+### `first` return first object in collection
 
 
+```lisp
+> (first (range 2 10))
 
-
-
-
-
+=> 2
+```
 
 
 
@@ -768,7 +901,7 @@ Conditionals
 ### `If` Operator
 
 The standard conditional operator is `if`. Like `setv` and `defun`, it
-doesn’t evaluate all its arguments. When given three arguments, it
+does not evaluate all its arguments. When given three arguments, it
 evaluates the first, and if that returns true, it returns the value of
 the second, otherwise the value of the third:
 

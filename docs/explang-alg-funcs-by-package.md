@@ -85,6 +85,28 @@ Returns concatenation of string representationx of the function arguments. NIL a
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$STR** in package **base.text**
 
+### `STRING_BUFFER`
+
+**Create and initialize a StringBuffer object.**
+
+**STRING_BUFFER(&REST args)**
+
+Return stringbuilder with all the arguments concatenated.
+
+
+**builtin function** defined at  **class io.opsit.explang.Funcs$STRINGBUFFER** in package **base.text**
+
+### `STRING_BUILDER`
+
+**Create and initialize a StringBuilder object.**
+
+**STRING_BUILDER(&REST args)**
+
+Return stringbuilder with all the arguments concatenated.
+
+
+**builtin function** defined at  **class io.opsit.explang.Funcs$STRINGBUILDER** in package **base.text**
+
 ### `UPPERCASE`
 
 
@@ -777,9 +799,9 @@ Function AND lazily evaluates each argument form, one at a time from left to rig
 
 ### `DWIM_MATCHES`
 
-**Perform DWIM find operation.**
+**Perform Do What I Mean style search.**
 
-**DWIM_MATCHES(arg0, &OPTIONAL arg2)**
+**DWIM_MATCHES(object, &OPTIONAL pattern)**
 
 When pattern is an Regexp tries to find the regexp in String Representation of object.
 
@@ -1011,11 +1033,11 @@ Return array element at specified index. Throws ArrayOutOfBoundsException if ind
 
 ### `ASET`
 
-**Sat array element value.**
+**Set indexed sequence (array, list, character sequence) element value.**
 
-**ASET(array, index, object)**
+**ASET(obj, key, object)**
 
-Set value of array element at index to object. If java array is typed (i.e. not array of java.lang.Objects) and object type does not match this function will attempt to perform necessary coercion operations. The coercions work in the same way as INT, FLOAT, STRING and rest of the built-in coercion functions.
+Set value of element at index to object.  If target ibject is a Java array and object type does not match type of this array this function will attempt to perform necessary coercion operations.  The coercions  work in the same way as INT, FLOAT, STRING and rest of the  built-in coercion functions. May fail with index out of bound exception. The function returns normally without any change to the target structure The function returns previous value of the element or NIL if it did not exist
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$ASET** in package **base.seq**
@@ -1041,6 +1063,28 @@ Modifies the object and returns it as the result.
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$NASSOC** in package **base.seq**
+
+### `ASSOCIATIVEP`
+
+
+
+**ASSOCIATIVEP(object)**
+
+Check if an object is an associative collection.
+
+
+**builtin function** defined at  **class io.opsit.explang.Funcs$ASSOCIATIVEP** in package **base.seq**
+
+### `COLLP`
+
+
+
+**COLLP(object)**
+
+Check if an object is a sequence.
+
+
+**builtin function** defined at  **class io.opsit.explang.Funcs$COLLP** in package **base.seq**
 
 ### `CONS`
 
@@ -1103,7 +1147,7 @@ Return value from an associative structure struct,
 
 ### `GET_IN`
 
-**Returns the value from an associative structure.**
+**Returns the value from an hierarchy of associative structures.**
 
 **GET_IN(structure, ks, &OPTIONAL not-found)**
 
@@ -1149,6 +1193,17 @@ Returns a set containing the supplied objects.
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$IN** in package **base.seq**
 
+### `INDEXEDP`
+
+
+
+**INDEXEDP(object)**
+
+Check if an object is an indexed collection.
+
+
+**builtin function** defined at  **class io.opsit.explang.Funcs$INDEXEDP** in package **base.seq**
+
 ### `LENGTH`
 
 **Return length of a sequence.**
@@ -1175,7 +1230,7 @@ Returns a list containing the supplied objects.
 
 **Ceate an Array.**
 
-**MAKE_ARRAY(size, &KEY element-type)**
+**MAKE_ARRAY(&KEY size, element-type, &REST elements)**
 
 Creates array of objects of specified size. Optional :element-type argument specifies type of array elements. The default is java.lang.Object
 
@@ -1192,6 +1247,17 @@ Returns a sequence consisting of the result of applying func to the set of first
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$MAP** in package **base.seq**
+
+### `MAPP`
+
+
+
+**MAPP(object)**
+
+Check if an object is a Map.
+
+
+**builtin function** defined at  **class io.opsit.explang.Funcs$MAPP** in package **base.seq**
 
 ### `MAPPROD`
 
@@ -1214,6 +1280,28 @@ n may be any non-negative number. Returns NIL when sequence is NIL or n is out o
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$NTH** in package **base.seq**
+
+### `PUT!`
+
+**Put element value into an associative structure.**
+
+**PUT!(obj, key, object)**
+
+Set value of element at index/key to object.  If target ibject is a Java array and object type does not match type of this array this function will attempt to perform necessary coercion operations. The coercions  work in the same way as INT, FLOAT, STRING and rest of the built-in coercion functions. If target object is a list or array and happens out of bound exception the function returns normally without any change to the target structure The function returns previous value of the element or NIL if it did not exist
+
+
+**builtin function** defined at  **class io.opsit.explang.Funcs$NPUT** in package **base.seq**
+
+### `PUT_IN!`
+
+
+
+**PUT_IN!(structure, ks, value, &OPTIONAL new-col)**
+
+Put value into an hierarchy of associative structures according list of keys ks.
+
+
+**builtin function** defined at  **class io.opsit.explang.Funcs$NPUT_IN** in package **base.seq**
 
 ### `RANGE`
 
@@ -1307,16 +1395,27 @@ Coerce object into a sequence.
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$SEQ** in package **base.seq**
 
-### `SEQUENCEP`
+### `SEQP`
 
 
 
-**SEQUENCEP(object)**
+**SEQP(object)**
 
 Check if an object is a sequence.
 
 
-**builtin function** defined at  **class io.opsit.explang.Funcs$SEQUENCEP** in package **base.seq**
+**builtin function** defined at  **class io.opsit.explang.Funcs$SEQP** in package **base.seq**
+
+### `SETP`
+
+
+
+**SETP(object)**
+
+Check if an object is a Set.
+
+
+**builtin function** defined at  **class io.opsit.explang.Funcs$SETP** in package **base.seq**
 
 ### `SORT`
 
@@ -1463,6 +1562,17 @@ Evaluate sequence of expressions.
 
 
 **builtin form** defined at  **class io.opsit.explang.Compiler$PROGN** in package **base.control**
+
+### `RETURN`
+
+
+
+**RETURN(value)**
+
+Return value from function
+
+
+**builtin function** defined at  **class io.opsit.explang.Funcs$RETURN** in package **base.control**
 
 ### `THROW`
 
@@ -1616,16 +1726,16 @@ When called With two arguments created java.util.regex.Matcher using pattern and
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$DWIM_FIELDS** in package **dwim**
 
-### `DWIM_SEARCH`
+### `SEARCH`
 
 **Perform DWIM search of an item in a sequence of objects.**
 
-**DWIM_SEARCH(sequence, test)**
+**SEARCH(sequence, test)**
 
 
 
 
-**builtin form** defined at  **class io.opsit.explang.Compiler$DWIM_SEARCH** in package **dwim**
+**builtin form** defined at  **class io.opsit.explang.Compiler$SEARCH** in package **dwim**
 
 ## base.docs
 

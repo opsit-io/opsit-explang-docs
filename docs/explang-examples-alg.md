@@ -13,8 +13,8 @@ Output:
 --8<-- "examples/alg/fact.jl.output"
 ```
 
-Frequencey Table
-----------------
+Frequency Table
+---------------
 
 ```lisp
 --8<-- "examples/alg/freqtable.jl"

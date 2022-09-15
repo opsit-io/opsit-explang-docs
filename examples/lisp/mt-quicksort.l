@@ -2,8 +2,8 @@
 (defun swap (a i j)
   "swap two elements in an indexable sequence"
   (let ((tmp (get a i)))
-    (aset a i  (get a j))
-    (aset a j tmp)))
+    (put! a i  (get a j))
+    (put! a j tmp)))
 
 (defun random-list (size maxr)
   "make list of length size of random number from 0 upto maxr"
