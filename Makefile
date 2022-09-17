@@ -1,6 +1,7 @@
 
 EXPLANG_VERSION=0.0.3-SNAPSHOT
 EXPLANG=./opsit-explang-alg-parser-$(EXPLANG_VERSION)-runnable.jar
+EXPLANG_JAVADOC=./opsit-explang-core-$(EXPLANG_VERSION)-javadoc.jar
 FORMATTER=printref
 GENERATED=docs/explang-lisp-funcs-by-name.md docs/explang-lisp-funcs-by-package.md docs/explang-alg-funcs-by-package.md docs/explang-alg-funcs-by-name.md
 
@@ -8,12 +9,21 @@ GENERATED=docs/explang-lisp-funcs-by-name.md docs/explang-lisp-funcs-by-package.
 build: $(EXPLANG) $(GENERATED) docs/*.md make_examples
 	env EXPLANG_VERSION=$(EXPLANG_VERSION) mkdocs build
 
+
+javadoc: site/javadoc/opsit-explang-core
+
+site/javadoc/opsit-explang-core: $(EXPLANG_JAVADOC)
+	mkdir -p site/javadoc/opsit-explang-core
+	unzip $(EXPLANG_JAVADOC) -d site/javadoc/opsit-explang-core || rmdir -f site/javadoc/opsit-explang-core
+
+
 clean:
 	rm -rvf site/
 	rm -vf $(GENERATED)
 
 realclean: clean
 	rm -f $(EXPLANG)
+	rm -f $(EXPLANG_JAVADOC)	
 	rm -rf examples/
 
 
@@ -33,6 +43,9 @@ docs/explang-alg-funcs-by-name.md: $(EXPLANG) $(FORMATTER).jl
 $(EXPLANG):
 	mvn org.apache.maven.plugins:maven-dependency-plugin:2.8:get -Dartifact=io.opsit:opsit-explang-alg-parser:$(EXPLANG_VERSION):jar:runnable   -Dtransitive=false -Ddest=$(EXPLANG)
 
+$(EXPLANG_JAVADOC):
+	mvn org.apache.maven.plugins:maven-dependency-plugin:2.8:get -Dartifact=io.opsit:opsit-explang-core:$(EXPLANG_VERSION):jar:javadoc   -Dtransitive=false -Ddest=$(EXPLANG_JAVADOC)
+
 make_examples: make_examples_lisp make_examples_alg
 
 make_examples_lisp: $(EXPLANG)  examples/lisp
@@ -50,4 +63,4 @@ examples/alg:
 	mkdir -vp examples/alg
 	cp -v ../opsit-explang-alg-parser/examples/*.jl examples/alg/
 
-.PHONY: clean realclean build update_examples make_examples_lisp make_examples_alg make_examples
+.PHONY: clean realclean build update_examples make_examples_lisp make_examples_alg make_examples javadoc
