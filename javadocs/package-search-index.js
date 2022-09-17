@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"io.opsit.explang"},{"l":"io.opsit.explang.atom"},{"l":"io.opsit.explang.jsr223"},{"l":"io.opsit.explang.parser.lisp"},{"l":"io.opsit.explang.parser.sexp"},{"l":"io.opsit.explang.strconv.nop"},{"l":"io.opsit.explang.strconv.uc"}];updateSearchResults();
