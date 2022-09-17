@@ -1092,10 +1092,21 @@ Check if an object is a sequence.
 
 **CONS(object-1, object-2)**
 
-Prepend element to a sequence.
+Prepend element to a list.
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$CONS** in package **base.seq**
+
+### `COPY`
+
+
+
+**COPY(object)**
+
+Perform shallow copy of an object.
+
+
+**builtin function** defined at  **class io.opsit.explang.Funcs$COPY** in package **base.seq**
 
 ### `FILTER`
 
@@ -1280,6 +1291,17 @@ n may be any non-negative number. Returns NIL when sequence is NIL or n is out o
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$NTH** in package **base.seq**
+
+### `PUSH!`
+
+**Append element to the end of a seqence modifying the sequence.**
+
+**PUSH!(seq, object)**
+
+Returns the sequence
+
+
+**builtin function** defined at  **class io.opsit.explang.Funcs$NPUSH** in package **base.seq**
 
 ### `PUT!`
 
@@ -1584,6 +1606,17 @@ The exception may be a java Throwable object or String. In the latter case a new
 
 
 **builtin function** defined at  **class io.opsit.explang.Funcs$THROW** in package **base.control**
+
+### `WHEN`
+
+
+
+**WHEN(args ...)**
+
+When conditional construct.
+
+
+**builtin form** defined at  **class io.opsit.explang.Compiler$WHEN** in package **base.control**
 
 ### `_>>`
 

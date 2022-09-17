@@ -68,7 +68,7 @@ Symbols and their Values
 ------------------------
 
 The expressions `+` and `*` here are Symbols. 
-Symbols don’t evaluate to themselves but return values they have been assigned.
+Symbols don't evaluate to themselves but return values they have been assigned.
 If we give `b` the value 10, it will return 10 when evaluated:
 
 
@@ -86,7 +86,7 @@ If we try to evaluate a Symbol that has not been assigned a value we'll get erro
 Note that evaluation `(setv b 10)` when `b` still was unassigned did
 not cause an error.  This is because there are some operations (they
 are called special operators or special formd) that violate the usual
-evaluation rule, and `setv` is one of them.  Its first argument isn’t
+evaluation rule, and `setv` is one of them.  Its first argument isn't
 evaluated.
 
 
@@ -140,14 +140,14 @@ To create a list  use the `list` function:
 Defining Functions
 ------------------
 
-We’ve already seen some functions: `+`, `*`, `list`. You can define
+We've already seen some functions: `+`, `*`, `list`. You can define
 new ones with `defun`, which takes a symbol to use as the name, a list
 of symbols that describe the parameters, and then zero or more
 expressions called the body. When the function is called, those
 expressions will be evaluated in order with the parameter symbols in
-the body temporarily set (“bound”) to the corresponding argument
+the body temporarily set ('bound') to the corresponding argument
 values. Whatever the last expression returns will be returned as the
-value of the call.  Here’s a function that takes two numbers and
+value of the call.  Here's a function that takes two numbers and
 returns their average:
 
 ```lisp
@@ -159,13 +159,13 @@ returns their average:
 ```
 
 The body of the function consists of one expression, `(/ (+ x y) 2)`
-It’s common for functions to consist of one expression; in purely
+It is common for functions to consist of one expression; in purely
 functional code (code with no side-effects) they always do.
 
-Notice that `defun`, like `setv`, doesn’t evaluate all its arguments.
+Notice that `defun`, like `setv`, doesn't evaluate all its arguments.
 It is another of those special forms with its own evaluation rule.
 
-What’s the object returned as the value of the def expression?  That’s
+What is the object returned as the value of the def expression?  That's
 the Java Object that represents the function.
 
 
@@ -240,10 +240,10 @@ basically:
 Printing values
 ---------------
 
-So far we’ve only had things printed out implicity as a result of
+So far we've only had things printed out implicity as a result of
 evaluating them. The standard way to print things out in the middle of
 evaluation is with `print` or `println`. They take multiple arguments and print
-them in order; `println` also prints a newline at the end. Here’s a variant
+them in order; `println` also prints a newline at the end. Here's a variant
 of average that tells us what its arguments were:
 
 ```lisp
@@ -254,6 +254,44 @@ of average that tells us what its arguments were:
 my arguments were: [100 200]
 
 => 150
+```
+
+Return Value of the Function
+----------------------------
+
+From the previous example we see that when a function contains several
+expressions the return value of the function is the value of the last
+expression in the function. Previous expressions are evaluated 
+and they value is discarded. 
+
+If you want to return value from function without reaching the last
+expression use the `return` operator.
+
+In the following example we define function that solves quadratic
+equations. In the case when determinant is negative we print an error
+message and exit prematurely returning an empty list.
+
+
+```lisp
+> (defun quadratic-eq-roots(a b c) 
+    "Finds real roots of an quadratic equation"
+    (setv discriminant (- (* b b) (* 4 a c)))
+    (when (< discriminant 0) 
+        (println "Error: the equation has no real solutions!")
+        (return ())) 
+    (list (/ (- (- b) (sqrt discriminant)) (* 2 a))
+          (/ (+ (- b) (sqrt discriminant)) (* 2 a))))
+
+
+> (quadratic-eq-roots 2 4 -4)
+
+=> [-2.732050807568877, 0.7320508075688772]
+
+> (quadratic-eq-roots 1 2 3)
+
+Error: the equation has no real solutions!
+=> []
+
 ```
 
 Data Types and Values
@@ -957,6 +995,20 @@ In fact the third `if` argument is optional, if it not provided and the conditio
 => NIL
 ```
 
+### The `when` operator
+
+`when` is just a simpler form than `if`: it has only the 'then' part of it. 
+This part may contain several expressions. In the case when condition is false
+the return value of when is `NIL`:
+
+```lisp
+(when (>= x 0)
+    (println x " is positive")
+    (println "square root of x is " (sqrt x)))
+
+```
+
+
 ### Truth values
 
 The `if` operator checks the truth value of the first argument. The comparison functions
@@ -1014,15 +1066,22 @@ If test1 evaluates to be nil, then control moves to the second clause without ex
 If none of the test conditions are evaluated to be true, then the cond statement returns nil.
 
 ```list
-(setv x 2)
-(cond ((< x 0)
-	(println x " < 0") NIL)
-       (true
-	(println x " >= 0") (sqrt x)))
-2 >= 0
+> (setv x 2)
 
-=> 1.4142135623730951
+=> 2
+> (cond ((< x 0)
+	   (println x " is negative") NIL)
+      ((= x 0)
+	   (println x " is zero") x)
+      ((> x 0)
+ 	   (println x " is positive") x)
+      (true (println "This won't happen")))
+
+2 is positive
+
+=> 2
 ```
+
 
 The Logical operators
 ---------------------
@@ -1050,7 +1109,7 @@ Logical operators `and` and `or`:
 => true
 ```
 
-They operate like conditionals because they don’t evaluate more arguments than they have to and 
+They operate like conditionals because they don't evaluate more arguments than they have to and 
 return the last value that was computed
 
 
@@ -1232,7 +1291,7 @@ These operators take any number of arguments and check that all of their argumen
 ### in - test if a sequence contains a value.
 
 If you want to test whether something is one of several alternatives, you could say 
-`(or (== x y) (== x z) ...)`, but this situation is common enough that there’s an operator for it.
+`(or (== x y) (== x z) ...)`, but this situation is common enough that there's an operator for it.
 
 ```lisp 
 > (in 3 '(list 1 2 3 "foo" null))
@@ -1269,7 +1328,7 @@ To iterate through the elements of a list or string, use `foreach`.
 ```
 
 The NIL you see at the end is not printed out by the code in the loop.
-They’re the return values of the iteration expressions. One can give 
+They're the return values of the iteration expressions. One can give 
 one additional argument that will be computed after end of the iteration
 and used as return value.
 

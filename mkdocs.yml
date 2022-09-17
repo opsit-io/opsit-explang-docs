@@ -1,4 +1,6 @@
 site_name: Explang Documentation Site
+site_url: "https://github.com/opsit-io/opsit-explang-docs"
+
 markdown_extensions:
   - footnotes
   - pymdownx.highlight
@@ -37,3 +39,9 @@ theme:
   features:
     - navigation.sections
     
+plugins:
+  - markdownextradata
+
+extra:
+  explang:
+    version: !ENV EXPLANG_VERSION

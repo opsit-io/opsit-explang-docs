@@ -22,7 +22,7 @@
 (defun add-queen (a n)
   "Add to board a all queens from n up to N"
   (if (>= n N)
-      (put! solutions (length solutions) (append () a)) ; all queens have been placed, 
+      (push! solutions (copy a)) ; all queens have been placed, 
       (foreach (c (range 0 N))   ; try to place next queen
 	       (if (check-placement a n c)
 		   (progn 

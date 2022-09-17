@@ -1,10 +1,12 @@
 
-EXPLANG=./opsit-explang-alg-parser-0.0.3-SNAPSHOT-runnable.jar
+EXPLANG_VERSION=0.0.3-SNAPSHOT
+EXPLANG=./opsit-explang-alg-parser-$(EXPLANG_VERSION)-runnable.jar
 FORMATTER=printref
 GENERATED=docs/explang-lisp-funcs-by-name.md docs/explang-lisp-funcs-by-package.md docs/explang-alg-funcs-by-package.md docs/explang-alg-funcs-by-name.md
 
-build: $(EXPLANG) $(GENERATED) docs/*.md
-	mkdocs build
+
+build: $(EXPLANG) $(GENERATED) docs/*.md make_examples
+	env EXPLANG_VERSION=$(EXPLANG_VERSION) mkdocs build
 
 clean:
 	rm -rvf site/
@@ -29,20 +31,22 @@ docs/explang-alg-funcs-by-name.md: $(EXPLANG) $(FORMATTER).jl
 
 
 $(EXPLANG):
-	mvn org.apache.maven.plugins:maven-dependency-plugin:2.8:get -Dartifact=io.opsit:opsit-explang-alg-parser:0.0.3-SNAPSHOT:jar:runnable   -Dtransitive=false -Ddest=$(EXPLANG)
+	mvn org.apache.maven.plugins:maven-dependency-plugin:2.8:get -Dartifact=io.opsit:opsit-explang-alg-parser:$(EXPLANG_VERSION):jar:runnable   -Dtransitive=false -Ddest=$(EXPLANG)
 
 make_examples: make_examples_lisp make_examples_alg
 
-make_examples_lisp: $(EXPLANG) examples/lisp/*.l
+make_examples_lisp: $(EXPLANG)  examples/lisp
 	./make_examples.sh $(EXPLANG) lisp "Examples with Lisp Syntax" examples/lisp/*.l > docs/explang-examples-lisp.md
 
-make_examples_alg: $(EXPLANG) examples/alg/*.jl
+make_examples_alg: $(EXPLANG)  examples/alg
 	./make_examples.sh $(EXPLANG) alg "Examples with Algebraic Syntax" examples/alg/*.jl > docs/explang-examples-alg.md
 
 
-update_examples:
+examples/lisp:
 	mkdir -vp examples/lisp
 	cp -v ../opsit-explang-core/examples/*.l examples/lisp/
+
+examples/alg:
 	mkdir -vp examples/alg
 	cp -v ../opsit-explang-alg-parser/examples/*.jl examples/alg/
 

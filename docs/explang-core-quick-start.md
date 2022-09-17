@@ -10,7 +10,7 @@ Download an Explang Core executable JAR jars from Github
 Or use maven CLI to fetch the artifacts from maven central:
 
 ```
-mvn org.apache.maven.plugins:maven-dependency-plugin:2.8:get -Dartifact=io.opsit:opsit-explang-core:0.0.2:jar:runnable   -Dtransitive=false -Ddest=opsit-explang-core-0.0.2-runnable.jar
+mvn org.apache.maven.plugins:maven-dependency-plugin:2.8:get -Dartifact=io.opsit:opsit-explang-core:{{explang.version}}:jar:runnable   -Dtransitive=false -Ddest=opsit-explang-core-{{explang.version}}-runnable.jar
 ```
 
 Using Explang Runnable Jar
@@ -22,7 +22,7 @@ Using Explang Runnable Jar
 Explang-core contains built-in REPL. Run it on a terminal or in Windows console:
 
 ```
-$ java -jar opsit-explang-core-0.0.2-runnable.jar 
+$ java -jar opsit-explang-core-{{explang.version}}-runnable.jar 
 Welcome to the EXPLANG REPL!
 Active parser is LispParser
 Loaded packages are: [base.math, base.text, io, base.bindings, ffi, base.funcs, loops, threads, base.version, base.coercion, base.logic, base.lang, base.arithmetics, base.seq, base.control, base.regex, dwim, base.docs, base.beans, base.types]
@@ -50,7 +50,7 @@ Executing Explang Scripts
 -------------------------
 
 ```shell
-$ java -jar opsit-explang-core-0.0.2-runnable.jar ./examples/hello.l
+$ java -jar opsit-explang-core-{{explang.version}}-runnable.jar ./examples/hello.l
 Hello world
 ```
 

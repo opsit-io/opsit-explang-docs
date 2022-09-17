@@ -9,7 +9,7 @@ Using Explang from Java Code
   <dependency>
     <groupId>io.opsit</groupId>
     <artifactId>opsit-explang-core</artifactId>
-    <version>0.0.2</version>
+    <version>{{explang.version}}</version>
   </dependency>
 ...
 </dependencies>
