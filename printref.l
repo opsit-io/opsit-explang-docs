@@ -1,3 +1,6 @@
+
+(setq *javadoc-url* (argv 1))
+
 (defun format-funcall (funcname args)
   (str "(" funcname " "  args ")"))
 
@@ -11,6 +14,11 @@
 		  ") "))
   (println))
 	   
+(defun format-location (loc)
+  (let ((loc-match (re-matches (re-pattern "^(class) +(.*)$") loc)))
+    (if loc-match
+	(str "[" loc  "]" "(" *javadoc-url* "/" (replace (replace (get loc-match 2) "." "/") "$" ".") ".html)")
+	(str "**" loc "**"))))
 
 (defun printfunc(descr)
   (with-bindings descr
@@ -28,13 +36,13 @@
 %s
 
 
-**%s %s** defined at  **%s** in package **%s**
+**%s %s** in package **%s** defined at  %s 
 "
 		     name
 		     summary
 		     (format-funcall name argDescr)
 		     (format-details details)
-		     (if builtIn "builtin" "compiled") codeType defLocation packageName)))))
+		     (if builtIn "builtin" "compiled") codeType packageName (format-location defLocation))))))
 
 (let ((fnames  (functions-names))
       (descrs (map
