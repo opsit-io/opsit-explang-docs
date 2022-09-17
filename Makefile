@@ -13,13 +13,6 @@ build: $(EXPLANG) $(GENERATED) docs/*.md make_examples
 	env EXPLANG_VERSION=$(EXPLANG_VERSION) mkdocs build
 
 
-javadoc: site/javadoc/opsit-explang-core
-
-site/javadoc/opsit-explang-core: $(EXPLANG_JAVADOC)
-	mkdir -p site/javadoc/opsit-explang-core
-	unzip $(EXPLANG_JAVADOC) -d site/javadoc/opsit-explang-core || rmdir -f site/javadoc/opsit-explang-core
-
-
 clean:
 	rm -rvf site/
 	rm -vf $(GENERATED)
@@ -66,4 +59,8 @@ examples/alg:
 	mkdir -vp examples/alg
 	cp -v ../opsit-explang-alg-parser/examples/*.jl examples/alg/
 
-.PHONY: clean realclean build update_examples make_examples_lisp make_examples_alg make_examples javadoc
+gh-deploy:
+	mkdir -p gh-pages
+	mkdocs gh-deploy -d gh-pages
+
+.PHONY: clean realclean build update_examples make_examples_lisp make_examples_alg make_examples gh-deploy

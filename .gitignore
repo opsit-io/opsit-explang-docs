@@ -135,3 +135,4 @@ runrepl.sh
 ## mkdocs generated files
 docs/functions.md
 site/
+gh-pages/
