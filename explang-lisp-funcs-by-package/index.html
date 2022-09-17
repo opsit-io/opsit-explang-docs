@@ -1,0 +1,3942 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://github.com/opsit-io/opsit-explang-docs/explang-lisp-funcs-by-package/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.2">
+    
+    
+      
+        <title>Explang/Lisp funcs by Package - Explang Documentation Site</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.69437709.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#explanglisp-built-in-functions-by-package" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Explang Documentation Site" class="md-header__button md-logo" aria-label="Explang Documentation Site" data-md-component="logo">
+      
+  <img src="../site_logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Explang Documentation Site
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Explang/Lisp funcs by Package
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Explang Documentation Site" class="md-nav__button md-logo" aria-label="Explang Documentation Site" data-md-component="logo">
+      
+  <img src="../site_logo.png" alt="logo">
+
+    </a>
+    Explang Documentation Site
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Explang Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../explang-goals-and-features/" class="md-nav__link">
+        Explang Goals and Features
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../explang-core-quick-start/" class="md-nav__link">
+        Explang Core Quick Start
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../explang-alg/" class="md-nav__link">
+        Using Explang with Algebraic Syntax
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../explang-from-java/" class="md-nav__link">
+        Calling Explang from Java
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../explang-extending/" class="md-nav__link">
+        Extending Explang in Java
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../explang-alg-funcs-by-package/" class="md-nav__link">
+        Explang/Alg funcs by Package
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../explang-alg-funcs-by-name/" class="md-nav__link">
+        Explang/Alg funcs by Name
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../explang-examples-alg/" class="md-nav__link">
+        Explang/Alg Examples
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../explang-lisp/" class="md-nav__link">
+        Using Explang with Lisp Syntax
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Explang/Lisp funcs by Package
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Explang/Lisp funcs by Package
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#basemath" class="md-nav__link">
+    base.math
+  </a>
+  
+    <nav class="md-nav" aria-label="base.math">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exp" class="md-nav__link">
+    EXP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#log" class="md-nav__link">
+    LOG
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#random" class="md-nav__link">
+    RANDOM
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sqrt" class="md-nav__link">
+    SQRT
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basetext" class="md-nav__link">
+    base.text
+  </a>
+  
+    <nav class="md-nav" aria-label="base.text">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#format" class="md-nav__link">
+    FORMAT
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lowercase" class="md-nav__link">
+    LOWERCASE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#str" class="md-nav__link">
+    STR
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#string-buffer" class="md-nav__link">
+    STRING-BUFFER
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#string-builder" class="md-nav__link">
+    STRING-BUILDER
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uppercase" class="md-nav__link">
+    UPPERCASE
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#io" class="md-nav__link">
+    io
+  </a>
+  
+    <nav class="md-nav" aria-label="io">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#load" class="md-nav__link">
+    LOAD
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loadr" class="md-nav__link">
+    LOADR
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#print" class="md-nav__link">
+    PRINT
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#println" class="md-nav__link">
+    PRINTLN
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#read-from-string" class="md-nav__link">
+    READ-FROM-STRING
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ffi" class="md-nav__link">
+    ffi
+  </a>
+  
+    <nav class="md-nav" aria-label="ffi">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    .
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#n" class="md-nav__link">
+    .N
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#s" class="md-nav__link">
+    .S
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#class" class="md-nav__link">
+    CLASS
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basebindings" class="md-nav__link">
+    base.bindings
+  </a>
+  
+    <nav class="md-nav" aria-label="base.bindings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bean" class="md-nav__link">
+    BEAN
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#boundp" class="md-nav__link">
+    BOUNDP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dlet" class="md-nav__link">
+    DLET
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fset" class="md-nav__link">
+    FSET
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function" class="md-nav__link">
+    FUNCTION
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getprop" class="md-nav__link">
+    GETPROP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getprops" class="md-nav__link">
+    GETPROPS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#let" class="md-nav__link">
+    LET
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#makunbound" class="md-nav__link">
+    MAKUNBOUND
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#new-ctx" class="md-nav__link">
+    NEW-CTX
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set" class="md-nav__link">
+    SET
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setprop" class="md-nav__link">
+    SETPROP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setprops" class="md-nav__link">
+    SETPROPS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setq" class="md-nav__link">
+    SETQ
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setv" class="md-nav__link">
+    SETV
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#symbol" class="md-nav__link">
+    SYMBOL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#try" class="md-nav__link">
+    TRY
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#with-bindings" class="md-nav__link">
+    WITH-BINDINGS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#with-ctx" class="md-nav__link">
+    WITH-CTX
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basefuncs" class="md-nav__link">
+    base.funcs
+  </a>
+  
+    <nav class="md-nav" aria-label="base.funcs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#apply" class="md-nav__link">
+    APPLY
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#backtrace" class="md-nav__link">
+    BACKTRACE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defun" class="md-nav__link">
+    DEFUN
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funcall" class="md-nav__link">
+    FUNCALL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#functionp" class="md-nav__link">
+    FUNCTIONP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#symbol-function" class="md-nav__link">
+    SYMBOL-FUNCTION
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#runtime" class="md-nav__link">
+    runtime
+  </a>
+  
+    <nav class="md-nav" aria-label="runtime">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#argv" class="md-nav__link">
+    ARGV
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#threads" class="md-nav__link">
+    threads
+  </a>
+  
+    <nav class="md-nav" aria-label="threads">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#new-thread" class="md-nav__link">
+    NEW-THREAD
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#loops" class="md-nav__link">
+    loops
+  </a>
+  
+    <nav class="md-nav" aria-label="loops">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#while" class="md-nav__link">
+    WHILE
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#baseversion" class="md-nav__link">
+    base.version
+  </a>
+  
+    <nav class="md-nav" aria-label="base.version">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#version" class="md-nav__link">
+    VERSION
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basecoercion" class="md-nav__link">
+    base.coercion
+  </a>
+  
+    <nav class="md-nav" aria-label="base.coercion">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bool" class="md-nav__link">
+    BOOL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#byte" class="md-nav__link">
+    BYTE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#char" class="md-nav__link">
+    CHAR
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#double" class="md-nav__link">
+    DOUBLE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#float" class="md-nav__link">
+    FLOAT
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#int" class="md-nav__link">
+    INT
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#long" class="md-nav__link">
+    LONG
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#short" class="md-nav__link">
+    SHORT
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#string" class="md-nav__link">
+    STRING
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#baselogic" class="md-nav__link">
+    base.logic
+  </a>
+  
+    <nav class="md-nav" aria-label="base.logic">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    &lt;
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    &lt;=
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    =
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    ==
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    ===
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    &gt;
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    &gt;=
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#and" class="md-nav__link">
+    AND
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dwim-matches" class="md-nav__link">
+    DWIM-MATCHES
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#equal" class="md-nav__link">
+    EQUAL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#not" class="md-nav__link">
+    NOT
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#or" class="md-nav__link">
+    OR
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#baselang" class="md-nav__link">
+    base.lang
+  </a>
+  
+    <nav class="md-nav" aria-label="base.lang">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#eval" class="md-nav__link">
+    EVAL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quote" class="md-nav__link">
+    QUOTE
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basearithmetics" class="md-nav__link">
+    base.arithmetics
+  </a>
+  
+    <nav class="md-nav" aria-label="base.arithmetics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    %
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    *
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    +
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-" class="md-nav__link">
+    -
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    /
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#max" class="md-nav__link">
+    MAX
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#min" class="md-nav__link">
+    MIN
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mod" class="md-nav__link">
+    MOD
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rem" class="md-nav__link">
+    REM
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signum" class="md-nav__link">
+    SIGNUM
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#baseseq" class="md-nav__link">
+    base.seq
+  </a>
+  
+    <nav class="md-nav" aria-label="base.seq">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#-_1" class="md-nav__link">
+    -&gt;
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#append" class="md-nav__link">
+    APPEND
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#append_1" class="md-nav__link">
+    APPEND!
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aref" class="md-nav__link">
+    AREF
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aset" class="md-nav__link">
+    ASET
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assoc" class="md-nav__link">
+    ASSOC
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assoc_1" class="md-nav__link">
+    ASSOC!
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#associativep" class="md-nav__link">
+    ASSOCIATIVEP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#collp" class="md-nav__link">
+    COLLP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cons" class="md-nav__link">
+    CONS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copy" class="md-nav__link">
+    COPY
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filter" class="md-nav__link">
+    FILTER
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#first" class="md-nav__link">
+    FIRST
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#foreach" class="md-nav__link">
+    FOREACH
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get" class="md-nav__link">
+    GET
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-in" class="md-nav__link">
+    GET-IN
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hashmap" class="md-nav__link">
+    HASHMAP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hashset" class="md-nav__link">
+    HASHSET
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#in" class="md-nav__link">
+    IN
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#indexedp" class="md-nav__link">
+    INDEXEDP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#length" class="md-nav__link">
+    LENGTH
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list" class="md-nav__link">
+    LIST
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#make-array" class="md-nav__link">
+    MAKE-ARRAY
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#map" class="md-nav__link">
+    MAP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mapp" class="md-nav__link">
+    MAPP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mapprod" class="md-nav__link">
+    MAPPROD
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nth" class="md-nav__link">
+    NTH
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#push" class="md-nav__link">
+    PUSH!
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#put" class="md-nav__link">
+    PUT!
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#put-in" class="md-nav__link">
+    PUT-IN!
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#range" class="md-nav__link">
+    RANGE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reduce" class="md-nav__link">
+    REDUCE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#replace" class="md-nav__link">
+    REPLACE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rest" class="md-nav__link">
+    REST
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reverse" class="md-nav__link">
+    REVERSE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reverse_1" class="md-nav__link">
+    REVERSE!
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#select-keys" class="md-nav__link">
+    SELECT-KEYS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#seq" class="md-nav__link">
+    SEQ
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#seqp" class="md-nav__link">
+    SEQP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setp" class="md-nav__link">
+    SETP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sort" class="md-nav__link">
+    SORT
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sort_1" class="md-nav__link">
+    SORT!
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subseq" class="md-nav__link">
+    SUBSEQ
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#take" class="md-nav__link">
+    TAKE
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basecontrol" class="md-nav__link">
+    base.control
+  </a>
+  
+    <nav class="md-nav" aria-label="base.control">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#-_2" class="md-nav__link">
+    -&gt;&gt;
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-_3" class="md-nav__link">
+    @-&gt;
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#as-" class="md-nav__link">
+    AS-&gt;
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cond" class="md-nav__link">
+    COND
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#if" class="md-nav__link">
+    IF
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lambda" class="md-nav__link">
+    LAMBDA
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#progn" class="md-nav__link">
+    PROGN
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return" class="md-nav__link">
+    RETURN
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#throw" class="md-nav__link">
+    THROW
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when" class="md-nav__link">
+    WHEN
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#baseregex" class="md-nav__link">
+    base.regex
+  </a>
+  
+    <nav class="md-nav" aria-label="base.regex">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#re-find" class="md-nav__link">
+    RE-FIND
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#re-glob" class="md-nav__link">
+    RE-GLOB
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#re-groups" class="md-nav__link">
+    RE-GROUPS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#re-matcher" class="md-nav__link">
+    RE-MATCHER
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#re-matches" class="md-nav__link">
+    RE-MATCHES
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#re-pattern" class="md-nav__link">
+    RE-PATTERN
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#re-seq" class="md-nav__link">
+    RE-SEQ
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dwim" class="md-nav__link">
+    dwim
+  </a>
+  
+    <nav class="md-nav" aria-label="dwim">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dwim_fields" class="md-nav__link">
+    DWIM_FIELDS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#search" class="md-nav__link">
+    SEARCH
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basedocs" class="md-nav__link">
+    base.docs
+  </a>
+  
+    <nav class="md-nav" aria-label="base.docs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#describe-function" class="md-nav__link">
+    DESCRIBE-FUNCTION
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#documentation" class="md-nav__link">
+    DOCUMENTATION
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#functions-names" class="md-nav__link">
+    FUNCTIONS-NAMES
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basetypes" class="md-nav__link">
+    base.types
+  </a>
+  
+    <nav class="md-nav" aria-label="base.types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-of" class="md-nav__link">
+    TYPE-OF
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#typep" class="md-nav__link">
+    TYPEP
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../explang-lisp-funcs-by-name/" class="md-nav__link">
+        Explang/Lisp funcs by Name
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../explang-examples-lisp/" class="md-nav__link">
+        Explang/Lisp Examples
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../using-explang-REPL/" class="md-nav__link">
+        Using Explang REPL
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LICENSE/" class="md-nav__link">
+        License
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#basemath" class="md-nav__link">
+    base.math
+  </a>
+  
+    <nav class="md-nav" aria-label="base.math">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exp" class="md-nav__link">
+    EXP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#log" class="md-nav__link">
+    LOG
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#random" class="md-nav__link">
+    RANDOM
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sqrt" class="md-nav__link">
+    SQRT
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basetext" class="md-nav__link">
+    base.text
+  </a>
+  
+    <nav class="md-nav" aria-label="base.text">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#format" class="md-nav__link">
+    FORMAT
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lowercase" class="md-nav__link">
+    LOWERCASE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#str" class="md-nav__link">
+    STR
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#string-buffer" class="md-nav__link">
+    STRING-BUFFER
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#string-builder" class="md-nav__link">
+    STRING-BUILDER
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uppercase" class="md-nav__link">
+    UPPERCASE
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#io" class="md-nav__link">
+    io
+  </a>
+  
+    <nav class="md-nav" aria-label="io">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#load" class="md-nav__link">
+    LOAD
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loadr" class="md-nav__link">
+    LOADR
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#print" class="md-nav__link">
+    PRINT
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#println" class="md-nav__link">
+    PRINTLN
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#read-from-string" class="md-nav__link">
+    READ-FROM-STRING
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ffi" class="md-nav__link">
+    ffi
+  </a>
+  
+    <nav class="md-nav" aria-label="ffi">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    .
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#n" class="md-nav__link">
+    .N
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#s" class="md-nav__link">
+    .S
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#class" class="md-nav__link">
+    CLASS
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basebindings" class="md-nav__link">
+    base.bindings
+  </a>
+  
+    <nav class="md-nav" aria-label="base.bindings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bean" class="md-nav__link">
+    BEAN
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#boundp" class="md-nav__link">
+    BOUNDP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dlet" class="md-nav__link">
+    DLET
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fset" class="md-nav__link">
+    FSET
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function" class="md-nav__link">
+    FUNCTION
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getprop" class="md-nav__link">
+    GETPROP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getprops" class="md-nav__link">
+    GETPROPS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#let" class="md-nav__link">
+    LET
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#makunbound" class="md-nav__link">
+    MAKUNBOUND
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#new-ctx" class="md-nav__link">
+    NEW-CTX
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set" class="md-nav__link">
+    SET
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setprop" class="md-nav__link">
+    SETPROP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setprops" class="md-nav__link">
+    SETPROPS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setq" class="md-nav__link">
+    SETQ
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setv" class="md-nav__link">
+    SETV
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#symbol" class="md-nav__link">
+    SYMBOL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#try" class="md-nav__link">
+    TRY
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#with-bindings" class="md-nav__link">
+    WITH-BINDINGS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#with-ctx" class="md-nav__link">
+    WITH-CTX
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basefuncs" class="md-nav__link">
+    base.funcs
+  </a>
+  
+    <nav class="md-nav" aria-label="base.funcs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#apply" class="md-nav__link">
+    APPLY
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#backtrace" class="md-nav__link">
+    BACKTRACE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defun" class="md-nav__link">
+    DEFUN
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#funcall" class="md-nav__link">
+    FUNCALL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#functionp" class="md-nav__link">
+    FUNCTIONP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#symbol-function" class="md-nav__link">
+    SYMBOL-FUNCTION
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#runtime" class="md-nav__link">
+    runtime
+  </a>
+  
+    <nav class="md-nav" aria-label="runtime">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#argv" class="md-nav__link">
+    ARGV
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#threads" class="md-nav__link">
+    threads
+  </a>
+  
+    <nav class="md-nav" aria-label="threads">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#new-thread" class="md-nav__link">
+    NEW-THREAD
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#loops" class="md-nav__link">
+    loops
+  </a>
+  
+    <nav class="md-nav" aria-label="loops">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#while" class="md-nav__link">
+    WHILE
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#baseversion" class="md-nav__link">
+    base.version
+  </a>
+  
+    <nav class="md-nav" aria-label="base.version">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#version" class="md-nav__link">
+    VERSION
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basecoercion" class="md-nav__link">
+    base.coercion
+  </a>
+  
+    <nav class="md-nav" aria-label="base.coercion">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bool" class="md-nav__link">
+    BOOL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#byte" class="md-nav__link">
+    BYTE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#char" class="md-nav__link">
+    CHAR
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#double" class="md-nav__link">
+    DOUBLE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#float" class="md-nav__link">
+    FLOAT
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#int" class="md-nav__link">
+    INT
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#long" class="md-nav__link">
+    LONG
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#short" class="md-nav__link">
+    SHORT
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#string" class="md-nav__link">
+    STRING
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#baselogic" class="md-nav__link">
+    base.logic
+  </a>
+  
+    <nav class="md-nav" aria-label="base.logic">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    &lt;
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    &lt;=
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    =
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    ==
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    ===
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    &gt;
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    &gt;=
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#and" class="md-nav__link">
+    AND
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dwim-matches" class="md-nav__link">
+    DWIM-MATCHES
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#equal" class="md-nav__link">
+    EQUAL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#not" class="md-nav__link">
+    NOT
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#or" class="md-nav__link">
+    OR
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#baselang" class="md-nav__link">
+    base.lang
+  </a>
+  
+    <nav class="md-nav" aria-label="base.lang">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#eval" class="md-nav__link">
+    EVAL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quote" class="md-nav__link">
+    QUOTE
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basearithmetics" class="md-nav__link">
+    base.arithmetics
+  </a>
+  
+    <nav class="md-nav" aria-label="base.arithmetics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    %
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    *
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    +
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-" class="md-nav__link">
+    -
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    /
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#max" class="md-nav__link">
+    MAX
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#min" class="md-nav__link">
+    MIN
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mod" class="md-nav__link">
+    MOD
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rem" class="md-nav__link">
+    REM
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#signum" class="md-nav__link">
+    SIGNUM
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#baseseq" class="md-nav__link">
+    base.seq
+  </a>
+  
+    <nav class="md-nav" aria-label="base.seq">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#-_1" class="md-nav__link">
+    -&gt;
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#append" class="md-nav__link">
+    APPEND
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#append_1" class="md-nav__link">
+    APPEND!
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aref" class="md-nav__link">
+    AREF
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aset" class="md-nav__link">
+    ASET
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assoc" class="md-nav__link">
+    ASSOC
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assoc_1" class="md-nav__link">
+    ASSOC!
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#associativep" class="md-nav__link">
+    ASSOCIATIVEP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#collp" class="md-nav__link">
+    COLLP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cons" class="md-nav__link">
+    CONS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#copy" class="md-nav__link">
+    COPY
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filter" class="md-nav__link">
+    FILTER
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#first" class="md-nav__link">
+    FIRST
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#foreach" class="md-nav__link">
+    FOREACH
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get" class="md-nav__link">
+    GET
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-in" class="md-nav__link">
+    GET-IN
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hashmap" class="md-nav__link">
+    HASHMAP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hashset" class="md-nav__link">
+    HASHSET
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#in" class="md-nav__link">
+    IN
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#indexedp" class="md-nav__link">
+    INDEXEDP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#length" class="md-nav__link">
+    LENGTH
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list" class="md-nav__link">
+    LIST
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#make-array" class="md-nav__link">
+    MAKE-ARRAY
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#map" class="md-nav__link">
+    MAP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mapp" class="md-nav__link">
+    MAPP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mapprod" class="md-nav__link">
+    MAPPROD
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nth" class="md-nav__link">
+    NTH
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#push" class="md-nav__link">
+    PUSH!
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#put" class="md-nav__link">
+    PUT!
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#put-in" class="md-nav__link">
+    PUT-IN!
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#range" class="md-nav__link">
+    RANGE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reduce" class="md-nav__link">
+    REDUCE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#replace" class="md-nav__link">
+    REPLACE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rest" class="md-nav__link">
+    REST
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reverse" class="md-nav__link">
+    REVERSE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reverse_1" class="md-nav__link">
+    REVERSE!
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#select-keys" class="md-nav__link">
+    SELECT-KEYS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#seq" class="md-nav__link">
+    SEQ
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#seqp" class="md-nav__link">
+    SEQP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setp" class="md-nav__link">
+    SETP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sort" class="md-nav__link">
+    SORT
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sort_1" class="md-nav__link">
+    SORT!
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subseq" class="md-nav__link">
+    SUBSEQ
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#take" class="md-nav__link">
+    TAKE
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basecontrol" class="md-nav__link">
+    base.control
+  </a>
+  
+    <nav class="md-nav" aria-label="base.control">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#-_2" class="md-nav__link">
+    -&gt;&gt;
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-_3" class="md-nav__link">
+    @-&gt;
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#as-" class="md-nav__link">
+    AS-&gt;
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cond" class="md-nav__link">
+    COND
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#if" class="md-nav__link">
+    IF
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lambda" class="md-nav__link">
+    LAMBDA
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#progn" class="md-nav__link">
+    PROGN
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#return" class="md-nav__link">
+    RETURN
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#throw" class="md-nav__link">
+    THROW
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when" class="md-nav__link">
+    WHEN
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#baseregex" class="md-nav__link">
+    base.regex
+  </a>
+  
+    <nav class="md-nav" aria-label="base.regex">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#re-find" class="md-nav__link">
+    RE-FIND
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#re-glob" class="md-nav__link">
+    RE-GLOB
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#re-groups" class="md-nav__link">
+    RE-GROUPS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#re-matcher" class="md-nav__link">
+    RE-MATCHER
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#re-matches" class="md-nav__link">
+    RE-MATCHES
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#re-pattern" class="md-nav__link">
+    RE-PATTERN
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#re-seq" class="md-nav__link">
+    RE-SEQ
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dwim" class="md-nav__link">
+    dwim
+  </a>
+  
+    <nav class="md-nav" aria-label="dwim">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dwim_fields" class="md-nav__link">
+    DWIM_FIELDS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#search" class="md-nav__link">
+    SEARCH
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basedocs" class="md-nav__link">
+    base.docs
+  </a>
+  
+    <nav class="md-nav" aria-label="base.docs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#describe-function" class="md-nav__link">
+    DESCRIBE-FUNCTION
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#documentation" class="md-nav__link">
+    DOCUMENTATION
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#functions-names" class="md-nav__link">
+    FUNCTIONS-NAMES
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#basetypes" class="md-nav__link">
+    base.types
+  </a>
+  
+    <nav class="md-nav" aria-label="base.types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-of" class="md-nav__link">
+    TYPE-OF
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#typep" class="md-nav__link">
+    TYPEP
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="explanglisp-built-in-functions-by-package">Explang/lisp Built-in Functions by Package</h1>
+<p><a href="#basemath">base.math</a> <a href="#basetext">base.text</a> <a href="#io">io</a> <a href="#ffi">ffi</a> <a href="#basebindings">base.bindings</a> <a href="#basefuncs">base.funcs</a> <a href="#runtime">runtime</a> <a href="#threads">threads</a> <a href="#loops">loops</a> <a href="#baseversion">base.version</a> <a href="#basecoercion">base.coercion</a> <a href="#baselogic">base.logic</a> <a href="#baselang">base.lang</a> <a href="#basearithmetics">base.arithmetics</a> <a href="#baseseq">base.seq</a> <a href="#basecontrol">base.control</a> <a href="#baseregex">base.regex</a> <a href="#dwim">dwim</a> <a href="#basedocs">base.docs</a> <a href="#user">user</a> <a href="#basetypes">base.types</a> </p>
+<h2 id="basemath">base.math</h2>
+<h3 id="exp"><code>EXP</code></h3>
+<p><strong>Perform exponentiation.</strong></p>
+<p><strong>(EXP  x &amp;OPTIONAL base)</strong></p>
+<p>If base is not given it returns e raised to power x. Returns a Double value.</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$EXP</strong> in package <strong>base.math</strong></p>
+<h3 id="log"><code>LOG</code></h3>
+<p><strong>Computes logarithm.</strong></p>
+<p><strong>(LOG  x &amp;OPTIONAL base)</strong></p>
+<p>If base is not given it computes natural logarithm. Returns a Double value.</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$LOG</strong> in package <strong>base.math</strong></p>
+<h3 id="random"><code>RANDOM</code></h3>
+<p><strong>Produce Pseudo-Random Number.</strong></p>
+<p><strong>(RANDOM  limit)</strong></p>
+<p>Returns a pseudo-random number that is a non-negative number less than limit and of the same numeric type as limit. Implemented uding Java Math.random()</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$RANDOM</strong> in package <strong>base.math</strong></p>
+<h3 id="sqrt"><code>SQRT</code></h3>
+<p><strong>Computes square root of the argument.</strong></p>
+<p><strong>(SQRT  x)</strong></p>
+<p>Returns double value.</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$SQRT</strong> in package <strong>base.math</strong></p>
+<h2 id="basetext">base.text</h2>
+<h3 id="format"><code>FORMAT</code></h3>
+<p><strong>Format String.</strong></p>
+<p><strong>(FORMAT  format &amp;REST values)</strong></p>
+<p>Returns a formatted string using the specified format string (in the format of java.util.Formatter) and arguments. Arguments referenced by the format specifiers in the format string. If there are more arguments than format specifiers, the extra arguments are ignored. Throws IllegalFormatException - If a format string contains an illegal syntax, a format specifier that is incompatible with the given arguments, insufficient arguments given the format string, or other illegal conditions.</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$FORMAT</strong> in package <strong>base.text</strong></p>
+<h3 id="lowercase"><code>LOWERCASE</code></h3>
+<p><strong>(LOWERCASE  value)</strong></p>
+<p>Convert character, string or character sequence to lower case.</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$LOWERCASE</strong> in package <strong>base.text</strong></p>
+<h3 id="str"><code>STR</code></h3>
+<p><strong>Concatenate Strings.</strong></p>
+<p><strong>(STR  &amp;REST values)</strong></p>
+<p>Returns concatenation of string representationx of the function arguments. NIL arguments are ignored.</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$STR</strong> in package <strong>base.text</strong></p>
+<h3 id="string-buffer"><code>STRING-BUFFER</code></h3>
+<p><strong>Create and initialize a StringBuffer object.</strong></p>
+<p><strong>(STRING-BUFFER  &amp;REST args)</strong></p>
+<p>Return stringbuilder with all the arguments concatenated.</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$STRINGBUFFER</strong> in package <strong>base.text</strong></p>
+<h3 id="string-builder"><code>STRING-BUILDER</code></h3>
+<p><strong>Create and initialize a StringBuilder object.</strong></p>
+<p><strong>(STRING-BUILDER  &amp;REST args)</strong></p>
+<p>Return stringbuilder with all the arguments concatenated.</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$STRINGBUILDER</strong> in package <strong>base.text</strong></p>
+<h3 id="uppercase"><code>UPPERCASE</code></h3>
+<p><strong>(UPPERCASE  value)</strong></p>
+<p>Convert character, string or character sequence to upper case.</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$UPPERCASE</strong> in package <strong>base.text</strong></p>
+<h2 id="io">io</h2>
+<h3 id="load"><code>LOAD</code></h3>
+<p><strong>Execute program from a file/stream.</strong></p>
+<p><strong>(LOAD  file-spec)</strong></p>
+<p>Sequentially executes each form it encounters in the input file/or stream named by resource-spec. Returns exception if input could not be read or there were exceptions while compiling or executing forms an exception will be raised. file-spec may be a java.io.File object, file path as String or opened InputStream.</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$LOAD</strong> in package <strong>io</strong></p>
+<h3 id="loadr"><code>LOADR</code></h3>
+<p><strong>Execute program from Java resource.</strong></p>
+<p><strong>(LOADR  resource-spec)</strong></p>
+<p>Sequentially executes each form it encounters in the java resource file named by resource-spec. Returns exception if file could not be read or there were exceptions while compiling or executing forms an exception will be raised.</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$LOADR</strong> in package <strong>io</strong></p>
+<h3 id="print"><code>PRINT</code></h3>
+<p><strong>(PRINT  &amp;REST args)</strong></p>
+<p>Print Arguments on standard output.</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$PRINT</strong> in package <strong>io</strong></p>
+<h3 id="println"><code>PRINTLN</code></h3>
+<p><strong>(PRINTLN  &amp;REST args)</strong></p>
+<p>Print Arguments on standard output and print newline.</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$PRINTLN</strong> in package <strong>io</strong></p>
+<h3 id="read-from-string"><code>READ-FROM-STRING</code></h3>
+<p><strong>Parse expression from string.</strong></p>
+<p><strong>(READ-FROM-STRING  string)</strong></p>
+<p>Reads expression from string using default parser. Returns expression or NIL if no expression has been read</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$READ_FROM_STRING</strong> in package <strong>io</strong></p>
+<h2 id="ffi">ffi</h2>
+<h3 id="_1"><code>.</code></h3>
+<p><strong>Call Java Object Method/Read FieldCall method of java object or read contend of object field.</strong></p>
+<p><strong>(.  object &amp;REST call-args)</strong></p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$DOT</strong> in package <strong>ffi</strong></p>
+<h3 id="n"><code>.N</code></h3>
+<p><strong>Return New Class Instance.</strong></p>
+<p><strong>(.N  class &amp;OPTIONAL arglist typeslist)</strong></p>
+<p>Optional arglist and typeslist parameters specify parameters to be passed to cosnstructor and their types. When typelist not given it tries to find most narrowly matching constructor on the basis of types of the arguments in arglist. If typeslist is provided exactly matching constructor will be used.</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$DOTN</strong> in package <strong>ffi</strong></p>
+<h3 id="s"><code>.S</code></h3>
+<p><strong>Call Static Java Method/Read Static FieldCall method of java object or read contend of object field.</strong></p>
+<p><strong>(.S  class &amp;REST call-args)</strong></p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$DOTS</strong> in package <strong>ffi</strong></p>
+<h3 id="class"><code>CLASS</code></h3>
+<p><strong>Return Class by Class Name.Return class object according to it's fully qualified class name.</strong></p>
+<p><strong>(CLASS  class-spec)</strong></p>
+<p>class-spec may be string, symbol or any object,which string representation will be used</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$CLASS</strong> in package <strong>ffi</strong></p>
+<h2 id="basebindings">base.bindings</h2>
+<h3 id="bean"><code>BEAN</code></h3>
+<p><strong>Convert Java Bean to a Map.</strong></p>
+<p><strong>(BEAN  object &amp;OPTIONAL prefix suffix)</strong></p>
+<p>Returns a Map based on getters in the passed java object. Accepts optional prefix and suffics arguments that are used to modify the generated keys.</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$BEAN</strong> in package <strong>base.bindings</strong></p>
+<h3 id="boundp"><code>BOUNDP</code></h3>
+<p><strong>Check if Symbols are Bound.</strong></p>
+<p><strong>(BOUNDP  &amp;REST symbols)</strong></p>
+<p>Returns True if all the arguments are bound symbols or names of bound symbols; otherwise, returns False.</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$BOUNDP</strong> in package <strong>base.bindings</strong></p>
+<h3 id="dlet"><code>DLET</code></h3>
+<p><strong>(DLET args ...)</strong></p>
+<p>Destructuring LET construct.</p>
+<p><strong>builtin form</strong> defined at  <strong>class io.opsit.explang.Compiler$DLET</strong> in package <strong>base.bindings</strong></p>
+<h3 id="fset"><code>FSET</code></h3>
+<p><strong>(FSET  symbol value)</strong></p>
+<p>Set symbol's function value to value and return previous value or NIL.</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$FSET</strong> in package <strong>base.bindings</strong></p>
+<h3 id="function"><code>FUNCTION</code></h3>
+<p><strong>(FUNCTION args ...)</strong></p>
+<p>Get Function Given it's symbol.</p>
+<p><strong>builtin form</strong> defined at  <strong>class io.opsit.explang.Compiler$FUNCTION</strong> in package <strong>base.bindings</strong></p>
+<h3 id="getprop"><code>GETPROP</code></h3>
+<p><strong>Get Variable Property.</strong></p>
+<p><strong>(GETPROP  symbol property-key)</strong></p>
+<p>Returns value of a property from variable property map</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$GETPROP</strong> in package <strong>base.bindings</strong></p>
+<h3 id="getprops"><code>GETPROPS</code></h3>
+<p><strong>(GETPROPS  symbol)</strong></p>
+<p>Get Properties Map for a Variable.</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$GETPROPS</strong> in package <strong>base.bindings</strong></p>
+<h3 id="let"><code>LET</code></h3>
+<p><strong>Evaluate code with given var.</strong></p>
+<p><strong>(LET args ...)</strong></p>
+<p>bindings.</p>
+<p><strong>builtin form</strong> defined at  <strong>class io.opsit.explang.Compiler$LET</strong> in package <strong>base.bindings</strong></p>
+<h3 id="makunbound"><code>MAKUNBOUND</code></h3>
+<p><strong>Unbind variable given by symbol.</strong></p>
+<p><strong>(MAKUNBOUND  symbol)</strong></p>
+<p>Always returns symbol.</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$MAKUNBOUND</strong> in package <strong>base.bindings</strong></p>
+<h3 id="new-ctx"><code>NEW-CTX</code></h3>
+<p><strong>(NEW-CTX )</strong></p>
+<p>Create New Empty Context</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$NEW_CTX</strong> in package <strong>base.bindings</strong></p>
+<h3 id="set"><code>SET</code></h3>
+<p><strong>Change variable value in specified context.</strong></p>
+<p><strong>(SET  symbol value &amp;KEY uplevel level)</strong></p>
+<p>Set changes the contents of variable symbol in the dynamic context to the given value. If uplevel is set the value will be set in the uplevel-ths previous context. If level is set the value will be changed in the level-th context from the level0 </p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$SET</strong> in package <strong>base.bindings</strong></p>
+<h3 id="setprop"><code>SETPROP</code></h3>
+<p><strong>Set variable property.</strong></p>
+<p><strong>(SETPROP  symbol property-key property-value)</strong></p>
+<p>Sets property value in variable property map</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$SETPROP</strong> in package <strong>base.bindings</strong></p>
+<h3 id="setprops"><code>SETPROPS</code></h3>
+<p><strong>(SETPROPS  symbol properties-map)</strong></p>
+<p>Set Properties Map for a Variable</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$SETPROPS</strong> in package <strong>base.bindings</strong></p>
+<h3 id="setq"><code>SETQ</code></h3>
+<p><strong>Variable assignment, glocal if not exists.</strong></p>
+<p><strong>(SETQ  &amp;REST args)</strong></p>
+<p>If variable is already assigned it's value will be replaced by result of form evaluation. If not new global binding will be created in the global scope</p>
+<p>var - a symbol naming a variable.</p>
+<p>form - an expression, which evaluation result will be assigned to var</p>
+<p>Returns: value of the last form, or nil if no pairs were supplied.</p>
+<p><strong>builtin form</strong> defined at  <strong>class io.opsit.explang.Compiler$SETQ</strong> in package <strong>base.bindings</strong></p>
+<h3 id="setv"><code>SETV</code></h3>
+<p><strong>Varianle assignmentm, global if not exists.</strong></p>
+<p><strong>(SETV  &amp;REST args)</strong></p>
+<p>If variable is already assigned it's value will be replaced by result of form evaluation. If not new global binding will be created in the global scope</p>
+<p>var - a symbol naming a variable.</p>
+<p>form - an expression, which evaluation result will be assigned to var</p>
+<p>Returns: value of the last form, or nil if no pairs were supplied.</p>
+<p><strong>builtin form</strong> defined at  <strong>class io.opsit.explang.Compiler$SETV</strong> in package <strong>base.bindings</strong></p>
+<h3 id="symbol"><code>SYMBOL</code></h3>
+<p><strong>(SYMBOL  symbol-name)</strong></p>
+<p>Makes new Symbol for a string</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$SYMBOL</strong> in package <strong>base.bindings</strong></p>
+<h3 id="try"><code>TRY</code></h3>
+<p><strong>(TRY args ...)</strong></p>
+<p>Try-Catch-Final construction.</p>
+<p><strong>builtin form</strong> defined at  <strong>class io.opsit.explang.Compiler$TRY</strong> in package <strong>base.bindings</strong></p>
+<h3 id="with-bindings"><code>WITH-BINDINGS</code></h3>
+<p><strong>(WITH-BINDINGS args ...)</strong></p>
+<p>Evaluate code with bindings from a Java Map.</p>
+<p><strong>builtin form</strong> defined at  <strong>class io.opsit.explang.Compiler$WITH_BINDINGS</strong> in package <strong>base.bindings</strong></p>
+<h3 id="with-ctx"><code>WITH-CTX</code></h3>
+<p><strong>(WITH-CTX args ...)</strong></p>
+<p>Evaluate code in given context.</p>
+<p><strong>builtin form</strong> defined at  <strong>class io.opsit.explang.Compiler$WITH_CTX</strong> in package <strong>base.bindings</strong></p>
+<h2 id="basefuncs">base.funcs</h2>
+<h3 id="apply"><code>APPLY</code></h3>
+<p><strong>Apply function to arguments.</strong></p>
+<p><strong>(APPLY  f &amp;REST arguments)</strong></p>
+<p>arguments must be a spreadable list designator, i.e. if the last argument is a list, it contents will be appended to the list of arguments.</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$APPLY</strong> in package <strong>base.funcs</strong></p>
+<h3 id="backtrace"><code>BACKTRACE</code></h3>
+<p><strong>Return callstack backtrace.</strong></p>
+<p><strong>(BACKTRACE )</strong></p>
+<p>Returns string representation of current stack frame.</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$BACKTRACE</strong> in package <strong>base.funcs</strong></p>
+<h3 id="defun"><code>DEFUN</code></h3>
+<p><strong>(DEFUN args ...)</strong></p>
+<p>Define named function</p>
+<p><strong>builtin form</strong> defined at  <strong>class io.opsit.explang.Compiler$DEFUN</strong> in package <strong>base.funcs</strong></p>
+<h3 id="funcall"><code>FUNCALL</code></h3>
+<p><strong>Apply Arguments to a Function.</strong></p>
+<p><strong>(FUNCALL  function &amp;REST arguments)</strong></p>
+<p>Function must be a function object</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$FUNCALL</strong> in package <strong>base.funcs</strong></p>
+<h3 id="functionp"><code>FUNCTIONP</code></h3>
+<p><strong>Check if object is a function.</strong></p>
+<p><strong>(FUNCTIONP  object)</strong></p>
+<p>Returns true if object is a function (built-in or user defined); otherwise, returns false. A function is an object that represents code to be executed when an appropriate number of arguments is supplied. A function can be directly invoked by using it as the first argument to funcall, apply.</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$FUNCTIONP</strong> in package <strong>base.funcs</strong></p>
+<h3 id="symbol-function"><code>SYMBOL-FUNCTION</code></h3>
+<p><strong>Returns function bound to given symbol.</strong></p>
+<p><strong>(SYMBOL-FUNCTION  symbol)</strong></p>
+<p>If no function bound raises an error. The returned object may be a built-in function, compiled function or built-in special form.</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$SYMBOL_FUNCTION</strong> in package <strong>base.funcs</strong></p>
+<h2 id="runtime">runtime</h2>
+<h3 id="argv"><code>ARGV</code></h3>
+<p><strong>Access command line arguments.</strong></p>
+<p><strong>(ARGV  &amp;OPTIONAL n)</strong></p>
+<p>When n is provided return nth argument as String, when not -- return list of command line arguments. If n is out of range return NIL.</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$ARGV</strong> in package <strong>runtime</strong></p>
+<h2 id="threads">threads</h2>
+<h3 id="new-thread"><code>NEW-THREAD</code></h3>
+<p><strong>Create new Java thread.</strong></p>
+<p><strong>(NEW-THREAD  fn &amp;OPTIONAL name)</strong></p>
+<p>Creates new Java thread and prepare it for execution of given function fn.fn must not require parameters for it's execution. The created thread is not started.</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$NEW_THREAD</strong> in package <strong>threads</strong></p>
+<h2 id="loops">loops</h2>
+<h3 id="while"><code>WHILE</code></h3>
+<p><strong>While loop construction.</strong></p>
+<p><strong>(WHILE args ...)</strong></p>
+<p>Execute sequnce of expressions while the consition is true</p>
+<p><strong>builtin form</strong> defined at  <strong>class io.opsit.explang.Compiler$WHILE</strong> in package <strong>loops</strong></p>
+<h2 id="baseversion">base.version</h2>
+<h3 id="version"><code>VERSION</code></h3>
+<p><strong>Create Version from text specification.</strong></p>
+<p><strong>(VERSION  spec)</strong></p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$VERSION</strong> in package <strong>base.version</strong></p>
+<h2 id="basecoercion">base.coercion</h2>
+<h3 id="bool"><code>BOOL</code></h3>
+<p><strong>Coerce Value to Boolean.</strong></p>
+<p><strong>(BOOL  value)</strong></p>
+<p>Value may be a Character, a Number, a Boolean, a Byte, a String, any object or NIL:</p>
+<ul>
+<li>
+<p>Boolean value will be returned as is</p>
+</li>
+<li>
+<p>NIL is false</p>
+</li>
+<li>
+<p>Character    is false.</p>
+</li>
+<li>
+<p>any Number which is equal to zero is false</p>
+</li>
+<li>
+<p>an empty String is false</p>
+</li>
+<li>
+<p>An empty collection is false </p>
+</li>
+<li>
+<p>Any other object is true.</p>
+</li>
+</ul>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$BOOL</strong> in package <strong>base.coercion</strong></p>
+<h3 id="byte"><code>BYTE</code></h3>
+<p><strong>Coerce Value to Byte.</strong></p>
+<p><strong>(BYTE  value)</strong></p>
+<p>Value may be a Number, String, any object or NIL.String will be parsed as number using same rules as numeric literals. The floating point values will be truncated.</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$BYTE</strong> in package <strong>base.coercion</strong></p>
+<h3 id="char"><code>CHAR</code></h3>
+<p><strong>Coerce Value to Character.</strong></p>
+<p><strong>(CHAR  value)</strong></p>
+<p>Value may be a Character, a Number, a Boolean, a Byte, a Stringor NIL:</p>
+<ul>
+<li>
+<p>Character value will be returned as is.</p>
+</li>
+<li>
+<p>NIL will be converted to unicode value # .</p>
+</li>
+<li>
+<p>a Boolean True value will be returned as character 'T', False as ' '.</p>
+</li>
+<li>
+<p>a Number (other than Byte) will be truncated to short (if needed) and the character at corresponding Unicode code unit will be returned.</p>
+</li>
+<li>
+<p>a Byte value will be treated as unsigned integer value and processed as described above.</p>
+</li>
+<li>
+<p>a String will be parsed as number using same rules as numeric literals and the resulting value will be used as described above. Conversion to number may fail.</p>
+</li>
+<li>
+<p>Any other object will cause conversion error.</p>
+</li>
+</ul>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$CHAR</strong> in package <strong>base.coercion</strong></p>
+<h3 id="double"><code>DOUBLE</code></h3>
+<p><strong>Coerce Value to Double.</strong></p>
+<p><strong>(DOUBLE  value)</strong></p>
+<p>Value may be a Number, String, any object or NIL.String will be parsed as number using same rules as numeric literals. The floating point values will be truncated.</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$DOUBLE</strong> in package <strong>base.coercion</strong></p>
+<h3 id="float"><code>FLOAT</code></h3>
+<p><strong>Coerce Value to Float.</strong></p>
+<p><strong>(FLOAT  value)</strong></p>
+<p>Value may be a Number, String, any object or NIL.String will be parsed as number using same rules as numeric literals. The floating point values will be truncated.</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$FLOAT</strong> in package <strong>base.coercion</strong></p>
+<h3 id="int"><code>INT</code></h3>
+<p><strong>Coerce value to Integer.</strong></p>
+<p><strong>(INT  value)</strong></p>
+<p>Value may be a Number, String, any object or NIL.String will be parsed as number using same rules as numeric literals. The floating point value will be truncated.</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$INT</strong> in package <strong>base.coercion</strong></p>
+<h3 id="long"><code>LONG</code></h3>
+<p><strong>Coerce Value to Long.</strong></p>
+<p><strong>(LONG  value)</strong></p>
+<p>Value may be a Number, String, any object or NIL.String will be parsed as number using same rules as numeric literals. The floating point values will be truncated.</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$LONG</strong> in package <strong>base.coercion</strong></p>
+<h3 id="short"><code>SHORT</code></h3>
+<p><strong>Coerce Value to Short.</strong></p>
+<p><strong>(SHORT  value)</strong></p>
+<p>Value may be a Number, String, any object or NIL.String will be parsed as number using same rules as numeric literals. The floating point values will be truncated.</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$SHORT</strong> in package <strong>base.coercion</strong></p>
+<h3 id="string"><code>STRING</code></h3>
+<p><strong>Coerce Value to String.</strong></p>
+<p><strong>(STRING  value)</strong></p>
+<p>Value may be any object or NIL: NIL is converted to String "NIL", any other object converted using it's toString() method</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$STRING</strong> in package <strong>base.coercion</strong></p>
+<h2 id="baselogic">base.logic</h2>
+<h3 id="_2"><code>&lt;</code></h3>
+<p><strong>Less Than - Numeric Comparison.</strong></p>
+<p><strong>(&lt;  x &amp;REST args)</strong></p>
+<p>Returns True if all arguments are monotonically increasing order.  Returns True if only one argument is given</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$NUMLT</strong> in package <strong>base.logic</strong></p>
+<h3 id="_3"><code>&lt;=</code></h3>
+<p><strong>Less or Equal - Numeric comparison.</strong></p>
+<p><strong>(&lt;=  x &amp;REST args)</strong></p>
+<p>Returns True if all arguments are monotonically non-decreasing order.  Returns True if only one argument is given</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$NUMLE</strong> in package <strong>base.logic</strong></p>
+<h3 id="_4"><code>=</code></h3>
+<p><strong>Test numeric equality.</strong></p>
+<p><strong>(=  x &amp;REST args)</strong></p>
+<p>Returns True if all arguments are numerically equal. Returns True if only one argument is given</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$NUMEQ</strong> in package <strong>base.logic</strong></p>
+<h3 id="_5"><code>==</code></h3>
+<p><strong>Check Value Equality.</strong></p>
+<p><strong>(==  x y)</strong></p>
+<p>Returns true if x equal to y according to call to Java method x.equals(y) or if both objects are NIL. If they are not, it  returns true if  thy are equal numerically or structurally.</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$SEQUAL</strong> in package <strong>base.logic</strong></p>
+<h3 id="_6"><code>===</code></h3>
+<p><strong>Check Object Equality.</strong></p>
+<p><strong>(===  x y)</strong></p>
+<p>Objects identity check: returns true if Object x is same as Object y. Uses java operator == to check objects identity</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$EQ</strong> in package <strong>base.logic</strong></p>
+<h3 id="_7"><code>&gt;</code></h3>
+<p><strong>Greater Than - Numeric comparison.</strong></p>
+<p><strong>(&gt;  x &amp;REST args)</strong></p>
+<p>Returns True if all arguments are monotonically decreasing order.  Returns True if only one argument is given</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$NUMGT</strong> in package <strong>base.logic</strong></p>
+<h3 id="_8"><code>&gt;=</code></h3>
+<p><strong>Greater or Equal - Numeric comparison.</strong></p>
+<p><strong>(&gt;=  x &amp;REST args)</strong></p>
+<p>Returns True if all arguments are monotonically non-increasing order. Returns True if only one argument is given</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$NUMGE</strong> in package <strong>base.logic</strong></p>
+<h3 id="and"><code>AND</code></h3>
+<p><strong>Logical AND.</strong></p>
+<p><strong>(AND  &amp;REST &amp;LAZY forms)</strong></p>
+<p>Function AND lazily evaluates each argument form, one at a time from left to right. As soon as any form evaluates to NIL, AND returns NIL without evaluating the remaining forms. If all forms but the last evaluate to true values, AND returns the results produced by evaluating the last form. If no forms are supplied, (AND) returns true.</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$AND</strong> in package <strong>base.logic</strong></p>
+<h3 id="dwim-matches"><code>DWIM-MATCHES</code></h3>
+<p><strong>Perform Do What I Mean style search.</strong></p>
+<p><strong>(DWIM-MATCHES  object &amp;OPTIONAL pattern)</strong></p>
+<p>When pattern is an Regexp tries to find the regexp in String Representation of object.</p>
+<p>When pattern is a String it tries to find its occurences in the String Representation of object.</p>
+<p>When pattern is a Number then numeric equality check is performed. </p>
+<p>When pattern is any other object the equality test is performed. </p>
+<p>If there were matches the function returns list of matches. </p>
+<p>If there is no match an empty list is returned.</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.DWIM$DWIM_MATCHES</strong> in package <strong>base.logic</strong></p>
+<h3 id="equal"><code>EQUAL</code></h3>
+<p><strong>Check Object Equality.</strong></p>
+<p><strong>(EQUAL  x y)</strong></p>
+<p>Returns true if x equal to y according to call to Java method x.equals(y) or if both objects are NIL.</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$EQUAL</strong> in package <strong>base.logic</strong></p>
+<h3 id="not"><code>NOT</code></h3>
+<p><strong>Logical Negation.</strong></p>
+<p><strong>(NOT  x)</strong></p>
+<p>Returns True if x has false logical value; otherwise, returns False.Parameter x can be any object. Only NIL, the empty list (), the empty String "", 0  and FALSE have false logical value. All other objects have true logical value</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$NOT</strong> in package <strong>base.logic</strong></p>
+<h3 id="or"><code>OR</code></h3>
+<p><strong>Logical OR.</strong></p>
+<p><strong>(OR  &amp;REST &amp;LAZY args)</strong></p>
+<p>Function OR lazily evaluates each form, one at a time, from left to right. The evaluation of all forms terminates when a form evaluates to true (i.e., something other than nil) and OR immediately returns that value without evaluating the remaining forms.</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$OR</strong> in package <strong>base.logic</strong></p>
+<h2 id="baselang">base.lang</h2>
+<h3 id="eval"><code>EVAL</code></h3>
+<p><strong>Evaluate a Parsed Expression.</strong></p>
+<p><strong>(EVAL  form)</strong></p>
+<p>Evaluates parsed form in the current dynamic context and return result of evaluation'</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$EVAL</strong> in package <strong>base.lang</strong></p>
+<h3 id="quote"><code>QUOTE</code></h3>
+<p><strong>(QUOTE args ...)</strong></p>
+<p>Return its argument without evaluation.</p>
+<p><strong>builtin form</strong> defined at  <strong>class io.opsit.explang.Compiler$QUOTE</strong> in package <strong>base.lang</strong></p>
+<h2 id="basearithmetics">base.arithmetics</h2>
+<h3 id="_9"><code>%</code></h3>
+<p><strong>Compute Remainder.</strong></p>
+<p><strong>(%  x y)</strong></p>
+<p>Generalizations of the remainder function. When both operands are integer returns result of the remainder operation . If one of them is floating point returns result of </p>
+<div class="highlight"><pre><span></span><code> number - truncate_to_zero (number / divisor) * divisor (same semantic as for the Java % operator.
+</code></pre></div>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$REMOP</strong> in package <strong>base.arithmetics</strong></p>
+<h3 id="_10"><code>*</code></h3>
+<p><strong>Compute Product.</strong></p>
+<p><strong>(*  &amp;REST args)</strong></p>
+<p>Returns the product of it's arguments , performing any necessary type conversions in the process. If no numbers are supplied, 1 is returned.</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$MULOP</strong> in package <strong>base.arithmetics</strong></p>
+<h3 id="_11"><code>+</code></h3>
+<p><strong>Compute Sum.</strong></p>
+<p><strong>(+  &amp;REST args)</strong></p>
+<p>Returns the sum of numeric values of it's arguments, performing any necessary type conversions in the process. If no numbers are supplied, 0 is returned.</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$ADDOP</strong> in package <strong>base.arithmetics</strong></p>
+<h3 id="-"><code>-</code></h3>
+<p><strong>Performs subtraction or negation.</strong></p>
+<p><strong>(-  &amp;REST args)</strong></p>
+<p>If only one number is supplied, the negation of that number is returned. If more than one argument is given, it subtracts rest of the arguments from the first one and returns the result. The function performs necessary type conversions.</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$SUBOP</strong> in package <strong>base.arithmetics</strong></p>
+<h3 id="_12"><code>/</code></h3>
+<p><strong>Performs Division or Reciprocation.</strong></p>
+<p><strong>(/  &amp;REST args)</strong></p>
+<p>If no denominators are supplied, the function / returns the reciprocal of number. If at least one denominator is supplied, the function / divides the numerator by all of the denominators and returns the resulting quotient. If each argument is either an integer or a ratio, and the result is not an integer, then it is a ratio. The function / performs necessary type conversions. </p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$DIVOP</strong> in package <strong>base.arithmetics</strong></p>
+<h3 id="max"><code>MAX</code></h3>
+<p><strong>Find maximum.</strong></p>
+<p><strong>(MAX  x &amp;REST args)</strong></p>
+<p>Returns the maximum of numeric values of it's arguments, performing any necessary type conversions in the process. </p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$MAXOP</strong> in package <strong>base.arithmetics</strong></p>
+<h3 id="min"><code>MIN</code></h3>
+<p><strong>Find minimum.</strong></p>
+<p><strong>(MIN  x &amp;REST args)</strong></p>
+<p>Returns the maximum of numeric values of it's arguments, performing any necessary type conversions in the process. </p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$MINOP</strong> in package <strong>base.arithmetics</strong></p>
+<h3 id="mod"><code>MOD</code></h3>
+<p><strong>Compute Modulus.</strong></p>
+<p><strong>(MOD  number divisor)</strong></p>
+<p>Generalizations of the modulus function. When both operands are integer returns result of the modulus operation. If one of them is floating point returns result of </p>
+<div class="highlight"><pre><span></span><code> number - ⌊ (number / divisor) ⌋ * divisor
+</code></pre></div>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$MODOP</strong> in package <strong>base.arithmetics</strong></p>
+<h3 id="rem"><code>REM</code></h3>
+<p><strong>Compute Remainder.</strong></p>
+<p><strong>(REM  x y)</strong></p>
+<p>Generalizations of the remainder function. When both operands are integer returns result of the remainder operation . If one of them is floating point returns result of </p>
+<div class="highlight"><pre><span></span><code> number - truncate_to_zero (number / divisor) * divisor (same semantic as for the Java % operator.
+</code></pre></div>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$REMOP</strong> in package <strong>base.arithmetics</strong></p>
+<h3 id="signum"><code>SIGNUM</code></h3>
+<p><strong>Return Number Sign.</strong></p>
+<p><strong>(SIGNUM  x)</strong></p>
+<p>Determines a numerical value that indicates whether number is negative, zero, or positive. Returns one of -1, 0, or 1 according to whether number is negative, zero, or positive. The type of the result is of the same numeric type as x</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$SIGNUM</strong> in package <strong>base.arithmetics</strong></p>
+<h2 id="baseseq">base.seq</h2>
+<h3 id="-_1"><code>-&gt;</code></h3>
+<p><strong>(-&gt; args ...)</strong></p>
+<p>Threading form on first argument</p>
+<p><strong>builtin form</strong> defined at  <strong>class io.opsit.explang.Compiler$TH_1ST</strong> in package <strong>base.seq</strong></p>
+<h3 id="append"><code>APPEND</code></h3>
+<p><strong>Concatenate sequences (non-destructive).</strong></p>
+<p><strong>(APPEND  &amp;REST sequences)</strong></p>
+<p>append returns a new sequence that is the concatenation of the elements of the arguments. All the argument remain unchanged. The resulting sequence is of the same type as the first argument. In no arguments were given an empty list is returned. If target sequence is an array necessary coercions will be performed automatically.</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$APPEND</strong> in package <strong>base.seq</strong></p>
+<h3 id="append_1"><code>APPEND!</code></h3>
+<p><strong>Concatenate sequences (destructive).</strong></p>
+<p><strong>(APPEND!  &amp;REST sequences)</strong></p>
+<p>Adds to the first given sequence (target sequence) all the elements ofall of the following sequences and return the target sequence.  If no sequences were given an empty list will be returned. Target sequence must be extendable, that means that objects like Arrays or String cannot be target of this operation</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$NAPPEND</strong> in package <strong>base.seq</strong></p>
+<h3 id="aref"><code>AREF</code></h3>
+<p><strong>Get Array element value.</strong></p>
+<p><strong>(AREF  array index)</strong></p>
+<p>Return array element at specified index. Throws ArrayOutOfBoundsException if index is invalid</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$AREF</strong> in package <strong>base.seq</strong></p>
+<h3 id="aset"><code>ASET</code></h3>
+<p><strong>Set indexed sequence (array, list, character sequence) element value.</strong></p>
+<p><strong>(ASET  obj key object)</strong></p>
+<p>Set value of element at index to object.  If target ibject is a Java array and object type does not match type of this array this function will attempt to perform necessary coercion operations.  The coercions  work in the same way as INT, FLOAT, STRING and rest of the  built-in coercion functions. May fail with index out of bound exception. The function returns normally without any change to the target structure The function returns previous value of the element or NIL if it did not exist</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$ASET</strong> in package <strong>base.seq</strong></p>
+<h3 id="assoc"><code>ASSOC</code></h3>
+<p><strong>Associates value with key in an map structure.</strong></p>
+<p><strong>(ASSOC  map key val &amp;REST kvpairs)</strong></p>
+<p>Return new instance of the structure, the original is left unchanged.</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$ASSOC</strong> in package <strong>base.seq</strong></p>
+<h3 id="assoc_1"><code>ASSOC!</code></h3>
+<p><strong>Associates value with key in an map structure.</strong></p>
+<p><strong>(ASSOC!  map key val &amp;REST kvpairs)</strong></p>
+<p>Modifies the object and returns it as the result.</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$NASSOC</strong> in package <strong>base.seq</strong></p>
+<h3 id="associativep"><code>ASSOCIATIVEP</code></h3>
+<p><strong>(ASSOCIATIVEP  object)</strong></p>
+<p>Check if an object is an associative collection.</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$ASSOCIATIVEP</strong> in package <strong>base.seq</strong></p>
+<h3 id="collp"><code>COLLP</code></h3>
+<p><strong>(COLLP  object)</strong></p>
+<p>Check if an object is a sequence.</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$COLLP</strong> in package <strong>base.seq</strong></p>
+<h3 id="cons"><code>CONS</code></h3>
+<p><strong>(CONS  object-1 object-2)</strong></p>
+<p>Prepend element to a list.</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$CONS</strong> in package <strong>base.seq</strong></p>
+<h3 id="copy"><code>COPY</code></h3>
+<p><strong>(COPY  object)</strong></p>
+<p>Perform shallow copy of an object.</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$COPY</strong> in package <strong>base.seq</strong></p>
+<h3 id="filter"><code>FILTER</code></h3>
+<p><strong>Filter operation.</strong></p>
+<p><strong>(FILTER  test sequence)</strong></p>
+<p>test is a function of one argument that returns boolean, seq is input sequence. Return a sequence from which the elements that do not satisfy the test have been removed.</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$FILTER</strong> in package <strong>base.seq</strong></p>
+<h3 id="first"><code>FIRST</code></h3>
+<p><strong>Returns the first element of the sequence.</strong></p>
+<p><strong>(FIRST  sequence)</strong></p>
+<p>Returns NIL when sequence is NIL or empty</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$FIRST</strong> in package <strong>base.seq</strong></p>
+<h3 id="foreach"><code>FOREACH</code></h3>
+<p><strong>Foreach Loop over a sequence.</strong></p>
+<p><strong>(FOREACH  ( VAR SEQUENCE &amp;OPTIONAL RESULT ) &amp;REST body)</strong></p>
+<p>Evaluate body with VAR bound to each element from SEQUENCE, in turn.</p>
+<p>Then evaluate RESULT to get return value, default NIL.</p>
+<p><strong>builtin form</strong> defined at  <strong>class io.opsit.explang.Compiler$FOREACH</strong> in package <strong>base.seq</strong></p>
+<h3 id="get"><code>GET</code></h3>
+<p><strong>Returns the value from an associative structure.</strong></p>
+<p><strong>(GET  structure key &amp;OPTIONAL not-found)</strong></p>
+<p>Return value from an associative structure struct, </p>
+<p>Returns NIL if the key is not present, or the not-found value if supplied.</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$GET</strong> in package <strong>base.seq</strong></p>
+<h3 id="get-in"><code>GET-IN</code></h3>
+<p><strong>Returns the value from an hierarchy of associative structures.</strong></p>
+<p><strong>(GET-IN  structure ks &amp;OPTIONAL not-found)</strong></p>
+<p>Return value from an associative structure struct, </p>
+<p>where ks is a sequence of keys. Returns NIL if the key</p>
+<p>is not present, or the not-found value if supplied.</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$GET_IN</strong> in package <strong>base.seq</strong></p>
+<h3 id="hashmap"><code>HASHMAP</code></h3>
+<p><strong>Create a HashMap.</strong></p>
+<p><strong>(HASHMAP  &amp;REST pairs)</strong></p>
+<p>Returns new HashMap filled with given keys and values. Throws InvalidParametersException if non-even number of arguments is given.</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$HASHMAP</strong> in package <strong>base.seq</strong></p>
+<h3 id="hashset"><code>HASHSET</code></h3>
+<p><strong>Create a HashSet.</strong></p>
+<p><strong>(HASHSET  &amp;REST args)</strong></p>
+<p>Returns a set containing the supplied objects. </p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$HASHSET</strong> in package <strong>base.seq</strong></p>
+<h3 id="in"><code>IN</code></h3>
+<p><strong>Check if an element is contained in a sequence.</strong></p>
+<p><strong>(IN  elt sequence)</strong></p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$IN</strong> in package <strong>base.seq</strong></p>
+<h3 id="indexedp"><code>INDEXEDP</code></h3>
+<p><strong>(INDEXEDP  object)</strong></p>
+<p>Check if an object is an indexed collection.</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$INDEXEDP</strong> in package <strong>base.seq</strong></p>
+<h3 id="length"><code>LENGTH</code></h3>
+<p><strong>Return length of a sequence.</strong></p>
+<p><strong>(LENGTH  sequence)</strong></p>
+<p>Parameter may be any supported sequence (collection, array, character sequence) or NIL (0 will be returned).</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$LENGTH</strong> in package <strong>base.seq</strong></p>
+<h3 id="list"><code>LIST</code></h3>
+<p><strong>Create a list.</strong></p>
+<p><strong>(LIST  &amp;REST args)</strong></p>
+<p>Returns a list containing the supplied objects. </p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$LIST</strong> in package <strong>base.seq</strong></p>
+<h3 id="make-array"><code>MAKE-ARRAY</code></h3>
+<p><strong>Ceate an Array.</strong></p>
+<p><strong>(MAKE-ARRAY  &amp;KEY size element-type &amp;REST elements)</strong></p>
+<p>Creates array of objects of specified size. Optional :element-type argument specifies type of array elements. The default is java.lang.Object</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$MAKE_ARRAY</strong> in package <strong>base.seq</strong></p>
+<h3 id="map"><code>MAP</code></h3>
+<p><strong>Apply function on elements of collections.</strong></p>
+<p><strong>(MAP  func &amp;REST lists)</strong></p>
+<p>Returns a sequence consisting of the result of applying func to the set of first items of each list, followed by applying func to the set of second items in each list, until any one of the lists is exhausted.  Any remaining items in other lists are ignored. Function func should accept number arguments that is equal to number of lists.</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$MAP</strong> in package <strong>base.seq</strong></p>
+<h3 id="mapp"><code>MAPP</code></h3>
+<p><strong>(MAPP  object)</strong></p>
+<p>Check if an object is a Map.</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$MAPP</strong> in package <strong>base.seq</strong></p>
+<h3 id="mapprod"><code>MAPPROD</code></h3>
+<p><strong>Apply function on cartesioan product of lists.</strong></p>
+<p><strong>(MAPPROD  f &amp;REST lists)</strong></p>
+<p>Returns a sequence consisting of the result of applying func to the cartesian product of the lists. Function func should accept number arguments that is equal to number of lists.</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$MAPPROD</strong> in package <strong>base.seq</strong></p>
+<h3 id="nth"><code>NTH</code></h3>
+<p><strong>Locates the nth element of a sequence.</strong></p>
+<p><strong>(NTH  n sequence)</strong></p>
+<p>n may be any non-negative number. Returns NIL when sequence is NIL or n is out of bounds</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$NTH</strong> in package <strong>base.seq</strong></p>
+<h3 id="push"><code>PUSH!</code></h3>
+<p><strong>Append element to the end of a seqence modifying the sequence.</strong></p>
+<p><strong>(PUSH!  seq object)</strong></p>
+<p>Returns the sequence</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$NPUSH</strong> in package <strong>base.seq</strong></p>
+<h3 id="put"><code>PUT!</code></h3>
+<p><strong>Put element value into an associative structure.</strong></p>
+<p><strong>(PUT!  obj key object)</strong></p>
+<p>Set value of element at index/key to object.  If target ibject is a Java array and object type does not match type of this array this function will attempt to perform necessary coercion operations. The coercions  work in the same way as INT, FLOAT, STRING and rest of the built-in coercion functions. If target object is a list or array and happens out of bound exception the function returns normally without any change to the target structure The function returns previous value of the element or NIL if it did not exist</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$NPUT</strong> in package <strong>base.seq</strong></p>
+<h3 id="put-in"><code>PUT-IN!</code></h3>
+<p><strong>(PUT-IN!  structure ks value &amp;OPTIONAL new-col)</strong></p>
+<p>Put value into an hierarchy of associative structures according list of keys ks.</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$NPUT_IN</strong> in package <strong>base.seq</strong></p>
+<h3 id="range"><code>RANGE</code></h3>
+<p><strong>Return sequence of numbers.</strong></p>
+<p><strong>(RANGE  start stop &amp;OPTIONAL step)</strong></p>
+<p>Returns sequence of numbers  from start to stop (inclusively) with .</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$RANGE</strong> in package <strong>base.seq</strong></p>
+<h3 id="reduce"><code>REDUCE</code></h3>
+<p><strong>Reduce operation.</strong></p>
+<p><strong>(REDUCE  func &amp;OPTIONAL val &amp;REQUIRED seq)</strong></p>
+<p>func is a function of 2 arguments, value - optional starting value, seq is input sequence.</p>
+<p>When val is not given:  apply func to the first 2 items in the seq, then to the result and 3rd, etc. If seq contains no items, func must accept no arguments, return (func).If seq has 1 item, return it without calling func;</p>
+<p>If value is supplied, apply func on value and the first seq element, then on the result and the second element, etc. If there is no elements - return val;</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$REDUCE</strong> in package <strong>base.seq</strong></p>
+<h3 id="replace"><code>REPLACE</code></h3>
+<p><strong>Replace eache subsequence in seq that equals to target with replacement sequence.</strong></p>
+<p><strong>(REPLACE  seq target &amp;OPTIONAL replacement)</strong></p>
+<p>Return resulting sequence.  The original sequence is not modified. If replacement is not provided or is NIL  the target sequences will be deleted.</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$REPLACE</strong> in package <strong>base.seq</strong></p>
+<h3 id="rest"><code>REST</code></h3>
+<p><strong>(REST  sequence)</strong></p>
+<p>Return 2nd and further elements of sqeuence.</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$REST</strong> in package <strong>base.seq</strong></p>
+<h3 id="reverse"><code>REVERSE</code></h3>
+<p><strong>(REVERSE  sequence)</strong></p>
+<p>Reverse a sequence (non-destructive).</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$REVERSE</strong> in package <strong>base.seq</strong></p>
+<h3 id="reverse_1"><code>REVERSE!</code></h3>
+<p><strong>(REVERSE!  sequence)</strong></p>
+<p>Reverse a sequence (destructive).</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$NREVERSE</strong> in package <strong>base.seq</strong></p>
+<h3 id="select-keys"><code>SELECT-KEYS</code></h3>
+<p><strong>Returns a map containing only those entries in map whose key is in keys.</strong></p>
+<p><strong>(SELECT-KEYS  object keyseq)</strong></p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$SELECT_KEYS</strong> in package <strong>base.seq</strong></p>
+<h3 id="seq"><code>SEQ</code></h3>
+<p><strong>(SEQ  object)</strong></p>
+<p>Coerce object into a sequence.</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$SEQ</strong> in package <strong>base.seq</strong></p>
+<h3 id="seqp"><code>SEQP</code></h3>
+<p><strong>(SEQP  object)</strong></p>
+<p>Check if an object is a sequence.</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$SEQP</strong> in package <strong>base.seq</strong></p>
+<h3 id="setp"><code>SETP</code></h3>
+<p><strong>(SETP  object)</strong></p>
+<p>Check if an object is a Set.</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$SETP</strong> in package <strong>base.seq</strong></p>
+<h3 id="sort"><code>SORT</code></h3>
+<p><strong>(SORT  &amp;OPTIONAL f &amp;REQUIRED sequence)</strong></p>
+<p>Sort a sequence (non destructively).</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$SORT</strong> in package <strong>base.seq</strong></p>
+<h3 id="sort_1"><code>SORT!</code></h3>
+<p><strong>(SORT!  &amp;OPTIONAL f &amp;REQUIRED sequence)</strong></p>
+<p>Sort a sequence (destructively).</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$NSORT</strong> in package <strong>base.seq</strong></p>
+<h3 id="subseq"><code>SUBSEQ</code></h3>
+<p><strong>Return subsequnce of a sequence.</strong></p>
+<p><strong>(SUBSEQ  sequence start &amp;OPTIONAL end)</strong></p>
+<p>subseq creates a sequence that is a copy of the subsequence of sequence bounded by start and end. Start specifies an offset into the original sequence and marks the beginning position of the subsequence. end marks the position following the last element of the subsequence. subseq always allocates a new sequence for a result; it never shares storage with an old sequence. The result subsequence is of the same kind as sequence.</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$SUBSEQ</strong> in package <strong>base.seq</strong></p>
+<h3 id="take"><code>TAKE</code></h3>
+<p><strong>Return  first n elements of a sequence.</strong></p>
+<p><strong>(TAKE  n seq)</strong></p>
+<p>take creates new sequence with first n elements of seq. If n is bigger than length of the sequence all the elementsare returned. The result subsequence is of the same kind as sequence.</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$TAKE</strong> in package <strong>base.seq</strong></p>
+<h2 id="basecontrol">base.control</h2>
+<h3 id="-_2"><code>-&gt;&gt;</code></h3>
+<p><strong>(-&gt;&gt; args ...)</strong></p>
+<p>Threading form on last argument.</p>
+<p><strong>builtin form</strong> defined at  <strong>class io.opsit.explang.Compiler$TH_LAST</strong> in package <strong>base.control</strong></p>
+<h3 id="-_3"><code>@-&gt;</code></h3>
+<p><strong>(@-&gt; args ...)</strong></p>
+<p>Threading form on &amp;PIPE or first argument</p>
+<p><strong>builtin form</strong> defined at  <strong>class io.opsit.explang.Compiler$TH_PIPE</strong> in package <strong>base.control</strong></p>
+<h3 id="as-"><code>AS-&gt;</code></h3>
+<p><strong>(AS-&gt; args ...)</strong></p>
+<p>Threading form on named argument</p>
+<p><strong>builtin form</strong> defined at  <strong>class io.opsit.explang.Compiler$TH_AS</strong> in package <strong>base.control</strong></p>
+<h3 id="cond"><code>COND</code></h3>
+<p><strong>Conditional switch construct.</strong></p>
+<p><strong>(COND  &amp;REST args)</strong></p>
+<p>COND allows the execution of forms to be dependent on test-form.</p>
+<p>Test-forms are evaluated one at a time in the order in</p>
+<p>which they are given in the argument list until a</p>
+<p>test-form is found that evaluates to true.  If there</p>
+<p>are no forms in that clause, the value of the test-form</p>
+<p>is returned by the COND form.  Otherwise, the forms</p>
+<p>associated with this test-form are evaluated in order,</p>
+<p>left to right and the value returned by the last form</p>
+<p>is returned by the COND form.  Once one test-form has</p>
+<p>yielded true, no additional test-forms are</p>
+<p>evaluated. If no test-form yields true, nil is</p>
+<p>returned.</p>
+<p><strong>builtin form</strong> defined at  <strong>class io.opsit.explang.Compiler$COND</strong> in package <strong>base.control</strong></p>
+<h3 id="if"><code>IF</code></h3>
+<p><strong>(IF args ...)</strong></p>
+<p>If-else conditional construct.</p>
+<p><strong>builtin form</strong> defined at  <strong>class io.opsit.explang.Compiler$IF</strong> in package <strong>base.control</strong></p>
+<h3 id="lambda"><code>LAMBDA</code></h3>
+<p><strong>(LAMBDA args ...)</strong></p>
+<p>Define anonymous function</p>
+<p><strong>builtin form</strong> defined at  <strong>class io.opsit.explang.Compiler$LAMBDA</strong> in package <strong>base.control</strong></p>
+<h3 id="progn"><code>PROGN</code></h3>
+<p><strong>(PROGN args ...)</strong></p>
+<p>Evaluate sequence of expressions.</p>
+<p><strong>builtin form</strong> defined at  <strong>class io.opsit.explang.Compiler$PROGN</strong> in package <strong>base.control</strong></p>
+<h3 id="return"><code>RETURN</code></h3>
+<p><strong>(RETURN  value)</strong></p>
+<p>Return value from function</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$RETURN</strong> in package <strong>base.control</strong></p>
+<h3 id="throw"><code>THROW</code></h3>
+<p><strong>Throw Java Exception.</strong></p>
+<p><strong>(THROW  exception)</strong></p>
+<p>The exception may be a java Throwable object or String. In the latter case a new ExecutionException with given message will be created and thrown.</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$THROW</strong> in package <strong>base.control</strong></p>
+<h3 id="when"><code>WHEN</code></h3>
+<p><strong>(WHEN args ...)</strong></p>
+<p>When conditional construct.</p>
+<p><strong>builtin form</strong> defined at  <strong>class io.opsit.explang.Compiler$WHEN</strong> in package <strong>base.control</strong></p>
+<h2 id="baseregex">base.regex</h2>
+<h3 id="re-find"><code>RE-FIND</code></h3>
+<p><strong>Perform Regexp Find.</strong></p>
+<p><strong>(RE-FIND  arg0 &amp;OPTIONAL arg2)</strong></p>
+<p>When called With two arguments creates java.util.regex.Matcher using pattern and char-seq.</p>
+<p>When called with one arguments it uses given Matcher. </p>
+<p>Returns the next ,match, if any, of string to pattern, using Matcher.find(). </p>
+<p>if no groups were defined it returns the matched string.</p>
+<p>If groups were defined it returns a list consisting of the full match and matched groups</p>
+<p>If there is no match NIL is returned</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$RE_FIND</strong> in package <strong>base.regex</strong></p>
+<h3 id="re-glob"><code>RE-GLOB</code></h3>
+<p><strong>Compile a Globbing Pattern.</strong></p>
+<p><strong>(RE-GLOB  pattern)</strong></p>
+<p>On success returns a java.util.regex.Pattern object. On error raises exception.</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$RE_GLOB</strong> in package <strong>base.regex</strong></p>
+<h3 id="re-groups"><code>RE-GROUPS</code></h3>
+<p><strong>Return Groups for a Regexp Match.</strong></p>
+<p><strong>(RE-GROUPS  matcher)</strong></p>
+<p>Returns the groups from the most recent match/find.</p>
+<p>If there are no nested groups, returns a string of the entire</p>
+<p>match. If there are nested groups, returns a list of the groups,</p>
+<p>the first element being the entire match.</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$RE_GROUPS</strong> in package <strong>base.regex</strong></p>
+<h3 id="re-matcher"><code>RE-MATCHER</code></h3>
+<p><strong>Return Regexp Matcher.</strong></p>
+<p><strong>(RE-MATCHER  pattern char-seq)</strong></p>
+<p>Returns an instance of java.util.regex.Matcher, for use, e.g. in RE-FIND.</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$RE_MATCHER</strong> in package <strong>base.regex</strong></p>
+<h3 id="re-matches"><code>RE-MATCHES</code></h3>
+<p><strong>Perform regexp match.</strong></p>
+<p><strong>(RE-MATCHES  arg0 &amp;OPTIONAL arg2)</strong></p>
+<p>When called With two arguments created java.util.regex.Matcher using pattern and char-seq.</p>
+<p>When called with one arguments it uses given Matcher. </p>
+<p>Returns the match, if any, of string to pattern, using Matcher.matches(). </p>
+<p>if no groups were defined it returns the matched string.</p>
+<p>If groups were defined it returns a list consisting of the full match and matched groups</p>
+<p>If there is no match NIL is returned</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$RE_MATCHES</strong> in package <strong>base.regex</strong></p>
+<h3 id="re-pattern"><code>RE-PATTERN</code></h3>
+<p><strong>Compile A Regexp Pattern.</strong></p>
+<p><strong>(RE-PATTERN  pattern)</strong></p>
+<p>On success returns a java.util.regex.Pattern objec. On error raises exception.</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$RE_PATTERN</strong> in package <strong>base.regex</strong></p>
+<h3 id="re-seq"><code>RE-SEQ</code></h3>
+<p><strong>Return Results of Regexp Find as a Lazy Sequence.</strong></p>
+<p><strong>(RE-SEQ  arg0 &amp;OPTIONAL arg2)</strong></p>
+<p>When called With two arguments created java.util.regex.Matcher using pattern and char-seq.</p>
+<p>Returns lazy iterable sequence (instance of Iterable) of matches of string to pattern, using Matcher.find(). </p>
+<p>When called with one arguments it uses given Matcher. </p>
+<p>if no groups were defined the elements of the sequence are the matched string.</p>
+<p>If groups were defined it returns a list consisting of the full match and matched groups</p>
+<p>If there is no match empty sequence is returned</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$RE_SEQ</strong> in package <strong>base.regex</strong></p>
+<h2 id="dwim">dwim</h2>
+<h3 id="dwim_fields"><code>DWIM_FIELDS</code></h3>
+<p><strong>Returns a map containing only those entries in map whose key is in keys.</strong></p>
+<p><strong>(DWIM_FIELDS  object keyseq)</strong></p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$DWIM_FIELDS</strong> in package <strong>dwim</strong></p>
+<h3 id="search"><code>SEARCH</code></h3>
+<p><strong>Perform DWIM search of an item in a sequence of objects.</strong></p>
+<p><strong>(SEARCH  sequence test)</strong></p>
+<p><strong>builtin form</strong> defined at  <strong>class io.opsit.explang.Compiler$SEARCH</strong> in package <strong>dwim</strong></p>
+<h2 id="basedocs">base.docs</h2>
+<h3 id="describe-function"><code>DESCRIBE-FUNCTION</code></h3>
+<p><strong>Describe function.</strong></p>
+<p><strong>(DESCRIBE-FUNCTION  function)</strong></p>
+<p>Return textual description of given function or built-in form. function is a symbol or function name or a lambda</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$DESCRIBE_FUNCTION</strong> in package <strong>base.docs</strong></p>
+<h3 id="documentation"><code>DOCUMENTATION</code></h3>
+<p><strong>Get Function Docstring.</strong></p>
+<p><strong>(DOCUMENTATION  function-name)</strong></p>
+<p>Return documentation string of given function or built-in form. function is a symbol or function name or a lambda</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$DOCUMENTATION</strong> in package <strong>base.docs</strong></p>
+<h3 id="functions-names"><code>FUNCTIONS-NAMES</code></h3>
+<p><strong>Get list of names of defined functions.</strong></p>
+<p><strong>(FUNCTIONS-NAMES  &amp;REST names)</strong></p>
+<p>If names are given use them as filter expressions:  only those which match at least one of filter expressions will be returned. Filters may be strings (substring match) or regular expressions (java.util.regex.Pattern objects).</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$FUNCTIONS_NAMES</strong> in package <strong>base.docs</strong></p>
+<h2 id="basetypes">base.types</h2>
+<h3 id="type-of"><code>TYPE-OF</code></h3>
+<p><strong>Return Object Type.</strong></p>
+<p><strong>(TYPE-OF  object)</strong></p>
+<p>Returns type (as class) of the given object. For NIL argument return NIL.</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$TYPE_OF</strong> in package <strong>base.types</strong></p>
+<h3 id="typep"><code>TYPEP</code></h3>
+<p><strong>Check if Object is of Specified Type.</strong></p>
+<p><strong>(TYPEP  object type-specifier)</strong></p>
+<p>Returns True if object is of the specified type. Type specifier may be a Class object or string or symbol which is a valid type-specifier.</p>
+<p><strong>builtin function</strong> defined at  <strong>class io.opsit.explang.Funcs$TYPEP</strong> in package <strong>base.types</strong></p>
+
+
+
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../explang-lisp/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Using Explang with Lisp Syntax" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Using Explang with Lisp Syntax
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../explang-lisp-funcs-by-name/" class="md-footer__link md-footer__link--next" aria-label="Next: Explang/Lisp funcs by Name" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Explang/Lisp funcs by Name
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections"], "search": "../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.9c69f0bc.min.js"></script>
+      
+    
+  </body>
+</html>

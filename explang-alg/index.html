@@ -1,0 +1,1039 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://github.com/opsit-io/opsit-explang-docs/explang-alg/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.4.2">
+    
+    
+      
+        <title>Using Explang with Algebraic Syntax - Explang Documentation Site</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.69437709.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#explangalgebraic-syntax-language-reference" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Explang Documentation Site" class="md-header__button md-logo" aria-label="Explang Documentation Site" data-md-component="logo">
+      
+  <img src="../site_logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Explang Documentation Site
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Using Explang with Algebraic Syntax
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Explang Documentation Site" class="md-nav__button md-logo" aria-label="Explang Documentation Site" data-md-component="logo">
+      
+  <img src="../site_logo.png" alt="logo">
+
+    </a>
+    Explang Documentation Site
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Explang Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../explang-goals-and-features/" class="md-nav__link">
+        Explang Goals and Features
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../explang-core-quick-start/" class="md-nav__link">
+        Explang Core Quick Start
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Using Explang with Algebraic Syntax
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Using Explang with Algebraic Syntax
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#expressions" class="md-nav__link">
+    Expressions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#value-types" class="md-nav__link">
+    Value Types
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#self-evaluating-expressions-literals" class="md-nav__link">
+    Self Evaluating Expressions (Literals)
+  </a>
+  
+    <nav class="md-nav" aria-label="Self Evaluating Expressions (Literals)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#numeric-literals" class="md-nav__link">
+    Numeric Literals
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#string-literals" class="md-nav__link">
+    String Literals
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#special-literals" class="md-nav__link">
+    Special Literals
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-initializers" class="md-nav__link">
+    Data Initializers
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Initializers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#variable-expansion" class="md-nav__link">
+    Variable expansion
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#complex-expressions" class="md-nav__link">
+    Complex expressions
+  </a>
+  
+    <nav class="md-nav" aria-label="Complex expressions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-calls" class="md-nav__link">
+    Function calls
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#special-forms-calls" class="md-nav__link">
+    Special forms calls
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../explang-from-java/" class="md-nav__link">
+        Calling Explang from Java
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../explang-extending/" class="md-nav__link">
+        Extending Explang in Java
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../explang-alg-funcs-by-package/" class="md-nav__link">
+        Explang/Alg funcs by Package
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../explang-alg-funcs-by-name/" class="md-nav__link">
+        Explang/Alg funcs by Name
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../explang-examples-alg/" class="md-nav__link">
+        Explang/Alg Examples
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../explang-lisp/" class="md-nav__link">
+        Using Explang with Lisp Syntax
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../explang-lisp-funcs-by-package/" class="md-nav__link">
+        Explang/Lisp funcs by Package
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../explang-lisp-funcs-by-name/" class="md-nav__link">
+        Explang/Lisp funcs by Name
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../explang-examples-lisp/" class="md-nav__link">
+        Explang/Lisp Examples
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../using-explang-REPL/" class="md-nav__link">
+        Using Explang REPL
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LICENSE/" class="md-nav__link">
+        License
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#expressions" class="md-nav__link">
+    Expressions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#value-types" class="md-nav__link">
+    Value Types
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#self-evaluating-expressions-literals" class="md-nav__link">
+    Self Evaluating Expressions (Literals)
+  </a>
+  
+    <nav class="md-nav" aria-label="Self Evaluating Expressions (Literals)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#numeric-literals" class="md-nav__link">
+    Numeric Literals
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#string-literals" class="md-nav__link">
+    String Literals
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#special-literals" class="md-nav__link">
+    Special Literals
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-initializers" class="md-nav__link">
+    Data Initializers
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Initializers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#variable-expansion" class="md-nav__link">
+    Variable expansion
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#complex-expressions" class="md-nav__link">
+    Complex expressions
+  </a>
+  
+    <nav class="md-nav" aria-label="Complex expressions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#function-calls" class="md-nav__link">
+    Function calls
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#special-forms-calls" class="md-nav__link">
+    Special forms calls
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="explangalgebraic-syntax-language-reference">Explang/Algebraic Syntax Language Reference</h1>
+<h2 id="expressions">Expressions</h2>
+<p>The language works with expressions that return values. There are no statements.</p>
+<p>The expressions can be simple (literal value) or complex ones that consist of several
+subexpressions like operator or function invocations.</p>
+<p>Expressions are separated by ';'. </p>
+<p>Whitespace is not significant.</p>
+<h2 id="value-types">Value Types</h2>
+<p>All values are Java Objects of some type</p>
+<h2 id="self-evaluating-expressions-literals">Self Evaluating Expressions (Literals)</h2>
+<h3 id="numeric-literals">Numeric Literals</h3>
+<ul>
+<li>1, -2     Integer literals</li>
+<li>1b, 0b    Byte literals</li>
+<li>1s, 2s    Short literals</li>
+<li>1L  0L    Long literals</li>
+<li>0.5 0e2   Double literals</li>
+<li>0.5f      Float literals</li>
+<li>NULL NIL  null literals</li>
+<li>TRUE FALSE boolean literals</li>
+</ul>
+<h3 id="string-literals">String Literals</h3>
+<p>String literals are </p>
+<p>"foo" "Hello,\nworld!"</p>
+<h3 id="special-literals">Special Literals</h3>
+<ul>
+<li>r"^Foo" r"bar"i - Regular Expression Literals</li>
+<li>v"0.0.3-alpha2" - Version literals</li>
+</ul>
+<p>[TBD]
+Character Literals</p>
+<h2 id="data-initializers">Data Initializers</h2>
+<p>list literals
+array literals
+map literals
+set literals</p>
+<h3 id="variable-expansion">Variable expansion</h3>
+<p>Simple expressions that are not recognized as literals are evaluated as variables.
+Evaluation of a variable does not exists in current context will cause Runtime Exception
+to be thrown.</p>
+<h3 id="complex-expressions">Complex expressions</h3>
+<p>Complex expressions are introduced using the </p>
+<div class="highlight"><pre><span></span><code>( form_name  expr .... )
+</code></pre></div>
+<p>The first expression inside the parentheses is used as name of operation and rest of expressions serve as parameters.
+For example <em>+</em> is the addition function:</p>
+<div class="highlight"><pre><span></span><code>[0]&gt; (+ 1 3 4)
+
+8
+</code></pre></div>
+<p>The expressions are evaluated and return single Java Object as result of evaluation.</p>
+<p>Complex expressions can be divided into two classes:</p>
+<h4 id="function-calls">Function calls</h4>
+<p>Functions are evaluated in the following way: first all function parameters are evaluated from left to right,
+the results of evaluation are substituted in stead of the parameters, then the function is evaluated using the
+computed parameters. Functions can be built-in or user defined. Functions can be built-in (that is written
+in java as part of Opsit DSL), user functions written in Opsit DSL (introduced using the LAMBDA and DEFUN forms)
+as well as user-provided and written in Java (using extension mechanism).</p>
+<h4 id="special-forms-calls">Special forms calls</h4>
+<p>With special forms order of argument evaluation and the way they are evaluated is part of logic of the special form.</p>
+<p>For example in the IF special form</p>
+<div class="highlight"><pre><span></span><code>(IF a b c)
+</code></pre></div>
+<p>first of all a will be evaluated, then according to the effective boolean value of <em>a</em> will be evaluated only one of</p>
+<p>the expressions: <em>b</em> if <em>a</em> is <em>TRUE</em> and <em>c</em> if a is <em>FALSE</em>.</p>
+<h1 id="the-opsit-dsl-expression-language-guide-and-reference">The Opsit-DSL Expression Language Guide and Reference</h1>
+<h2 id="lanuage-overview">Lanuage Overview</h2>
+<p>[TBD]</p>
+<h2 id="opsit-dsl-expressions-by-example">Opsit-DSL Expressions by example</h2>
+<p>Suppose we have the following variables set:</p>
+<p><div class="highlight"><pre><span></span><code><span class="c"># an empty string</span><span class="w"></span>
+<span class="n">description</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="w"></span>
+<span class="c"># a non-empty string</span><span class="w"></span>
+<span class="n">owner</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="s">&quot;infra_team&quot;</span><span class="w"></span>
+<span class="c"># list of strings:</span><span class="w"></span>
+<span class="n">frameworks</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;Django&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Ember&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Django&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Meteor&quot;</span><span class="p">]</span><span class="w"></span>
+</code></pre></div>
+The value of expression is expressed by `##=&gt; Value``</p>
+<h3 id="truthiness-value">Truthiness value</h3>
+<p>Generally, NIL, empty things and zero numbers have thruthiness value
+of <code>False</code> and non empty have thruthiness value of <code>True</code>. </p>
+<p>To check truthyness of an expression one can use built-in function <code>bool(val)</code>
+that returns thruthiness value of an expression. </p>
+<p>Note: The <code>bool()</code> function is used here just for illustration, 
+you do not really need to wrap your Opsit Checks Expressions with <code>bool()</code>
+because the DSL automatically converts expressions to boolean when it is
+needed according to the context. </p>
+<p>Thus:</p>
+<p>A non-empty list is thruthy:
+<div class="highlight"><pre><span></span><code><span class="n">bool</span><span class="p">(</span><span class="w"> </span><span class="n">frameworks</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
+<span class="c">##=&gt; true</span><span class="w"></span>
+</code></pre></div></p>
+<p>Non-zero numeric values are thruthy
+<div class="highlight"><pre><span></span><code><span class="n">length</span><span class="p">(</span><span class="n">frameworks</span><span class="p">)</span><span class="w"></span>
+<span class="c">##=&gt; 4</span><span class="w"></span>
+
+<span class="n">bool</span><span class="p">(</span><span class="n">length</span><span class="p">(</span><span class="n">frameworks</span><span class="p">))</span><span class="w"></span>
+<span class="c">##=&gt; true</span><span class="w"></span>
+</code></pre></div></p>
+<p>Non-empty strings are truthy</p>
+<div class="highlight"><pre><span></span><code><span class="n">frameworks</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"></span>
+<span class="c">##=&gt; &quot;Django&quot;</span><span class="w"></span>
+
+<span class="n">frameworks</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"></span>
+<span class="n">bool</span><span class="p">(</span><span class="n">frameworks</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="w"></span>
+<span class="c">##=&gt; true</span><span class="w"></span>
+</code></pre></div>
+<p>Empty Strings are falsy:</p>
+<div class="highlight"><pre><span></span><code><span class="n">description</span><span class="w"></span>
+<span class="c">##=&gt;&quot;&quot;</span><span class="w"></span>
+
+<span class="n">bool</span><span class="p">(</span><span class="n">description</span><span class="p">)</span><span class="w"></span>
+<span class="c">##=&gt; false</span><span class="w"></span>
+</code></pre></div>
+<h3 id="numeric-values-of-expressions">Numeric values of expressions</h3>
+<p>All values have a numeric value. This value is used when required by context.</p>
+<ul>
+<li>Numeric types are themselves their numeric value</li>
+<li>Lists, maps, arrays, sets  have they size as their numeric value</li>
+<li>NIL has 0 as its numeric value</li>
+<li>Booleans True ans False has 1 and 0 accordingly  as their numeic values</li>
+<li>Other objects have 1 as their numeric values</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="mi">0</span><span class="o">+</span><span class="n">list</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span><span class="w"></span>
+<span class="c">##=&gt; 3</span><span class="w"></span>
+
+<span class="mi">0</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">False</span><span class="w"></span>
+<span class="c">##=&gt; 0</span><span class="w"></span>
+
+<span class="mi">0</span><span class="o">+</span><span class="s">&quot;abc&quot;</span><span class="w"></span>
+<span class="c">##=&gt; 0</span><span class="w"></span>
+
+<span class="mi">0</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">NIL</span><span class="w"></span>
+<span class="c">##=&gt; 0</span><span class="w"></span>
+
+<span class="mi">0</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">TRUE</span><span class="w"></span>
+<span class="c">##=&gt; 1</span><span class="w"></span>
+</code></pre></div>
+<h3 id="getting-values-from-nested-structures">Getting values from nested structures:</h3>
+<p>Suppose we have the following variables set:</p>
+<div class="highlight"><pre><span></span><code><span class="n">teams</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="p">[{</span><span class="w"></span>
+<span class="w">  </span><span class="s">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;New Hampshire birds&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="s">&quot;uniqueId&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;New-Hampshire-birds-Shipper81788&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="s">&quot;description&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;I have no idea where this will lead us. But I have a definite feeling it will be a place both wonderful and strange.&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="s">&quot;members&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;role&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;Project Manager&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;Luke Hauck&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;email&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;josue.friesen@gmail.com&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;role&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;Project Manager&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;Ambrose Dickinson&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;email&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;joyce.price@gmail.com&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;role&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;Developer&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;Idalia Frami DDS&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;email&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;malcom.hahn@hotmail.com&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;role&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;Lead DevOps&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;Catarina Ullrich&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;email&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;edmundo.bode@yahoo.com&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;role&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;Team Lead&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;Jan Bednar Sr.&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;email&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;blythe.heaney@gmail.com&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;role&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;Lead Developer&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;Marianela Jerde&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;email&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;mary.bashirian@gmail.com&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="p">]</span><span class="w"></span>
+<span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="s">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;Idaho birds&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="s">&quot;uniqueId&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;Idaho-birds-Shipper28978&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="s">&quot;description&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;That gum you like is going to come back in style.&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="s">&quot;members&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;role&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;Project Manager&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;Mr. Gaston Cummings&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;email&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;alberto.buckridge@yahoo.com&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;role&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;Developer&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;Elida Ondricka&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;email&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;maurita.thiel@gmail.com&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;role&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;Product Manager&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;Edna Green&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;email&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;britni.cormier@yahoo.com&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;role&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;Developer&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;Jonathan Prosacco&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;email&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;vernetta.kerluke@hotmail.com&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;role&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;Project Manager&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;Leilani Kuhlman&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;email&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;carmine.hermann@yahoo.com&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;role&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;Developer&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;Tyson Shanahan&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;email&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;max.vonrueden@yahoo.com&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="p">]</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="p">]</span><span class="w"></span>
+</code></pre></div>
+<h3 id="the-subscript-operator">The Subscript Operator <code>[]</code></h3>
+<p>The subscript operator <code>[]</code> allows to fetch nested objects by keys or indices. </p>
+<p>The subscript may be any expression, the evaluation result will be used as  key (in case of Map or Java Bean) 
+or index (in case of Lists, arrays, and other sequences). </p>
+<p>[To be
+It can be as well a slice or filter specification. In this case the operator will return a collection of selected entries.</p>
+<div class="highlight"><pre><span></span><code><span class="n">teams</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"></span>
+<span class="c">##=&gt; {</span><span class="w"></span>
+<span class="w">  </span><span class="s">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;New Hampshire birds&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="s">&quot;uniqueId&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;New-Hampshire-birds-Shipper81788&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="s">&quot;description&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;I have no idea where this will lead us. But I have a definite feeling it will be a place both wonderful and strange.&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="s">&quot;members&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;role&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;Project Manager&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;Luke Hauck&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;email&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;josue.friesen@gmail.com&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;role&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;Project Manager&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;Ambrose Dickinson&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;email&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;joyce.price@gmail.com&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;role&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;Developer&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;Idalia Frami DDS&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;email&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;malcom.hahn@hotmail.com&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;role&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;Lead DevOps&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;Catarina Ullrich&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;email&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;edmundo.bode@yahoo.com&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;role&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;Team Lead&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;Jan Bednar Sr.&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;email&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;blythe.heaney@gmail.com&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;role&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;Lead Developer&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;name&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;Marianela Jerde&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;email&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;mary.bashirian@gmail.com&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="p">]</span><span class="w"></span>
+</code></pre></div>
+<p>One can join [] operators:</p>
+<div class="highlight"><pre><span></span><code><span class="n">teams</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s">&quot;name&quot;</span><span class="p">]</span><span class="w"></span>
+<span class="c">##=&gt; &quot;New Hampshire birds&quot;</span><span class="w"></span>
+
+<span class="n">teams</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s">&quot;name&quot;</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span><span class="w"></span>
+<span class="c">##=&gt; &quot;w&quot;</span><span class="w"></span>
+</code></pre></div>
+<p>Missing keys/indices result in <code>NIL</code></p>
+<div class="highlight"><pre><span></span><code>teams[0][&quot;kuku&quot;]
+##=&gt; NIL
+
+teams[1000]
+##=&gt; NIL
+</code></pre></div>
+<p>Subscribing missing values returns NIL as well</p>
+<div class="highlight"><pre><span></span><code>teams[1000][&quot;name&quot;]
+##=&gt; NIL
+</code></pre></div>
+<p>When there is no index specified the operator works as an iterator,
+that is it applies all the following operations on all the values:</p>
+<div class="highlight"><pre><span></span><code>teams[][&quot;name&quot;]
+##=&gt; [ &quot;New Hampshire birds&quot;, &quot;Idaho birds&quot; ]
+
+teams[][&quot;name&quot;][]
+##=&gt; [ [ &quot;N&quot;, &quot;e&quot;, &quot;w&quot;, &quot; &quot;, &quot;H&quot;, &quot;a&quot;, &quot;m&quot;, &quot;p&quot;, &quot;s&quot;, &quot;h&quot;, &quot;i&quot;, &quot;r&quot;, &quot;e&quot;, &quot; &quot;, &quot;b&quot;, &quot;i&quot;, &quot;r&quot;, &quot;d&quot;, &quot;s&quot; ], [ &quot;I&quot;, &quot;d&quot;, &quot;a&quot;, &quot;h&quot;, &quot;o&quot;, &quot; &quot;, &quot;b&quot;, &quot;i&quot;, &quot;r&quot;, &quot;d&quot;, &quot;s&quot; ] ]
+</code></pre></div>
+<h3 id="the-dot-operator">The <code>.</code> (dot) operator</h3>
+<p>The <code>.</code> (dot) operator as well allows to look up nested objects:
+<div class="highlight"><pre><span></span><code>teams[0].name
+##=&gt; &quot;New Hampshire birds&quot;
+
+teams[0].members[0].name
+##=&gt; &quot;Luke Hauck&quot;
+</code></pre></div></p>
+<p>but it works somewhat differently:
+1. The keys aresSymbols and not expressions, i.e. the components are not evaluated
+2. It does not support keys that are not valid symbols, that is they must start with a letter and not contain funny characters [TBD: elaborate]</p>
+<h3 id="the-universal-lookup-function-get_in">The Universal Lookup Function <code>get_in</code></h3>
+<p>The <code>get_in()</code> function works as sequence of '[]' and additionally allows to specify default value instead of null, that is it allows
+to differenciate between NIL values and NILs that result from missing keys. </p>
+<div class="highlight"><pre><span></span><code><span class="n">get_in</span><span class="p">(</span><span class="n">teams</span><span class="p">,</span><span class="w"> </span><span class="n">list</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="s">&quot;members&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s">&quot;role&quot;</span><span class="p">),</span><span class="s">&quot;Missing!&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="c">##=&gt; &quot;Project Manager&quot;</span><span class="w"></span>
+
+<span class="n">get_in</span><span class="p">(</span><span class="n">teams</span><span class="p">,</span><span class="w"> </span><span class="n">list</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="s">&quot;members&quot;</span><span class="p">,</span><span class="mi">1000</span><span class="p">,</span><span class="s">&quot;role&quot;</span><span class="p">),</span><span class="s">&quot;Missing!&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="c">##=&gt; &quot;Missing!&quot;</span><span class="w"></span>
+</code></pre></div>
+<p>Empty key sequence will return the target object itself:</p>
+<div class="highlight"><pre><span></span><code>get_in(&quot;foo&quot;, list(),&quot;Missing!&quot;)
+##=&gt; &quot;foo&quot;
+</code></pre></div>
+<h2 id="examples-for-opsit-dsl-expressions">Examples for OPSIT-DSL Expressions</h2>
+<p>The DSL is based on evaluation of expressions in contexts. Contexts, which is essentially a collection 
+of variables, may be assotiated with objects like Orgservices, Organizations, etc.</p>
+<h3 id="examples-for-orgservice-contexts">Examples for OrgService contexts</h3>
+<h4 id="get-owner-of-an-orgservice">Get owner of an Orgservice.</h4>
+<div class="highlight"><pre><span></span><code>owner
+</code></pre></div>
+<h4 id="get-list-of-frameworks-in-use-by-the-orgservice">Get list of frameworks in use by the Orgservice</h4>
+<div class="highlight"><pre><span></span><code>frameworks 
+</code></pre></div>
+<h4 id="get-number-of-orgservoce-teams">Get number of OrgServoce Teams</h4>
+<div class="highlight"><pre><span></span><code>length(teams)
+</code></pre></div>
+<h4 id="get-list-names-of-team-names">Get list names of team names</h4>
+<div class="highlight"><pre><span></span><code>teams[][&quot;name&quot;]
+</code></pre></div>
+<h4 id="check-if-project-has-kubernetes-in-its-list-of-tags">Check if project has <code>kubernetes</code> in its list of tags</h4>
+<div class="highlight"><pre><span></span><code>&quot;kubernetes&quot; in tags
+</code></pre></div>
+<h4 id="find-mattermost-channels-in-the-contact-lists">Find mattermost channels in the contact lists</h4>
+<div class="highlight"><pre><span></span><code>contacts | search type  =~ &quot;mattermost&quot; 
+</code></pre></div>
+<h4 id="print-email-addrsees-with-descriptions-from-project-contact-list">Print email addrsees with descriptions from project contact list</h4>
+<div class="highlight"><pre><span></span><code>contacts | fields email, description
+</code></pre></div>
+<h4 id="get-number-of-software-components-with-development-versions-that-is-100-according-to-the-semantic-versioning">Get number of Software Components with development versions (that is  &lt; 1.0.0 according to the Semantic Versioning).</h4>
+<div class="highlight"><pre><span></span><code>components | search version &lt;= v&quot;1.0.0&quot;  | LENGTH()
+</code></pre></div>
+<h4 id="find-teams-that-have-less-than-3-members">Find teams that have less than 3 members</h4>
+<div class="highlight"><pre><span></span><code>teams search length(members) &lt;2
+</code></pre></div>
+<h4 id="check-if-orgservice-depends-on-software-library-of-particular-version">Check if Orgservice depends on software library of particular version</h4>
+<div class="highlight"><pre><span></span><code>components SEARCH (dependencies SEARCH version &lt;= v&quot;3.2.2&quot; and  name == &quot;spring-web&quot; )
+</code></pre></div>
+<h3 id="examples-for-searches">Examples for searches</h3>
+<h3 id="get-list-of-names-of-orgservices-that-use-the-angular-framework">Get list of names of Orgservices that use the <code>angular</code> framework</h3>
+<div class="highlight"><pre><span></span><code>ORGSERVICES()  | SEARCH   &quot;angular&quot; in frameworks  | [][&quot;name&quot;]
+</code></pre></div>
+<h4 id="get-list-of-orgservices-and-languages-when-languages-is-not-java">Get list of Orgservices and Languages when languages is not java</h4>
+<div class="highlight"><pre><span></span><code>ORGSERVICES()  | SEARCH   NOT ( language == &quot;java&quot;) | fields name,language
+</code></pre></div>
+<h4 id="get-list-of-notes-for-services-with-name-that-starts-from-opsit">Get list of notes for services with name that starts from <code>opsit</code></h4>
+<div class="highlight"><pre><span></span><code>NOTES() SEARCH serviceId in (ORGSERVICES() | SEARCH name =~ r&quot;^opsit&quot;  | [][&quot;id&quot;])
+</code></pre></div>
+
+
+
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../explang-core-quick-start/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Explang Core Quick Start" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Explang Core Quick Start
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../explang-from-java/" class="md-footer__link md-footer__link--next" aria-label="Next: Calling Explang from Java" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Calling Explang from Java
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections"], "search": "../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.9c69f0bc.min.js"></script>
+      
+    
+  </body>
+</html>
