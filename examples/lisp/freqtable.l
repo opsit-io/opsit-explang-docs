@@ -22,7 +22,7 @@
             If in these eyes there lurk a tear,
             ⁠'Twill flow, and cease to burn my brain")
       (numbers (map (lambda (x) (random 7))
-		    (make-array :size 10 :element-type "int"))))
+		    (make-array :size 10 :elementType "int"))))
   (print "Word frequency table for text\n"  txt "\n"
 	 (freqcount
 	  (map #'lowercase

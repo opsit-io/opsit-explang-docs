@@ -35,6 +35,3 @@
 (println "Found " (length solutions) " solutions")
 (println "First solution:")
 (print-solution (first solutions))
-
-
-

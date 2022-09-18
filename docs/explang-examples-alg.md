@@ -1,16 +1,52 @@
 Examples with Algebraic Syntax
 ==============================
 
-Compute Factorial (recursive)
------------------------------
+The 8 Queens Problem
+--------------------
 
 ```lisp
---8<-- "examples/alg/fact.jl"
+--8<-- "examples/alg/8queens.jl"
 ```
 
 Output:
 ```
---8<-- "examples/alg/fact.jl.output"
+--8<-- "examples/alg/8queens.jl.output"
+```
+
+Data Search and Extraction
+--------------------------
+
+```lisp
+--8<-- "examples/alg/data-extraction.jl"
+```
+
+Output:
+```
+--8<-- "examples/alg/data-extraction.jl.output"
+```
+
+Factorial (lazy sequence)
+-------------------------
+
+```lisp
+--8<-- "examples/alg/fact-lazy-seq.jl"
+```
+
+Output:
+```
+--8<-- "examples/alg/fact-lazy-seq.jl.output"
+```
+
+Compute Factorial (recursive)
+-----------------------------
+
+```lisp
+--8<-- "examples/alg/fact-recursive.jl"
+```
+
+Output:
+```
+--8<-- "examples/alg/fact-recursive.jl.output"
 ```
 
 Frequency Table

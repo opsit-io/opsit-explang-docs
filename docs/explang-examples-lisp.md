@@ -25,16 +25,28 @@ Output:
 --8<-- "examples/lisp/evaluation.l.output"
 ```
 
-Factorial (recursive)
----------------------
+Factorial (lazy sequence)
+-------------------------
 
 ```lisp
---8<-- "examples/lisp/fact.l"
+--8<-- "examples/lisp/fact-lazy-seq.l"
 ```
 
 Output:
 ```
---8<-- "examples/lisp/fact.l.output"
+--8<-- "examples/lisp/fact-lazy-seq.l.output"
+```
+
+Factorial (recursive)
+---------------------
+
+```lisp
+--8<-- "examples/lisp/fact-recursive.l"
+```
+
+Output:
+```
+--8<-- "examples/lisp/fact-recursive.l.output"
 ```
 
 Frequency Table

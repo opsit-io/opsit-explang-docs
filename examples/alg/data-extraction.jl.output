@@ -1,0 +1,43 @@
+Input data: {booksByIsbn={978-1779501127={isbn=978-1779501127, publicationYear=1987, title=Watchmen, bookItems=[{libId=nyc-central-lib, id=book-item-1, isLent=true}, {libId=nyc-central-lib, id=book-item-2, isLent=true}], authorIds=[alan-moore, dave-gibbons], tags=[comics, super hero, alternate history]}, 978-0131103627={isbn=978-0131103627, publicationYear=1978, title=The C Programming Language, bookItems=[{libId=nyc-central-lib, id=book-item-6, isLent=true}, {libId=nyc-central-lib, id=book-item-7, isLent=true}], authorIds=[brian-kernigan, dennis-ritchie], tags=[programming languages, C]}, 978-0262510875={isbn=978-0262510875, publicationYear=1996, title=Structure and Interpretation of Computer Programs, bookItems=[{libId=nyc-central-lib, id=book-item-5, isLent=true}], authorIds=[harold-abelson, jay-sussman], tags=[programming languages, programming language design, lisp, scheme]}, 979-8745274824={isbn=979-8745274824, publicationYear=2021, title=The Great Gatsby, bookItems=[{libId=nyc-central-lib, id=book-item-3, isLent=true}, {libId=nyc-central-lib, id=book-item-4, isLent=false}], authorIds=[scott-fitzgerald], tags=[american classics, jazz age, prohibition]}, The Go Programming Language={isbn=978-0134190440, publicationYear=2015, title=The Go Programming Language, bookItems=[{libId=nyc-central-lib, id=book-item-8, isLent=false}, {libId=nyc-central-lib, id=book-item-9, isLent=false}], authorIds=[brian-kernigan, alan-a-a-donovan], tags=[programming languages, golang]}}, authorsById={harold-abelson={name=Harold Abelson, bookIsbns=[978-0262510875]}, scott-fitzgerald={name=Scott Fitzgerald, bookIsbns=[979-8745274824]}, dennis-ritchie={name=Dennis M. Ritchie, bookIsbns=[978-0131103627]}, alan-moore={name=Alan Moore, bookIsbns=[978-1779501127]}, jay-sussman={name=Jay Sussman, bookIsbns=[978-0262510875]}, dave-gibbons={name=Dave Gibbons, bookIsbns=[978-1779501127]}, brian-kernigan={name=Brian W. Kernigan, bookIsbns=[978-0131103627, 978-0134190440]}, alan-a-a-donovan={name=Alan A.A. Donovan, bookIsbns=[978-0134190440]}}}
+
+Get entry by key (ISBN) and get one of its fields:
+Watchmen
+
+Get entry by key (ISBN) and make new object of several fields:
+{publicationYear=1987, title=Watchmen}
+
+Get entry by key (ISBN) and make of it new object:
+{title=Watchmen, authors=Alan Moore, Dave Gibbons}
+
+Get list of all book isbns
+[978-1779501127, 978-0131103627, 978-0262510875, 979-8745274824, The Go Programming Language]
+
+Get list of all book entries from the map
+[{isbn=978-1779501127, publicationYear=1987, title=Watchmen, bookItems=[{libId=nyc-central-lib, id=book-item-1, isLent=true}, {libId=nyc-central-lib, id=book-item-2, isLent=true}], authorIds=[alan-moore, dave-gibbons], tags=[comics, super hero, alternate history]}, {isbn=978-0131103627, publicationYear=1978, title=The C Programming Language, bookItems=[{libId=nyc-central-lib, id=book-item-6, isLent=true}, {libId=nyc-central-lib, id=book-item-7, isLent=true}], authorIds=[brian-kernigan, dennis-ritchie], tags=[programming languages, C]}, {isbn=978-0262510875, publicationYear=1996, title=Structure and Interpretation of Computer Programs, bookItems=[{libId=nyc-central-lib, id=book-item-5, isLent=true}], authorIds=[harold-abelson, jay-sussman], tags=[programming languages, programming language design, lisp, scheme]}, {isbn=979-8745274824, publicationYear=2021, title=The Great Gatsby, bookItems=[{libId=nyc-central-lib, id=book-item-3, isLent=true}, {libId=nyc-central-lib, id=book-item-4, isLent=false}], authorIds=[scott-fitzgerald], tags=[american classics, jazz age, prohibition]}, {isbn=978-0134190440, publicationYear=2015, title=The Go Programming Language, bookItems=[{libId=nyc-central-lib, id=book-item-8, isLent=false}, {libId=nyc-central-lib, id=book-item-9, isLent=false}], authorIds=[brian-kernigan, alan-a-a-donovan], tags=[programming languages, golang]}]
+
+Convert map to list of titles
+[Watchmen, The C Programming Language, Structure and Interpretation of Computer Programs, The Great Gatsby, The Go Programming Language]
+
+Convert map to list of titles and autors
+[{title=Watchmen, authors=Alan Moore, Dave Gibbons}, {title=The C Programming Language, authors=Brian W. Kernigan, Dennis M. Ritchie}, {title=Structure and Interpretation of Computer Programs, authors=Harold Abelson, Jay Sussman}, {title=The Great Gatsby, authors=Scott Fitzgerald}, {title=The Go Programming Language, authors=Brian W. Kernigan, Alan A.A. Donovan}]
+
+Get set of used tags
+[C, scheme, programming language design, super hero, american classics, comics, golang, lisp, jazz age, prohibition, alternate history, programming languages]
+
+Search full text of entries for ones that contain a string 'kernigan' and return book titles
+[The C Programming Language, The Go Programming Language]
+
+Search entries for ones that have title that contains a string 'Programming Language'
+[The C Programming Language, The Go Programming Language]
+
+Search entries for ones that have title that match regex '^The ([A-Za-z0-9]+) Programming Language$'
+[The C Programming Language, The Go Programming Language]
+
+Search entries for ones that have tag 'Programming Language' and published before year 1980
+[{isbn=978-0131103627, publicationYear=1978, title=The C Programming Language, bookItems=[{libId=nyc-central-lib, id=book-item-6, isLent=true}, {libId=nyc-central-lib, id=book-item-7, isLent=true}], authorIds=[brian-kernigan, dennis-ritchie], tags=[programming languages, C]}]
+
+Search entries for ones that have more than one author
+[{authorIds=[alan-moore, dave-gibbons], title=Watchmen}, {authorIds=[brian-kernigan, dennis-ritchie], title=The C Programming Language}, {title=Structure and Interpretation of Computer Programs, authorIds=[harold-abelson, jay-sussman]}, {authorIds=[brian-kernigan, alan-a-a-donovan], title=The Go Programming Language}]
+
+Search entries for ones that have available copies using subsearch on array of book items
+[{title=The Great Gatsby, isbn=979-8745274824}, {isbn=978-0134190440, title=The Go Programming Language}]

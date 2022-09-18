@@ -2,9 +2,9 @@
 
 function swap(a, i, j) 
     "swap two elements in an indexable sequence";
-    tmp:= a[i];
-    aset(a, i, a[j]);
-    aset(a, j, tmp);
+    tmp := a[i];
+    a[i] := a[j];
+    a[j] := tmp;
 end;
 
 
@@ -46,15 +46,15 @@ samples := [
     ## Array of objects
     append(make_array(0), random_list(32,100)),                
     ## list of Characters
-    append(list(), "pack my box with five dozen liquor jugs"), 
+    append([], "pack my box with five dozen liquor jugs"), 
     ## list of versions
     [v"0.1.2",  v"0.1.2-pre1", v"0.1.2-pre2", v"0.1.3", v"0.1.2-pre1+10", v"1.2.3"] 
 ];
-foreach([data, samples],
-        begin
-            print(i"Using quick sort on:  $(type_of(data))\n");	
-            print(i"input=$(data)\n");
-            quick_sort(data, 0, length(data) - 1);
-            print(i"output=$(data)\n\n");
-        end);
+
+for data in  samples
+    print(i"Using quick sort on:  $(type_of(data))\n");
+    print(i"input=$(data)\n");
+    quick_sort(data, 0, length(data) - 1);
+    print(i"output=$(data)\n\n");
+end;
            

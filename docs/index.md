@@ -15,7 +15,7 @@ Algebraic Syntax
 ----------------
 
 ```julia
---8<-- "examples/alg/fact.jl"
+--8<-- "examples/alg/fact-recursive.jl"
 
 ```
 
@@ -27,7 +27,7 @@ Lisp Syntax
 -----------
 
 ```lisp
---8<-- "examples/lisp/fact.l"
+--8<-- "examples/lisp/fact-recursive.l"
 
 ```
 
