@@ -1,3 +1,4 @@
+javadoc_url ::= argv(1);
 
 function format_funcall(funcname,args)
    str(funcname, "(", args, ")");
@@ -16,6 +17,15 @@ function format_toc (items)
     println();
 end;
 
+function format_location (loc)
+    loc_match:= re_matches( r"^(class) +(.*)$",  loc);
+    if loc_match
+	    str("[", loc,  "]", "(", javadoc_url, "/", loc_match[2] | replace (".","/") | replace("$", "."), ".html)");
+    else
+	    str("**", loc, "**");
+    end;
+end;
+
 function printfunc(descr)
     matches := re_matches(re_matcher(r"(?s)^(.*?\.)[ \n\t\r]+(.*)$", descr.docstring));
     summary := if matches str("**", get(matches, 1), "**") else  "" end;
@@ -31,7 +41,7 @@ $(summary)
 $(format_details(details))
 
 
-**$(funcType) $(descr.codeType)** defined at  **$(descr.defLocation)** in package **$(descr.packageName)**
+**$(funcType) $(descr.codeType)** in package **$(descr.packageName)** defined at  **$(format_location(descr.defLocation))** 
 "
           );
 end;

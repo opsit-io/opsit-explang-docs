@@ -3,7 +3,7 @@ EXPLANG_VERSION=0.0.3-SNAPSHOT
 EXPLANG=./opsit-explang-alg-parser-$(EXPLANG_VERSION)-runnable.jar
 EXPLANG_JAVADOC=./opsit-explang-core-$(EXPLANG_VERSION)-javadoc.jar
 FORMATTER=printref
-JAVADOC_URL=https://javadocs.dev/io.opsit/opsit-explang-core/EXPLANG_VERSION
+JAVADOC_URL=https://javadocs.dev/io.opsit/opsit-explang-core/$(EXPLANG_VERSION)
 
 
 GENERATED=docs/explang-lisp-funcs-by-name.md docs/explang-lisp-funcs-by-package.md docs/explang-alg-funcs-by-package.md docs/explang-alg-funcs-by-name.md
