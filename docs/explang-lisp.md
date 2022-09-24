@@ -168,7 +168,6 @@ It is another of those special forms with its own evaluation rule.
 What is the object returned as the value of the def expression?  That's
 the Java Object that represents the function.
 
-
 Now the symbol `average` is assigned function value and you can invoke
 it in the same way you invoke the built-in functions like `+` or `*`:
 
@@ -784,11 +783,11 @@ The `string-builder` function creates a StringBuilder object:
 In the following chapters we'll learn to operate on data in sequence types.
 
 
-Getting Inforrmation About Collections and Sequences
+Getting Information About Collections and Sequences
 ----------------------------------------------------
 
 
-Length returns number of objects in a collection or sequence:
+Length returns length of a collection or sequence:
 
 ```lisp
 > (list (length "Hello") 
@@ -830,7 +829,7 @@ property or ability. By convention their name ends by _p_ - predicate.
 Accessing data in collections and sequences
 -------------------------------------------
 
-Explang attempts to provide data access operators that can be used on
+Explang attempts to provide generic data access operators that can be used on
 all kinds of sequences and collections like lists, arrays, sets, hash
 maps and so on.
 
@@ -891,13 +890,13 @@ use of several nesting expressions.
                                            'surname "Doe" 
                                            'relatives (hashmap 'motherId 3
                                                                'fatherId 2)
-				           'friendIds (list 4))
+				                           'friendIds (list 4))
                                 2 (hashmap 'name "Jack"
                                            'surname "Doe")
                                 3 (hashmap 'name "Ann"
                                            'surname "Roe")
-				4 (hashmap 'name "Bill"
-					   'surname "Moe"))))
+				                4 (hashmap 'name "Bill"
+					                        'surname "Moe"))))
 
 => {people={1={friendIds=[4], surname=Doe, name=John, 
 relatives={motherId=3, fatherId=2}}, 2={surname=Doe, name=Jack}, 
@@ -973,7 +972,9 @@ that is it refkects changes in the original:
 => {a=1, c=3} ;; now s got new entry c=3
 ```
 
-### `first` return first object in collection
+### `first` 
+
+`first` return first object in collection
 
 
 ```lisp
@@ -983,6 +984,210 @@ that is it refkects changes in the original:
 ```
 
 
+### `rest`, `take` and `subseq`
+
+`rest` returns the subsequence starting from the second element.
+
+`take` returns first n elements of the sequence.
+
+`subseq` returns a subsequence from the given index or between the first given index and up to the second given index (excluding):
+
+```
+> (setv a (list 1 2 3 4 5 6))
+
+=> [1, 2, 3, 4, 5, 6]
+
+> (first a)
+
+=> 1
+
+> (rest a)
+
+=> [2, 3, 4, 5, 6]
+
+> (subseq a 1)
+
+> [2, 3, 4, 5, 6]
+
+(setv b (subseq a 1 3))
+
+=> [2, 3]
+```
+
+The `take` and `subseq` return sequence of the same kind as the source sequence.
+The type of the returned sequence differs depending on the type of the source sequence.
+For lists it returns sublist sharing the elements with the source list.
+For arrays this is not possible and the data is copied into new array.
+
+
+Modifying data in collections
+-----------------------------
+
+There are two kinds of functions that modify data in collections:
+those that change the data in place and those that return new data
+structures with requested changes. By convention the former ones have
+names that end with exclamation mark.
+
+### `put!` - put element value into an associative structure.
+
+Set value of element at index/key in the target structure to object. 
+
+If target object is a list or and andarray and an out of bound exception happend"
+the function returns normally without any change to the target structure"
+
+This function returns previous value of the element or NIL if id did not exist
+or no change has been made."
+
+```lisp
+> (setv a (make-array :size 5 :elementType "int"))
+
+=> [null, null, null, null, null]
+```
+
+Example with a Map:
+
+```lisp
+> (setv m (hashmap "foo" 1))
+
+=> {foo=1}
+
+> (put! m "bar" 77)
+
+=> NIL
+
+> (put! m "foo" 0)
+
+=> 1
+
+> m
+
+{bar=77, foo=0}
+
+```
+
+Example with an array of integer numbers:
+
+``` lisp
+(setv a (make-array :size 5 :elementType "int"))
+
+=> [0, 0, 0, 0, 0]
+> (put! a 1 10)
+
+=> 0
+> a
+
+=> [0, 10, 0, 0, 0]
+```
+
+### put-in! modify value in a hierarchy of nested associative structures.
+
+Like `get-in` this function accepts list of keys to navigate
+the nested associative structures (lists, arrays, maps, etc).
+
+Let's add some friends to John using the same structure 
+from the `get-in` example above:
+
+```lisp
+> (setv data
+      (hashmap 'people (hashmap 1 (hashmap 'name "John"
+                                           'surname "Doe" 
+                                           'relatives (hashmap 'motherId 3
+                                                               'fatherId 2)
+				                           'friendIds (list 4))
+                                2 (hashmap 'name "Jack"
+                                           'surname "Doe")
+                                3 (hashmap 'name "Ann"
+                                           'surname "Roe")
+				                4 (hashmap 'name "Bill"
+					                        'surname "Moe"))))
+=> {people={1={friendIds=[4], surname=Doe, name=John, 
+relatives={motherId=3, fatherId=2}}, 2={surname=Doe, name=Jack}, 
+3={surname=Roe, name=Ann}, 4={surname=Moe, name=Bill}}}
+
+> (put-in! data (list 'people 5) (hashmap 'name "Rick" 'surname "Hoe")) ;; add new person
+
+=> {people={1={friendIds=[4], surname=Doe, name=John, relatives={motherId=3, fatherId=2}}, 2={surname=Doe, name=Jack}, 3={surname=Roe, name=Ann}, 4={surname=Moe, name=Bill}, 5={surname=Hoe, name=Rick}}}
+
+> (put-in! data (list 'people 1 'friendIds 1) 5) ;; add id of the newly added person
+
+=> {people={1={friendIds=[4, 5], surname=Doe, name=John, relatives={motherId=3, fatherId=2}}, 2={surname=Doe, name=Jack}, 3={surname=Roe, name=Ann}, 4={surname=Moe, name=Bill}, 5={surname=Hoe, name=Rick}}}
+```
+
+`put-in!` accepts one optional argument that allows to specify how to automatically create
+structures along the path in case they do not exist. For example this will 
+add Rick Row (id=5) as a friend to Bill that does not have a list of friend identifiers.
+`put-in` would copy the provided object (an empty list) to create list of friendIds.
+
+
+```lisp
+(put-in! data (list 'people 4 'friendIds 0) 5 (list))
+
+=> {people={1={friendIds=[4, 5], surname=Doe, name=John, relatives={motherId=3, fatherId=2}}, 2={surname=Doe, name=Jack}, 3={surname=Roe, name=Ann}, 4={friendIds=[5], surname=Moe, name=Bill}, 5={surname=Hoe, name=Rick}}}
+
+```
+
+### remove!
+
+Removes an object from a collection according to its key or index. 
+For sets it will remove the object by its value.
+
+```
+(setv L (list 1 2 3))
+
+=> [1, 2, 3]
+
+> (remove! L 1)
+
+=> 2
+
+> L
+
+=> [1, 3]
+
+```
+
+### `insert!`, `push!` and `pop!`
+
+These functions work for lists and mutable character sequences. 
+
+`insert!` inserts an object at given index:
+
+```lisp
+> (setv L (list 1 2 3))
+
+=> [1, 2, 3]
+
+> (insert! L 1 "X")
+
+[1, X, 2, 3]
+```
+
+
+`push!` will add an object to the end of a sequence, `pop!` will remove and return the object at the end of the sequence.
+
+```lisp
+> (push! stack "foo")
+
+=> [foo]
+> (push! stack "bar")
+
+=> [foo, bar]
+
+> (pop! stack)
+
+=> "bar"
+
+> stack
+
+=> [foo]
+```
+
+
+
+
+
+Collection Specific Access functions
+------------------------------------
 
 
 
