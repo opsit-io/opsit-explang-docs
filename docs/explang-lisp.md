@@ -826,6 +826,26 @@ property or ability. By convention their name ends by _p_ - predicate.
 `associativep` returns true if objects in collection are indexed or have keys.
 
 
+### `in` check if a collection contains an object.
+
+
+The `in` function checks if a collection contains an object. 
+
+```lisp
+> (in "foo"  (hashset "bar" "baz" "foo" ))
+
+=> true
+
+> (in 1000  (range 1 100))
+
+=> false
+
+> (in #\e "Hi there!")
+
+=> true
+```
+
+
 Accessing data in collections and sequences
 -------------------------------------------
 
@@ -1024,9 +1044,9 @@ Modifying data in collections
 -----------------------------
 
 There are two kinds of functions that modify data in collections:
-those that change the data in place and those that return new data
-structures with requested changes. By convention the former ones have
-names that end with exclamation mark.
+those that change the data in place (mutating) and those that return
+new data structures with requested changes. By convention the former
+ones have names that end with exclamation mark.
 
 ### `put!` - put element value into an associative structure.
 
@@ -1182,13 +1202,116 @@ These functions work for lists and mutable character sequences.
 => [foo]
 ```
 
+### APPEND! 
+
+`append!` adds to the target sequence all the elements of all of the following sequences.
+It will return the target sequence. For example:
+
+```lisp
+(setv L (list 1 2 3))
+
+=> [1, 2, 3]
+
+> (append!  L (list 4 5 6)  (make-array 7 8 9) "HELLO!" )
+
+=> [1, 2, 3, 4, 5, 6, 7, 8, 9, H, E, L, L, O, !]
+```
+
+Target sequence must be mutable extendable, that means that objects 
+like Arrays (non-extendable) or String (immutable) cannot be target of this operation.
+
+### `reverse!` 
+
+`reverse!` Reverses the order of elements in the given sequence:
+
+```lisp
+> (setv L (list 1 2 3 4 5 6))
+
+=> [1, 2, 3, 4, 5, 6]
+
+> (reverse! L)
+
+=> [6, 5, 4, 3, 2, 1]
+
+> (reverse! (subseq L 1 4))
+
+=> [3, 4, 5]
+
+> L
+
+=> [6, 3, 4, 5, 2, 1]
+```
+
+### `sort!` sort a sequence.
+
+`sort!` will sort a sequence. It can sort 
+according to the natural order of its objects (if they implement 
+`java.lang.Comparable`) or using user specified compare function.
+
+```lisp
+> (setv L (make-array 1 9 8 8 6))
+
+=> [1, 9, 8, 8, 6]
+
+> (sort! L)
+
+=> [1, 6, 8, 8, 9]
+
+> L
+
+=> [1, 6, 8, 8, 9]
+```
+
+Sort according to length of a sequence with a custom compare function:
+
+```list
+> (setv L (list () '(1 2 3 4 5) '(1 2) '(1 2 3) '(1)))
+
+=> [[], [1, 2, 3, 4, 5], [1, 2], [1, 2, 3], [1]]
+
+> (sort! (lambda (a b) (- (length a) (length b))) L)
+
+=> [[], [1], [1, 2], [1, 2, 3], [1, 2, 3, 4, 5]]
+
+> L
+
+=> [[], [1], [1, 2], [1, 2, 3], [1, 2, 3, 4, 5]]
+```
 
 
+Modifying data with non-mutating functions
+------------------------------------------
+
+The mutating functions that were described above have non-mutating counterpart
+that accept same arguments and return new object with required modifications 
+leaving the original objects unmodified.
+
+
+For example `append` concatenates its argument into new sequence:
+
+```lisp
+> (setv L '(0))
+
+> (append L '(1 2 3) "Hello")
+
+=> [0, 1, 2, 3, H, e, l, l, o]
+
+> L  ;;; not changed
+
+=> [0]
+> 
+```
+
+The returned sequence is of the same kind as the first aunction argument, so this 
+construction may be used to convert collection into other collection types:
+
+```lisp
+> (append () (hashset 1 2 3)))  ;; convert hashset into list
+```
 
 
 Collection Specific Access functions
 ------------------------------------
-
 
 
 Conditionals
