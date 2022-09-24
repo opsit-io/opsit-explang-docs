@@ -237,6 +237,59 @@ basically:
 (fset 'average (lambda (x y) (/ (+ x y) 2)))
 ```
 
+Getting Help on Functions
+-------------------------
+
+To get short description of a function or a special operator
+use `describe-function`. 
+
+
+```lisp
+> (describe-function 'random)
+
+=> random is a built-in function defined at class io.opsit.explang.Funcs$RANDOM
+
+Arguments:  limit
+
+Documentation: 
+    Produce Pseudo-Random Number. Returns a pseudo-random number that is a non-negative number less than limit and of the same numeric type as limit. Implemented uding Java Math.random()
+Package: base.math
+```
+
+`describe-function` works both with built-in as well with the
+user-defined functions.  For the latter ones the function description
+is the value of so called documentation strings - "docstrings".  if
+the first expression in the function is a string literal it is
+considered to be documentation string:
+
+```lisp
+> (defun average (x y)
+    "Compute average of two numbers."
+	(/ (+ x y) 2))
+    
+=> io.opsit.explang.Compiler$LAMBDA$1@37a71e93
+
+> (describe-function 'average)
+
+=> average is a compiled function defined at INPUT1:line=3:pos=15:o=74:len=0
+
+Arguments:  x y
+
+Documentation: 
+    Compute average of two numbers.
+Package: user
+```
+
+To get list of all the available function use `functions-names`:
+
+```lisp
+> (functions-names )
+
+=> [%, *, +, -, ->, ->>, ., .N, .S, /, <, <=, =, ==, ===, >, >=, @->, AND, APPEND 
+...
+
+```
+
 Printing values
 ---------------
 
