@@ -595,8 +595,13 @@ using the first argument as format specification:
 See [java.util.Formatter](https://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html),
 for details on building the format strings.
 
-Explang considers Strings as Sequences of Character, see below on both.
+`uppercase` and `lowercase` can be used to change case of a string:
 
+Strings in explang are considered a kind of indexed sequences
+and can be operated upon using generic functions that work with sequences,
+for example to get substring one should use `subseq`, 
+to get a specific character one uses `get` or `areq` and so on. 
+See below on how to work with sequences.
 
 Character Type
 --------------
@@ -1269,7 +1274,9 @@ Sort according to length of a sequence with a custom compare function:
 
 => [[], [1, 2, 3, 4, 5], [1, 2], [1, 2, 3], [1]]
 
-> (sort! (lambda (a b) (- (length a) (length b))) L)
+> (sort! (lambda (a b) 
+           (- (length a) (length b))) 
+       L)
 
 => [[], [1], [1, 2], [1, 2, 3], [1, 2, 3, 4, 5]]
 
@@ -1279,11 +1286,79 @@ Sort according to length of a sequence with a custom compare function:
 ```
 
 
+Collection Specific Access functions
+------------------------------------
+
+In addition to the generic data access functions there are 
+data access functions that are specific for concrete collection types.
+
+### aref and aset! -- array member access.
+
+Unlike `put!` and `get` they will fail with exception when index is invalid. 
+
+
+```lisp
+> (setv L '(1 2 3))
+
+=> [1, 2, 3]
+
+> (aset! L 1 0)
+
+=> 2
+
+> L
+
+=> [1, 0, 3]
+
+>
+
+```
+
+### assoc! 
+
+Adds one or more mappings to a Map:
+
+```lisp
+> (setv M (hashmap))
+
+=> {}
+
+> (assoc! M 1 2 3 4 5 6)
+
+=> {1=2, 3=4, 5=6}
+```
+
+### haskey 
+
+`haskeys` checks if a Map has given key or if an indexed sequence has specified index.
+Unlike `get` and `in` this allows to check if a map contains NIL as a key.
+
+
+```lisp
+> (setv M (hashmap 1 2 NIL NIL))
+
+=> {null=null, 1=2}
+
+> (haskey M 1)
+
+=> true
+
+> (haskey M NIL)
+
+=> true
+
+> (haskey M 2)
+
+=> false
+```
+
 Modifying data with non-mutating functions
 ------------------------------------------
 
-The mutating functions that were described above have non-mutating counterpart
-that accept same arguments and return new object with required modifications 
+The mutating functions that were described above have non-mutating
+counterparts that have same names without the '!' suffixes, accept
+same arguments and, instead of modifying target objects, 
+return new object with required modifications 
 leaving the original objects unmodified.
 
 
@@ -1302,17 +1377,17 @@ For example `append` concatenates its argument into new sequence:
 > 
 ```
 
-The returned sequence is of the same kind as the first aunction argument, so this 
+The returned sequence is of the same kind as the first function argument, so this 
 construction may be used to convert collection into other collection types:
 
 ```lisp
 > (append () (hashset 1 2 3)))  ;; convert hashset into list
 ```
 
+List of non-mutating functions for data modification:
 
-Collection Specific Access functions
-------------------------------------
-
+`append`, `aset`, `assoc`, `insert`, `push`, `pop`, `put`, `put-in`, `remove`, `reverse`,
+`sort`
 
 Conditionals
 ------------
