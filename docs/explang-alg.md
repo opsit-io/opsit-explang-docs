@@ -826,6 +826,37 @@ to get a specific character one uses `get()` or `areq()` and so on.
 See below on how to work with sequences.
 
 
+Character Type
+--------------
+
+Explang Characters represent Unicode 16bit characters and implemented using Java 
+[java.lang.Character](https://docs.oracle.com/javase/8/docs/api/java/lang/Character.html).
+
+Character literals are delimited using the 'c', '\UHEX','\uHEX' or '\ESCAPE' notation:
+
+```julia
+> [ 'H', 'e', 'l', 'l', 'o', '\n', '\u263a' ];
+
+=> [H, e, l, l, o, 
+, ☺]
+```
+
+
+The `char` operator allows to create Characters from their numeric code:
+
+```julia
+> char(33)
+
+=> !
+```
+
+Characters can be used as operand of arithmetic expressions:
+
+```lisp
+char(1 + 'A')
+
+=> B
+```
 
 
 

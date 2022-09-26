@@ -834,7 +834,7 @@ Character literals are delimited using the #\C, #\UHEX or #\ESCAPE notation:
 The `char` operator allows to create Characters from their numeric code:
 
 ```lisp
-> char(33)
+> (char 33)
 
 => !
 ```
