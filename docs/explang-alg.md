@@ -477,6 +477,92 @@ end;
 ```
 
 
+Keyword arguments
+-----------------
+
+Keyword arguments are used when we want to pass a specific value to a
+specific argument. Consider a scenario where there are 3 optional
+arguments, what if the user wants to pass just a second optional
+argument’s value, here the first arguments even though is optional it
+will be mandatory for him to pass its value making it a required
+argument.
+
+To solve this problem keyword arguments are used where the caller has
+a choice to specify for argument values to which particular argument
+they will be passed.
+
+To define keyword arguments in a function, add ';' after defining the
+positional arguments (if any). All the arguments after ';' will be
+keyword arguments.
+
+```julia
+> function keyword_example (;x, y, z)
+    [x, y, z]
+  end;
+
+=> io.opsit.explang.Compiler$LAMBDA$1@41cf53f9
+```
+
+Keyword argument are passed as assignments of arguments and their values:
+
+```lisp
+> keyword_example(z:=3, x:=11, y:= 2)
+
+=> [11, 2, 3]
+```
+
+The keyword arguments are optional, you can call this function without 
+setting all the arguments, the default argument value is `NIL`.
+
+
+```julia
+> keyword_example();
+
+=> [null, null, null]
+
+> keyword_example(x:=1, y:=2)
+
+=> [1, 2, null]
+```
+
+You can set default value of the keyword arguments just like with
+optional positional arguments:
+
+```lisp
+> function keyword_example (; x:=1, y:=2, z:=x + y)
+    [x, y, z];
+  end;
+
+=> io.opsit.explang.Compiler$LAMBDA$1@2ef1e4fa
+
+> keyword_example();
+
+=> [1, 2, 3]
+```
+
+Very much like with the positional vararg functions you can allow functions
+to get any number of keyword parameters in addition to those that are named
+in the argument list. 
+
+In the following example the 'r' argument, which is marked with an ellipsis
+is used to collect pairs of argument names (keywords) and their walues.  
+
+```lisp
+> function  otherkeys_example (x ; y, r...)
+    [x, y, r];
+end;
+
+=> io.opsit.explang.Compiler$LAMBDA$1@5cb0d902
+
+> otherkeys_example(1)
+
+=> [1, null, []]
+
+> otherkeys_example (1,  y:=2, p:=3, q:=4);
+
+> [1, 2, [:p, 3, :q, 4]]
+
+```
 
 
 
