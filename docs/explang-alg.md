@@ -301,8 +301,66 @@ To get list of all the available function use `functions_names`:
 ```
 
 
+Printing values
+---------------
+
+So far we've only had things printed out implicity as a result of
+evaluating them. The standard way to print things out in the middle of
+evaluation is with `print` or `println`. They take multiple arguments and print
+them in order; `println` also prints a newline at the end. Here's a variant
+of average that tells us what its arguments were:
+
+```julia
+> function average (x,y)
+      println("my arguments were: ",x,", ",y, "\n");
+	  (x + y) / 2;
+  end;
+
+> average(100,500);
+my arguments were: 100, 500
 
 
+=> 300
+```
+
+Return Value of the Function
+----------------------------
+
+From the previous example we see that when a function contains several
+expressions the return value of the function is the value of the last
+expression in the function. Previous expressions are evaluated 
+and their value is discarded. 
+
+If you want to return value from function without reaching the last
+expression use the `return` operator.
+
+In the following example we define function that solves quadratic
+equations. In the case when determinant is negative we print an error
+message and exit prematurely returning an empty list.
+
+
+```julia
+> function quadratic_eq_roots(a,b,c) 
+    "Finds real roots of an quadratic equation";
+    discriminant:= b * b -  4 * a * c;
+    if discriminant < 0
+        println("Error: the equation has no real solutions!");
+        return []; 
+    end; 
+    [ ((- b) - sqrt(discriminant)) / (2 * a) ,
+      ((- b) + sqrt(discriminant)) / (2 * a)];
+  end;
+
+> quadratic_eq_roots(2, 4, -4)
+
+=> [-2.732050807568877, 0.7320508075688772]
+
+> quadratic_eq_roots(1, 2, 3)
+
+Error: the equation has no real solutions!
+=> []
+
+```
 
 
 Explang/Algebraic Syntax Language Reference

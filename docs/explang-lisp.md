@@ -331,7 +331,7 @@ Return Value of the Function
 From the previous example we see that when a function contains several
 expressions the return value of the function is the value of the last
 expression in the function. Previous expressions are evaluated 
-and they value is discarded. 
+and their value is discarded. 
 
 If you want to return value from function without reaching the last
 expression use the `return` operator.
