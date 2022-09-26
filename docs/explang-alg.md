@@ -858,6 +858,87 @@ char(1 + 'A')
 => B
 ```
 
+Collection and Sequence types
+-----------------------------
+
+Explang attempts to provide operators that can be used 
+on sequence and collection like objects of different types: 
+lists, arrays, sets, hash maps and so on.
+
+### Lists
+
+Lists contains entries (objects or null) in slots that can be
+addressed by their zero-based index. Lists do not have fixed size,
+they grow/shrink dynamically when elements are added/removed.
+
+The `list` operator creates and initializes a list. By default the
+lists created are implemented by
+[java.util.ArrayList](https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html).
+
+
+```julia
+> list(1, 2, list( 3, 4));
+
+[1, 2, [3, 4]]
+```
+
+Call to `list()` may be abbreviated using the '[ ]' syntax:
+
+```
+> [1, 2, [3, 4]]
+
+=> [1, 2, [3, 4]]
+```
+
+
+### Maps
+
+Use the `hashmap` to create and initialize a Map 
+(implemented by [java.util.HashMap](https://docs.oracle.com/javase/8/docs/api/java/util/HashMap.html)).
+
+
+```julia
+ > hashmap("a", 1, "b", "foo", "c", hashmap("d", "e"))
+ 
+ => {a=1, b=foo, c={d=e}}
+```
+
+Call to `hashmap()` may be abbreviated using the '{}' syntax:
+
+```
+> { "a" : 1, "b" : "foo",  "c" : { "d" : "e"}}
+
+=> {a=1, b=foo, c={d=e}}
+```
+
+Note, that [] and {} syntaxes together allow to initialize data structures using
+a JSON compatible notation.
+
+
+### Sets
+
+A Set is a collection that contains no duplicate elements. More
+formally, sets contain no pair of elements e1 and e2 such that `e1 == e2`
+would return true. 
+
+As implied by its name, this type models the mathematical set
+abstraction.
+
+The `hashset` operator creates a set and initializes it with the specified elements:
+
+```julia
+hashset(1, 2, 3, 7)
+
+=> [1, 2, 3, 7]
+```
+
+```julia
+hashset(1, 1, [1, 2, 3], [1, 2, 3], NIL, NIL)
+
+=> [null, 1, [1, 2, 3]]
+```
+
+
 
 
 
