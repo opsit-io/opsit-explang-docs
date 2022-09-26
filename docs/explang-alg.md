@@ -123,6 +123,26 @@ The symbols that start with letter ':' are special, they are
 They may be used for different kinds of indentifiers: keys in map,
 names of parameters, etc.
 
+Creating lists
+--------------
+
+To create a list of valies use the `[ ]` operator
+
+```julia
+> [1, 2 + 3, "foo", :b]
+
+=> [1, 5, foo, b]
+```
+
+This operator is equivalent to function `list`:
+
+```julia
+> list(1, 2 + 3, "foo", :b);
+
+=> [1, 5, foo, b]
+```
+
+
 Defining Functions
 ------------------
 
@@ -361,6 +381,9 @@ Error: the equation has no real solutions!
 => []
 
 ```
+
+
+
 
 
 Explang/Algebraic Syntax Language Reference

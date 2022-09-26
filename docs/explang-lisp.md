@@ -139,8 +139,8 @@ quoted, returns a list consisting of the symbol + and the numbers 1
 and 2.
 
 
-The `list` function
--------------------
+Creating Lists
+--------------
 
 To create a list  use the `list` function:
 
