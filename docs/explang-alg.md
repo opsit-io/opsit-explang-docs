@@ -38,12 +38,33 @@ using operators and calls to functions:
 ```
 
 All the operators like '+', '-', '*', etc are also available for use 
-in functional form, for example:
+in functional form, for example, the same expression using `+` and `*`
+in functional form:
+
+```julia
+*(10, +(1,sqrt(2)))
+=> => 24.14213562373095
+
+```
+
+The advantage of functional form is that you can call operators not with just two,
+but with any number of arguments:
 
 ```julia
 +(1,2,3)
+
 => 6
+
++(1)
+
+=>1
+
++()
+
+=>0
 ```
+
+
 
 Comments
 --------
@@ -60,14 +81,224 @@ Explang supports block comments as well, they are started by `#=` and run until
 first occurence of `=#`:
 
 
+```julia
 > 1 + #= a block comment =# 2;
 
 => 3
+```
 
 
+Symbols and their Values
+------------------------
+
+The expressions `+` and `*` here are Symbols. 
+Symbols don't evaluate to themselves but return values they have been assigned.
+If we give `b` the value 10, it will return 10 when evaluated:
 
 
+```julia
+> b:=10
 
+=> 10
+> b
+
+=> 10
+```
+
+If we try to evaluate a Symbol that has not been assigned a value we'll get error[^1].
+
+Note that evaluation of `b:=10` when `b` still was unassigned did
+not cause an error. 
+
+The symbols that start with letter ':' are special, they are
+`keywords` -- symbols that are always assigned values of themselves.
+
+```julia
+> :something
+
+=> :something
+
+``` 
+
+They may be used for different kinds of indentifiers: keys in map,
+names of parameters, etc.
+
+Defining Functions
+------------------
+
+We've already seen some functions: `+`, `*`. You can define new ones
+with the `function` operator. Here's a function that takes two numbers
+and returns their average:
+
+```julia
+> function average (x, y)
+    (x + y) / 2;
+  end;
+
+=> io.opsit.explang.Compiler$LAMBDA$1@27fe3806
+```
+
+The operator expects a symbol to use as the name, a list of symbols
+that describe the parameters, and then zero or more expressions called
+the body.
+
+When the function is called, those expressions will be evaluated in
+order with the parameter symbols in the body temporarily set ('bound')
+to the corresponding argument values. Whatever the last expression
+returns will be returned as the value of the call.
+
+The body of the function consists of one expression, `(x + y) / 2`.
+It is common for functions to consist of one expression; in purely
+functional code (code with no side-effects) they always do.
+
+What is the object returned as the value of the `function` expression?
+That's the Java Object that represents the function.
+
+Now the symbol `average` is assigned function value and you can invoke
+it in the same way you invoke the built-in functions like `+` or `*`:
+
+```julia
+> average(100,200);
+
+=> 150
+```
+
+As the literal representation of a string is a series of characters
+surrounded by double quotes, the literal representation of a function
+is the language keyword `function`, followed by its
+parameters, followed by its body. So you could represent a function to
+return the average of two numbers as:
+
+```julia
+> function (x, y) (x + y) / 2;  end;
+
+=> io.opsit.explang.Compiler$LAMBDA$1@37a71e93
+```
+
+And you can call a literal function just like you can call it using the  symbol, e.g.
+
+```julia
+> (function (x,y) (x+y)/2; end)(100,200)
+
+=> 150
+```
+
+
+Short Lambda Definitions
+------------------------
+
+When the function body consists only of one function there is a
+second, shorter syntax for defining an anonymous function in Explang.
+
+The traditional syntax demonstrated above is equivalent to the shorter
+version:
+
+```julia
+> (x,y)-> (x+y)/2
+
+=> io.opsit.explang.Compiler$LAMBDA$1@71d15f18
+```
+
+And when there is only one argument you can use even simpler form:
+
+```julia
+x -> x * 2
+
+=> io.opsit.explang.Compiler$LAMBDA$1@38364841
+```
+
+Function Values
+---------------
+
+Notice that if you try to get the function object simply by referencing the `average` symbol you get an error.
+
+```julia
+> average
+EXECUTION ERROR: java.lang.RuntimeException: variable 'average' does not exist in this context at:
+```
+
+This is because of imprtant property of Explang: named functions and ordinary data variables are 
+living in separate namespaces, that is you may assign value to variable `average` without 
+overwriting the function `average`:
+
+```julia
+> average:=100;
+
+=> 100
+> average(average, 200)
+
+=> 150
+```
+
+To reference the value of the defined function one must use special syntax:
+
+```julia
+> f"average"
+
+=> io.opsit.explang.Compiler$LAMBDA$1@5e9f23b4
+```
+
+And to set the function binding one can use the `fset` function, all the def does is 
+basically:
+
+```julia
+> fset( :average,  (x,y)-> (x+y)/2);
+
+=> io.opsit.explang.Compiler$LAMBDA$1@28c4711c
+```
+
+
+Getting Help on Functions
+-------------------------
+
+To get short description of a function or a special operator use
+`describe_function`.
+
+
+```julia
+> describe_function("random")
+
+=> random is a built-in function defined at class io.opsit.explang.Funcs$RANDOM
+
+Arguments:  limit
+
+Documentation: 
+    Produce Pseudo-Random Number. Returns a pseudo-random number that is a non-negative number less than limit and of the same numeric type as limit. Implemented uding Java Math.random()
+Package: base.math
+```
+
+`describe_function` works both with the built-in as well with the
+user-defined functions.  For the latter ones the function description
+is the value of so called documentation strings - "docstrings".  if
+the first expression in the function is a string literal it is
+considered to be documentation string:
+
+```julia
+>  function average (x,y)
+     "Compute average of two numbers.";
+	  (x + y) / 2;
+   end;
+    
+=> io.opsit.explang.Compiler$LAMBDA$1@37a71e93
+
+> describe_function("average")
+
+Arguments: x, y
+
+Documentation: 
+    Compute average of two numbers.
+Package: user
+```
+
+To get list of all the available function use `functions_names`:
+
+```julia
+> functions_names()
+
+=> [%, *, +, -, ->, ->>, ., .N, .S, /, <, <=, =, ==, ===, >, >=, @->, AND, APPEND 
+...
+
+```
 
 
 

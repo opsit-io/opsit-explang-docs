@@ -83,9 +83,9 @@ If we give `b` the value 10, it will return 10 when evaluated:
 
 If we try to evaluate a Symbol that has not been assigned a value we'll get error[^1].
 
-Note that evaluation `(setv b 10)` when `b` still was unassigned did
+Note that evaluation of `(setv b 10)` when `b` still was unassigned did
 not cause an error.  This is because there are some operations (they
-are called special operators or special formd) that do not conform the usual
+are called special operators or special forms) that do not conform the usual
 evaluation rule, and `setv` is one of them.  Its first argument isn't
 evaluated.
 
