@@ -581,7 +581,7 @@ To get type of a value we use function `type-of`:
 => class java.lang.Double
 ```
 
-To check if object is of some type use the `typep` operator:
+To check if object is of some specific type use the `typep` operator:
 
 ```lisp
 > (typep "abc" 'java.lang.String)
@@ -642,7 +642,8 @@ The boolean type has two values, `false` and `true`. It is implemented using
 as Java Boolean objects. 
 
 
-### Numeric Types And Values
+Numeric Types And Values
+------------------------
 
 Explang works with Java numeric types. 
 
@@ -713,6 +714,7 @@ numeric types from other numeric types as well as from string representation:
 => 10000.0
 
 ```
+
 
 Strings
 -------
