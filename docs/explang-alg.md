@@ -1012,6 +1012,65 @@ modified from differennt threads.
 In the following chapters we'll learn to operate on data in sequence types.
 
 
+Getting Information About Collections and Sequences
+----------------------------------------------------
+
+The function `length()` returns length of a collection or sequence:
+
+```julia
+> [length("Hello"), length(hashmap("a",1)), length(hashset(1, 2, 3)) length(range(1, 10))]
+
+=> [5, 1, 3, 9]
+```
+
+The collection predicates return `true` or `false` allow to check if an objects have some 
+property or ability. By convention their name ends by _p_ - predicate.
+
+
+`collp` returns true if the object is a collection of some kind, for example:
+
+```lisp
+> [ collp([]),
+    collp(make-array()), 
+    collp("foo"),         ; string is a CharSequence
+    collp(range(1,2)),
+    collp(nil),           ;; non-object 
+    collp(1)]             ;; individual object
+
+=> [true, true, true, true, false, false]
+```
+
+`seqp` returns true if the object is a sequence, that is collection with specific order.
+
+`indexedp` returns true if objects in the collection can be addressed by integer index.
+
+`mapp` returns true if it is a Map.
+
+`setp` returns true if the object is a Set.
+
+`associativep` returns true if objects in collection are indexed or have keys.
+
+
+### `in` check if a collection contains an object.
+
+The `in` operator checks if a collection contains an object. 
+
+```lisp
+> "foo" in hashset("bar","baz","foo")
+
+=> true
+
+> 1000 in range(1, 100)
+
+=> false
+
+> 'e' in  "Hi there!"
+
+=> true
+```
+
+
+
 
 
 

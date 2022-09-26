@@ -992,7 +992,7 @@ Getting Information About Collections and Sequences
 ----------------------------------------------------
 
 
-Length returns length of a collection or sequence:
+The function `length` returns length of a collection or sequence:
 
 ```lisp
 > (list (length "Hello") 
@@ -1000,7 +1000,7 @@ Length returns length of a collection or sequence:
         (length (hashset 1 2 3)) 
         (length (range 1 10)))
 
-=> [5, 1, 3, 10]
+=> [5, 1, 3, 9]
 ```
 
 The collection predicates return `true` or `false` allow to check if an objects have some 
@@ -1024,9 +1024,9 @@ property or ability. By convention their name ends by _p_ - predicate.
 
 `indexedp` returns true if objects in the collection can be addressed by integer index.
 
-`mapp` returns true if objects in the collection can be addressed by key objects.
+`mapp` returns true if it is a Map.
 
-`mapp` returns true if the object is a Set.
+`setp` returns true if the object is a Set.
 
 `associativep` returns true if objects in collection are indexed or have keys.
 
@@ -1049,7 +1049,6 @@ The `in` function checks if a collection contains an object.
 
 => true
 ```
-
 
 Accessing data in collections and sequences
 -------------------------------------------
