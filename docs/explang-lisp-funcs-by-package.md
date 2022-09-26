@@ -1053,13 +1053,13 @@ Return array element at specified index. Throws ArrayOutOfBoundsException if ind
 
 **builtin function** in package **base.seq** defined at  [class io.opsit.explang.Funcs$AREF](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.3-SNAPSHOT/io/opsit/explang/Funcs.AREF.html) 
 
-### `ASET`
+### `ASET!`
 
 **Set indexed sequence (array, list, character sequence) element value.**
 
-**(ASET  obj key object)**
+**(ASET!  obj key object)**
 
-Set value of element at index to object.  If target ibject is a Java array and object type does not match type of this array this function will attempt to perform necessary coercion operations.  The coercions  work in the same way as INT, FLOAT, STRING and rest of the  built-in coercion functions. May fail with index out of bound exception. The function returns normally without any change to the target structure The function returns previous value of the element or NIL if it did not exist
+Set value of element at index to object.  If target ibject is a Java array and object type does not match type of this array this function will attempt to perform necessary coercion operations.  The coercions  work in the same way as INT, FLOAT, STRING and rest of the  built-in coercion functions. May fail with index out of bound exception. The function returns previous value of the element.
 
 
 **builtin function** in package **base.seq** defined at  [class io.opsit.explang.Funcs$ASET](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.3-SNAPSHOT/io/opsit/explang/Funcs.ASET.html) 
@@ -1215,11 +1215,22 @@ Returns a set containing the supplied objects.
 
 **builtin function** in package **base.seq** defined at  [class io.opsit.explang.Funcs$HASHSET](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.3-SNAPSHOT/io/opsit/explang/Funcs.HASHSET.html) 
 
+### `HASKEY`
+
+
+
+**(HASKEY  seq keyidx)**
+
+Check whether Map or indexed sequence has given key or index.
+
+
+**builtin function** in package **base.seq** defined at  [class io.opsit.explang.Funcs$HASKEY](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.3-SNAPSHOT/io/opsit/explang/Funcs.HASKEY.html) 
+
 ### `IN`
 
-**Check if an element is contained in a sequence.**
+**Check if an element is contained in a collection.**
 
-**(IN  elt sequence)**
+**(IN  elt col)**
 
 
 
@@ -1362,9 +1373,9 @@ Returns the sequence
 
 **Put element value into an associative structure.**
 
-**(PUT!  obj key object)**
+**(PUT!  target key object)**
 
-Set value of element at index/key to object.  If target ibject is a Java array and object type does not match type of this array this function will attempt to perform necessary coercion operations. The coercions  work in the same way as INT, FLOAT, STRING and rest of the built-in coercion functions. If target object is a list or array and happens out of bound exception the function returns normally without any change to the target structure The function returns previous value of the element or NIL if it did not exist
+Set value of element at index/key in the target structure to object.  If target ibject is a Java array and the object type does not match the type of this array this function will attempt to perform necessary coercion operations. The coercions  work in the same way as INT, FLOAT, STRING and rest of the built-in coercion functions. If target object is a list or and array and happens out of bound exception the function returns normally without any change to the target structure The function returns previous value of the element or NIL if it did not exist or no change has been made.
 
 
 **builtin function** in package **base.seq** defined at  [class io.opsit.explang.Funcs$NPUT](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.3-SNAPSHOT/io/opsit/explang/Funcs.NPUT.html) 
@@ -1471,17 +1482,6 @@ Reverse a sequence (destructive).
 
 
 **builtin function** in package **base.seq** defined at  [class io.opsit.explang.Funcs$SELECT_KEYS](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.3-SNAPSHOT/io/opsit/explang/Funcs.SELECT_KEYS.html) 
-
-### `SEQ`
-
-
-
-**(SEQ  object)**
-
-Coerce object into a sequence.
-
-
-**builtin function** in package **base.seq** defined at  [class io.opsit.explang.Funcs$SEQ](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.3-SNAPSHOT/io/opsit/explang/Funcs.SEQ.html) 
 
 ### `SEQP`
 

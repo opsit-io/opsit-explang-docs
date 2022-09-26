@@ -85,9 +85,22 @@ If we try to evaluate a Symbol that has not been assigned a value we'll get erro
 
 Note that evaluation `(setv b 10)` when `b` still was unassigned did
 not cause an error.  This is because there are some operations (they
-are called special operators or special formd) that violate the usual
+are called special operators or special formd) that do not conform the usual
 evaluation rule, and `setv` is one of them.  Its first argument isn't
 evaluated.
+
+The symbols that start with letter ':' are special, they are
+`keywords` -- symbols that are always assigned values of themselves.
+
+```lisp
+> :something
+
+=> :something
+
+``` 
+
+They may be used for different kinds of indentifiers: keys in map,
+names of parameters, etc.
 
 
 Quoting
@@ -220,11 +233,15 @@ overwriting the function `average`:
 => 150
 ```
 
-To reference the value of the defined function one must use the `function` special operator
-(which can be abbreviated as `#'`:
+To reference the value of the defined function one must use the `function` special operator,
+which can be abbreviated as `#'`:
 
 ```lisp
 > (function average)
+
+=> io.opsit.explang.Compiler$LAMBDA$1@5e9f23b4
+
+> #'average
 
 => io.opsit.explang.Compiler$LAMBDA$1@5e9f23b4
 ```
@@ -346,6 +363,202 @@ Error: the equation has no real solutions!
 
 ```
 
+Optional and Rest Arguments for Functions
+-----------------------------------------
+
+We’ve seen above some functions like `list` and `+` that take varying
+numbers of arguments. Now we'll learn to define such functions.
+
+Function parameters list can contain extra directives that specify how
+the following parameters will be handled.
+
+To make the following parameters optional use the `&OPTIONAL`
+directive:
+
+```lisp
+(defun greet (name &OPTIONAL o)
+        (str "hello " name o))
+
+=> io.opsit.explang.Compiler$LAMBDA$1@50040f0c
+[16]> (greet "Joe" "!!!! :-)")
+
+=> hello Joe!!!! :-)
+[17]> (greet "Joe")
+
+=> hello Joe
+```
+
+When optional argument is not specified it gets its default value,
+which is NIL by default. To specify default value specify the
+parameter as list of form (parameter default_value). The default value
+does not have to be a constant. If you put an expression after the
+name of an optional parameter, it will be evaluated if necessary to
+produce a default value. The expression can refer to preceding
+parameters.
+
+```lisp
+> (defun greet (name &OPTIONAL (t1 "") 
+                               (t2 (if (== t1 "Mr.") ", Sir" 
+                                     (if (== "Mrs." t1) ", Ma'am"))))
+        (str "Hello " t1 " " name "! Nice to see you" t2 "!"))
+
+=> io.opsit.explang.Compiler$LAMBDA$1@6193b845
+> (greet "Figman" "Mrs.")
+
+=> Hello Mrs. Figman! Nice to see you, Ma'am!
+
+> (greet "Alice")
+
+=> Hello  Alice! Nice to see you!
+``` 
+
+One can return to defining mandatory arguments after optional ones, 
+but only one such sequence of optional arguments can be defined
+(otherwise there would be more than one way to associate values with
+the defined arguments).
+
+```lisp
+> (defun join2 (x &OPTIONAL (sep ", ") &REQUIRED y) 
+    (str x sep y))
+
+=> io.opsit.explang.Compiler$LAMBDA$1@5d099f62
+
+> (join2 "x" "y")
+
+=> x, y
+
+> (join2 "x" " and " "y")
+
+=> x and y
+```
+
+To make a function that takes any number of arguments we can specify 
+a rest parameter using the '&REST' directive. This parameter will
+contain list of all the values of the remaining arguments:
+
+```
+> (defun foo (x y &REST z)
+       (list x y z))
+
+=> io.opsit.explang.Compiler$LAMBDA$1@37f8bb67
+
+> (foo (+ 1 2) (+ 3 4) (+ 5 6) (+ 7 8))
+
+=> [3, 7, [11, 15]]
+```
+
+This type of parameter is called a “rest parameter” because it gets the rest of the arguments. 
+If you want all the arguments to a function to be collected in one parameter, 
+just use it in place of the whole parameter list.
+
+To supply a list of arguments to a function we can use the apply function:
+
+```lisp
+(setv L (list 1 2 3))
+
+=> [1, 2, 3]
+> (apply #'+ L)
+
+=> 6
+```
+
+Now that we have rest parameters and apply, we can write a version of
+average that takes any number of arguments.
+
+```
+(defun average (&REST args) 
+       (/ (apply #'+ args) 
+          (length args)))
+
+=> io.opsit.explang.Compiler$LAMBDA$1@3d646c37
+> (apply #'average 1 2 3)
+
+=> 2
+```
+
+Keyword arguments
+-----------------
+
+Keyword arguments are used when we want to pass a specific value to a
+specific argument. Consider a scenario where there are 3 optional
+arguments, what if the user wants to pass just a second optional
+argument’s value, here the first arguments even though is optional it
+will be mandatory for him to pass its value making it a required
+argument.
+
+To solve this problem keyword arguments are used where the caller has
+a choice to specify for argument values to which particular argument
+they will be passed.
+
+To define keyword arguments in a function, add the symbol &KEY before
+the arguments that are supposed to be keyword arguments. 
+
+```lisp
+> (defun keyword_example (&KEY x y z) (list x y z))
+
+=> io.opsit.explang.Compiler$LAMBDA$1@41cf53f9
+```
+
+Keyword argument are passed as pairs of argument keywords and their values:
+
+```lisp
+> (keyword_example :z 3 :x 1 :y 2 )
+
+=> [1, 2, 3]
+```
+
+The keyword arguments are optional, you can call this function without 
+setting all the arguments, the default argument value is `NIL`.
+
+
+```lisp
+> (keyword_example)
+
+=> [null, null, null]
+
+(keyword_example :x 1 :y 2)
+
+=> [1, 2, null]
+```
+
+You can set default value of the keyword arguments just like with
+optional positional arguments:
+
+```lisp
+> (defun keyword_example (&KEY (x 1) (y 2)  (z (+ x y))) (list x y z))
+
+=> io.opsit.explang.Compiler$LAMBDA$1@2ef1e4fa
+
+> (keyword_example)
+
+=> [1, 2, 3]
+```
+
+Very much like with the positional rest parameters you can allow functions
+to get any number of keyword parameters in addition to those that are named
+in the argument list. 
+
+In the following example the 'r' argument, which is marked with
+`&REST` and `&KEY`, is used to collect pairs of argument names
+(keywords) and their walues.  And the `&ALLOW-OTHER-KEYS` allows the
+function to accept any keyword arguments.
+
+
+```lisp
+> (defun other-keys-example (x &REST &KEY r y  &ALLOW-OTHER-KEYS)   (list x y r))
+
+=> io.opsit.explang.Compiler$LAMBDA$1@5cb0d902
+
+> (other-keys-example 1)
+
+=> [1, null, []]
+
+> (other-keys-example 1 :y 2 :p 3 :q 4)
+
+> [1, 2, [:p, 3, :q, 4]]
+
+```
+
 Data Types and Values
 ---------------------
 
@@ -356,8 +569,6 @@ those types are Java types.
 The language can work with Java Objects of any type and it has
 built-in support for standard data types such as Strings, Numbers,
 Arrays, etc. 
-
-
 
 To get type of a value we use function `type-of`:
 
