@@ -924,13 +924,13 @@ By defaults `make-array` creates array of type Object that can contain any java 
 
 => [null, null, null, null, null]
 
-> (make-array :size 5 :element-type "double") ;; array for storing primitive double values
+> (make-array :size 5 :elementType "double") ;; array for storing primitive double values
 
 => [0.0, 0.0, 0.0, 0.0, 0.0]
 
 
 > (make-array :size 10      ; array of size 10 
-    :element-type "char"    ; for storing primitive character values
+    :elementType "char"    ; for storing primitive character values
     #\H #\E #\L #\L  #\O)   ; partially filled
 
 => [0.0, 0.0, 0.0, 0.0, 0.0]

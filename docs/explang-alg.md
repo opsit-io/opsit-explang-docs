@@ -939,6 +939,38 @@ hashset(1, 1, [1, 2, 3], [1, 2, 3], NIL, NIL)
 ```
 
 
+### Arrays
+
+Arrays are areas of memory that contain entries in slots that can be
+addressed by their zero-based index.  Arrays have fixed size that
+determined at their creation time. Unlike lists arrays are created 
+to contain objects or primitive values of given type.
+
+The `make_array` operator creates array and initializes it with 
+specified elements. 
+
+By defaults `make_array` creates array of type Object that can contain any java object.
+
+```julia
+> make_array(1,"123", list(1,2), NIL) # array with specified objects
+
+=> [1, 123, [1, 2], null]
+
+> make_array(size:=5)  # array of specified size 
+
+=> [null, null, null, null, null]
+
+> make_array(size:=5, elementType:="double") # array for storing primitive double values
+
+=> [0.0, 0.0, 0.0, 0.0, 0.0]
+
+> make_array(size:=10,                ; array of size 10 
+             elementType:="char",     ; for storing primitive character values
+             'H', 'E', 'L', 'L', 'O') ;  partially filled
+
+=> [H, E, L, L, O,  ,  ,  ,  ,  ]
+
+```
 
 
 
