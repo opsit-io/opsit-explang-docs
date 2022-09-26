@@ -973,6 +973,47 @@ By defaults `make_array` creates array of type Object that can contain any java 
 ```
 
 
+### Character Sequences
+
+Regular string objects that we've seen earlier is one of the types that 
+are called Character Sequences. In Java these objects 
+implement interface
+[java.lang.CharSequence](https://docs.oracle.com/javase/8/docs/api/java/lang/CharSequence.html)).
+
+There are other such types that, unlike strings, can be modified in place:
+
+The `string_buffer` function creates a 
+[StringBuffer](https://docs.oracle.com/javase/8/docs/api/java/lang/StringBuffer.html) object:
+
+```julia
+> string_buffer() # creates empty StringBuffer
+
+=> 
+
+> string_buffer("foo", "bar")  # create stringbuffer with text
+
+=> "foobar"
+```
+The `string_builder` function creates a 
+[StringBuilder](https://docs.oracle.com/javase/8/docs/api/java/lang/StringBuilder.html) object.
+StringBuilder is similar to StringBuffer, but unlike StringBuffer it can be safely 
+modified from differennt threads.
+
+```julia
+> string_builder() ;; creates empty StringBuilder
+
+=> 
+
+> string_builder("foo", "bar")  ;; create stringbuilder with text
+
+=> "foobar"
+```
+
+In the following chapters we'll learn to operate on data in sequence types.
+
+
+
+
 
 Explang/Algebraic Syntax Language Reference
 ===========================================

@@ -959,18 +959,6 @@ The `string-buffer` function creates a
 
 => "foobar"
 ```
-
-The `string-buffer` function creates a StringBuffer object:
-```lisp
-> (string-buffer) ;; creates empty StringBuffer
-
-=> 
-
-> (string-buffer "foo" "bar")  ;; create stringbuffer with text
-
-=> "foobar"
-```
-
 The `string-builder` function creates a 
 [StringBuilder](https://docs.oracle.com/javase/8/docs/api/java/lang/StringBuilder.html) object.
 StringBuilder is similar to StringBuffer, but unlike StringBuffer it can be safely 
