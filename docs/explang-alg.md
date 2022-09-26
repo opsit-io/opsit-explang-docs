@@ -383,6 +383,100 @@ Error: the equation has no real solutions!
 ```
 
 
+Optional and Vararg Arguments for Functions
+-------------------------------------------
+
+We’ve seen above some functions like `list` and `+` that take varying
+numbers of arguments. Now we'll learn to define such functions.
+
+Function parameters list can contain extra directives that specify how
+the following parameters will be handled.
+
+To make the parameters optional set its default value 
+using the assignment `:=` operator.
+
+```julia
+function greet(name, o := NIL)
+    str("hello ", name, o);
+end;
+
+=> io.opsit.explang.Compiler$LAMBDA$1@2e4b8173
+
+> greet("Joe", "!!!! :-)")
+
+=> hello Joe!!!! :-)
+
+> greet("Joe")
+
+=> hello Joe
+```
+
+The expression for the default value does not have to be 
+a constant. It can be any expression that can refer to values of 
+preceding parameters:
+
+
+```julia
+> function greet(name,
+               t1:="",
+               t2:= if t1=="Mr." ", Sir"  else if t1=="Mrs." ", Ma'am" end; end)
+    str("Hello ", t1, " ", name, "! Nice to see you", t2, "!");
+end;
+
+> greet("Figman", "Mrs.");
+
+=> Hello Mrs. Figman! Nice to see you, Ma'am!
+
+> greet("Alice");
+
+=> Hello  Alice! Nice to see you!
+``` 
+
+Sometimes it is convenient to create functions that can take any number of arguments.
+Such functions are often called "varargs - variable number of arguments" functions.
+In Explang youcan make such a function by following the last positional
+argument by ellipsis:
+
+```julia
+> function foo(x, y, z...)
+    [x, y, z];
+end;
+
+=> io.opsit.explang.Compiler$LAMBDA$1@37f8bb67
+
+> foo(1+2,  3 + 4,  5 + 6,  7 + 8)
+
+=> [3, 7, [11, 15]]
+```
+
+To supply a list of arguments to a function we can use the apply function:
+
+```julia
+L:=[1, 2, 3];
+
+=> [1, 2, 3]
+
+> apply(f"+", L)
+
+=> 6
+```
+
+Now that we have rest parameters and apply, we can write a version of
+average that takes any number of arguments.
+
+```julia
+function average(args...) 
+    apply(f"+", args) / length(args);
+end;
+
+=> io.opsit.explang.Compiler$LAMBDA$1@3d646c37
+
+> average(1, 2 ,3)
+
+=> 2
+```
+
+
 
 
 

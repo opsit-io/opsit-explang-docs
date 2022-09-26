@@ -372,8 +372,7 @@ numbers of arguments. Now we'll learn to define such functions.
 Function parameters list can contain extra directives that specify how
 the following parameters will be handled.
 
-To make the following parameters optional use the `&OPTIONAL`
-directive:
+To make the parameters optional use the `&OPTIONAL` directive:
 
 ```lisp
 (defun greet (name &OPTIONAL o)
