@@ -858,10 +858,10 @@ lists, arrays, sets, hash maps and so on.
 
 Lists contains entries (objects or null) in slots that can be
 addressed by their zero-based index. Lists do not have fixed size,
-they grow/shring dynamically when elements are added/removed.
+they grow/shrink dynamically when elements are added/removed.
 
 The `list` operator creates and initializes a list. The lists created are implemented by 
-[java.util.ArrayList](https://docs.oracle.com/javase/8/docs/api/java/lang/Character.html).
+[java.util.ArrayList](https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html).
 
 
 ```lisp
