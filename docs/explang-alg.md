@@ -726,6 +726,110 @@ numeric types from other numeric types as well as from string representation:
 ```
 
 
+Strings
+-------
+
+Explang strings are Java Strings. Strings are constant, that is one cannot
+change an existing string but have to create new one.
+
+In code we can delimit literal strings by matching double quotes `"`:
+
+```julia
+> " a line"
+
+=> a line
+```
+
+String literals  can have embedded newlines, tabs and any other characters except `"`: 
+
+```julia
+> "line1
+line2
+line3"
+
+=> line1
+line2
+line3
+```
+To include a `"` one need to escape it using the  `\` escape character:
+
+```julia
+> "quoted word \"foo\""
+
+=> quoted word "foo"
+```
+
+There are other escape characters supported:
+
+- \b - backspace 0x08
+- \t - tab 0x09
+- \n - newline 0x0a
+- \f - form feed 0x0c
+- \r - carriage return 0x0d
+
+Other characters when escaped will be inserted as they are:
+
+```julia
+> "\\t means tab '\t'\n"
+
+=> \t means tab '	'
+```
+
+To convert any object into its string representation use 
+the `string` operator:
+
+```julia
+> string(1 + 2)
+
+=> 3
+
+> string(NIL)
+
+=> NIL
+```
+
+There are a couple of operators for building strings. The most general is
+string, which takes any number of arguments and mushes them into a
+string.
+
+The most general is `str`, which takes any number of arguments and 
+concatenates them into a string. Every argument will appear as it would 
+look if printed out by pr, except nil, which is ignored.
+
+```
+> str(99, " bottles of ", :bee, "#\r")
+
+=> "99 bottles of beer"
+
+```
+
+To control exactly the way the objects are converted to string use
+the `format()` function, which converts its argument to string
+using the first argument as format specification: 
+
+```julia
+(setv x 9786)
+(format "Decimal: %d, hexadecimal: %x  octal: %o  char: %c \n" x x x x)
+
+=> Decimal: 9786, hexadecimal: 263a  octal: 23072  char: ☺
+
+```
+See [java.util.Formatter](https://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html),
+for details on building the format strings.
+
+`uppercase()` and `lowercase()` can be used to change case of a string:
+
+Strings in explang are considered a kind of indexed sequences
+and can be operated upon using generic functions that work with sequences,
+for example to get substring one should use `subseq()`, 
+to get a specific character one uses `get()` or `areq()` and so on. 
+See below on how to work with sequences.
+
+
+
+
+
+
 Explang/Algebraic Syntax Language Reference
 ===========================================
 
