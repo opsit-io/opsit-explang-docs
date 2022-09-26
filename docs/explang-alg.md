@@ -1,3 +1,79 @@
+Tutorial on Using Explang with Algebraic Syntax
+==========================================
+
+Expressions
+-----------
+
+Explang program is a sequence of one or more expressions which are evaluated
+from the beginning to the end.
+
+The language works with expressions that return values. There are no statements.
+
+Expressions are separated by ';' and whitespace is not significant; 
+
+The simplest expressions are things like numbers, booleans or strings, which
+evaluate to themselves.
+
+```julia
+> 10
+
+=> 10
+
+> true
+
+=> true
+
+> "foo bar"
+
+=> foo bar
+```
+
+Explang supports regular algebraic syntax for building complex expressions
+using operators and calls to functions:
+
+```julia
+10 * (1 + sqrt(2))
+
+=> 24.14213562373095
+```
+
+All the operators like '+', '-', '*', etc are also available for use 
+in functional form, for example:
+
+```julia
++(1,2,3)
+=> 6
+```
+
+Comments
+--------
+
+A line comment starts with the `#` character and runs until end of the line:
+
+```julia
+> "foo" # a comment
+
+=> "foo"
+```
+
+Explang supports block comments as well, they are started by `#=` and run until 
+first occurence of `=#`:
+
+
+> 1 + #= a block comment =# 2;
+
+=> 3
+
+
+
+
+
+
+
+
+
+
+
 Explang/Algebraic Syntax Language Reference
 ===========================================
 
