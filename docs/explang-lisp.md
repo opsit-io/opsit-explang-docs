@@ -1243,6 +1243,31 @@ The type of the returned sequence differs depending on the type of the source se
 For lists it returns sublist sharing the elements with the source list.
 For arrays this is not possible and the data is copied into new array.
 
+### haskey 
+
+`haskeys` checks if a Map has given key or if an indexed sequence has specified index.
+Unlike `get` and `in` this allows to check if a map contains NIL as a key.
+
+
+```lisp
+> (setv M (hashmap 1 2 NIL NIL))
+
+=> {null=null, 1=2}
+
+> (haskey M 1)
+
+=> true
+
+> (haskey M NIL)
+
+=> true
+
+> (haskey M 2)
+
+=> false
+```
+
+
 
 Modifying data in collections
 -----------------------------
@@ -1527,29 +1552,6 @@ Adds one or more mappings to a Map:
 => {1=2, 3=4, 5=6}
 ```
 
-### haskey 
-
-`haskeys` checks if a Map has given key or if an indexed sequence has specified index.
-Unlike `get` and `in` this allows to check if a map contains NIL as a key.
-
-
-```lisp
-> (setv M (hashmap 1 2 NIL NIL))
-
-=> {null=null, 1=2}
-
-> (haskey M 1)
-
-=> true
-
-> (haskey M NIL)
-
-=> true
-
-> (haskey M 2)
-
-=> false
-```
 
 Modifying data with non-mutating functions
 ------------------------------------------
