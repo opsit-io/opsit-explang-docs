@@ -2073,4 +2073,3 @@ In this example we compute frequencies table for elements of a list of objects.
 => {0=5, 1=7, 2=5, 3=3, 4=1}
 ```
 
-
