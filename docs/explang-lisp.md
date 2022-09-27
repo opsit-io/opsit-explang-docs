@@ -1742,7 +1742,7 @@ If none of the test conditions are evaluated to be true, then the cond statement
 The Logical operators
 ---------------------
 
-The logical negation fnction is called `not`, it returns Boolean value, which is inverse of the
+The logical negation function is called `not`, it returns Boolean value, which is inverse of the
 the truth value of its argument:
 
 ```lisp

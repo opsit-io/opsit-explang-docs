@@ -1804,7 +1804,96 @@ that returns thruthiness value of an expression.
 > bool("")
 
 => false
+```
 
+
+The Logical operators
+---------------------
+
+The logical negation function is called `not`, it returns Boolean value, which is inverse of the
+the truth value of its argument:
+
+```lisp
+> not true
+
+=> false
+> not false
+
+=> true
+
+> not "foo"
+
+=> false
+```
+
+Logical operators `and` and `or`:
+
+```
+true or false
+
+=> true
+```
+
+Like most other operators they can be used using function call syntax on any number of arguments.
+
+`and` evaluates its argument from left to right and returns false if it encounters an argument
+ that has logical value false it stops evaluation and returns the encountered value.
+ If no such argument encountered it returns true:
+ 
+
+```julia
+> and()
+
+=> true
+
+> and(true, false, 0)
+
+=> false
+
+> and(1, 0, false) 
+
+=> 0
+```
+Similarly 'or' evaluates its argument from left to right and returns false if it encounters an argument
+ that has logical value false it stops evaluation and returns the encountered value.
+ If no such argument encountered it returns true:
+ 
+
+```julia
+> or()
+
+=> false
+
+> or(false, 1, true)
+
+=> 1
+
+> or(false, true, 1)
+
+=> true
+```
+
+This behavior may be  used to form an alternative to very short if statements. 
+Instead of using if one can write <condition> `AND` <statement>;
+(which could be read as: <condition> and then <statement>). 
+Similarly, instead of if `NOT` <condition> <statement> end, one can write 
+<condition> `OR` <statement>; (which could be read as: <cond> or else <statement>).
+
+For example, a recursive factorial routine could be defined like this:
+
+```
+> function fact(n)
+           n >= 0 or return("ERROR: n must be non-negative");
+           n == 0 and return 1;
+           n * fact(n-1);
+  end;
+
+=> io.opsit.explang.Compiler$LAMBDA$1@2ea41516
+
+> fact(5)
+
+=> 120
+```
 
 
 
