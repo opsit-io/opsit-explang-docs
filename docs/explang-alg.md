@@ -1692,6 +1692,85 @@ List of non-mutating functions for data modification:
 
 
 
+Conditionals
+------------
+
+Conditional evaluation allows portion of code to be evaluated or not evaluated
+depending on a value of an expression (condition). 
+In explang The conditional operator has form
+
+```julia
+If x < y
+   println("x is less than y");
+elseif x > y
+   println("x is greater than y");
+else 
+   println("x is equal to y");
+end
+```
+
+If the condition expression x < y is true, then the corresponding
+block is evaluated; otherwise the condition expression x > y is
+evaluated, and if it is true, the corresponding block is evaluated;
+if; if none of the expression is true, the else block is evaluated. 
+
+Here it is in action:
+
+```julia
+function test(x, y)
+    if x < y
+        println("x is less than y");
+    elseif x > y
+        println("x is greater than y");
+    else
+        println("x is equal to y");
+    end;
+end;
+=> io.opsit.explang.Compiler$LAMBDA$1@2d1ef81a
+
+> test(1,2)
+x is less than y
+
+=> x is less than y
+
+> test(2,1)
+x is greater than y
+
+=> x is greater than y
+
+> test(1,1)
+x is equal to y
+
+=> x is equal to y
+```
+
+The `elseif` and `else` blocks are optional, and as many `elseif` blocks as
+desired can be used. The condition expressions in the if-elseif-else
+construct are evaluated until the first one evaluates to true, after
+which the associated block is evaluated, and no further condition
+expressions or blocks are evaluated.
+
+`if` blocks also return a value: this value is simply the return
+value of the last executed statement in the branch that was chosen.
+If no branch was chosen the return value is NIL:
+
+
+```julia
+
+> x:=-5;
+
+=> -5
+
+> println( if x > 0 "positive" elseif x < 0 "negative" else "zero" end);
+
+=> negative
+
+> if x >= 0 sqrt(x); end
+
+=> NIL
+
+```
+
 
 
 
