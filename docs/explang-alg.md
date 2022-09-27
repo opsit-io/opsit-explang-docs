@@ -1069,6 +1069,265 @@ The `in` operator checks if a collection contains an object.
 => true
 ```
 
+Accessing data in collections and Objects
+-----------------------------------------
+
+Explang attempts to provide generic data access operators that can be used on
+all kinds of sequences, collections and objects like lists, arrays, sets, hash
+maps, java beans and so on.
+
+### The Subscript Operator `[k]` 
+
+The subscript operator with key/index `[k]` allows to fetch nested
+objects by keys or indices.
+
+The subscript may be any expression, the evaluation result will be used as  key
+(in case of Map or Java Bean) or index (in case of Lists, arrays, and other sequences). 
+
+Let's define a data structure that we'll use in our examples:
+
+
+```julia
+data::={ "people": { 1 : { "name"      : "John",
+                           "surname"   : "Doe", 
+                           "relatives" : {"motherId" : 3,
+                                          "fatherId" : 2},
+				           "friendIds" : [ 4 ]},
+                     2 : { "name"    : "Jack",
+                           "surname" : "Doe"},
+                     3 : { "name"    : "Ann",
+                           "surname" : "Roe"},
+				     4 : { "name"    : "Bill",
+					       "surname" : "Moe"}}};
+
+{people={1={friendIds=[4], surname=Doe, name=John, relatives={motherId=3, fatherId=2}}, 2={surname=Doe, name=Jack}, 3={surname=Roe, name=Ann}, 4={surname=Moe, name=Bill}}}
+```
+
+```julia
+> data["people"]
+
+{1={friendIds=[4], surname=Doe, name=John, relatives={motherId=3, fatherId=2}}, 2={surname=Doe, name=Jack}, 3={surname=Roe, name=Ann}, 4={surname=Moe, name=Bill}}
+
+> data["people"][1]["name"]
+
+John
+
+> data["people"][1]["friendIds"][0]
+
+=> 4
+```
+
+When provided an invalid index `[k]` returns NIL:
+
+```julia
+> data["people"][1]["friendIds"][2]
+
+=> NIL
+
+``` 
+
+It means that it is not possible to know from the return value if an
+element is missing or it is a NIL element.
+
+When this is important one can use the `get` function, which
+works like `[k]`,but accepts an optional third argument -- default value. 
+If index is invalid or key is missing it will return the value of the
+third argument:
+
+```julia
+> get(data["people"][1]["friendIds"], 3, "No such index")
+
+=> No such index
+```
+
+### The `.` (dot) operator
+
+The `.` (dot) operator as well as [k] allows to look up nested
+objects, but it works somewhat differently:
+
+- The keys are constant: they are not evaluated at runtime,
+- It does not support keys that are not valid symbols: they must start
+  with a letter or with`_` and can contain only alphanumeric
+  characters, `_` and `!`.
+
+
+```julia
+data.people[1].friendIds
+
+=> [4]
+
+> data.people[1].surname.bytes  # gets array of bytes from  String.getBytes()
+
+=> [68, 111, 101]
+
+```
+
+### Empty subscript `[]`
+
+When there is no index specified the operator works as an iterator,
+that is it applies all the following subkey operations on all the values
+in the collection:
+
+```julia
+> data.people[]   # return list off map entries
+
+=> [1={friendIds=[4], surname=Doe, name=John, relatives={motherId=3, fatherId=2}}, 2={surname=Doe, name=Jack}, 3={surname=Roe, name=Ann}, 4={surname=Moe, name=Bill}]
+
+
+> data.people[]["key"]  # returns list of map keys
+
+=> [1, 2, 3, 4]
+
+> data.people[]["value"]  # returns list of map values
+
+=> [{friendIds=[4], surname=Doe, name=John, relatives={motherId=3, fatherId=2}}, {surname=Doe, name=Jack}, {surname=Roe, name=Ann}, {surname=Moe, name=Bill}]
+
+> data.people[]["value"]["name"]
+
+[John, Jack, Ann, Bill]
+```
+
+### `get_in` function access values in nested structures
+
+`get_in` performs data retrival like a chain of `[k]` operators, but 
+list of keys is provided as a list that can be set dynamically at runtime.
+
+```julia
+> get_in(data, ["people",1,"relatives", "motherId"])
+
+=> 3
+```
+
+When there is no mapping get-in returns NIL.
+
+```julia
+> get_in(data, ["people",1,"relatives", "brothersIds"])
+
+=> NIL
+```
+
+`get_in` also allows to specify default for missing keys/indices:
+
+```
+> get_in(data, ["people",1,"relatives", "brothersIds"], "N/A")
+
+=> N/A
+```
+
+
+### `fields` operator
+
+The fields operator allows to select a subset of keys 
+from a map or from list/array entries:
+
+```
+> data.people[]["value"]  fields name, surname
+
+[{name=John, surname=Doe}, {surname=Doe, name=Jack}, {surname=Roe, name=Ann}, {name=Bill, surname=Moe}]
+
+> data.people[1] | fields name, surname
+
+=> {surname=Doe, name=John}
+
+```
+
+### `select_keys` function select entries by their keys/indices
+
+Returns map of  entries selected  by their keys/indices
+
+```julia
+> select_keys(data.people, [1,2])
+
+=> {2={surname=Doe, name=Jack}, 1={friendIds=[4], surname=Doe, name=John, relatives={motherId=3, fatherId=2}}}
+```
+The returned Map is actually kind of a view into the original object, 
+that is it reflects changes in the original:
+
+```julia
+> m:={ "a": 1, "b" : 2}
+
+=> {a=1, b=2}
+
+> s:=select_keys(m, list("a","c"))
+
+=> {a=1}
+
+>  m["c"]:="3"
+
+=> 3
+
+> m
+
+=> {a=1, b=2, c=3}
+
+> s
+
+=> {a=1, c=3} # now s got new entry c=3
+```
+### `first` 
+
+`first` return first object in collection
+
+```julia
+> first([2,3,4,5])
+
+=> 2
+```
+
+
+### `rest`, `take` and `subseq`
+
+`rest` returns the subsequence starting from the second element.
+
+`take` returns first n elements of the sequence.
+
+`subseq` returns a subsequence from the given index or between the first given index and up to the second given index (excluding):
+
+```
+> a:=[1,2,3,4,5,6]
+
+=> [1, 2, 3, 4, 5, 6]
+
+> first(a)
+
+=> 1
+
+> rest(a)
+
+=> [2, 3, 4, 5, 6]
+
+> subseq(a,1)
+
+> [2, 3, 4, 5, 6]
+```
+
+The `take` and `subseq` return sequence of the same kind as the source
+sequence.  The type of the returned sequence differs depending on the
+type of the source sequence.  For lists it returns a sublist, which is
+sharing the elements with the source list.  For arrays this is not
+possible and the data is copied into new array.
+
+```
+b:=subseq(a,1,3)
+
+=> [2, 3]
+
+> a[1]:=8
+
+=> 8
+
+> b
+
+=> [8, 3]
+```
+
+
+
+
+
+
+
+
 
 
 
