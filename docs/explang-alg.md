@@ -1895,6 +1895,84 @@ For example, a recursive factorial routine could be defined like this:
 => 120
 ```
 
+Iteration Operators
+-------------------
+
+To iterate through the elements of a colleaction or sequence  use `for-in` operator:
+
+```julia
+> for c in [ "one", "two", "three" ]
+    println(c);
+  end;
+  
+one
+two
+three
+
+=> NIL
+```
+
+The NIL you see at the end is not printed out by the code in the loop.
+They're the return values of the iteration expressions. One can give 
+one additional argument that will be computed after the end of the iteration
+and used as return value.
+
+
+```julia
+
+> function stddev(args...)
+    "computes standard deviation sqrt(E(X-mu)^2)"
+    avg := apply(f"average", args); # call average() we defined before
+    sum:=0.0;
+    for x in args result sqrt(sum / length(args)) 
+        sum := sum + (x - avg) * (x - avg);
+    end
+end;
+
+> stddev(2,4,4,4,5,5,7,9)
+
+=> 2.0
+```
+
+To continue iterating while some condition is true, use `while` operator.
+
+
+This is example will solve equation log(2-x)=x iterating while the solution
+keeps changing more then defined limit;
+
+```
+new:=1.0;
+x:=0;
+r:=(while (x-new)*(x-new) > 0.000001
+        println(x);
+        x:=new;
+        new:= log(2-x);
+    end);
+
+println("result=",r);
+
+0
+1.0
+0.0
+0.6931471805599453
+0.26762181884443453
+0.549495135702461
+0.37191167810526626
+0.48740651788686606
+0.4138257153687164
+0.4613250066022943
+0.4309216521766674
+0.45048840738203205
+0.4379397797394399
+0.4460056039781503
+0.44082864577540753
+0.4441544969443128
+0.44201912973119606
+result=0.44250995001095506
+```
+
+
+
 
 
 
