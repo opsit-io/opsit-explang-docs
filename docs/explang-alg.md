@@ -1771,6 +1771,40 @@ If no branch was chosen the return value is NIL:
 
 ```
 
+### Implicit Truth values
+
+The `if` operator checks the truth value of its condition. The comparison functions
+like `<` or `>=`  return Java Boolean objects `true` or `false`:
+
+```julia
+> 1 < 0
+
+=> false
+```
+
+But, actually, in Explang all expressions have implicit truth values and thus can
+be used in conditional expressions.
+
+Generally, `false`, `NIL`, zero numbers of different types, 
+empty lists, sets, strings  and other sequences have implicit `False` truth value. 
+Other objects have  thruth value of `true`. 
+
+For example 
+
+```julia
+> if 0 "yes" else "no" end;
+
+=> no
+```
+
+To check truthyness of an expression one can use built-in function `bool`
+that returns thruthiness value of an expression. 
+
+```julia
+> bool("")
+
+=> false
+
 
 
 

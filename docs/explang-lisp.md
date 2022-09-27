@@ -1664,7 +1664,7 @@ the return value of when is `NIL`:
 ```
 
 
-### Truth values
+### Implicit Truth values
 
 The `if` operator checks the truth value of the first argument. The comparison functions
 like `<` or `>=`  return Java Boolean objects `true` or `false`:
@@ -1675,11 +1675,12 @@ like `<` or `>=`  return Java Boolean objects `true` or `false`:
 => false
 ```
 
-but in Explang all expressions have implicit truth values and thus can
+But, actually, in Explang all expressions have implicit truth values and thus can
 be used in conditional expressions.
 
-Generally, False, NIL, zero numbers, empty lists, sets, strings  and other sequences 
-have implicit `False` truth value. Other object thruth value of `true`. 
+Generally, `false`, `NIL`, zero numbers of different types, 
+empty lists, sets, strings  and other sequences have implicit `False` truth value. 
+Other objects have  thruth value of `true`. 
 
 For example 
 
