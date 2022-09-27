@@ -1287,12 +1287,6 @@ the function returns normally without any change to the target structure"
 This function returns previous value of the element or NIL if id did not exist
 or no change has been made."
 
-```lisp
-> (setv a (make-array :size 5 :elementType "int"))
-
-=> [null, null, null, null, null]
-```
-
 Example with a Map:
 
 ```lisp
@@ -1415,6 +1409,10 @@ These functions work for lists and mutable character sequences.
 `push!` will add an object to the end of a sequence, `pop!` will remove and return the object at the end of the sequence.
 
 ```lisp
+> (setv stack (list))
+
+=> []
+
 > (push! stack "foo")
 
 => [foo]

@@ -1346,6 +1346,353 @@ Unlike `get` and `in` this allows to check if a map contains NIL as a key.
 ```
 
 
+Modifying data in collections
+-----------------------------
+
+There are two kinds of functions that modify data in collections:
+those that change the data in place (mutating) and those that return
+new data structures with requested changes. By convention the former
+ones have names that end with exclamation mark.
+
+### `put!` - put element value into an associative structure.
+
+Set value of element at index/key in the target structure to object. 
+
+If target object is a list or an array and an out of bound exception happens
+the function returns normally without any change to the target structure
+
+This function returns previous value of the element or NIL if id did not exist
+or no change has been made."
+
+
+Example with a Map:
+
+```lisp
+> m:={"foo" : 1 }
+
+=> {foo=1}
+
+=> 
+
+> put!(m,"bar",77)
+
+=> NIL
+
+> put!(m, "foo",0)
+
+=> 1
+
+> m
+
+{bar=77, foo=0}
+```
+
+Example with an array of integer numbers:
+
+```julia
+> a:=make_array(size:=5, elementType:="int")
+
+=> [0, 0, 0, 0, 0]
+
+> put!(a, 1, 10)
+
+=> 0
+
+> a
+
+=> [0, 10, 0, 0, 0]
+```
+
+### Using the assignment operator to modify data structures.
+
+Let's add some friends to John using the same structure 
+from the `get-in` example above:
+
+```julia
+data::={ "people": { 1 : { "name"      : "John",
+                           "surname"   : "Doe", 
+                           "relatives" : {"motherId" : 3,
+                                          "fatherId" : 2},
+				           "friendIds" : [ 4 ]},
+                     2 : { "name"    : "Jack",
+                           "surname" : "Doe"},
+                     3 : { "name"    : "Ann",
+                           "surname" : "Roe"},
+				     4 : { "name"    : "Bill",
+					       "surname" : "Moe"}}};
+
+{people={1={friendIds=[4], surname=Doe, name=John, relatives={motherId=3, fatherId=2}}, 2={surname=Doe, name=Jack}, 3={surname=Roe, name=Ann}, 4={surname=Moe, name=Bill}}}
+```
+
+Use of the subscript [k] and `.` operators is supported on the left side of the assignment:
+
+```julia
+> data["people"][5]:={"name" : "Rick", "surname": "Hoe"} # add new person to map with index 5
+
+=> {surname=Hoe, name=Rick}
+
+> data["people"][1]["friendIds"][1] :=  5 # add id of the newly added person
+
+=> 5
+
+> data
+
+=> {people={1={friendIds=[4, 5], surname=Doe, name=John, relatives={motherId=3, fatherId=2}}, 2={surname=Doe, name=Jack}, 3={surname=Roe, name=Ann}, 4={surname=Moe, name=Bill}, 5={surname=Hoe, name=Rick}}}
+
+```
+
+### the put_in! modify value in a hierarchy of nested associative structures.
+
+The `put_in!` function performs data modification like the assignment
+operator on a chain of `[k]` and `.` operators. It accepts a list of
+keys that allows to navigate dynamically in nested associative
+structures. `put_in!` return the modified data structure.
+
+The same operation as above using `put_in!`:
+
+```julia
+> put_in!(data,["people",5], {"name" : "Rick", "surname": "Hoe"}) # add new person to map
+
+=> {people={1={friendIds=[4], surname=Doe, name=John, relatives={motherId=3, fatherId=2}}, 2={surname=Doe, name=Jack}, 3={surname=Roe, name=Ann}, 4={surname=Moe, name=Bill}, 5={surname=Hoe, name=Rick}}}
+```
+
+In addition `put_in!` accepts one optional argument that allows to
+specify how to automatically create structures along the path in case
+they do not exist. For example this will add Rick Row (id=5) as a
+friend to Bill that does not have a list of friend identifiers.
+`put-in` would copy the provided object (an empty list) to create list
+of friendIds.
+
+
+```julia
+> put_in!(data, ["people",4,"friendIds", 0], 5, [])
+
+=> {people={1={friendIds=[4, 5], surname=Doe, name=John, relatives={motherId=3, fatherId=2}}, 2={surname=Doe, name=Jack}, 3={surname=Roe, name=Ann}, 4={friendIds=[5], surname=Moe, name=Bill}, 5={surname=Hoe, name=Rick}}}
+
+```
+
+### remove!
+
+Removes an object from a collection according to its key or index. 
+For sets it will remove the object by its value.
+
+```
+L:=[1, 2, 3]
+
+=> [1, 2, 3]
+
+> remove!(L, 1)
+
+=> 2
+
+> L
+
+=> [1, 3]
+
+```
+
+### `insert!`, `push!` and `pop!`
+
+These functions work for lists and mutable character sequences. 
+
+
+`insert!` inserts an object at given index:
+
+```julia
+> L:=[1, 2, 3]
+
+=> [1, 2, 3]
+
+> insert!(L, 1, "X")
+
+[1, X, 2, 3]
+```
+
+
+`push!` will add an object to the end of a sequence, `pop!` will
+remove and return the object at the end of the sequence.
+
+```julia
+> stack:=[]
+
+> push!(stack, "foo")
+
+=> [foo]
+
+> push!(stack, "bar")
+
+=> [foo, bar]
+
+> pop!(stack)
+
+=> "bar"
+
+> stack
+
+=> [foo]
+```
+
+### APPEND! 
+
+`append!` adds to the target sequence all the elements of all of the following sequences.
+It will return the target sequence. For example:
+
+```julia
+> L:=[1, 2, 3]
+
+=> [1, 2, 3]
+
+> append!(L, [4, 5, 6],  make_array(7, 8, 9), "HELLO!" )
+
+=> [1, 2, 3, 4, 5, 6, 7, 8, 9, H, E, L, L, O, !]
+```
+
+Target sequence must be mutable extendable, that means that objects 
+like Arrays (non-extendable) or String (immutable) cannot be target of this operation.
+
+
+### `reverse!` 
+
+`reverse!` Reverses the order of elements in the given sequence:
+
+```lisp
+> L:=[1, 2, 3, 4, 5, 6]
+
+=> [1, 2, 3, 4, 5, 6]
+
+> reverse!(L)
+
+=> [6, 5, 4, 3, 2, 1]
+
+> reverse!(subseq(L,1,4))
+
+=> [3, 4, 5]
+
+> L
+
+=> [6, 3, 4, 5, 2, 1]
+```
+
+### `sort!` sort a sequence.
+
+`sort!` will sort a sequence. It can sort 
+according to the natural order of its objects (if they implement 
+`java.lang.Comparable`) or using a user specified compare function.
+
+```julia
+> L:= make_array(1, 9, 8, 8, 6)
+
+=> [1, 9, 8, 8, 6]
+
+> sort!(L)
+
+=> [1, 6, 8, 8, 9]
+
+> L
+
+=> [1, 6, 8, 8, 9]
+```
+
+Sort according to length of sequences with a custom compare function:
+
+```julia
+> L:=[[], [1, 2, 3, 4, 5], [1, 2], [1, 2, 3], [1]];
+
+=> [[], [1, 2, 3, 4, 5], [1, 2], [1, 2, 3], [1]]
+
+> sort!( (a, b) -> length (a) - length (b), L)
+
+=> [[], [1], [1, 2], [1, 2, 3], [1, 2, 3, 4, 5]]
+
+> L
+
+=> [[], [1], [1, 2], [1, 2, 3], [1, 2, 3, 4, 5]]
+```
+
+
+Collection Specific Access functions
+------------------------------------
+
+In addition to the generic data access functions there are 
+data access functions that are specific for concrete collection types.
+
+### aref and aset! -- array member access.
+
+Unlike `put!` and `get` they will fail with exception when index is invalid. 
+
+
+```julia
+> L:=[1, 2, 3]
+
+=> [1, 2, 3]
+
+> aset!(L, 1, 0)
+
+=> 2
+
+> L
+
+=> [1, 0, 3]
+
+>
+
+```
+
+### assoc! 
+
+Adds one or more mappings to a Map:
+
+```julia
+> M:={}
+
+=> {}
+
+> assoc!(M, 1, 2, 3, 4, 5, 6)
+
+=> {1=2, 3=4, 5=6}
+```
+
+
+Modifying data with non-mutating functions
+------------------------------------------
+
+The mutating functions that were described above have non-mutating
+counterparts that have same names without the '!' suffixes, accept
+same arguments and, instead of modifying target objects, 
+return new object with required modifications 
+leaving the original objects unmodified.
+
+
+For example `append` concatenates its argument into new sequence:
+
+```lisp
+> L:=[0]
+
+> append(L, [1, 2, 3], "Hello")
+
+=> [0, 1, 2, 3, H, e, l, l, o]
+
+> L  # not changed
+
+=> [0]
+> 
+```
+
+The returned sequence is of the same kind as the first function argument, so this 
+construction may be used to convert collection into other collection types:
+
+```lisp
+> append( [] hashset(1, 2, 3))  ;; convert a set into a list
+```
+
+List of non-mutating functions for data modification:
+
+`append`, `aset`, `assoc`, `insert`, `push`, `pop`, `put`, `put-in`, `remove`, `reverse`,
+`sort`
+
+
+
+
 
 
 
