@@ -1,8 +1,11 @@
 Documentation Site for Explang
 ==============================
 
-This repository serves as documentation site for
-the Explang programming language. 
+This is the documentation site for the Explang programming language. 
+
+The contents of this repo are built using mkdocs and published using
+github pages to this URL: https://opsit-io.github.io/opsit-explang-docs/
+
 
 [TBD]
 
