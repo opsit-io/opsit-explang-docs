@@ -37,7 +37,7 @@ Search entries for ones that have tag 'Programming Language' and published befor
 [{isbn=978-0131103627, publicationYear=1978, title=The C Programming Language, bookItems=[{libId=nyc-central-lib, id=book-item-6, isLent=true}, {libId=nyc-central-lib, id=book-item-7, isLent=true}], authorIds=[brian-kernigan, dennis-ritchie], tags=[programming languages, C]}]
 
 Search entries for ones that have more than one author
-[{authorIds=[alan-moore, dave-gibbons], title=Watchmen}, {authorIds=[brian-kernigan, dennis-ritchie], title=The C Programming Language}, {title=Structure and Interpretation of Computer Programs, authorIds=[harold-abelson, jay-sussman]}, {authorIds=[brian-kernigan, alan-a-a-donovan], title=The Go Programming Language}]
+[{title=Watchmen, authorIds=[alan-moore, dave-gibbons]}, {authorIds=[brian-kernigan, dennis-ritchie], title=The C Programming Language}, {authorIds=[harold-abelson, jay-sussman], title=Structure and Interpretation of Computer Programs}, {authorIds=[brian-kernigan, alan-a-a-donovan], title=The Go Programming Language}]
 
 Search entries for ones that have available copies using subsearch on array of book items
 [{title=The Great Gatsby, isbn=979-8745274824}, {isbn=978-0134190440, title=The Go Programming Language}]
