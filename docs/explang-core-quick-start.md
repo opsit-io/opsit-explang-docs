@@ -19,7 +19,7 @@ Using Explang Runnable Jar
 
 ## Using REPL
 
-Explang-core contains built-in REPL. Run it on a terminal or in Windows console:
+Explang-core contains built-in REPL. Run it in a terminal emulator or in Windows console:
 
 ```
 $ java -jar opsit-explang-core-{{explang.version}}-runnable.jar 
