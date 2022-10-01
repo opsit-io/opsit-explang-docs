@@ -300,6 +300,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#the-8-queens-problem" class="md-nav__link">
+    The 8 Queens Problem
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-search-and-extraction" class="md-nav__link">
+    Data Search and Extraction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#factorial-lazy-sequence" class="md-nav__link">
+    Factorial (lazy sequence)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#compute-factorial-recursive" class="md-nav__link">
     Compute Factorial (recursive)
   </a>
@@ -452,6 +473,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#the-8-queens-problem" class="md-nav__link">
+    The 8 Queens Problem
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-search-and-extraction" class="md-nav__link">
+    Data Search and Extraction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#factorial-lazy-sequence" class="md-nav__link">
+    Factorial (lazy sequence)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#compute-factorial-recursive" class="md-nav__link">
     Compute Factorial (recursive)
   </a>
@@ -494,6 +536,345 @@
 
 
 <h1 id="examples-with-algebraic-syntax">Examples with Algebraic Syntax</h1>
+<h2 id="the-8-queens-problem">The 8 Queens Problem</h2>
+<div class="highlight"><pre><span></span><code><span class="err">###</span><span class="w"> </span><span class="nv">The</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="nv">Queens</span><span class="w"> </span><span class="nv">Problem</span><span class="w"></span>
+
+<span class="nv">N</span><span class="w"> </span><span class="ss">::=</span><span class="w"> </span><span class="mi">8</span><span class="c1">;</span><span class="w"></span>
+<span class="nv">solutions</span><span class="w"> </span><span class="ss">::=</span><span class="w"> </span><span class="nv">[]</span><span class="c1">;</span><span class="w"></span>
+
+<span class="k">function</span><span class="w"> </span><span class="nv">print_solution</span><span class="p">(</span><span class="nv">s</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="nv">for</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="nv">in</span><span class="w"> </span><span class="nv">range</span><span class="p">(</span><span class="mi">0</span><span class="o">,</span><span class="w"> </span><span class="nv">N</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="nv">for</span><span class="w">  </span><span class="nv">j</span><span class="w"> </span><span class="nv">in</span><span class="w">  </span><span class="nv">range</span><span class="p">(</span><span class="mi">0</span><span class="o">,</span><span class="w"> </span><span class="nv">N</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="nb">print</span><span class="p">(</span><span class="k">if</span><span class="w"> </span><span class="nv">s[i]</span><span class="w"> </span><span class="nv">==</span><span class="w"> </span><span class="nv">j</span><span class="w"> </span><span class="s">&quot;♕&quot;</span><span class="c1">; else &quot;-&quot;; end);</span><span class="w"></span>
+<span class="w">        </span><span class="nv">end</span><span class="c1">;</span><span class="w"></span>
+<span class="w">        </span><span class="nv">println</span><span class="p">()</span><span class="c1">;</span><span class="w"></span>
+<span class="w">    </span><span class="nv">end</span><span class="c1">;</span><span class="w"></span>
+<span class="w">    </span><span class="nv">println</span><span class="p">()</span><span class="c1">;</span><span class="w"></span>
+<span class="nv">end</span><span class="c1">;</span><span class="w"></span>
+
+<span class="k">function</span><span class="w"> </span><span class="nv">check_placement</span><span class="p">(</span><span class="nv">a,</span><span class="w"> </span><span class="nv">n,</span><span class="w"> </span><span class="nv">c</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;Check if placement (n c) is free from attacks from queens in board a.&quot;</span><span class="c1">;</span><span class="w"></span>
+<span class="w">    </span><span class="nv">for</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="nv">in</span><span class="w"> </span><span class="nv">range</span><span class="p">(</span><span class="mi">0</span><span class="o">,</span><span class="w"> </span><span class="nv">n</span><span class="p">)</span><span class="w"> </span><span class="nv">result</span><span class="w"> </span><span class="nv">true</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="nb">loop</span><span class="w"> </span><span class="nv">returns</span><span class="w"> </span><span class="nv">true</span><span class="w"> </span><span class="nb">unless</span><span class="w"> </span><span class="nb">return</span><span class="w"> </span><span class="nv">is</span><span class="w"> </span><span class="nv">called</span><span class="w"> </span><span class="nv">inside</span><span class="w"></span>
+<span class="w">        </span><span class="nv">pos:=a[i]</span><span class="c1">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="nv">pos</span><span class="w"> </span><span class="nb">=</span><span class="w"> </span><span class="nv">c</span><span class="w">                  </span><span class="err">#</span><span class="w"> </span><span class="nv">same</span><span class="w"> </span><span class="nv">column?</span><span class="w"></span>
+<span class="w">            </span><span class="nb">or</span><span class="w">  </span><span class="nv">pos</span><span class="w"> </span><span class="nb">-</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="nb">=</span><span class="w"> </span><span class="nv">c</span><span class="w"> </span><span class="nb">-</span><span class="w"> </span><span class="nv">n</span><span class="w">     </span><span class="err">#</span><span class="w"> </span><span class="nv">same</span><span class="w"> </span><span class="nv">diagonal</span><span class="w"></span>
+<span class="w">            </span><span class="nb">or</span><span class="w">  </span><span class="nv">pos</span><span class="w"> </span><span class="nb">+</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="nb">=</span><span class="w"> </span><span class="nv">c</span><span class="w"> </span><span class="nb">+</span><span class="w"> </span><span class="nv">n</span><span class="w">     </span><span class="err">#</span><span class="w"> </span><span class="nv">same</span><span class="w"> </span><span class="nv">diagonal</span><span class="w">          </span>
+<span class="w">            </span><span class="nb">return</span><span class="p">(</span><span class="nv">false</span><span class="p">)</span><span class="c1">;</span><span class="w"></span>
+<span class="w">        </span><span class="nv">end</span><span class="c1">;</span><span class="w"></span>
+<span class="w">    </span><span class="nv">end</span><span class="c1">;</span><span class="w"></span>
+<span class="nv">end</span><span class="c1">;</span><span class="w"></span>
+
+<span class="k">function</span><span class="w"> </span><span class="nv">add_queen</span><span class="p">(</span><span class="nv">a,</span><span class="w"> </span><span class="nv">n</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="s">&quot;Add to board a all queens from n up to N&quot;</span><span class="c1">;</span><span class="w"></span>
+<span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="nb">&gt;=</span><span class="w"> </span><span class="nv">N</span><span class="w"></span>
+<span class="w">       </span><span class="nv">push!</span><span class="p">(</span><span class="nv">solutions,</span><span class="w"> </span><span class="nv">copy</span><span class="p">(</span><span class="nv">a</span><span class="p">))</span><span class="c1">; # all queens have been placed,</span><span class="w"></span>
+<span class="w">   </span><span class="nv">else</span><span class="w"></span>
+<span class="w">       </span><span class="nv">for</span><span class="w"> </span><span class="nv">c</span><span class="w"> </span><span class="nv">in</span><span class="w"> </span><span class="nv">range</span><span class="p">(</span><span class="mi">0</span><span class="o">,</span><span class="nv">N</span><span class="p">)</span><span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="nv">try</span><span class="w"> </span><span class="nv">to</span><span class="w"> </span><span class="nv">place</span><span class="w"> </span><span class="nv">next</span><span class="w"> </span><span class="nv">queen</span><span class="w"></span>
+<span class="w">           </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nv">check_placement</span><span class="p">(</span><span class="nv">a,</span><span class="w"> </span><span class="nv">n,</span><span class="w"> </span><span class="nv">c</span><span class="p">))</span><span class="w"></span>
+<span class="w">               </span><span class="nv">a[n]</span><span class="w"> </span><span class="ss">:=</span><span class="w"> </span><span class="nv">c</span><span class="c1">;</span><span class="w"></span>
+<span class="w">               </span><span class="nv">add_queen</span><span class="p">(</span><span class="nv">a,</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="nb">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="c1">;</span><span class="w"></span>
+<span class="w">           </span><span class="nv">end</span><span class="c1">;</span><span class="w"></span>
+<span class="w">       </span><span class="nv">end</span><span class="c1">;</span><span class="w"></span>
+<span class="w">   </span><span class="nv">end</span><span class="c1">;</span><span class="w"></span>
+<span class="nv">end</span><span class="c1">;</span><span class="w"></span>
+
+<span class="err">#</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="nv">position:</span><span class="w"> </span><span class="nb">list</span><span class="w"> </span><span class="nv">of</span><span class="w"> </span><span class="nv">integers</span><span class="w"> </span><span class="nv">that</span><span class="w"> </span><span class="nv">represent</span><span class="w"> </span><span class="nv">queen</span><span class="w"> </span><span class="nb">position</span><span class="w"> </span><span class="nv">in</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">row</span><span class="w"></span>
+<span class="nv">add_queen</span><span class="p">(</span><span class="nv">[],</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="c1">;</span><span class="w"></span>
+
+<span class="nv">println</span><span class="p">(</span><span class="nv">i</span><span class="s">&quot;Found $(length(solutions)) solutions&quot;</span><span class="p">)</span><span class="c1">;</span><span class="w"></span>
+<span class="nv">println</span><span class="p">(</span><span class="s">&quot;First solution:&quot;</span><span class="p">)</span><span class="c1">;</span><span class="w"></span>
+<span class="nv">print_solution</span><span class="p">(</span><span class="nb">first</span><span class="p">(</span><span class="nv">solutions</span><span class="p">))</span><span class="c1">;</span><span class="w"></span>
+</code></pre></div>
+<p>Output:
+<div class="highlight"><pre><span></span><code>Found 92 solutions
+First solution:
+♕-------
+----♕---
+-------♕
+-----♕--
+--♕-----
+------♕-
+-♕------
+---♕----
+</code></pre></div></p>
+<h2 id="data-search-and-extraction">Data Search and Extraction</h2>
+<div class="highlight"><pre><span></span><code><span class="err">###</span><span class="w"> </span><span class="nv">Data</span><span class="w"> </span><span class="nv">Search</span><span class="w"> </span><span class="nb">and</span><span class="w"> </span><span class="nv">Extraction</span><span class="w"></span>
+
+<span class="err">#</span><span class="w"> </span><span class="nv">Examples</span><span class="w"> </span><span class="nv">of</span><span class="w"> </span><span class="nv">data</span><span class="w"> </span><span class="nv">extraction</span><span class="w"> </span><span class="nv">from</span><span class="w"> </span><span class="nv">nested</span><span class="w"> </span><span class="nv">data</span><span class="w"> </span><span class="nv">structures.</span><span class="w"> </span><span class="nv">The</span><span class="w"> </span><span class="nv">structure</span><span class="w"> </span><span class="nv">is</span><span class="w"> </span><span class="nv">based</span><span class="w"> </span><span class="nv">on</span><span class="w"> </span>
+<span class="err">#</span><span class="w"> </span><span class="nv">examples</span><span class="w"> </span><span class="nv">in</span><span class="w"> </span><span class="k">the</span><span class="w"> </span><span class="nv">book</span><span class="w"> </span><span class="s">&quot;Data Oriented Programming&quot;</span><span class="w"> </span><span class="nv">by</span><span class="w"> </span><span class="nv">Yehonatan</span><span class="w"> </span><span class="nv">Sharvit.</span><span class="w"></span>
+
+<span class="k">function</span><span class="w"> </span><span class="nv">main</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="nv">Get</span><span class="w"> </span><span class="nv">input</span><span class="w"> </span><span class="nv">data,</span><span class="w"> </span><span class="nv">see</span><span class="w"> </span><span class="nv">it</span><span class="w"> </span><span class="nv">below</span><span class="w"> </span><span class="nv">at</span><span class="w"> </span><span class="k">the</span><span class="w"> </span><span class="nv">end</span><span class="w"> </span><span class="nv">of</span><span class="w"> </span><span class="nv">file</span><span class="w"></span>
+<span class="w">    </span><span class="nv">println</span><span class="p">(</span><span class="s">&quot;Input data: &quot;</span><span class="o">,</span><span class="w"> </span><span class="nv">getData</span><span class="p">())</span><span class="c1">;</span><span class="w"></span>
+
+
+<span class="w">    </span><span class="nv">println</span><span class="p">(</span><span class="nv">i</span><span class="s">&quot;\nGet entry by key (ISBN) and get one of its fields:&quot;</span><span class="p">)</span><span class="c1">;</span><span class="w"></span>
+<span class="w">    </span><span class="nv">isbn:=</span><span class="s">&quot;978-1779501127&quot;</span><span class="c1">;</span><span class="w"></span>
+<span class="w">    </span><span class="nv">println</span><span class="p">(</span><span class="nv">getData</span><span class="p">()</span><span class="o">.</span><span class="nv">booksByIsbn[isbn][</span><span class="s">&quot;title&quot;</span><span class="nv">]</span><span class="p">)</span><span class="c1">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="nv">println</span><span class="p">(</span><span class="s">&quot;\nGet entry by key (ISBN) and make new object of several fields:&quot;</span><span class="p">)</span><span class="c1">;</span><span class="w"></span>
+<span class="w">    </span><span class="nv">isbn:=</span><span class="s">&quot;978-1779501127&quot;</span><span class="c1">;</span><span class="w"></span>
+<span class="w">    </span><span class="nv">println</span><span class="p">(</span><span class="w"> </span><span class="nv">getData</span><span class="p">()</span><span class="o">.</span><span class="nv">booksByIsbn[isbn]</span><span class="w"> </span><span class="nv">| fields title, publicationYear );</span>
+
+<span class="nv">    # define function to retrieve authors</span>
+<span class="nv">    function authorIdsToDescr(data, authorIds)</span>
+<span class="nv">        &quot;retrieve and format list of authors as string&quot;;</span>
+<span class="nv">        authorIds |</span><span class="w"> </span><span class="nb">map</span><span class="p">(</span><span class="nv">x</span><span class="w"> </span><span class="nv">-&gt;</span><span class="w"> </span><span class="nv">data.authorsById[x].name</span><span class="p">)</span><span class="w"> </span><span class="nv">| join(&quot;, &quot;);</span>
+<span class="nv">    end;</span>
+
+<span class="nv">    println(i&quot;\nGet entry by key (ISBN) and make of it new object:&quot;);</span>
+<span class="nv">    isbn:=&quot;978-1779501127&quot;;</span>
+<span class="nv">    getData().booksByIsbn[isbn] |</span><span class="w"></span>
+<span class="w">        </span><span class="nb">apply</span><span class="p">(</span><span class="nv">x</span><span class="w"> </span><span class="nv">-&gt;</span><span class="w"> </span><span class="nv">{</span><span class="w"> </span><span class="s">&quot;title&quot;</span><span class="w"> </span><span class="err">:</span><span class="w"> </span><span class="nv">x.title,</span><span class="w"></span>
+<span class="w">                     </span><span class="s">&quot;authors&quot;</span><span class="w"> </span><span class="err">:</span><span class="w"> </span><span class="nv">authorIdsToDescr</span><span class="p">(</span><span class="nv">getData</span><span class="p">()</span><span class="o">,</span><span class="w"> </span><span class="nv">x.authorIds</span><span class="p">)</span><span class="w"> </span><span class="nv">}</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="nv">| println();</span>
+
+
+<span class="nv">    # Convert map to list of keys - use the subscript operator [] </span>
+<span class="nv">    println(&quot;\nGet list of all book isbns&quot;);</span>
+<span class="nv">    println( getData().booksByIsbn |</span><span class="w"> </span><span class="nv">[][</span><span class="s">&quot;key&quot;</span><span class="nv">]</span><span class="w"> </span><span class="p">)</span><span class="c1">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="nv">Convert</span><span class="w"> </span><span class="nb">map</span><span class="w"> </span><span class="nv">to</span><span class="w"> </span><span class="nb">list</span><span class="w"> </span><span class="nv">of</span><span class="w"> </span><span class="nb">values</span><span class="w"></span>
+<span class="w">    </span><span class="nv">println</span><span class="p">(</span><span class="s">&quot;\nGet list of all book entries from the map&quot;</span><span class="p">)</span><span class="c1">;</span><span class="w"></span>
+<span class="w">    </span><span class="nv">println</span><span class="p">(</span><span class="w"> </span><span class="nv">getData</span><span class="p">()</span><span class="o">.</span><span class="nv">booksByIsbn</span><span class="w"> </span><span class="nv">| [][&quot;value&quot;] );</span>
+
+
+<span class="nv">    # Convert map to list of entries and get specific field</span>
+<span class="nv">    println(&quot;\nConvert map to list of titles&quot;);</span>
+<span class="nv">    getData().booksByIsbn |</span><span class="w"></span>
+<span class="w">        </span><span class="nv">[][</span><span class="s">&quot;value&quot;</span><span class="nv">][</span><span class="s">&quot;title&quot;</span><span class="nv">]</span><span class="w"> </span><span class="nv">|</span>
+<span class="nv">        println();</span>
+
+
+<span class="nv">    # Convert map to list of entries and build new object of each entry</span>
+<span class="nv">    println(&quot;\nConvert map to list of titles and autors&quot;);</span>
+<span class="nv">    getData().booksByIsbn |</span><span class="w"></span>
+<span class="w">        </span><span class="nv">[][</span><span class="s">&quot;value&quot;</span><span class="nv">]</span><span class="w"> </span><span class="nv">|</span>
+<span class="nv">        map(x -&gt; { &quot;title&quot; : x.title,</span>
+<span class="nv">                   &quot;authors&quot; : authorIdsToDescr(getData(), x.authorIds) }) |</span><span class="w"></span>
+<span class="w">        </span><span class="nv">println</span><span class="p">()</span><span class="c1">;</span><span class="w"></span>
+
+
+<span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="nv">Build</span><span class="w"> </span><span class="nb">list</span><span class="w"> </span><span class="nv">of</span><span class="w"> </span><span class="nv">unique</span><span class="w"> </span><span class="nb">values</span><span class="w"> </span><span class="nv">of</span><span class="w"> </span><span class="nv">tags</span><span class="w"></span>
+<span class="w">    </span><span class="nv">println</span><span class="p">(</span><span class="s">&quot;\nGet set of used tags&quot;</span><span class="p">)</span><span class="c1">;</span><span class="w"></span>
+<span class="w">    </span><span class="nv">getData</span><span class="p">()</span><span class="o">.</span><span class="nv">booksByIsbn</span><span class="w"> </span><span class="nv">| [][&quot;value&quot;][&quot;tags&quot;] |</span><span class="w"> </span><span class="nb">apply</span><span class="p">(</span><span class="nv">f</span><span class="s">&quot;append&quot;</span><span class="p">)</span><span class="w"> </span><span class="nv">|   apply(f&quot;hashset&quot;) |</span><span class="w"> </span><span class="nv">println</span><span class="p">()</span><span class="c1">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="nv">println</span><span class="p">(</span><span class="nv">i</span><span class="s">&quot;\nSearch full text of entries for ones that contain a string &#39;kernigan&#39; and return book titles&quot;</span><span class="p">)</span><span class="c1">;</span><span class="w"></span>
+<span class="w">    </span><span class="nv">getData</span><span class="p">()</span><span class="o">.</span><span class="nv">booksByIsbn[][</span><span class="s">&quot;value&quot;</span><span class="nv">]</span><span class="w"> </span><span class="nv">| search &quot;kernigan&quot; |</span><span class="w"> </span><span class="nv">[][</span><span class="s">&quot;title&quot;</span><span class="nv">]</span><span class="w"> </span><span class="nv">| println();</span>
+
+
+<span class="nv">    println(i&quot;\nSearch entries for ones that have title that contains a string &#39;Programming Language&#39;&quot;);</span>
+<span class="nv">    getData().booksByIsbn[][&quot;value&quot;] |</span><span class="w"> </span><span class="nb">search</span><span class="w"> </span><span class="nv">title</span><span class="w"> </span><span class="nv">=~</span><span class="w"> </span><span class="s">&quot;Programming Language&quot;</span><span class="w"> </span><span class="nv">| [][&quot;title&quot;]|</span><span class="w"> </span><span class="nv">println</span><span class="p">()</span><span class="c1">;</span><span class="w"></span>
+
+
+<span class="w">    </span><span class="nv">println</span><span class="p">(</span><span class="s">&quot;\nSearch entries for ones that have title that match regex &#39;^The ([A-Za-z0-9]+) Programming Language$&#39;&quot;</span><span class="p">)</span><span class="c1">;</span><span class="w"></span>
+<span class="w">    </span><span class="nv">getData</span><span class="p">()</span><span class="o">.</span><span class="nv">booksByIsbn[][</span><span class="s">&quot;value&quot;</span><span class="nv">]</span><span class="w"> </span><span class="nv">| search title =~ r&quot;^The ([A-Za-z0-9]+) Programming Language$&quot; |</span><span class="w"> </span><span class="nv">[][</span><span class="s">&quot;title&quot;</span><span class="nv">]| println();</span>
+
+<span class="nv">    println(&quot;\nSearch entries for ones that have tag &#39;Programming Language&#39; and published before year 1980&quot;);</span>
+<span class="nv">    getData().booksByIsbn[][&quot;value&quot;] |</span><span class="w"> </span><span class="nb">search</span><span class="w">  </span><span class="nv">publicationYear</span><span class="w"> </span><span class="nb">&lt;</span><span class="w"> </span><span class="mi">1980</span><span class="w"> </span><span class="nb">and</span><span class="w"> </span><span class="s">&quot;programming languages&quot;</span><span class="w"> </span><span class="nv">in</span><span class="w"> </span><span class="nv">tags</span><span class="w"> </span><span class="nv">|  println();</span>
+
+<span class="nv">    println(&quot;\nSearch entries for ones that have more than one author&quot;);</span>
+<span class="nv">    getData().booksByIsbn[][&quot;value&quot;] |</span><span class="w"> </span><span class="nb">search</span><span class="w">  </span><span class="nb">length</span><span class="p">(</span><span class="nv">authorIds</span><span class="p">)</span><span class="w"> </span><span class="nb">&gt;=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="nv">|  fields title, authorIds |</span><span class="w"> </span><span class="nv">println</span><span class="p">()</span><span class="c1">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="nv">println</span><span class="p">(</span><span class="s">&quot;\nSearch entries for ones that have available copies using subsearch on array of book items&quot;</span><span class="p">)</span><span class="c1">;</span><span class="w"></span>
+<span class="w">    </span><span class="nv">getData</span><span class="p">()</span><span class="o">.</span><span class="nv">booksByIsbn[][</span><span class="s">&quot;value&quot;</span><span class="nv">]</span><span class="w"> </span><span class="nv">| search  (bookItems |</span><span class="w"> </span><span class="nb">search</span><span class="w"> </span><span class="nb">not</span><span class="w"> </span><span class="nv">isLent</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="nv">|  fields isbn,title |</span><span class="w"> </span><span class="nv">println</span><span class="p">()</span><span class="c1">;</span><span class="w"></span>
+<span class="nv">end</span><span class="c1">;</span><span class="w"></span>
+
+
+
+<span class="k">function</span><span class="w"> </span><span class="nv">getData</span><span class="w"> </span><span class="p">()</span><span class="w"> </span>
+<span class="w">    </span><span class="nb">return</span><span class="w"> </span><span class="nv">{</span><span class="w"></span>
+<span class="w">        </span><span class="s">&quot;booksByIsbn&quot;</span><span class="err">:</span><span class="w"> </span><span class="nv">{</span><span class="w"></span>
+<span class="w">            </span><span class="s">&quot;978-1779501127&quot;</span><span class="err">:</span><span class="w"> </span><span class="nv">{</span><span class="w"></span>
+<span class="w">                </span><span class="s">&quot;isbn&quot;</span><span class="err">:</span><span class="w"> </span><span class="s">&quot;978-1779501127&quot;</span><span class="o">,</span><span class="w"></span>
+<span class="w">                </span><span class="s">&quot;title&quot;</span><span class="err">:</span><span class="w"> </span><span class="s">&quot;Watchmen&quot;</span><span class="o">,</span><span class="w"></span>
+<span class="w">                </span><span class="s">&quot;tags&quot;</span><span class="w"> </span><span class="err">:</span><span class="w"> </span><span class="nv">[</span><span class="s">&quot;comics&quot;</span><span class="o">,</span><span class="w"> </span><span class="s">&quot;super hero&quot;</span><span class="o">,</span><span class="w"> </span><span class="s">&quot;alternate history&quot;</span><span class="nv">],</span><span class="w"></span>
+<span class="w">                </span><span class="s">&quot;publicationYear&quot;</span><span class="err">:</span><span class="w"> </span><span class="mi">1987</span><span class="o">,</span><span class="w"></span>
+<span class="w">                </span><span class="s">&quot;authorIds&quot;</span><span class="err">:</span><span class="w"> </span><span class="nv">[</span><span class="s">&quot;alan-moore&quot;</span><span class="o">,</span><span class="w"> </span><span class="s">&quot;dave-gibbons&quot;</span><span class="nv">],</span><span class="w"></span>
+<span class="w">                </span><span class="s">&quot;bookItems&quot;</span><span class="err">:</span><span class="w"> </span><span class="nv">[</span><span class="w"></span>
+<span class="w">                    </span><span class="nv">{</span><span class="w"></span>
+<span class="w">                        </span><span class="s">&quot;id&quot;</span><span class="err">:</span><span class="w"> </span><span class="s">&quot;book-item-1&quot;</span><span class="o">,</span><span class="w"></span>
+<span class="w">                        </span><span class="s">&quot;libId&quot;</span><span class="err">:</span><span class="w"> </span><span class="s">&quot;nyc-central-lib&quot;</span><span class="o">,</span><span class="w"></span>
+<span class="w">                        </span><span class="s">&quot;isLent&quot;</span><span class="err">:</span><span class="w"> </span><span class="nv">true</span><span class="w"></span>
+<span class="w">                    </span><span class="nv">},</span><span class="w"></span>
+<span class="w">                    </span><span class="nv">{</span><span class="w"></span>
+<span class="w">                        </span><span class="s">&quot;id&quot;</span><span class="err">:</span><span class="w"> </span><span class="s">&quot;book-item-2&quot;</span><span class="o">,</span><span class="w"></span>
+<span class="w">                        </span><span class="s">&quot;libId&quot;</span><span class="err">:</span><span class="w"> </span><span class="s">&quot;nyc-central-lib&quot;</span><span class="o">,</span><span class="w"></span>
+<span class="w">                        </span><span class="s">&quot;isLent&quot;</span><span class="err">:</span><span class="w"> </span><span class="nv">true</span><span class="w"></span>
+<span class="w">                    </span><span class="nv">}</span><span class="w"></span>
+<span class="w">                </span><span class="nv">]</span><span class="w"></span>
+<span class="w">            </span><span class="nv">},</span><span class="w"></span>
+<span class="w">            </span><span class="s">&quot;979-8745274824&quot;</span><span class="err">:</span><span class="w"> </span><span class="nv">{</span><span class="w"></span>
+<span class="w">                </span><span class="s">&quot;isbn&quot;</span><span class="err">:</span><span class="w"> </span><span class="s">&quot;979-8745274824&quot;</span><span class="o">,</span><span class="w"></span>
+<span class="w">                </span><span class="s">&quot;title&quot;</span><span class="err">:</span><span class="w"> </span><span class="s">&quot;The Great Gatsby&quot;</span><span class="o">,</span><span class="w"></span>
+<span class="w">                </span><span class="s">&quot;tags&quot;</span><span class="w"> </span><span class="err">:</span><span class="w"> </span><span class="nv">[</span><span class="w"> </span><span class="s">&quot;american classics&quot;</span><span class="o">,</span><span class="w"> </span><span class="s">&quot;jazz age&quot;</span><span class="o">,</span><span class="w"> </span><span class="s">&quot;prohibition&quot;</span><span class="nv">],</span><span class="w"></span>
+<span class="w">                </span><span class="s">&quot;publicationYear&quot;</span><span class="err">:</span><span class="w"> </span><span class="mi">2021</span><span class="o">,</span><span class="w"></span>
+<span class="w">                </span><span class="s">&quot;authorIds&quot;</span><span class="err">:</span><span class="w"> </span><span class="nv">[</span><span class="s">&quot;scott-fitzgerald&quot;</span><span class="nv">],</span><span class="w"></span>
+<span class="w">                </span><span class="s">&quot;bookItems&quot;</span><span class="err">:</span><span class="w"> </span><span class="nv">[</span><span class="w"></span>
+<span class="w">                    </span><span class="nv">{</span><span class="w"></span>
+<span class="w">                        </span><span class="s">&quot;id&quot;</span><span class="err">:</span><span class="w"> </span><span class="s">&quot;book-item-3&quot;</span><span class="o">,</span><span class="w"></span>
+<span class="w">                        </span><span class="s">&quot;libId&quot;</span><span class="err">:</span><span class="w"> </span><span class="s">&quot;nyc-central-lib&quot;</span><span class="o">,</span><span class="w"></span>
+<span class="w">                        </span><span class="s">&quot;isLent&quot;</span><span class="err">:</span><span class="w"> </span><span class="nv">true</span><span class="w"></span>
+<span class="w">                    </span><span class="nv">},</span><span class="w"></span>
+<span class="w">                    </span><span class="nv">{</span><span class="w"></span>
+<span class="w">                        </span><span class="s">&quot;id&quot;</span><span class="err">:</span><span class="w"> </span><span class="s">&quot;book-item-4&quot;</span><span class="o">,</span><span class="w"></span>
+<span class="w">                        </span><span class="s">&quot;libId&quot;</span><span class="err">:</span><span class="w"> </span><span class="s">&quot;nyc-central-lib&quot;</span><span class="o">,</span><span class="w"></span>
+<span class="w">                        </span><span class="s">&quot;isLent&quot;</span><span class="err">:</span><span class="w"> </span><span class="nv">false</span><span class="w"></span>
+<span class="w">                    </span><span class="nv">}</span><span class="w"></span>
+<span class="w">                </span><span class="nv">]</span><span class="w"></span>
+<span class="w">            </span><span class="nv">},</span><span class="w"></span>
+<span class="w">            </span><span class="s">&quot;978-0262510875&quot;</span><span class="err">:</span><span class="w"> </span><span class="nv">{</span><span class="w"></span>
+<span class="w">                </span><span class="s">&quot;isbn&quot;</span><span class="err">:</span><span class="w"> </span><span class="s">&quot;978-0262510875&quot;</span><span class="o">,</span><span class="w"></span>
+<span class="w">                </span><span class="s">&quot;title&quot;</span><span class="err">:</span><span class="w"> </span><span class="s">&quot;Structure and Interpretation of Computer Programs&quot;</span><span class="o">,</span><span class="w"></span>
+<span class="w">                </span><span class="s">&quot;tags&quot;</span><span class="w"> </span><span class="err">:</span><span class="w"> </span><span class="nv">[</span><span class="w"> </span><span class="s">&quot;programming languages&quot;</span><span class="o">,</span><span class="w"> </span><span class="s">&quot;programming language design&quot;</span><span class="o">,</span><span class="w"> </span><span class="s">&quot;lisp&quot;</span><span class="o">,</span><span class="w"> </span><span class="s">&quot;scheme&quot;</span><span class="nv">],</span><span class="w"></span>
+<span class="w">                </span><span class="s">&quot;publicationYear&quot;</span><span class="err">:</span><span class="w"> </span><span class="mi">1996</span><span class="o">,</span><span class="w"></span>
+<span class="w">                </span><span class="s">&quot;authorIds&quot;</span><span class="err">:</span><span class="w"> </span><span class="nv">[</span><span class="s">&quot;harold-abelson&quot;</span><span class="o">,</span><span class="w"> </span><span class="s">&quot;jay-sussman&quot;</span><span class="nv">],</span><span class="w"></span>
+<span class="w">                </span><span class="s">&quot;bookItems&quot;</span><span class="err">:</span><span class="w"> </span><span class="nv">[</span><span class="w"></span>
+<span class="w">                    </span><span class="nv">{</span><span class="w"></span>
+<span class="w">                        </span><span class="s">&quot;id&quot;</span><span class="err">:</span><span class="w"> </span><span class="s">&quot;book-item-5&quot;</span><span class="o">,</span><span class="w"></span>
+<span class="w">                        </span><span class="s">&quot;libId&quot;</span><span class="err">:</span><span class="w"> </span><span class="s">&quot;nyc-central-lib&quot;</span><span class="o">,</span><span class="w"></span>
+<span class="w">                        </span><span class="s">&quot;isLent&quot;</span><span class="err">:</span><span class="w"> </span><span class="nv">true</span><span class="w"></span>
+<span class="w">                    </span><span class="nv">}</span><span class="w"></span>
+<span class="w">                </span><span class="nv">]</span><span class="w"></span>
+<span class="w">            </span><span class="nv">},</span><span class="w"></span>
+<span class="w">            </span><span class="s">&quot;978-0131103627&quot;</span><span class="err">:</span><span class="w"> </span><span class="nv">{</span><span class="w"></span>
+<span class="w">                </span><span class="s">&quot;isbn&quot;</span><span class="err">:</span><span class="w"> </span><span class="s">&quot;978-0131103627&quot;</span><span class="o">,</span><span class="w"></span>
+<span class="w">                </span><span class="s">&quot;title&quot;</span><span class="err">:</span><span class="w"> </span><span class="s">&quot;The C Programming Language&quot;</span><span class="o">,</span><span class="w"></span>
+<span class="w">                </span><span class="s">&quot;publicationYear&quot;</span><span class="err">:</span><span class="w"> </span><span class="mi">1978</span><span class="o">,</span><span class="w"></span>
+<span class="w">                </span><span class="s">&quot;tags&quot;</span><span class="w"> </span><span class="err">:</span><span class="w"> </span><span class="nv">[</span><span class="w"> </span><span class="s">&quot;programming languages&quot;</span><span class="o">,</span><span class="w"> </span><span class="s">&quot;C&quot;</span><span class="nv">],</span><span class="w"></span>
+<span class="w">                </span><span class="s">&quot;authorIds&quot;</span><span class="err">:</span><span class="w"> </span><span class="nv">[</span><span class="s">&quot;brian-kernigan&quot;</span><span class="o">,</span><span class="w"> </span><span class="s">&quot;dennis-ritchie&quot;</span><span class="nv">],</span><span class="w"></span>
+<span class="w">                </span><span class="s">&quot;bookItems&quot;</span><span class="err">:</span><span class="w"> </span><span class="nv">[</span><span class="w"></span>
+<span class="w">                    </span><span class="nv">{</span><span class="w"></span>
+<span class="w">                        </span><span class="s">&quot;id&quot;</span><span class="err">:</span><span class="w"> </span><span class="s">&quot;book-item-6&quot;</span><span class="o">,</span><span class="w"></span>
+<span class="w">                        </span><span class="s">&quot;libId&quot;</span><span class="err">:</span><span class="w"> </span><span class="s">&quot;nyc-central-lib&quot;</span><span class="o">,</span><span class="w"></span>
+<span class="w">                        </span><span class="s">&quot;isLent&quot;</span><span class="err">:</span><span class="w"> </span><span class="nv">true</span><span class="w"></span>
+<span class="w">                    </span><span class="nv">},</span><span class="w"></span>
+<span class="w">                    </span><span class="nv">{</span><span class="w"></span>
+<span class="w">                        </span><span class="s">&quot;id&quot;</span><span class="err">:</span><span class="w"> </span><span class="s">&quot;book-item-7&quot;</span><span class="o">,</span><span class="w"></span>
+<span class="w">                        </span><span class="s">&quot;libId&quot;</span><span class="err">:</span><span class="w"> </span><span class="s">&quot;nyc-central-lib&quot;</span><span class="o">,</span><span class="w"></span>
+<span class="w">                        </span><span class="s">&quot;isLent&quot;</span><span class="err">:</span><span class="w"> </span><span class="nv">true</span><span class="w"></span>
+<span class="w">                    </span><span class="nv">}</span><span class="w"></span>
+
+<span class="w">                </span><span class="nv">]</span><span class="w"></span>
+<span class="w">            </span><span class="nv">},</span><span class="w"></span>
+<span class="w">            </span><span class="s">&quot;The Go Programming Language&quot;</span><span class="err">:</span><span class="w"> </span><span class="nv">{</span><span class="w"></span>
+<span class="w">                </span><span class="s">&quot;isbn&quot;</span><span class="err">:</span><span class="w"> </span><span class="s">&quot;978-0134190440&quot;</span><span class="o">,</span><span class="w"></span>
+<span class="w">                </span><span class="s">&quot;title&quot;</span><span class="err">:</span><span class="w"> </span><span class="s">&quot;The Go Programming Language&quot;</span><span class="o">,</span><span class="w"></span>
+<span class="w">                </span><span class="s">&quot;publicationYear&quot;</span><span class="err">:</span><span class="w"> </span><span class="mi">2015</span><span class="o">,</span><span class="w"></span>
+<span class="w">                </span><span class="s">&quot;tags&quot;</span><span class="w"> </span><span class="err">:</span><span class="w"> </span><span class="nv">[</span><span class="w"> </span><span class="s">&quot;programming languages&quot;</span><span class="o">,</span><span class="w"> </span><span class="s">&quot;golang&quot;</span><span class="nv">],</span><span class="w"></span>
+<span class="w">                </span><span class="s">&quot;authorIds&quot;</span><span class="err">:</span><span class="w"> </span><span class="nv">[</span><span class="s">&quot;brian-kernigan&quot;</span><span class="o">,</span><span class="w"> </span><span class="s">&quot;alan-a-a-donovan&quot;</span><span class="nv">],</span><span class="w"></span>
+<span class="w">                </span><span class="s">&quot;bookItems&quot;</span><span class="err">:</span><span class="w"> </span><span class="nv">[</span><span class="w"></span>
+<span class="w">                    </span><span class="nv">{</span><span class="w"></span>
+<span class="w">                        </span><span class="s">&quot;id&quot;</span><span class="err">:</span><span class="w"> </span><span class="s">&quot;book-item-8&quot;</span><span class="o">,</span><span class="w"></span>
+<span class="w">                        </span><span class="s">&quot;libId&quot;</span><span class="err">:</span><span class="w"> </span><span class="s">&quot;nyc-central-lib&quot;</span><span class="o">,</span><span class="w"></span>
+<span class="w">                        </span><span class="s">&quot;isLent&quot;</span><span class="err">:</span><span class="w"> </span><span class="nv">false</span><span class="w"></span>
+<span class="w">                    </span><span class="nv">},</span><span class="w"></span>
+<span class="w">                    </span><span class="nv">{</span><span class="w"></span>
+<span class="w">                        </span><span class="s">&quot;id&quot;</span><span class="err">:</span><span class="w"> </span><span class="s">&quot;book-item-9&quot;</span><span class="o">,</span><span class="w"></span>
+<span class="w">                        </span><span class="s">&quot;libId&quot;</span><span class="err">:</span><span class="w"> </span><span class="s">&quot;nyc-central-lib&quot;</span><span class="o">,</span><span class="w"></span>
+<span class="w">                        </span><span class="s">&quot;isLent&quot;</span><span class="err">:</span><span class="w"> </span><span class="nv">false</span><span class="w"></span>
+<span class="w">                    </span><span class="nv">}</span><span class="w"></span>
+
+<span class="w">                </span><span class="nv">]</span><span class="w"></span>
+<span class="w">            </span><span class="nv">}</span><span class="w"></span>
+<span class="w">        </span><span class="nv">},</span><span class="w"></span>
+<span class="w">        </span><span class="s">&quot;authorsById&quot;</span><span class="err">:</span><span class="w"> </span><span class="nv">{</span><span class="w"></span>
+<span class="w">            </span><span class="s">&quot;jay-sussman&quot;</span><span class="err">:</span><span class="w"> </span><span class="nv">{</span><span class="w"></span>
+<span class="w">                </span><span class="s">&quot;name&quot;</span><span class="err">:</span><span class="w"> </span><span class="s">&quot;Jay Sussman&quot;</span><span class="o">,</span><span class="w"></span>
+<span class="w">                </span><span class="s">&quot;bookIsbns&quot;</span><span class="err">:</span><span class="w"> </span><span class="nv">[</span><span class="s">&quot;978-0262510875&quot;</span><span class="nv">]</span><span class="w"></span>
+<span class="w">            </span><span class="nv">},</span><span class="w">                        </span>
+<span class="w">            </span><span class="s">&quot;harold-abelson&quot;</span><span class="err">:</span><span class="w"> </span><span class="nv">{</span><span class="w"></span>
+<span class="w">                </span><span class="s">&quot;name&quot;</span><span class="err">:</span><span class="w"> </span><span class="s">&quot;Harold Abelson&quot;</span><span class="o">,</span><span class="w"></span>
+<span class="w">                </span><span class="s">&quot;bookIsbns&quot;</span><span class="err">:</span><span class="w"> </span><span class="nv">[</span><span class="s">&quot;978-0262510875&quot;</span><span class="nv">]</span><span class="w"></span>
+<span class="w">            </span><span class="nv">},</span><span class="w">            </span>
+<span class="w">            </span><span class="s">&quot;brian-kernigan&quot;</span><span class="err">:</span><span class="w"> </span><span class="nv">{</span><span class="w"></span>
+<span class="w">                </span><span class="s">&quot;name&quot;</span><span class="err">:</span><span class="w"> </span><span class="s">&quot;Brian W. Kernigan&quot;</span><span class="o">,</span><span class="w"></span>
+<span class="w">                </span><span class="s">&quot;bookIsbns&quot;</span><span class="err">:</span><span class="w"> </span><span class="nv">[</span><span class="s">&quot;978-0131103627&quot;</span><span class="o">,</span><span class="w"> </span><span class="s">&quot;978-0134190440&quot;</span><span class="nv">]</span><span class="w"></span>
+<span class="w">            </span><span class="nv">},</span><span class="w"></span>
+<span class="w">            </span><span class="s">&quot;dennis-ritchie&quot;</span><span class="err">:</span><span class="w"> </span><span class="nv">{</span><span class="w"></span>
+<span class="w">                </span><span class="s">&quot;name&quot;</span><span class="err">:</span><span class="w"> </span><span class="s">&quot;Dennis M. Ritchie&quot;</span><span class="o">,</span><span class="w"></span>
+<span class="w">                </span><span class="s">&quot;bookIsbns&quot;</span><span class="err">:</span><span class="w"> </span><span class="nv">[</span><span class="s">&quot;978-0131103627&quot;</span><span class="nv">]</span><span class="w"></span>
+<span class="w">            </span><span class="nv">},</span><span class="w">            </span>
+<span class="w">            </span><span class="s">&quot;scott-fitzgerald&quot;</span><span class="err">:</span><span class="w"> </span><span class="nv">{</span><span class="w"></span>
+<span class="w">                </span><span class="s">&quot;name&quot;</span><span class="err">:</span><span class="w"> </span><span class="s">&quot;Scott Fitzgerald&quot;</span><span class="o">,</span><span class="w"></span>
+<span class="w">                </span><span class="s">&quot;bookIsbns&quot;</span><span class="err">:</span><span class="w"> </span><span class="nv">[</span><span class="s">&quot;979-8745274824&quot;</span><span class="nv">]</span><span class="w"></span>
+<span class="w">            </span><span class="nv">},</span><span class="w"></span>
+<span class="w">            </span><span class="s">&quot;alan-moore&quot;</span><span class="err">:</span><span class="w"> </span><span class="nv">{</span><span class="w"></span>
+<span class="w">                </span><span class="s">&quot;name&quot;</span><span class="err">:</span><span class="w"> </span><span class="s">&quot;Alan Moore&quot;</span><span class="o">,</span><span class="w"></span>
+<span class="w">                </span><span class="s">&quot;bookIsbns&quot;</span><span class="err">:</span><span class="w"> </span><span class="nv">[</span><span class="s">&quot;978-1779501127&quot;</span><span class="nv">]</span><span class="w"></span>
+<span class="w">            </span><span class="nv">},</span><span class="w"></span>
+<span class="w">            </span><span class="s">&quot;dave-gibbons&quot;</span><span class="err">:</span><span class="w"> </span><span class="nv">{</span><span class="w"></span>
+<span class="w">                </span><span class="s">&quot;name&quot;</span><span class="err">:</span><span class="w"> </span><span class="s">&quot;Dave Gibbons&quot;</span><span class="o">,</span><span class="w"></span>
+<span class="w">                </span><span class="s">&quot;bookIsbns&quot;</span><span class="err">:</span><span class="w"> </span><span class="nv">[</span><span class="s">&quot;978-1779501127&quot;</span><span class="nv">]</span><span class="w"></span>
+<span class="w">            </span><span class="nv">},</span><span class="w"></span>
+<span class="w">            </span><span class="s">&quot;alan-a-a-donovan&quot;</span><span class="err">:</span><span class="w"> </span><span class="nv">{</span><span class="w"></span>
+<span class="w">                </span><span class="s">&quot;name&quot;</span><span class="w"> </span><span class="err">:</span><span class="w"> </span><span class="s">&quot;Alan A.A. Donovan&quot;</span><span class="o">,</span><span class="w"></span>
+<span class="w">                </span><span class="s">&quot;bookIsbns&quot;</span><span class="err">:</span><span class="w"> </span><span class="nv">[</span><span class="w"> </span><span class="s">&quot;978-0134190440&quot;</span><span class="w"> </span><span class="nv">]</span><span class="w"></span>
+<span class="w">            </span><span class="nv">}</span><span class="w"></span>
+<span class="w">        </span><span class="nv">}</span><span class="w"></span>
+<span class="w">    </span><span class="nv">}</span><span class="c1">;</span><span class="w"></span>
+
+<span class="nv">end</span><span class="c1">;</span><span class="w"></span>
+
+<span class="nv">main</span><span class="p">()</span><span class="c1">;</span><span class="w"></span>
+</code></pre></div>
+<p>Output:
+<div class="highlight"><pre><span></span><code>Input data: {booksByIsbn={978-1779501127={isbn=978-1779501127, publicationYear=1987, title=Watchmen, bookItems=[{libId=nyc-central-lib, id=book-item-1, isLent=true}, {libId=nyc-central-lib, id=book-item-2, isLent=true}], authorIds=[alan-moore, dave-gibbons], tags=[comics, super hero, alternate history]}, 978-0131103627={isbn=978-0131103627, publicationYear=1978, title=The C Programming Language, bookItems=[{libId=nyc-central-lib, id=book-item-6, isLent=true}, {libId=nyc-central-lib, id=book-item-7, isLent=true}], authorIds=[brian-kernigan, dennis-ritchie], tags=[programming languages, C]}, 978-0262510875={isbn=978-0262510875, publicationYear=1996, title=Structure and Interpretation of Computer Programs, bookItems=[{libId=nyc-central-lib, id=book-item-5, isLent=true}], authorIds=[harold-abelson, jay-sussman], tags=[programming languages, programming language design, lisp, scheme]}, 979-8745274824={isbn=979-8745274824, publicationYear=2021, title=The Great Gatsby, bookItems=[{libId=nyc-central-lib, id=book-item-3, isLent=true}, {libId=nyc-central-lib, id=book-item-4, isLent=false}], authorIds=[scott-fitzgerald], tags=[american classics, jazz age, prohibition]}, The Go Programming Language={isbn=978-0134190440, publicationYear=2015, title=The Go Programming Language, bookItems=[{libId=nyc-central-lib, id=book-item-8, isLent=false}, {libId=nyc-central-lib, id=book-item-9, isLent=false}], authorIds=[brian-kernigan, alan-a-a-donovan], tags=[programming languages, golang]}}, authorsById={harold-abelson={name=Harold Abelson, bookIsbns=[978-0262510875]}, scott-fitzgerald={name=Scott Fitzgerald, bookIsbns=[979-8745274824]}, dennis-ritchie={name=Dennis M. Ritchie, bookIsbns=[978-0131103627]}, alan-moore={name=Alan Moore, bookIsbns=[978-1779501127]}, jay-sussman={name=Jay Sussman, bookIsbns=[978-0262510875]}, dave-gibbons={name=Dave Gibbons, bookIsbns=[978-1779501127]}, brian-kernigan={name=Brian W. Kernigan, bookIsbns=[978-0131103627, 978-0134190440]}, alan-a-a-donovan={name=Alan A.A. Donovan, bookIsbns=[978-0134190440]}}}
+
+Get entry by key (ISBN) and get one of its fields:
+Watchmen
+
+Get entry by key (ISBN) and make new object of several fields:
+{publicationYear=1987, title=Watchmen}
+
+Get entry by key (ISBN) and make of it new object:
+{title=Watchmen, authors=Alan Moore, Dave Gibbons}
+
+Get list of all book isbns
+[978-1779501127, 978-0131103627, 978-0262510875, 979-8745274824, The Go Programming Language]
+
+Get list of all book entries from the map
+[{isbn=978-1779501127, publicationYear=1987, title=Watchmen, bookItems=[{libId=nyc-central-lib, id=book-item-1, isLent=true}, {libId=nyc-central-lib, id=book-item-2, isLent=true}], authorIds=[alan-moore, dave-gibbons], tags=[comics, super hero, alternate history]}, {isbn=978-0131103627, publicationYear=1978, title=The C Programming Language, bookItems=[{libId=nyc-central-lib, id=book-item-6, isLent=true}, {libId=nyc-central-lib, id=book-item-7, isLent=true}], authorIds=[brian-kernigan, dennis-ritchie], tags=[programming languages, C]}, {isbn=978-0262510875, publicationYear=1996, title=Structure and Interpretation of Computer Programs, bookItems=[{libId=nyc-central-lib, id=book-item-5, isLent=true}], authorIds=[harold-abelson, jay-sussman], tags=[programming languages, programming language design, lisp, scheme]}, {isbn=979-8745274824, publicationYear=2021, title=The Great Gatsby, bookItems=[{libId=nyc-central-lib, id=book-item-3, isLent=true}, {libId=nyc-central-lib, id=book-item-4, isLent=false}], authorIds=[scott-fitzgerald], tags=[american classics, jazz age, prohibition]}, {isbn=978-0134190440, publicationYear=2015, title=The Go Programming Language, bookItems=[{libId=nyc-central-lib, id=book-item-8, isLent=false}, {libId=nyc-central-lib, id=book-item-9, isLent=false}], authorIds=[brian-kernigan, alan-a-a-donovan], tags=[programming languages, golang]}]
+
+Convert map to list of titles
+[Watchmen, The C Programming Language, Structure and Interpretation of Computer Programs, The Great Gatsby, The Go Programming Language]
+
+Convert map to list of titles and autors
+[{title=Watchmen, authors=Alan Moore, Dave Gibbons}, {title=The C Programming Language, authors=Brian W. Kernigan, Dennis M. Ritchie}, {title=Structure and Interpretation of Computer Programs, authors=Harold Abelson, Jay Sussman}, {title=The Great Gatsby, authors=Scott Fitzgerald}, {title=The Go Programming Language, authors=Brian W. Kernigan, Alan A.A. Donovan}]
+
+Get set of used tags
+[C, scheme, programming language design, super hero, american classics, comics, golang, lisp, jazz age, prohibition, alternate history, programming languages]
+
+Search full text of entries for ones that contain a string &#39;kernigan&#39; and return book titles
+[The C Programming Language, The Go Programming Language]
+
+Search entries for ones that have title that contains a string &#39;Programming Language&#39;
+[The C Programming Language, The Go Programming Language]
+
+Search entries for ones that have title that match regex &#39;^The ([A-Za-z0-9]+) Programming Language$&#39;
+[The C Programming Language, The Go Programming Language]
+
+Search entries for ones that have tag &#39;Programming Language&#39; and published before year 1980
+[{isbn=978-0131103627, publicationYear=1978, title=The C Programming Language, bookItems=[{libId=nyc-central-lib, id=book-item-6, isLent=true}, {libId=nyc-central-lib, id=book-item-7, isLent=true}], authorIds=[brian-kernigan, dennis-ritchie], tags=[programming languages, C]}]
+
+Search entries for ones that have more than one author
+[{title=Watchmen, authorIds=[alan-moore, dave-gibbons]}, {authorIds=[brian-kernigan, dennis-ritchie], title=The C Programming Language}, {authorIds=[harold-abelson, jay-sussman], title=Structure and Interpretation of Computer Programs}, {authorIds=[brian-kernigan, alan-a-a-donovan], title=The Go Programming Language}]
+
+Search entries for ones that have available copies using subsearch on array of book items
+[{title=The Great Gatsby, isbn=979-8745274824}, {isbn=978-0134190440, title=The Go Programming Language}]
+</code></pre></div></p>
+<h2 id="factorial-lazy-sequence">Factorial (lazy sequence)</h2>
+<div class="highlight"><pre><span></span><code><span class="err">###</span><span class="w"> </span><span class="nv">Factorial</span><span class="w"> </span><span class="p">(</span><span class="nv">lazy</span><span class="w"> </span><span class="nc">sequence</span><span class="p">)</span><span class="w"></span>
+
+<span class="k">function</span><span class="w"> </span><span class="nv">fact</span><span class="p">(</span><span class="nv">n</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="s">&quot;Compute factorial&quot;</span><span class="c1">;</span><span class="w"></span>
+<span class="w">    </span><span class="nb">apply</span><span class="p">(</span><span class="nv">f</span><span class="s">&quot;*&quot;</span><span class="o">,</span><span class="w"> </span><span class="nv">range</span><span class="p">(</span><span class="mi">1</span><span class="o">,</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="nb">+</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span><span class="c1">;</span><span class="w"></span>
+<span class="nv">end</span><span class="c1">;</span><span class="w"></span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nv">i</span><span class="s">&quot;5! = $(fact(5))\n&quot;</span><span class="p">)</span><span class="c1">;</span><span class="w"></span>
+</code></pre></div>
+<p>Output:
+<div class="highlight"><pre><span></span><code>5! = 120
+</code></pre></div></p>
 <h2 id="compute-factorial-recursive">Compute Factorial (recursive)</h2>
 <div class="highlight"><pre><span></span><code><span class="err">###</span><span class="w"> </span><span class="nv">Compute</span><span class="w"> </span><span class="nv">Factorial</span><span class="w"> </span><span class="p">(</span><span class="nv">recursive</span><span class="p">)</span><span class="w"></span>
 
@@ -515,11 +896,11 @@
 <span class="w">    </span><span class="err">##</span><span class="w"> </span><span class="nv">create</span><span class="w"> </span><span class="nb">map</span><span class="w"> </span><span class="nv">of</span><span class="w"> </span><span class="nv">counters</span><span class="w"></span>
 <span class="w">    </span><span class="nv">m</span><span class="w"> </span><span class="ss">:=</span><span class="w"> </span><span class="nv">hashmap</span><span class="p">()</span><span class="c1">;</span><span class="w"></span>
 <span class="w">    </span><span class="err">##</span><span class="w"> </span><span class="nv">for</span><span class="w"> </span><span class="nv">each</span><span class="w">  </span><span class="nv">word</span><span class="w"> </span><span class="nv">in</span><span class="w"> </span><span class="nv">text</span><span class="w"> </span><span class="nv">that</span><span class="w"> </span><span class="nv">matches</span><span class="w"> </span><span class="nv">pattern</span><span class="w"></span>
-<span class="w">    </span><span class="nv">foreach</span><span class="w"> </span><span class="p">(</span><span class="nv">[word,</span><span class="w"> </span><span class="nv">seq],</span><span class="w"></span>
-<span class="w">             </span><span class="nv">assoc!</span><span class="p">(</span><span class="nv">m,</span><span class="w"> </span><span class="nv">word,</span><span class="w"> </span><span class="nv">m[word]</span><span class="w"> </span><span class="nb">+</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span><span class="c1">;</span><span class="w"></span>
+<span class="w">    </span><span class="nv">for</span><span class="w">  </span><span class="nv">word</span><span class="w"> </span><span class="nv">in</span><span class="w">  </span><span class="nv">seq</span><span class="w"></span>
+<span class="w">        </span><span class="nv">m[word]</span><span class="w"> </span><span class="ss">:=</span><span class="w"> </span><span class="nv">m[word]</span><span class="w"> </span><span class="nb">+</span><span class="w"> </span><span class="mi">1</span><span class="c1">;</span><span class="w"></span>
+<span class="w">    </span><span class="nv">end</span><span class="c1">;</span><span class="w"></span>
 <span class="w">    </span><span class="err">##</span><span class="w"> </span><span class="nb">sort</span><span class="w"> </span><span class="nb">list</span><span class="w"> </span><span class="nv">of</span><span class="w"> </span><span class="nv">Map</span><span class="w"> </span><span class="nv">Entries</span><span class="w"> </span><span class="nv">by</span><span class="w"> </span><span class="nv">their</span><span class="w"> </span><span class="nb">values</span><span class="w"></span>
-<span class="w">    </span><span class="nb">sort</span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="nv">a,</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span><span class="w"> </span><span class="nv">-&gt;</span><span class="w"> </span><span class="nv">b.value</span><span class="w"> </span><span class="nb">-</span><span class="w"> </span><span class="nv">a.value,</span><span class="w"></span>
-<span class="w">          </span><span class="nb">append</span><span class="p">(</span><span class="nb">list</span><span class="p">()</span><span class="o">,</span><span class="w"> </span><span class="nv">m</span><span class="p">))</span><span class="c1">;</span><span class="w"></span>
+<span class="w">    </span><span class="nb">sort</span><span class="p">((</span><span class="nv">a,</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span><span class="w"> </span><span class="nv">-&gt;</span><span class="w"> </span><span class="nv">b.value</span><span class="w"> </span><span class="nb">-</span><span class="w"> </span><span class="nv">a.value,</span><span class="w">  </span><span class="nb">append</span><span class="p">(</span><span class="nv">[],</span><span class="w"> </span><span class="nv">m</span><span class="p">))</span><span class="c1">;</span><span class="w"></span>
 <span class="nv">end</span><span class="c1">;</span><span class="w"></span>
 
 <span class="nv">txt:=</span><span class="w"> </span><span class="s">&quot;If in this heart a hope be dear,</span>
@@ -527,7 +908,7 @@
 <span class="s">       If in these eyes there lurk a tear,</span>
 <span class="s">       ⁠&#39;Twill flow, and cease to burn my brain&quot;</span><span class="c1">;</span><span class="w"></span>
 
-<span class="nv">wordlist</span><span class="w"> </span><span class="ss">:=</span><span class="w"> </span><span class="nb">map</span><span class="p">(</span><span class="nv">f</span><span class="s">&quot;lowercase&quot;</span><span class="o">,</span><span class="w"> </span><span class="nb">append</span><span class="p">(</span><span class="nb">list</span><span class="p">()</span><span class="o">,</span><span class="w"> </span><span class="nv">re_seq</span><span class="p">(</span><span class="nv">r</span><span class="s">&quot;\w+&quot;</span><span class="o">,</span><span class="w"> </span><span class="nv">txt</span><span class="p">)))</span><span class="c1">;</span><span class="w"></span>
+<span class="nv">wordlist</span><span class="w"> </span><span class="ss">:=</span><span class="w"> </span><span class="nb">map</span><span class="p">(</span><span class="nv">f</span><span class="s">&quot;lowercase&quot;</span><span class="o">,</span><span class="w"> </span><span class="nb">append</span><span class="p">(</span><span class="nv">[],</span><span class="w"> </span><span class="nv">re_seq</span><span class="p">(</span><span class="nv">r</span><span class="s">&quot;\w+&quot;</span><span class="o">,</span><span class="w"> </span><span class="nv">txt</span><span class="p">)))</span><span class="c1">;</span><span class="w"></span>
 <span class="nv">wordfreq</span><span class="w"> </span><span class="ss">:=</span><span class="w"> </span><span class="nv">freqcount</span><span class="p">(</span><span class="nv">wordlist</span><span class="p">)</span><span class="c1">;</span><span class="w"></span>
 
 <span class="nb">print</span><span class="p">(</span><span class="nv">i</span><span class="s">&quot;Word frequency table for text</span>
@@ -541,7 +922,7 @@
 
 
 <span class="err">##</span><span class="w"> </span><span class="nv">make</span><span class="w"> </span><span class="nc">array</span><span class="w"> </span><span class="nv">of</span><span class="w"> </span><span class="nb">random</span><span class="w"> </span><span class="nv">integers</span><span class="w"></span>
-<span class="nv">numbers</span><span class="w"> </span><span class="ss">:=</span><span class="w"> </span><span class="nb">map</span><span class="p">(</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="nv">-&gt;</span><span class="w"> </span><span class="nb">random</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="o">,</span><span class="w"> </span><span class="nv">make_array</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span><span class="c1">;</span><span class="w"></span>
+<span class="nv">numbers</span><span class="w"> </span><span class="ss">:=</span><span class="w"> </span><span class="nb">map</span><span class="p">(</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="nv">-&gt;</span><span class="w"> </span><span class="nb">random</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">,</span><span class="w"> </span><span class="nv">make_array</span><span class="p">(</span><span class="nv">size:=20</span><span class="p">))</span><span class="c1">;</span><span class="w"></span>
 <span class="nv">numbersfreq</span><span class="w"> </span><span class="ss">:=</span><span class="w"> </span><span class="nv">freqcount</span><span class="p">(</span><span class="w"> </span><span class="nv">numbers</span><span class="w"> </span><span class="p">)</span><span class="c1">;</span><span class="w"></span>
 <span class="nb">print</span><span class="w"> </span><span class="p">(</span><span class="nv">i</span><span class="s">&quot;Frequency table for array of numbers</span>
 <span class="s">        $(numbers)</span>
@@ -564,8 +945,8 @@ Character frequency table for text
 =3, b=3, d=3, ,=3, u=3, I=2, T=2, ⁠=2, c=2, m=2, w=2, y=2, g=1, &#39;=1, k=1, p=1, :=1]
 
 Frequency table for array of numbers
-        [4]
-[4=1]
+        [2, 8, 7, 8, 5, 8, 8, 0, 5, 5, 2, 4, 6, 4, 8, 6, 5, 0, 2, 6]
+[8=5, 5=4, 2=3, 6=3, 0=2, 4=2, 7=1]
 </code></pre></div></p>
 <h2 id="hello-world">Hello, World!</h2>
 <div class="highlight"><pre><span></span><code><span class="err">###</span><span class="w"> </span><span class="nv">Hello,</span><span class="w"> </span><span class="nv">World!</span><span class="w"></span>
@@ -580,9 +961,9 @@ Frequency table for array of numbers
 
 <span class="k">function</span><span class="w"> </span><span class="nv">swap</span><span class="p">(</span><span class="nv">a,</span><span class="w"> </span><span class="nv">i,</span><span class="w"> </span><span class="nv">j</span><span class="p">)</span><span class="w"> </span>
 <span class="w">    </span><span class="s">&quot;swap two elements in an indexable sequence&quot;</span><span class="c1">;</span><span class="w"></span>
-<span class="w">    </span><span class="nv">tmp:=</span><span class="w"> </span><span class="nv">a[i]</span><span class="c1">;</span><span class="w"></span>
-<span class="w">    </span><span class="nv">aset</span><span class="p">(</span><span class="nv">a,</span><span class="w"> </span><span class="nv">i,</span><span class="w"> </span><span class="nv">a[j]</span><span class="p">)</span><span class="c1">;</span><span class="w"></span>
-<span class="w">    </span><span class="nv">aset</span><span class="p">(</span><span class="nv">a,</span><span class="w"> </span><span class="nv">j,</span><span class="w"> </span><span class="nv">tmp</span><span class="p">)</span><span class="c1">;</span><span class="w"></span>
+<span class="w">    </span><span class="nv">tmp</span><span class="w"> </span><span class="ss">:=</span><span class="w"> </span><span class="nv">a[i]</span><span class="c1">;</span><span class="w"></span>
+<span class="w">    </span><span class="nv">a[i]</span><span class="w"> </span><span class="ss">:=</span><span class="w"> </span><span class="nv">a[j]</span><span class="c1">;</span><span class="w"></span>
+<span class="w">    </span><span class="nv">a[j]</span><span class="w"> </span><span class="ss">:=</span><span class="w"> </span><span class="nv">tmp</span><span class="c1">;</span><span class="w"></span>
 <span class="nv">end</span><span class="c1">;</span><span class="w"></span>
 
 
@@ -624,26 +1005,26 @@ Frequency table for array of numbers
 <span class="w">    </span><span class="err">##</span><span class="w"> </span><span class="nv">Array</span><span class="w"> </span><span class="nv">of</span><span class="w"> </span><span class="nv">objects</span><span class="w"></span>
 <span class="w">    </span><span class="nb">append</span><span class="p">(</span><span class="nv">make_array</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">,</span><span class="w"> </span><span class="nv">random_list</span><span class="p">(</span><span class="mi">32</span><span class="o">,</span><span class="mi">100</span><span class="p">))</span><span class="o">,</span><span class="w">                </span>
 <span class="w">    </span><span class="err">##</span><span class="w"> </span><span class="nb">list</span><span class="w"> </span><span class="nv">of</span><span class="w"> </span><span class="nv">Characters</span><span class="w"></span>
-<span class="w">    </span><span class="nb">append</span><span class="p">(</span><span class="nb">list</span><span class="p">()</span><span class="o">,</span><span class="w"> </span><span class="s">&quot;pack my box with five dozen liquor jugs&quot;</span><span class="p">)</span><span class="o">,</span><span class="w"> </span>
+<span class="w">    </span><span class="nb">append</span><span class="p">(</span><span class="nv">[],</span><span class="w"> </span><span class="s">&quot;pack my box with five dozen liquor jugs&quot;</span><span class="p">)</span><span class="o">,</span><span class="w"> </span>
 <span class="w">    </span><span class="err">##</span><span class="w"> </span><span class="nb">list</span><span class="w"> </span><span class="nv">of</span><span class="w"> </span><span class="nv">versions</span><span class="w"></span>
 <span class="w">    </span><span class="nv">[v</span><span class="s">&quot;0.1.2&quot;</span><span class="o">,</span><span class="w">  </span><span class="nv">v</span><span class="s">&quot;0.1.2-pre1&quot;</span><span class="o">,</span><span class="w"> </span><span class="nv">v</span><span class="s">&quot;0.1.2-pre2&quot;</span><span class="o">,</span><span class="w"> </span><span class="nv">v</span><span class="s">&quot;0.1.3&quot;</span><span class="o">,</span><span class="w"> </span><span class="nv">v</span><span class="s">&quot;0.1.2-pre1+10&quot;</span><span class="o">,</span><span class="w"> </span><span class="nv">v</span><span class="s">&quot;1.2.3&quot;</span><span class="nv">]</span><span class="w"> </span>
 <span class="nv">]</span><span class="c1">;</span><span class="w"></span>
-<span class="nv">foreach</span><span class="p">(</span><span class="nv">[data,</span><span class="w"> </span><span class="nv">samples],</span><span class="w"></span>
-<span class="w">        </span><span class="nv">begin</span><span class="w"></span>
-<span class="w">            </span><span class="nb">print</span><span class="p">(</span><span class="nv">i</span><span class="s">&quot;Using quick sort on:  $(type_of(data))\n&quot;</span><span class="p">)</span><span class="c1">; </span><span class="w"></span>
-<span class="w">            </span><span class="nb">print</span><span class="p">(</span><span class="nv">i</span><span class="s">&quot;input=$(data)\n&quot;</span><span class="p">)</span><span class="c1">;</span><span class="w"></span>
-<span class="w">            </span><span class="nv">quick_sort</span><span class="p">(</span><span class="nv">data,</span><span class="w"> </span><span class="mi">0</span><span class="o">,</span><span class="w"> </span><span class="nb">length</span><span class="p">(</span><span class="nv">data</span><span class="p">)</span><span class="w"> </span><span class="nb">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="c1">;</span><span class="w"></span>
-<span class="w">            </span><span class="nb">print</span><span class="p">(</span><span class="nv">i</span><span class="s">&quot;output=$(data)\n\n&quot;</span><span class="p">)</span><span class="c1">;</span><span class="w"></span>
-<span class="w">        </span><span class="nv">end</span><span class="p">)</span><span class="c1">;</span><span class="w"></span>
+
+<span class="nv">for</span><span class="w"> </span><span class="nv">data</span><span class="w"> </span><span class="nv">in</span><span class="w">  </span><span class="nv">samples</span><span class="w"></span>
+<span class="w">    </span><span class="nb">print</span><span class="p">(</span><span class="nv">i</span><span class="s">&quot;Using quick sort on:  $(type_of(data))\n&quot;</span><span class="p">)</span><span class="c1">;</span><span class="w"></span>
+<span class="w">    </span><span class="nb">print</span><span class="p">(</span><span class="nv">i</span><span class="s">&quot;input=$(data)\n&quot;</span><span class="p">)</span><span class="c1">;</span><span class="w"></span>
+<span class="w">    </span><span class="nv">quick_sort</span><span class="p">(</span><span class="nv">data,</span><span class="w"> </span><span class="mi">0</span><span class="o">,</span><span class="w"> </span><span class="nb">length</span><span class="p">(</span><span class="nv">data</span><span class="p">)</span><span class="w"> </span><span class="nb">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="c1">;</span><span class="w"></span>
+<span class="w">    </span><span class="nb">print</span><span class="p">(</span><span class="nv">i</span><span class="s">&quot;output=$(data)\n\n&quot;</span><span class="p">)</span><span class="c1">;</span><span class="w"></span>
+<span class="nv">end</span><span class="c1">;</span><span class="w"></span>
 </code></pre></div>
 <p>Output:
 <div class="highlight"><pre><span></span><code>Using quick sort on:  class java.util.ArrayList
-input=[74, 12, 37, 80, 93, 17, 69, 22, 84, 20, 38, 24, 29, 79, 54, 86, 53, 95, 23, 75, 87, 93, 23, 72, 88, 48, 39, 3, 66, 71, 98, 16]
-output=[3, 12, 16, 17, 20, 22, 23, 23, 24, 29, 37, 38, 39, 48, 53, 54, 66, 69, 71, 72, 74, 75, 79, 80, 84, 86, 87, 88, 93, 93, 95, 98]
+input=[48, 34, 59, 44, 4, 17, 21, 92, 40, 40, 21, 6, 93, 39, 30, 46, 67, 74, 20, 97, 88, 82, 92, 55, 54, 56, 71, 4, 75, 88, 14, 58]
+output=[4, 4, 6, 14, 17, 20, 21, 21, 30, 34, 39, 40, 40, 44, 46, 48, 54, 55, 56, 58, 59, 67, 71, 74, 75, 82, 88, 88, 92, 92, 93, 97]
 
 Using quick sort on:  class [Ljava.lang.Object;
-input=[0, 68, 62, 47, 11, 6, 52, 10, 50, 55, 28, 69, 99, 89, 95, 93, 4, 47, 37, 80, 84, 92, 98, 42, 57, 44, 37, 23, 32, 52, 28, 6, 82]
-output=[0, 4, 6, 6, 10, 11, 23, 28, 28, 32, 37, 37, 42, 44, 47, 47, 50, 52, 52, 55, 57, 62, 68, 69, 80, 82, 84, 89, 92, 93, 95, 98, 99]
+input=[0, 45, 87, 41, 67, 80, 75, 60, 87, 88, 18, 93, 98, 18, 63, 31, 30, 35, 4, 98, 68, 46, 86, 65, 97, 65, 18, 30, 16, 90, 90, 98, 34]
+output=[0, 4, 16, 18, 18, 18, 30, 30, 31, 34, 35, 41, 45, 46, 60, 63, 65, 65, 67, 68, 75, 80, 86, 87, 87, 88, 90, 90, 93, 97, 98, 98, 98]
 
 Using quick sort on:  class java.util.ArrayList
 input=[p, a, c, k,  , m, y,  , b, o, x,  , w, i, t, h,  , f, i, v, e,  , d, o, z, e, n,  , l, i, q, u, o, r,  , j, u, g, s]

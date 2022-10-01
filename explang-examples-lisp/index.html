@@ -374,6 +374,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#factorial-lazy-sequence" class="md-nav__link">
+    Factorial (lazy sequence)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#factorial-recursive" class="md-nav__link">
     Factorial (recursive)
   </a>
@@ -482,6 +489,13 @@
         <li class="md-nav__item">
   <a href="#expression-reading-and-evaluation" class="md-nav__link">
     Expression Reading and Evaluation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#factorial-lazy-sequence" class="md-nav__link">
+    Factorial (lazy sequence)
   </a>
   
 </li>
@@ -621,6 +635,18 @@ quine evaluation:
 before eval: [[LAMBDA, [X], [LIST, X, [LIST, [QUOTE, QUOTE], X]]], [QUOTE, [LAMBDA, [X], [LIST, X, [LIST, [QUOTE, QUOTE], X]]]]]
 after eval:  [[LAMBDA, [X], [LIST, X, [LIST, [QUOTE, QUOTE], X]]], [QUOTE, [LAMBDA, [X], [LIST, X, [LIST, [QUOTE, QUOTE], X]]]]]
 </code></pre></div></p>
+<h2 id="factorial-lazy-sequence">Factorial (lazy sequence)</h2>
+<div class="highlight"><pre><span></span><code><span class="c1">;;; Factorial (lazy sequence)</span><span class="w"></span>
+
+<span class="p">(</span><span class="nb">defun</span><span class="w"> </span><span class="nv">fact</span><span class="p">(</span><span class="nv">n</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="s">&quot;Compute factorial&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">(</span><span class="nb">apply</span><span class="w"> </span><span class="nf">#&#39;</span><span class="nb">*</span><span class="w"> </span><span class="p">(</span><span class="nv">range</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="mi">1</span><span class="p">))))</span><span class="w"></span>
+
+<span class="p">(</span><span class="nv">println</span><span class="w"> </span><span class="s">&quot;5! = &quot;</span><span class="w"> </span><span class="p">(</span><span class="nv">fact</span><span class="w"> </span><span class="mi">5</span><span class="p">))</span><span class="w"></span>
+</code></pre></div>
+<p>Output:
+<div class="highlight"><pre><span></span><code>5! = 120
+</code></pre></div></p>
 <h2 id="factorial-recursive">Factorial (recursive)</h2>
 <div class="highlight"><pre><span></span><code><span class="c1">;;; Factorial (recursive)</span><span class="w"></span>
 
@@ -659,7 +685,7 @@ after eval:  [[LAMBDA, [X], [LIST, X, [LIST, [QUOTE, QUOTE], X]]], [QUOTE, [LAMB
 <span class="s">            If in these eyes there lurk a tear,</span>
 <span class="s">            ⁠&#39;Twill flow, and cease to burn my brain&quot;</span><span class="p">)</span><span class="w"></span>
 <span class="w">      </span><span class="p">(</span><span class="nv">numbers</span><span class="w"> </span><span class="p">(</span><span class="nb">map</span><span class="w"> </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="nv">x</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">random</span><span class="w"> </span><span class="mi">7</span><span class="p">))</span><span class="w"></span>
-<span class="w">            </span><span class="p">(</span><span class="nb">make-array</span><span class="w"> </span><span class="ss">:size</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="ss">:element-type</span><span class="w"> </span><span class="s">&quot;int&quot;</span><span class="p">))))</span><span class="w"></span>
+<span class="w">            </span><span class="p">(</span><span class="nb">make-array</span><span class="w"> </span><span class="ss">:size</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="ss">:elementType</span><span class="w"> </span><span class="s">&quot;int&quot;</span><span class="p">))))</span><span class="w"></span>
 <span class="w">  </span><span class="p">(</span><span class="nb">print</span><span class="w"> </span><span class="s">&quot;Word frequency table for text\n&quot;</span><span class="w">  </span><span class="nv">txt</span><span class="w"> </span><span class="s">&quot;\n&quot;</span><span class="w"></span>
 <span class="w">     </span><span class="p">(</span><span class="nv">freqcount</span><span class="w"></span>
 <span class="w">      </span><span class="p">(</span><span class="nb">map</span><span class="w"> </span><span class="nf">#&#39;</span><span class="nv">lowercase</span><span class="w"></span>
@@ -691,8 +717,8 @@ If in this heart a hope be dear,
 =3, b=3, d=3, ,=3, u=3, I=2, T=2, ⁠=2, c=2, m=2, w=2, y=2, g=1, &#39;=1, k=1, p=1, :=1]
 
 Frequency table for array of numbers
-[1, 5, 5, 2, 4, 1, 6, 2, 4, 0]
-[1=2, 2=2, 4=2, 5=2, 0=1, 6=1]
+[5, 3, 3, 6, 2, 5, 4, 6, 4, 6]
+[6=3, 3=2, 4=2, 5=2, 2=1]
 </code></pre></div></p>
 <h2 id="hello-world">Hello world</h2>
 <div class="highlight"><pre><span></span><code><span class="c1">;; Hello world</span><span class="w"></span>
@@ -747,8 +773,8 @@ Frequency table for array of numbers
 <span class="w">  </span><span class="p">(</span><span class="nv">println</span><span class="w"> </span><span class="s">&quot;Quick sort out: &quot;</span><span class="w"> </span><span class="nv">data</span><span class="p">))</span><span class="w"></span>
 </code></pre></div>
 <p>Output:
-<div class="highlight"><pre><span></span><code>Quick sort in:  [38, 47, 60, 21, 28, 96, 18, 69, 95, 64, 87, 19, 70, 62, 0, 58, 19, 56, 8, 9, 53, 82, 22, 60, 39, 46, 59, 35, 7, 21, 42, 33]
-Quick sort out: [0, 7, 8, 9, 18, 19, 19, 21, 21, 22, 28, 33, 35, 38, 39, 42, 46, 47, 53, 56, 58, 59, 60, 60, 62, 64, 69, 70, 82, 87, 95, 96]
+<div class="highlight"><pre><span></span><code>Quick sort in:  [69, 91, 7, 28, 86, 10, 15, 18, 6, 46, 25, 5, 90, 30, 0, 47, 77, 78, 77, 28, 48, 85, 81, 2, 44, 98, 75, 75, 9, 66, 63, 70]
+Quick sort out: [0, 2, 5, 6, 7, 9, 10, 15, 18, 25, 28, 28, 30, 44, 46, 47, 48, 63, 66, 69, 70, 75, 75, 77, 77, 78, 81, 85, 86, 90, 91, 98]
 </code></pre></div></p>
 <h2 id="quicksort">Quicksort</h2>
 <div class="highlight"><pre><span></span><code><span class="c1">;;; Quicksort</span><span class="w"></span>
@@ -803,12 +829,12 @@ Quick sort out: [0, 7, 8, 9, 18, 19, 19, 21, 21, 22, 28, 33, 35, 38, 39, 42, 46,
 </code></pre></div>
 <p>Output:
 <div class="highlight"><pre><span></span><code>Using quick sort on:  class java.util.ArrayList
-input:  [10, 54, 76, 78, 87, 2, 20, 99, 13, 19, 60, 51, 83, 61, 80, 94, 25, 70, 0, 95, 68, 67, 35, 21, 66, 76, 78, 73, 95, 2, 76, 52]
-output: [0, 2, 2, 10, 13, 19, 20, 21, 25, 35, 51, 52, 54, 60, 61, 66, 67, 68, 70, 73, 76, 76, 76, 78, 78, 80, 83, 87, 94, 95, 95, 99]
+input:  [15, 90, 0, 58, 13, 74, 85, 58, 21, 98, 17, 87, 25, 17, 23, 95, 78, 52, 20, 98, 36, 20, 75, 39, 5, 7, 94, 2, 76, 18, 57, 54]
+output: [0, 2, 5, 7, 13, 15, 17, 17, 18, 20, 20, 21, 23, 25, 36, 39, 52, 54, 57, 58, 58, 74, 75, 76, 78, 85, 87, 90, 94, 95, 98, 98]
 
 Using quick sort on:  class [Ljava.lang.Object;
-input:  [77, 52, 49, 41, 48, 17, 34, 28, 3, 39, 21, 75, 21, 83, 77, 80, 15, 4, 54, 65, 6, 26, 9, 4, 76, 2, 75, 41, 20, 4, 58, 89]
-output: [2, 3, 4, 4, 4, 6, 9, 15, 17, 20, 21, 21, 26, 28, 34, 39, 41, 41, 48, 49, 52, 54, 58, 65, 75, 75, 76, 77, 77, 80, 83, 89]
+input:  [91, 54, 77, 62, 46, 18, 88, 63, 54, 56, 76, 74, 10, 75, 39, 63, 70, 25, 47, 99, 50, 42, 80, 60, 58, 29, 97, 60, 10, 53, 97, 48]
+output: [10, 10, 18, 25, 29, 39, 42, 46, 47, 48, 50, 53, 54, 54, 56, 58, 60, 60, 62, 63, 63, 70, 74, 75, 76, 77, 80, 88, 91, 97, 97, 99]
 
 Using quick sort on:  class java.lang.StringBuffer
 input:  Hello people! How do you do?
