@@ -1,5 +1,5 @@
-Explang Core Quick Start
-========================
+Quick Start for Explang Core 
+============================
 
 Installation
 ------------
