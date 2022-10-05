@@ -177,7 +177,7 @@
   
     <li class="md-nav__item">
       <a href="../explang-core-quick-start/" class="md-nav__link">
-        Explang Core Quick Start
+        Quick Start for Explang Core
       </a>
     </li>
   
@@ -191,8 +191,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../explang-alg/" class="md-nav__link">
-        Using Explang with Algebraic Syntax
+      <a href="../explang-alg-syntax-quick-start/" class="md-nav__link">
+        Quick Start for Explang Algebraic Syntax
       </a>
     </li>
   
@@ -223,6 +223,21 @@
     <li class="md-nav__item">
       <a href="../explang-extending/" class="md-nav__link">
         Extending Explang in Java
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../explang-alg/" class="md-nav__link">
+        Using Explang with Algebraic Syntax
       </a>
     </li>
   
@@ -717,8 +732,8 @@ If in this heart a hope be dear,
 =3, b=3, d=3, ,=3, u=3, I=2, T=2, ⁠=2, c=2, m=2, w=2, y=2, g=1, &#39;=1, k=1, p=1, :=1]
 
 Frequency table for array of numbers
-[6, 0, 2, 2, 1, 5, 6, 6, 4, 5]
-[6=3, 2=2, 5=2, 0=1, 1=1, 4=1]
+[6, 2, 4, 3, 0, 0, 5, 4, 3, 0]
+[0=3, 3=2, 4=2, 2=1, 5=1, 6=1]
 </code></pre></div></p>
 <h2 id="hello-world">Hello world</h2>
 <div class="highlight"><pre><span></span><code><span class="c1">;; Hello world</span><span class="w"></span>
@@ -772,8 +787,8 @@ Frequency table for array of numbers
 <span class="w">  </span><span class="p">(</span><span class="nv">println</span><span class="w"> </span><span class="s">&quot;Quick sort out: &quot;</span><span class="w"> </span><span class="nv">data</span><span class="p">))</span><span class="w"></span>
 </code></pre></div>
 <p>Output:
-<div class="highlight"><pre><span></span><code>Quick sort in:  [67, 98, 22, 43, 30, 15, 15, 52, 84, 96, 59, 0, 82, 90, 88, 67, 97, 77, 1, 32, 92, 1, 85, 65, 30, 27, 82, 15, 33, 15, 87, 50]
-Quick sort out: [0, 1, 1, 15, 15, 15, 15, 22, 27, 30, 30, 32, 33, 43, 50, 52, 59, 65, 67, 67, 77, 82, 82, 84, 85, 87, 88, 90, 92, 96, 97, 98]
+<div class="highlight"><pre><span></span><code>Quick sort in:  [67, 89, 10, 96, 80, 7, 91, 29, 34, 12, 67, 86, 48, 54, 69, 95, 0, 19, 49, 57, 61, 68, 40, 28, 35, 16, 60, 9, 59, 49, 43, 6]
+Quick sort out: [0, 6, 7, 9, 10, 12, 16, 19, 28, 29, 34, 35, 40, 43, 48, 49, 49, 54, 57, 59, 60, 61, 67, 67, 68, 69, 80, 86, 89, 91, 95, 96]
 </code></pre></div></p>
 <h2 id="quicksort">Quicksort</h2>
 <div class="highlight"><pre><span></span><code><span class="c1">;;; Quicksort</span><span class="w"></span>
@@ -827,12 +842,12 @@ Quick sort out: [0, 1, 1, 15, 15, 15, 15, 22, 27, 30, 30, 32, 33, 43, 50, 52, 59
 </code></pre></div>
 <p>Output:
 <div class="highlight"><pre><span></span><code>Using quick sort on:  class java.util.ArrayList
-input:  [12, 93, 58, 70, 98, 93, 86, 66, 75, 66, 93, 81, 6, 97, 22, 65, 55, 43, 24, 46, 89, 13, 43, 93, 57, 34, 12, 76, 6, 73, 64, 28]
-output: [6, 6, 12, 12, 13, 22, 24, 28, 34, 43, 43, 46, 55, 57, 58, 64, 65, 66, 66, 70, 73, 75, 76, 81, 86, 89, 93, 93, 93, 93, 97, 98]
+input:  [50, 42, 78, 55, 71, 55, 21, 55, 13, 90, 41, 92, 32, 71, 86, 62, 24, 10, 56, 14, 81, 37, 3, 53, 76, 65, 9, 68, 12, 3, 13, 24]
+output: [3, 3, 9, 10, 12, 13, 13, 14, 21, 24, 24, 32, 37, 41, 42, 50, 53, 55, 55, 55, 56, 62, 65, 68, 71, 71, 76, 78, 81, 86, 90, 92]
 
 Using quick sort on:  class [Ljava.lang.Object;
-input:  [9, 30, 47, 8, 94, 75, 90, 10, 72, 21, 89, 71, 9, 35, 80, 50, 67, 29, 12, 29, 28, 94, 94, 20, 70, 10, 80, 33, 81, 12, 96, 49]
-output: [8, 9, 9, 10, 10, 12, 12, 20, 21, 28, 29, 29, 30, 33, 35, 47, 49, 50, 67, 70, 71, 72, 75, 80, 80, 81, 89, 90, 94, 94, 94, 96]
+input:  [47, 4, 32, 63, 86, 78, 95, 88, 72, 33, 44, 49, 45, 16, 53, 39, 53, 0, 63, 16, 28, 44, 1, 18, 7, 67, 71, 83, 81, 24, 4, 5]
+output: [0, 1, 4, 4, 5, 7, 16, 16, 18, 24, 28, 32, 33, 39, 44, 44, 45, 47, 49, 53, 53, 63, 63, 67, 71, 72, 78, 81, 83, 86, 88, 95]
 
 Using quick sort on:  class java.lang.StringBuffer
 input:  Hello people! How do you do?

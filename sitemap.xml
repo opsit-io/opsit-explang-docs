@@ -21,6 +21,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://github.com/opsit-io/opsit-explang-docs/explang-alg-syntax-quick-start/</loc>
+         <lastmod>2022-10-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://github.com/opsit-io/opsit-explang-docs/explang-alg/</loc>
          <lastmod>2022-10-05</lastmod>
          <changefreq>daily</changefreq>
