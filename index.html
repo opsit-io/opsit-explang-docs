@@ -503,8 +503,9 @@ software. Read more in <a href="explang-goals-and-features/">Explang Goals and F
 
 <span class="p">(</span><span class="nb">defun</span><span class="w"> </span><span class="nv">fact</span><span class="p">(</span><span class="nv">n</span><span class="p">)</span><span class="w"></span>
 <span class="w">  </span><span class="s">&quot;Compute factorial&quot;</span><span class="w"></span>
-<span class="w">  </span><span class="p">(</span><span class="k">if</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="p">(</span><span class="nb">*</span><span class="w"> </span><span class="p">(</span><span class="nv">fact</span><span class="w"> </span><span class="p">(</span><span class="nb">-</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span><span class="w"> </span><span class="nv">n</span><span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="mi">1</span><span class="p">))</span><span class="w"></span>
+<span class="w">  </span><span class="p">(</span><span class="k">if</span><span class="w"> </span><span class="nv">n</span><span class="w"></span>
+<span class="w">      </span><span class="p">(</span><span class="nb">*</span><span class="w"> </span><span class="p">(</span><span class="nv">fact</span><span class="w"> </span><span class="p">(</span><span class="nb">-</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span><span class="w"> </span><span class="nv">n</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="mi">1</span><span class="p">))</span><span class="w"></span>
 
 <span class="p">(</span><span class="nv">println</span><span class="w"> </span><span class="s">&quot;5! = &quot;</span><span class="w"> </span><span class="p">(</span><span class="nv">fact</span><span class="w"> </span><span class="mi">5</span><span class="p">))</span><span class="w"></span>
 </code></pre></div>
