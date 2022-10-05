@@ -16,25 +16,24 @@
         (i lo)
         (j lo))
     (while (< j hi)
-     (if (< (get a j) pivot)
-         (progn 
-          (swap a i j)
-          (setv i (+ i 1))))
-     (setv j (+ j 1)))
+      (when (< (get a j) pivot)
+        (swap a i j)
+        (setv i (+ i 1)))
+      (setv j (+ j 1)))
     (swap a i hi)
     i))  
 
 (defun quick-sort (a &OPTIONAL (lo 0) (hi (- (LENGTH a) 1)))
-  (if (< lo hi)
-      (let ((p (partition a lo hi))
-	    (t1 (new-thread
-		 (lambda () 	(quick-sort a lo     (- p 1)))))
-	    (t2 (new-thread
-		 (lambda () 	(quick-sort a (+ p 1) hi)))))
-	(. t1 "start()")
-	(. t2 "start()")
-	(. t1 "join()")
-	(. t2 "join()")))
+  (when (< lo hi)
+    (let ((p (partition a lo hi))
+          (t1 (new-thread
+               (lambda ()   (quick-sort a lo     (- p 1)))))
+          (t2 (new-thread
+               (lambda ()   (quick-sort a (+ p 1) hi)))))
+      (. t1 "start()")
+      (. t2 "start()")
+      (. t1 "join()")
+      (. t2 "join()")))
   a)
 
 (let ((data (random-list 32 100)))
