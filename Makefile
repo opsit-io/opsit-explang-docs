@@ -61,6 +61,6 @@ examples/alg:
 
 gh-deploy:
 	mkdir -p gh-pages
-	mkdocs gh-deploy -d gh-pages
+	env EXPLANG_VERSION=$(EXPLANG_VERSION)  mkdocs gh-deploy -d gh-pages
 
 .PHONY: clean realclean build update_examples make_examples_lisp make_examples_alg make_examples gh-deploy
