@@ -1692,6 +1692,291 @@ List of non-mutating functions for data modification:
 
 
 
+Searching and Matching Text Data Using Regular Expressions
+----------------------------------------------------------
+
+Regular expression (regex) support in Explang is implemented using the
+Java regular expression engine.
+
+This guide assumes that you have general understanding of what the
+regular expressions are and how to use them.  There are good resources
+for learing about regular expressions and trying them online,
+for example [Regex 101](https://regex101.com).
+The reference documentation for Java regex syntax is here:
+[java.util.regex.Pattern](https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html).
+
+
+### Creating Regex Patterns
+
+
+In explang you can create a regex using a literal syntax. 
+Strings with a '#' in front are interpreted as regexes:
+
+
+```julia
+> r"^Hello$"
+
+=> ^Hello$
+
+```
+
+This will create and instance of `java.util.regex.Pattern` that can be 
+immediately used for matching a text or saved for later use.
+
+Alternatively you can create regexes from string using the `re-pattern`
+function:
+
+```julia
+> re_pattern("^Hello$")
+
+=> ^Hello$
+
+```
+
+The literal syntax is the most convenient because you don't need to
+double escape regexp special characters. For example, if you want to
+represent the regex string to match a digit, using a string
+you would need to write this:
+
+For example, if you want to represent the regex string to match a
+digit, using a string you would need to write this:
+
+```julia
+> re_pattern("\\d")
+
+=> \d
+```
+
+Notice that you have to escape the backslash to get a literal
+backslash in the string. However with literals you do not need to
+double escape:
+
+```julia
+> r"\d"
+
+=> \d
+```
+
+On the other hand, the `re_pattern` function is good when you have to
+build regexes dynamically or get them from some external source.
+
+
+
+### Globbing Patterns
+
+Globbing patterns are commonly used to specify sets of filenames with
+wildcard characters. 
+
+- `*` a wildcard standing for any string of characters
+- `?` a wildcard that stands for one character
+
+For example "a*.txt" is a glob pattern that would match 
+names of files with '.txt' extension.
+
+Explang supports globbing patterns by internally converting them to
+regex patterns. One can use the produced pattern just like 
+regular regex patterns.
+
+You can create globbing patterns using  a literal syntax,
+Strings with a '#g' in front are interpreted as regexes:
+
+
+```julia
+> g"a*.txt"
+
+==> a.*\.txt
+
+```
+
+Alternatively you can create globbing patterns 
+from strings using the `re_glob` function:
+
+```julia
+> (re_glob "a*.txt")
+
+=> a.*\.txt
+
+```
+
+### Creating a Case Insensitive Regex (and other flags)
+
+
+The Java regex engine allows to supply extra flags when creatting
+regexp pattern.  The most commonly used flag is `i` - case insensitive
+matching.
+
+Java regexes allow for a special syntax (embedded flags expression) to
+enable flags within the regex.
+
+no flags (case-sensitive):
+```
+> re_matches(r"abc","ABC")
+
+=> NIL
+```
+
+case-insensitive flag set
+
+```
+> re_matches(r"(?i)abc", "ABC")
+
+=> ABC
+```
+
+Explang regex literals support specifying flags after the expression:
+
+```
+> re_matches(r"abc"i, "ABC")
+
+=> ABC
+```
+
+
+The `re-pattern` and `re-glob` functions accept an optional string
+argument that contains string of regexp flags:
+
+```
+> re_matches(re_pattern("abc","i"), "ABC")
+
+=> ABC
+```
+
+There are other flags but 'i', see the full list in the 
+[Java documentation](https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html).
+The characters used for flags are the same that are used for embedded flags.
+
+### Matching a Regex to a String with Groups
+
+Very often, you want to match an entire string. The function to do
+that is called `re-matches`. it takes a regex and a
+string and returns the result of the match.
+
+```julia
+re_matches(<REGEX>,<STRING>) 
+
+=> <RESULT>
+```
+
+The result it returns is a little complex. There are three things it can return.
+
+If the whole string does not match, re-matches returns NIL.
+
+```julia
+> re_matches(r"abc", "xyz")
+
+=> NIL
+
+> re_matches(r"abc", "zzzabcxxx")
+
+=> NIL
+
+> re_matches(r"(a)bc", "hello, world")
+
+=> NIL
+```
+
+If the string does match, and there are no groups (parens) in the
+regex, then it returns the matched string.
+
+```
+> re_matches(r"abc","abc")
+
+=> abc
+
+> re_matches(r"\d+", "3324")
+
+=> 3324
+```
+
+Note, that can use re-matches as the test expression of a conditional when matched string cannot be empty:
+
+```julia
+if re_matches(r"\d+", x)
+  println("x is all digits");
+else
+  println("x is not all digits")
+end;
+```
+
+Since the emplicit boolean value of an empty string is false, so if regexp matches 
+empty string, you need to explicitly test that the returned value is not null:
+
+```julia
+if notnilp(re_matches(r"\d+", x))
+  println("x is all digits");
+else
+  println("x is not all digits")
+end;
+```
+  
+If it matches and there are groups, then it returns a list, its first
+element is the entire match. The remaining elements are the group
+matches.
+
+```julia
+> re_matches(r"abc(.*)", "abcxyz") 
+
+=> ["abcxyz" "xyz"]
+
+> re_matches(r"(a+)(b+)(\d+)", "abb234")
+
+=> ["abb234" "a" "bb" "234"]
+```
+
+### Finding a regex substring within a string with groups
+
+Sometimes we want to find a match within a string. `re-find` returns the
+first match within the string. The return values are similar to
+re-matches.
+
+1. No match returns nil
+
+```julia
+> re_find(r"sss", "Loch Ness") 
+
+=> NIL
+```
+
+2. Match without groups returns the matched string
+
+```
+re_find(r"s+", "dress") 
+=> "ss"
+```
+
+3. Match with groups returns a list
+
+```
+re_find(r"s+(.*)(s+)","success") 
+
+=> ["success" "ucces" "s"]
+```
+
+### Finding all substrings that match within a string
+
+To find all substrings that match within a string use `re-seq`.
+`re-seq` returns a lazy seq of all of the matches.
+The elements of the seq are whatever type re-find would have returned.
+
+
+```julia
+append([],re_seq(r"s+","mississippi"))
+
+=> ["ss" "ss"]
+```
+
+```julia
+append([], re_seq(r"[a-zA-Z](\d+)", "abc x123 b44 234")) 
+        
+=> [[x123, 123], [b44, 44]]
+```
+
+`append ()` materializes lazy sequence that re-seq returns so we can
+see text of matched strings.
+
+
+
+
 Conditionals
 ------------
 
@@ -1813,7 +2098,7 @@ The Logical operators
 The logical negation function is called `not`, it returns Boolean value, which is inverse of the
 the truth value of its argument:
 
-```lisp
+```julia
 > not true
 
 => false
@@ -2031,7 +2316,7 @@ returns the elements satisfying some test.
 `mapprod` returns a sequence consisting of the result of applying 
 func to the cartesian product of the lists:
 
-```lisp
+```julia
 mapprod( f"str", ["A", "B", "C"], [1, 2, 3, 4])
 
 => [A1, B1, C1, A2, B2, C2, A3, B3, C3, A4, B4, C4]
