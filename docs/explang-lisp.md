@@ -1675,11 +1675,11 @@ regex patterns. One can use the produced pattern just like
 regular regex patterns.
 
 You can create globbing patterns using  a literal syntax,
-Strings with a '#g' in front are interpreted as regexes:
+Strings with a '#G' in front are interpreted as regexes:
 
 
 ```lisp
-> #g"a*.txt"
+> #G"a*.txt"
 
 ==> a.*\.txt
 
