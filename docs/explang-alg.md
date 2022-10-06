@@ -2349,35 +2349,6 @@ since NIL has implicit numeric value of 0).
 => {0=5, 1=7, 2=5, 3=3, 4=1}
 ```
 
-To be Done
-----------
-
-- begin - end blocks
-- pipe
-- variables scopes, set variants
-- variable scope with ifs, while
-- LET
-- destructuring
-- r"^Foo" r"bar"i - Regular Expression Literals
-- v"0.0.3-alpha2" - Version literals
-- string interpolation
-- exception handling
-- regular expression functions
-- dwim search
-- FFI
-- BEANS
-- CONTEXT functions: with-bindings, with-context
-- Packages
-- Tracing
-- Threads
-- args()
-- funcall (do we need it?)
-- random, math
-- load, evaluation
-- join
-- interpose
-- copy
-
 
 
 

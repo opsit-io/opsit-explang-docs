@@ -1,0 +1,27 @@
+To be Done
+----------
+
+- begin - end blocks
+- pipe
+- variables scopes, set variants
+- variable scope with ifs, while
+- LET
+- destructuring
+- v"0.0.3-alpha2" - Version literals
+- string interpolation
+- exception handling
+- dwim search
+- FFI
+- BEANS
+- CONTEXT functions: with-bindings, with-context
+- Packages
+- Tracing
+- Threads
+- args()
+- funcall (do we need it?)
+- random, math
+- load, evaluation
+- join
+- interpose
+- copy
+
