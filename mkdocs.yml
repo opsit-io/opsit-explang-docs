@@ -28,8 +28,8 @@ nav:
   - "Explang/Lisp funcs by Name": explang-lisp-funcs-by-name.md
   - "Explang/Lisp Examples": explang-examples-lisp.md
   - "Using Explang REPL" : using-explang-REPL.md
-
-  - License: LICENSE.md
+  - "Acknowledgements" : acknowledgements.md  
+  - "License": LICENSE.md
 
 theme:
   name: material
