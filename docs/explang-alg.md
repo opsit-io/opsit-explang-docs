@@ -1453,8 +1453,80 @@ recursively:
 
 ### Destructuring of Maps
 
+Destructuring also works for Maps. The idea is the same as with
+sequences: you provide a template for the map: a structure that
+includes the symbols that you want to bind to values in the map and
+the keys of those values.
+
+Suppose we have this simple map with personal data:
+
+```julia
+> entry := { "name"    : "John",
+             "surname" : "Doe",
+             "age"     :  44 };
+=> {surname=Doe, name=John, age=44}
+```
+
+To extract name and surname from the above record we 
+provide map with variable symbols as keys and keys of the source 
+map as symbols:
+
+```julia
+> {surname : "surname", name : "name" } := entry;
+
+=> {surname=Doe, name=John, age=44}
+
+format("name=%s, surname=%s\n", name, surname);
+
+=> name=John, surname=Doe
+```
+
+One can destructure nested structures as well. Let's add a nested map and a nested 
+list to the above data structure:
+
+```julia
+> entry := { "name"    : "John",
+             "surname" : "Doe",
+             "age"     :  44 ,
+             "parents" : { "mother" : "Mary Doe", "father" : "Richard Doe" },
+             "brothers" : [ "jack", "harry"]};
+
+=> {brothers=[jack, harry], surname=Doe, name=John, age=44, parents={mother=Mary Doe, father=Richard Doe}}
+
+```
+
+To extract names of parents we add to the left-side map in place of a symbol
+a submap to destructure the nested map:
+
+```julia
+> { { mom : "mother", dad : "father"} : "parents" } := entry;
+
+=> {brothers=[jack, harry], surname=Doe, name=John, age=44, parents={mother=Mary Doe, father=Richard Doe}}
 
 
+> format("mom=%s, dad=%s\n", mom, dad);
+
+=> mom=Mary Doe, dad=Richard Doe
+
+```
+
+To extract names of both brothers:
+
+
+```julia
+> { [ brother1, brother2] : "brothers" } := entry;
+
+=> {brothers=[jack, harry], surname=Doe, name=John, age=44, parents={mother=Mary Doe, father=Richard Doe}}
+
+> brother1
+
+=> jack
+
+> brother2
+
+=> harry
+
+```
 
 
 
