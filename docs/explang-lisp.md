@@ -1245,8 +1245,8 @@ For arrays this is not possible and the data is copied into new array.
 
 ### haskey 
 
-`haskeys` checks if a Map has given key or if an indexed sequence has specified index.
-Unlike `get` and `in` this allows to check if a map contains NIL as a key.
+`haskey` checks if a Map has given key or if an indexed sequence has specified index.
+Unlike `get` and `in` this allows to check whether a map contains NIL as a key.
 
 
 ```lisp

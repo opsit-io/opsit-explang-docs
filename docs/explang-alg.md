@@ -1323,11 +1323,11 @@ b:=subseq(a,1,3)
 
 ### haskey 
 
-`haskeys` checks if a Map has given key or if an indexed sequence has specified index.
-Unlike `get` and `in` this allows to check if a map contains NIL as a key.
+`haskey` checks if a Map has given key or if an indexed sequence has specified index.
+Unlike `get` and `in` this allows to check whether a map contains NIL as a key.
 
 
-```lisp
+```julia
 > M:={1 : 2,  NIL : NIL}
 
 => {null=null, 1=2}
