@@ -1346,6 +1346,119 @@ Unlike `get` and `in` this allows to check whether a map contains NIL as a key.
 ```
 
 
+Destructuring of Data Structures
+--------------------------------
+
+Destructuring allows to easily fetch data elements from data
+structures and asign them to variables without fetching them
+individually using functions like `get` or `get-in`.
+
+The idea is to provide on the receiving end of the assignment operator
+a sort of template for the data structure with the desired names of variables.
+
+### Destructuring of sequences
+
+Suppose we have a function that returns a vector with three values that represent coordinates:
+
+```julia
+> function getpos() [1,2,3]; end;
+
+=> io.opsit.explang.Compiler$LAMBDA$1@7b49cea0
+
+> pos := getpos();
+
+=> [1, 2, 3]
+```
+
+We could access individual coordinates using subscripts like `pos[0]`, but this is 
+kinde of cumbersome and not very readable. We could also assign individual values to variables 
+`x`,`y`,`z` using assignments,  but destructuring allows to do it in one easy statement:
+
+
+```julia
+> [x,y,z] := getpos();
+
+=> [1, 2, 3]
+
+> format("x=%d, y=%d, z=%d\n", x,y,z);
+
+=> x=1, y=2, z=3
+```
+
+When there are more elements in the source sequence than in the target template, the rest of the 
+values are ignored. So if we were interested only in the first coordinate we could write:
+
+
+```julia
+> [x] := getpos();
+
+=> [1, 2, 3]
+
+> x
+
+=> 1
+```
+
+One can use same symbol several times in the template, the name will
+end up bound to the last value. For example, if we were interested
+only in the last coordinate we could write:
+
+```julia
+> [_, _, z] := getpos();
+
+=> [1, 2, 3]
+
+> z
+
+=> 3
+> _
+
+=> 2
+```
+
+By convention a single underscore is used for variables that we
+have to use, but do not care about their value.
+
+Destructuring works for various kinds of sequences, not just lists:
+
+```julia
+> [a, b ,c, d, e] := "CHARS";
+
+=> CHARS
+
+> [a, b, c, d, e]
+
+=> [C, H, A, R, S]
+```
+
+### Destructuring of Nested Sequences
+
+Instead of being a symbol an element of the template can be a 
+nested list. In this case the destructuring will proceed 
+recursively:
+
+```julia
+> val:=[1, 2, [3, 4], 5];
+
+=> [1, 2, [3, 4], 5]
+
+> [a,b, [c, d], e] := val;
+
+=> [1, 2, [3, 4], 5]
+
+> [ a, b, c, d, e]
+
+=> [1, 2, 3, 4, 5]
+```
+
+### Destructuring of Maps
+
+
+
+
+
+
+
 Modifying data in collections
 -----------------------------
 
