@@ -6,7 +6,11 @@ end;
 
 
 function format_details(details)
-   replace(details, "\n", "\n\n");
+    if '\n' in details
+        str("\n```\n", details, "\n```\n");
+    else
+        replace(details, "\n", "\n\n");
+    end;
 end;
 
 function format_toc (items)
@@ -37,6 +41,9 @@ function printfunc(descr)
 $(summary)
 
 **$(format_funcall(descr.name, descr.argDescr))**
+$(if descr.operatorDescr i"```
+$(descr.operatorDescr)
+```";end)
 
 $(format_details(details))
 

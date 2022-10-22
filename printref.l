@@ -5,7 +5,9 @@
   (str "(" funcname " "  args ")"))
 
 (defun format-details (details)
-  (replace details "\n" "\n\n"))
+  (if (in #\NEWLINE details)
+      (str "\n```\n" details "\n```\n")
+      (replace details "\n" "\n\n")))
 
 (defun format-toc (items)
   (foreach (item items)
