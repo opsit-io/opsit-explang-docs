@@ -1,4 +1,4 @@
-javadoc_url ::= argv(1);
+global javadoc_url := argv(1);
 
 function format_funcall(funcname,args)
    str(funcname, "(", args, ")");
@@ -62,25 +62,24 @@ if argv(0) == "by-package"
                        map( descr -> descr.packageName, descrs));
     print("# Explang/Alg Built-in Functions by Package\n\n");
     format_toc(packages);
-    foreach([package, append(list(), packages)],
-            begin
-                if not (package == "user" )
-                    print(str(i"\n## $(package)\n\n"));
-                    foreach([descr,  filter(dsc -> package == dsc.packageName, descrs)],
-                            printfunc(descr));
-                end;
-            end);
+    for package in  append(list(), packages)
+        if not (package == "user" )
+            print(str(i"\n## $(package)\n\n"));
+            for descr in  filter(dsc -> package == dsc.packageName, descrs)
+                printfunc(descr);
+            end;
+        end;
+    end;
 else
     letters := append(hashset(), map ( fname -> fname[0], fnames));
  	print("# Explang/Alg Built-in Functions by Name\n\n");
     format_toc(letters);
-    foreach([letter,append(list(), letters)],
-            begin
-                print(i"\n## $(letter)\n\n");
-                foreach([descr, filter(dsc -> letter == dsc.name[0], descrs)],
-                        if not (descr.packageName == "user" )
-                            printfunc(descr);
-                        end
-                        );
-            end);
+    for letter in append(list(), letters)
+        print(i"\n## $(letter)\n\n");
+        for descr in filter(dsc -> letter == dsc.name[0], descrs)
+            if not (descr.packageName == "user" )
+                printfunc(descr);
+            end
+        end;
+    end;
 end;            
