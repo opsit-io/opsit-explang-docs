@@ -375,6 +375,41 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#hello-world" class="md-nav__link">
+    Hello world
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#factorial-recursive" class="md-nav__link">
+    Factorial (recursive)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#factorial-lazy-sequence" class="md-nav__link">
+    Factorial (lazy sequence)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quicksort" class="md-nav__link">
+    Quicksort
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#frequency-table" class="md-nav__link">
+    Frequency Table
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#the-8-queens-problem" class="md-nav__link">
     The 8 Queens Problem
   </a>
@@ -389,43 +424,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#factorial-lazy-sequence" class="md-nav__link">
-    Factorial (lazy sequence)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#factorial-recursive" class="md-nav__link">
-    Factorial (recursive)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#frequency-table" class="md-nav__link">
-    Frequency Table
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#hello-world" class="md-nav__link">
-    Hello world
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#multithreaded-quicksort" class="md-nav__link">
     Multithreaded Quicksort
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#quicksort" class="md-nav__link">
-    Quicksort
   </a>
   
 </li>
@@ -448,6 +448,21 @@
     <li class="md-nav__item">
       <a href="../using-explang-REPL/" class="md-nav__link">
         Using Explang REPL
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../acknowledgements/" class="md-nav__link">
+        Acknowledgements
       </a>
     </li>
   
@@ -495,6 +510,41 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#hello-world" class="md-nav__link">
+    Hello world
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#factorial-recursive" class="md-nav__link">
+    Factorial (recursive)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#factorial-lazy-sequence" class="md-nav__link">
+    Factorial (lazy sequence)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quicksort" class="md-nav__link">
+    Quicksort
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#frequency-table" class="md-nav__link">
+    Frequency Table
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#the-8-queens-problem" class="md-nav__link">
     The 8 Queens Problem
   </a>
@@ -509,43 +559,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#factorial-lazy-sequence" class="md-nav__link">
-    Factorial (lazy sequence)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#factorial-recursive" class="md-nav__link">
-    Factorial (recursive)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#frequency-table" class="md-nav__link">
-    Frequency Table
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#hello-world" class="md-nav__link">
-    Hello world
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#multithreaded-quicksort" class="md-nav__link">
     Multithreaded Quicksort
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#quicksort" class="md-nav__link">
-    Quicksort
   </a>
   
 </li>
@@ -565,6 +580,170 @@
 
 
 <h1 id="examples-with-lisp-syntax">Examples with Lisp Syntax</h1>
+<h2 id="hello-world">Hello world</h2>
+<div class="highlight"><pre><span></span><code><span class="c1">;; Hello world</span><span class="w"></span>
+<span class="p">(</span><span class="nv">PRINTLN</span><span class="w"> </span><span class="s">&quot;Hello world&quot;</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<p>Output:
+<div class="highlight"><pre><span></span><code>Hello world
+</code></pre></div></p>
+<h2 id="factorial-recursive">Factorial (recursive)</h2>
+<div class="highlight"><pre><span></span><code><span class="c1">;;; Factorial (recursive)</span><span class="w"></span>
+
+<span class="p">(</span><span class="nb">defun</span><span class="w"> </span><span class="nv">fact</span><span class="p">(</span><span class="nv">n</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="s">&quot;Compute factorial&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">(</span><span class="k">if</span><span class="w"> </span><span class="nv">n</span><span class="w"></span>
+<span class="w">      </span><span class="p">(</span><span class="nb">*</span><span class="w"> </span><span class="p">(</span><span class="nv">fact</span><span class="w"> </span><span class="p">(</span><span class="nb">-</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span><span class="w"> </span><span class="nv">n</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="mi">1</span><span class="p">))</span><span class="w"></span>
+
+<span class="p">(</span><span class="nv">println</span><span class="w"> </span><span class="s">&quot;5! = &quot;</span><span class="w"> </span><span class="p">(</span><span class="nv">fact</span><span class="w"> </span><span class="mi">5</span><span class="p">))</span><span class="w"></span>
+</code></pre></div>
+<p>Output:
+<div class="highlight"><pre><span></span><code>5! = 120
+</code></pre></div></p>
+<h2 id="factorial-lazy-sequence">Factorial (lazy sequence)</h2>
+<div class="highlight"><pre><span></span><code><span class="c1">;;; Factorial (lazy sequence)</span><span class="w"></span>
+
+<span class="p">(</span><span class="nb">defun</span><span class="w"> </span><span class="nv">fact</span><span class="p">(</span><span class="nv">n</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="s">&quot;Compute factorial&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">(</span><span class="nb">apply</span><span class="w"> </span><span class="nf">#&#39;</span><span class="nb">*</span><span class="w"> </span><span class="p">(</span><span class="nv">range</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="mi">1</span><span class="p">))))</span><span class="w"></span>
+
+<span class="p">(</span><span class="nv">println</span><span class="w"> </span><span class="s">&quot;5! = &quot;</span><span class="w"> </span><span class="p">(</span><span class="nv">fact</span><span class="w"> </span><span class="mi">5</span><span class="p">))</span><span class="w"></span>
+</code></pre></div>
+<p>Output:
+<div class="highlight"><pre><span></span><code>5! = 120
+</code></pre></div></p>
+<h2 id="quicksort">Quicksort</h2>
+<div class="highlight"><pre><span></span><code><span class="c1">;;; Quicksort</span><span class="w"></span>
+<span class="p">(</span><span class="nb">defun</span><span class="w"> </span><span class="nv">swap</span><span class="w"> </span><span class="p">(</span><span class="nv">a</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="nv">j</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="s">&quot;swap two elements in an indexable sequence&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">(</span><span class="k">let</span><span class="w"> </span><span class="p">((</span><span class="nv">tmp</span><span class="w"> </span><span class="p">(</span><span class="nb">get</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">i</span><span class="p">)))</span><span class="w"></span>
+<span class="w">    </span><span class="p">(</span><span class="nv">put!</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">i</span><span class="w">  </span><span class="p">(</span><span class="nb">get</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">j</span><span class="p">))</span><span class="w"></span>
+<span class="w">    </span><span class="p">(</span><span class="nv">put!</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">j</span><span class="w"> </span><span class="nv">tmp</span><span class="p">)))</span><span class="w"></span>
+
+<span class="p">(</span><span class="nb">defun</span><span class="w"> </span><span class="nv">random-list</span><span class="w"> </span><span class="p">(</span><span class="nv">size</span><span class="w"> </span><span class="nv">maxr</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="s">&quot;make list of length size of random number from 0 upto maxr&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">(</span><span class="nb">map</span><span class="w"> </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="nv">x</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">random</span><span class="w"> </span><span class="nv">maxr</span><span class="p">))</span><span class="w"></span>
+<span class="w">       </span><span class="p">(</span><span class="nv">range</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="nv">size</span><span class="p">)))</span><span class="w"></span>
+
+<span class="p">(</span><span class="nb">defun</span><span class="w"> </span><span class="nv">partition</span><span class="w"> </span><span class="p">(</span><span class="nv">a</span><span class="w"> </span><span class="nv">lo</span><span class="w"> </span><span class="nv">hi</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="s">&quot;partition part of an indexable sequence a&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">(</span><span class="k">let</span><span class="w"> </span><span class="p">((</span><span class="nv">pivot</span><span class="w"> </span><span class="p">(</span><span class="nb">get</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">hi</span><span class="p">))</span><span class="w"></span>
+<span class="w">        </span><span class="p">(</span><span class="nv">i</span><span class="w"> </span><span class="nv">lo</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="p">(</span><span class="nv">j</span><span class="w"> </span><span class="nv">lo</span><span class="p">))</span><span class="w"></span>
+<span class="w">    </span><span class="p">(</span><span class="nv">while</span><span class="w"> </span><span class="p">(</span><span class="nb">&lt;</span><span class="w"> </span><span class="nv">j</span><span class="w"> </span><span class="nv">hi</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="p">(</span><span class="nb">when</span><span class="w"> </span><span class="p">(</span><span class="nb">&lt;</span><span class="w"> </span><span class="p">(</span><span class="nb">get</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">j</span><span class="p">)</span><span class="w"> </span><span class="nv">pivot</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="p">(</span><span class="nv">swap</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="nv">j</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="p">(</span><span class="nv">setv</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="mi">1</span><span class="p">)))</span><span class="w"></span>
+<span class="w">      </span><span class="p">(</span><span class="nv">setv</span><span class="w"> </span><span class="nv">j</span><span class="w"> </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="nv">j</span><span class="w"> </span><span class="mi">1</span><span class="p">)))</span><span class="w"></span>
+<span class="w">    </span><span class="p">(</span><span class="nv">swap</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="nv">hi</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="nv">i</span><span class="p">))</span><span class="w">  </span>
+
+<span class="p">(</span><span class="nb">defun</span><span class="w"> </span><span class="nv">quick-sort</span><span class="w"> </span><span class="p">(</span><span class="nv">a</span><span class="w"> </span><span class="nv">&amp;OPTIONAL</span><span class="w"> </span><span class="p">(</span><span class="nv">lo</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nv">hi</span><span class="w"> </span><span class="p">(</span><span class="nb">-</span><span class="w"> </span><span class="p">(</span><span class="nb">length</span><span class="w"> </span><span class="nv">a</span><span class="p">)</span><span class="w"> </span><span class="mi">1</span><span class="p">)))</span><span class="w"></span>
+<span class="w">  </span><span class="s">&quot;quick sort an indexable sequence or part of it if lo and hi parameters are set&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">(</span><span class="nb">when</span><span class="w"> </span><span class="p">(</span><span class="nb">&lt;</span><span class="w"> </span><span class="nv">lo</span><span class="w"> </span><span class="nv">hi</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">(</span><span class="k">let</span><span class="w"> </span><span class="p">((</span><span class="nv">p</span><span class="w"> </span><span class="p">(</span><span class="nv">partition</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">lo</span><span class="w"> </span><span class="nv">hi</span><span class="p">)))</span><span class="w"></span>
+<span class="w">      </span><span class="p">(</span><span class="nv">quick-sort</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">lo</span><span class="w">      </span><span class="p">(</span><span class="nb">-</span><span class="w"> </span><span class="nv">p</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span><span class="w"></span>
+<span class="w">      </span><span class="p">(</span><span class="nv">quick-sort</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="nv">p</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="nv">hi</span><span class="p">)))</span><span class="w"></span>
+<span class="w">  </span><span class="nv">a</span><span class="p">)</span><span class="w"></span>
+
+<span class="p">(</span><span class="k">let</span><span class="w"> </span><span class="p">((</span><span class="nv">samples</span><span class="w"> </span><span class="p">(</span><span class="nb">list</span><span class="w"> </span><span class="p">(</span><span class="nv">random-list</span><span class="w"> </span><span class="mi">32</span><span class="w"> </span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="c1">; list of random integers</span><span class="w"></span>
+<span class="w">                     </span><span class="c1">;; array of random integers</span><span class="w"></span>
+<span class="w">                     </span><span class="p">(</span><span class="nb">append</span><span class="w"> </span><span class="p">(</span><span class="nb">make-array</span><span class="w"> </span><span class="ss">:size</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nv">random-list</span><span class="w"> </span><span class="mi">32</span><span class="w"> </span><span class="mi">100</span><span class="p">))</span><span class="w"> </span>
+<span class="w">                     </span><span class="c1">;; StringBuffer</span><span class="w"></span>
+<span class="w">                     </span><span class="p">(</span><span class="o">.</span><span class="nv">N</span><span class="w"> </span><span class="s">&quot;StringBuffer&quot;</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="s">&quot;Hello people! How do you do?&quot;</span><span class="p">))</span><span class="w"> </span>
+<span class="w">                     </span><span class="c1">;; list of Characters</span><span class="w"></span>
+<span class="w">                     </span><span class="p">(</span><span class="nb">append</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="s">&quot;Hello people! How do you do?&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">                     </span><span class="c1">;; semantic versions</span><span class="w"></span>
+<span class="w">                     </span><span class="p">(</span><span class="nb">map</span><span class="w"> </span><span class="nf">#&#39;</span><span class="nv">version</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="s">&quot;0.1.2&quot;</span><span class="w"> </span><span class="s">&quot;0.1.2-pre1&quot;</span><span class="w"> </span><span class="s">&quot;0.1.2-pre2&quot;</span><span class="w"> </span><span class="s">&quot;0.1.3&quot;</span><span class="w"> </span><span class="s">&quot;0.1.2-pre1+10&quot;</span><span class="w"> </span><span class="s">&quot;1.2.3&quot;</span><span class="p">)))))</span><span class="w">   </span>
+<span class="w">  </span><span class="p">(</span><span class="nv">foreach</span><span class="w"> </span><span class="p">(</span><span class="nv">sample</span><span class="w"> </span><span class="nv">samples</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">(</span><span class="nv">println</span><span class="w"> </span><span class="s">&quot;Using quick sort on:  &quot;</span><span class="w"> </span><span class="p">(</span><span class="nb">type-of</span><span class="w"> </span><span class="nv">sample</span><span class="p">))</span><span class="w"></span>
+<span class="w">    </span><span class="p">(</span><span class="nv">println</span><span class="w"> </span><span class="s">&quot;input:  &quot;</span><span class="w"> </span><span class="nv">sample</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">(</span><span class="nv">quick-sort</span><span class="w"> </span><span class="nv">sample</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">(</span><span class="nv">println</span><span class="w"> </span><span class="s">&quot;output: &quot;</span><span class="w"> </span><span class="nv">sample</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">(</span><span class="nv">println</span><span class="p">)))</span><span class="w"></span>
+</code></pre></div>
+<p>Output:
+<div class="highlight"><pre><span></span><code>Using quick sort on:  class java.util.ArrayList
+input:  [38, 4, 67, 66, 19, 19, 32, 54, 99, 0, 23, 14, 55, 42, 0, 50, 92, 51, 76, 10, 47, 73, 81, 55, 92, 79, 50, 76, 14, 89, 14, 24]
+output: [0, 0, 4, 10, 14, 14, 14, 19, 19, 23, 24, 32, 38, 42, 47, 50, 50, 51, 54, 55, 55, 66, 67, 73, 76, 76, 79, 81, 89, 92, 92, 99]
+
+Using quick sort on:  class [Ljava.lang.Object;
+input:  [10, 82, 84, 74, 92, 23, 79, 45, 10, 14, 79, 77, 72, 28, 96, 95, 74, 17, 89, 29, 88, 66, 97, 78, 86, 54, 69, 17, 68, 18, 88, 49]
+output: [10, 10, 14, 17, 17, 18, 23, 28, 29, 45, 49, 54, 66, 68, 69, 72, 74, 74, 77, 78, 79, 79, 82, 84, 86, 88, 88, 89, 92, 95, 96, 97]
+
+Using quick sort on:  class java.lang.StringBuffer
+input:  Hello people! How do you do?
+output:      !?HHddeeelllooooooppuwy
+
+Using quick sort on:  class java.util.ArrayList
+input:  [H, e, l, l, o,  , p, e, o, p, l, e, !,  , H, o, w,  , d, o,  , y, o, u,  , d, o, ?]
+output: [ ,  ,  ,  ,  , !, ?, H, H, d, d, e, e, e, l, l, l, o, o, o, o, o, o, p, p, u, w, y]
+
+Using quick sort on:  class java.util.ArrayList
+input:  [0.1.2, 0.1.2-pre1, 0.1.2-pre2, 0.1.3, 0.1.2-pre1+10, 1.2.3]
+output: [0.1.2-pre1+10, 0.1.2-pre1, 0.1.2-pre2, 0.1.2, 0.1.3, 1.2.3]
+</code></pre></div></p>
+<h2 id="frequency-table">Frequency Table</h2>
+<div class="highlight"><pre><span></span><code><span class="c1">;;; Frequency Table</span><span class="w"></span>
+<span class="c1">;;;</span><span class="w"></span>
+<span class="c1">;;; prints sorted frequency table for a sequence</span><span class="w"></span>
+
+<span class="p">(</span><span class="nb">defun</span><span class="w"> </span><span class="nv">freqcount</span><span class="p">(</span><span class="nv">seq</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="c1">;; create map of counters</span><span class="w"></span>
+<span class="w">  </span><span class="p">(</span><span class="k">let</span><span class="w"> </span><span class="p">((</span><span class="nv">m</span><span class="w"> </span><span class="p">(</span><span class="nv">hashmap</span><span class="p">)))</span><span class="w"></span>
+<span class="w">    </span><span class="c1">;; for each  word in text that matches pattern</span><span class="w"></span>
+<span class="w">    </span><span class="p">(</span><span class="nv">foreach</span><span class="w"> </span><span class="p">(</span><span class="nv">word</span><span class="w">  </span><span class="nv">seq</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="c1">;;; lowercase word</span><span class="w"></span>
+<span class="w">      </span><span class="p">(</span><span class="nv">assoc!</span><span class="w"> </span><span class="nv">m</span><span class="w"> </span><span class="nv">word</span><span class="w"></span>
+<span class="w">              </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">(</span><span class="nb">get</span><span class="w"> </span><span class="nv">m</span><span class="w"> </span><span class="nv">word</span><span class="p">))))</span><span class="w"></span>
+<span class="w">    </span><span class="c1">;; sort list of Map Entries by their values</span><span class="w"></span>
+<span class="w">    </span><span class="p">(</span><span class="nb">sort</span><span class="w"> </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="p">(</span><span class="nb">-</span><span class="w"> </span><span class="p">(</span><span class="nb">get</span><span class="w"> </span><span class="nv">b</span><span class="w"> </span><span class="s">&quot;value&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="p">(</span><span class="nb">get</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="s">&quot;value&quot;</span><span class="p">)))</span><span class="w"></span>
+<span class="w">      </span><span class="c1">;;; get Map.Entries into list</span><span class="w"></span>
+<span class="w">          </span><span class="p">(</span><span class="nb">append</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="nv">m</span><span class="p">))))</span><span class="w"></span>
+
+<span class="p">(</span><span class="k">let</span><span class="w"> </span><span class="p">((</span><span class="nv">txt</span><span class="w"> </span><span class="s">&quot;If in this heart a hope be dear,</span>
+<span class="s">            ⁠That sound shall charm it forth again:</span>
+<span class="s">            If in these eyes there lurk a tear,</span>
+<span class="s">            ⁠&#39;Twill flow, and cease to burn my brain&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="p">(</span><span class="nv">numbers</span><span class="w"> </span><span class="p">(</span><span class="nb">map</span><span class="w"> </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="nv">x</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">random</span><span class="w"> </span><span class="mi">7</span><span class="p">))</span><span class="w"></span>
+<span class="w">                    </span><span class="p">(</span><span class="nb">make-array</span><span class="w"> </span><span class="ss">:size</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="ss">:elementType</span><span class="w"> </span><span class="s">&quot;int&quot;</span><span class="p">))))</span><span class="w"></span>
+<span class="w">  </span><span class="p">(</span><span class="nb">print</span><span class="w"> </span><span class="s">&quot;Word frequency table for text\n&quot;</span><span class="w">  </span><span class="nv">txt</span><span class="w"> </span><span class="s">&quot;\n&quot;</span><span class="w"></span>
+<span class="w">         </span><span class="p">(</span><span class="nv">freqcount</span><span class="w"></span>
+<span class="w">          </span><span class="p">(</span><span class="nb">map</span><span class="w"> </span><span class="nf">#&#39;</span><span class="nv">lowercase</span><span class="w"></span>
+<span class="w">               </span><span class="p">(</span><span class="nb">append</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">(</span><span class="nv">re-seq</span><span class="w"></span>
+<span class="w">                           </span><span class="p">(</span><span class="nv">re-pattern</span><span class="w"> </span><span class="s">&quot;\\w+&quot;</span><span class="p">)</span><span class="w"> </span><span class="nv">txt</span><span class="p">))))</span><span class="w"></span>
+<span class="w">         </span><span class="s">&quot;\n\n&quot;</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">  </span><span class="p">(</span><span class="nb">print</span><span class="w"> </span><span class="s">&quot;Character frequency table for text\n&quot;</span><span class="w">  </span><span class="nv">txt</span><span class="w"> </span><span class="s">&quot;\n&quot;</span><span class="w"></span>
+<span class="w">         </span><span class="p">(</span><span class="nv">freqcount</span><span class="w"> </span><span class="nv">txt</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="s">&quot;\n\n&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">(</span><span class="nb">print</span><span class="w"> </span><span class="s">&quot;Frequency table for array of numbers\n&quot;</span><span class="w">  </span><span class="nv">numbers</span><span class="w"> </span><span class="s">&quot;\n&quot;</span><span class="w"></span>
+<span class="w">         </span><span class="p">(</span><span class="nv">freqcount</span><span class="w"> </span><span class="nv">numbers</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="s">&quot;\n\n&quot;</span><span class="p">))</span><span class="w"></span>
+</code></pre></div>
+<p>Output:
+<div class="highlight"><pre><span></span><code>Word frequency table for text
+If in this heart a hope be dear,
+            ⁠That sound shall charm it forth again:
+            If in these eyes there lurk a tear,
+            ⁠&#39;Twill flow, and cease to burn my brain
+[if=2, a=2, in=2, be=1, sound=1, hope=1, eyes=1, these=1, that=1, tear=1, and=1, dear=1, twill=1, flow=1, burn=1, again=1, this=1, shall=1, it=1, forth=1, my=1, brain=1, heart=1, lurk=1, cease=1, charm=1, there=1, to=1]
+
+Character frequency table for text
+If in this heart a hope be dear,
+            ⁠That sound shall charm it forth again:
+            If in these eyes there lurk a tear,
+            ⁠&#39;Twill flow, and cease to burn my brain
+[ =63, a=13, e=13, h=9, r=9, t=9, i=7, n=7, l=6, s=6, o=5, f=4, 
+=3, b=3, d=3, ,=3, u=3, I=2, T=2, ⁠=2, c=2, m=2, w=2, y=2, g=1, &#39;=1, k=1, p=1, :=1]
+
+Frequency table for array of numbers
+[1, 5, 6, 4, 6, 5, 6, 6, 5, 6]
+[6=5, 5=3, 1=1, 4=1]
+</code></pre></div></p>
 <h2 id="the-8-queens-problem">The 8 Queens Problem</h2>
 <div class="highlight"><pre><span></span><code><span class="c1">;;; The 8 Queens Problem</span><span class="w"></span>
 
@@ -584,7 +763,7 @@
 <span class="w">    </span><span class="p">(</span><span class="k">let</span><span class="w"> </span><span class="p">((</span><span class="nv">pos</span><span class="w"> </span><span class="p">(</span><span class="nb">get</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">i</span><span class="p">)))</span><span class="w"></span>
 <span class="w">      </span><span class="p">(</span><span class="nb">when</span><span class="w"> </span><span class="p">(</span><span class="nb">or</span><span class="w"> </span><span class="p">(</span><span class="nb">=</span><span class="w"> </span><span class="nv">pos</span><span class="w"> </span><span class="nv">c</span><span class="p">)</span><span class="w">               </span><span class="c1">; same column?</span><span class="w"></span>
 <span class="w">                </span><span class="p">(</span><span class="nb">=</span><span class="w"> </span><span class="p">(</span><span class="nb">-</span><span class="w"> </span><span class="nv">pos</span><span class="w"> </span><span class="nv">i</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">-</span><span class="w"> </span><span class="nv">c</span><span class="w"> </span><span class="nv">n</span><span class="p">))</span><span class="w">   </span><span class="c1">; same diagonal</span><span class="w"></span>
-<span class="w">                </span><span class="p">(</span><span class="nb">=</span><span class="w"> </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="nv">pos</span><span class="w"> </span><span class="nv">i</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="nv">c</span><span class="w"> </span><span class="nv">n</span><span class="p">)))</span><span class="w">  </span><span class="c1">; same diagonal                 </span><span class="w"></span>
+<span class="w">                </span><span class="p">(</span><span class="nb">=</span><span class="w"> </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="nv">pos</span><span class="w"> </span><span class="nv">i</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="nv">c</span><span class="w"> </span><span class="nv">n</span><span class="p">)))</span><span class="w">  </span><span class="c1">; same diagonal</span><span class="w"></span>
 <span class="w">        </span><span class="p">(</span><span class="nb">return</span><span class="w"> </span><span class="nv">false</span><span class="p">)))))</span><span class="w"></span>
 
 <span class="p">(</span><span class="nb">defun</span><span class="w"> </span><span class="nv">add-queen</span><span class="w"> </span><span class="p">(</span><span class="nv">a</span><span class="w"> </span><span class="nv">n</span><span class="p">)</span><span class="w"></span>
@@ -649,99 +828,6 @@ quine evaluation:
 before eval: [[LAMBDA, [X], [LIST, X, [LIST, [QUOTE, QUOTE], X]]], [QUOTE, [LAMBDA, [X], [LIST, X, [LIST, [QUOTE, QUOTE], X]]]]]
 after eval:  [[LAMBDA, [X], [LIST, X, [LIST, [QUOTE, QUOTE], X]]], [QUOTE, [LAMBDA, [X], [LIST, X, [LIST, [QUOTE, QUOTE], X]]]]]
 </code></pre></div></p>
-<h2 id="factorial-lazy-sequence">Factorial (lazy sequence)</h2>
-<div class="highlight"><pre><span></span><code><span class="c1">;;; Factorial (lazy sequence)</span><span class="w"></span>
-
-<span class="p">(</span><span class="nb">defun</span><span class="w"> </span><span class="nv">fact</span><span class="p">(</span><span class="nv">n</span><span class="p">)</span><span class="w"></span>
-<span class="w">  </span><span class="s">&quot;Compute factorial&quot;</span><span class="w"></span>
-<span class="w">  </span><span class="p">(</span><span class="nb">apply</span><span class="w"> </span><span class="nf">#&#39;</span><span class="nb">*</span><span class="w"> </span><span class="p">(</span><span class="nv">range</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="mi">1</span><span class="p">))))</span><span class="w"></span>
-
-<span class="p">(</span><span class="nv">println</span><span class="w"> </span><span class="s">&quot;5! = &quot;</span><span class="w"> </span><span class="p">(</span><span class="nv">fact</span><span class="w"> </span><span class="mi">5</span><span class="p">))</span><span class="w"></span>
-</code></pre></div>
-<p>Output:
-<div class="highlight"><pre><span></span><code>5! = 120
-</code></pre></div></p>
-<h2 id="factorial-recursive">Factorial (recursive)</h2>
-<div class="highlight"><pre><span></span><code><span class="c1">;;; Factorial (recursive)</span><span class="w"></span>
-
-<span class="p">(</span><span class="nb">defun</span><span class="w"> </span><span class="nv">fact</span><span class="p">(</span><span class="nv">n</span><span class="p">)</span><span class="w"></span>
-<span class="w">  </span><span class="s">&quot;Compute factorial&quot;</span><span class="w"></span>
-<span class="w">  </span><span class="p">(</span><span class="k">if</span><span class="w"> </span><span class="nv">n</span><span class="w"></span>
-<span class="w">      </span><span class="p">(</span><span class="nb">*</span><span class="w"> </span><span class="p">(</span><span class="nv">fact</span><span class="w"> </span><span class="p">(</span><span class="nb">-</span><span class="w"> </span><span class="nv">n</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span><span class="w"> </span><span class="nv">n</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="mi">1</span><span class="p">))</span><span class="w"></span>
-
-<span class="p">(</span><span class="nv">println</span><span class="w"> </span><span class="s">&quot;5! = &quot;</span><span class="w"> </span><span class="p">(</span><span class="nv">fact</span><span class="w"> </span><span class="mi">5</span><span class="p">))</span><span class="w"></span>
-</code></pre></div>
-<p>Output:
-<div class="highlight"><pre><span></span><code>5! = 120
-</code></pre></div></p>
-<h2 id="frequency-table">Frequency Table</h2>
-<div class="highlight"><pre><span></span><code><span class="c1">;;; Frequency Table</span><span class="w"></span>
-<span class="c1">;;;</span><span class="w"></span>
-<span class="c1">;;; prints sorted frequency table for a sequence</span><span class="w"></span>
-
-<span class="p">(</span><span class="nb">defun</span><span class="w"> </span><span class="nv">freqcount</span><span class="p">(</span><span class="nv">seq</span><span class="p">)</span><span class="w"></span>
-<span class="w">  </span><span class="c1">;; create map of counters</span><span class="w"></span>
-<span class="w">  </span><span class="p">(</span><span class="k">let</span><span class="w"> </span><span class="p">((</span><span class="nv">m</span><span class="w"> </span><span class="p">(</span><span class="nv">hashmap</span><span class="p">)))</span><span class="w"></span>
-<span class="w">    </span><span class="c1">;; for each  word in text that matches pattern</span><span class="w"></span>
-<span class="w">    </span><span class="p">(</span><span class="nv">foreach</span><span class="w"> </span><span class="p">(</span><span class="nv">word</span><span class="w">  </span><span class="nv">seq</span><span class="p">)</span><span class="w"></span>
-<span class="w">         </span><span class="c1">;;; lowercase word</span><span class="w"></span>
-<span class="w">      </span><span class="p">(</span><span class="nv">assoc!</span><span class="w"> </span><span class="nv">m</span><span class="w"> </span><span class="nv">word</span><span class="w"></span>
-<span class="w">              </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">(</span><span class="nb">get</span><span class="w"> </span><span class="nv">m</span><span class="w"> </span><span class="nv">word</span><span class="p">))))</span><span class="w"></span>
-<span class="w">    </span><span class="c1">;; sort list of Map Entries by their values</span><span class="w"></span>
-<span class="w">    </span><span class="p">(</span><span class="nb">sort</span><span class="w"> </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="nv">a</span><span class="w"> </span><span class="nv">b</span><span class="p">)</span><span class="w"></span>
-<span class="w">            </span><span class="p">(</span><span class="nb">-</span><span class="w"> </span><span class="p">(</span><span class="nb">get</span><span class="w"> </span><span class="nv">b</span><span class="w"> </span><span class="s">&quot;value&quot;</span><span class="p">)</span><span class="w"></span>
-<span class="w">               </span><span class="p">(</span><span class="nb">get</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="s">&quot;value&quot;</span><span class="p">)))</span><span class="w"></span>
-<span class="w">      </span><span class="c1">;;; get Map.Entries into list</span><span class="w"></span>
-<span class="w">          </span><span class="p">(</span><span class="nb">append</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="nv">m</span><span class="p">))))</span><span class="w"></span>
-
-<span class="p">(</span><span class="k">let</span><span class="w"> </span><span class="p">((</span><span class="nv">txt</span><span class="w"> </span><span class="s">&quot;If in this heart a hope be dear,</span>
-<span class="s">            ⁠That sound shall charm it forth again:</span>
-<span class="s">            If in these eyes there lurk a tear,</span>
-<span class="s">            ⁠&#39;Twill flow, and cease to burn my brain&quot;</span><span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="p">(</span><span class="nv">numbers</span><span class="w"> </span><span class="p">(</span><span class="nb">map</span><span class="w"> </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="nv">x</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">random</span><span class="w"> </span><span class="mi">7</span><span class="p">))</span><span class="w"></span>
-<span class="w">                    </span><span class="p">(</span><span class="nb">make-array</span><span class="w"> </span><span class="ss">:size</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="ss">:elementType</span><span class="w"> </span><span class="s">&quot;int&quot;</span><span class="p">))))</span><span class="w"></span>
-<span class="w">  </span><span class="p">(</span><span class="nb">print</span><span class="w"> </span><span class="s">&quot;Word frequency table for text\n&quot;</span><span class="w">  </span><span class="nv">txt</span><span class="w"> </span><span class="s">&quot;\n&quot;</span><span class="w"></span>
-<span class="w">         </span><span class="p">(</span><span class="nv">freqcount</span><span class="w"></span>
-<span class="w">          </span><span class="p">(</span><span class="nb">map</span><span class="w"> </span><span class="nf">#&#39;</span><span class="nv">lowercase</span><span class="w"></span>
-<span class="w">               </span><span class="p">(</span><span class="nb">append</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">(</span><span class="nv">re-seq</span><span class="w"></span>
-<span class="w">                           </span><span class="p">(</span><span class="nv">re-pattern</span><span class="w"> </span><span class="s">&quot;\\w+&quot;</span><span class="p">)</span><span class="w"> </span><span class="nv">txt</span><span class="p">))))</span><span class="w"></span>
-<span class="w">         </span><span class="s">&quot;\n\n&quot;</span><span class="p">)</span><span class="w"></span>
-
-<span class="w">  </span><span class="p">(</span><span class="nb">print</span><span class="w"> </span><span class="s">&quot;Character frequency table for text\n&quot;</span><span class="w">  </span><span class="nv">txt</span><span class="w"> </span><span class="s">&quot;\n&quot;</span><span class="w"></span>
-<span class="w">         </span><span class="p">(</span><span class="nv">freqcount</span><span class="w"> </span><span class="nv">txt</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
-<span class="w">         </span><span class="s">&quot;\n\n&quot;</span><span class="p">)</span><span class="w"></span>
-<span class="w">  </span><span class="p">(</span><span class="nb">print</span><span class="w"> </span><span class="s">&quot;Frequency table for array of numbers\n&quot;</span><span class="w">  </span><span class="nv">numbers</span><span class="w"> </span><span class="s">&quot;\n&quot;</span><span class="w"></span>
-<span class="w">         </span><span class="p">(</span><span class="nv">freqcount</span><span class="w"> </span><span class="nv">numbers</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
-<span class="w">         </span><span class="s">&quot;\n\n&quot;</span><span class="p">))</span><span class="w"></span>
-</code></pre></div>
-<p>Output:
-<div class="highlight"><pre><span></span><code>Word frequency table for text
-If in this heart a hope be dear,
-            ⁠That sound shall charm it forth again:
-            If in these eyes there lurk a tear,
-            ⁠&#39;Twill flow, and cease to burn my brain
-[if=2, a=2, in=2, be=1, sound=1, hope=1, eyes=1, these=1, that=1, tear=1, and=1, dear=1, twill=1, flow=1, burn=1, again=1, this=1, shall=1, it=1, forth=1, my=1, brain=1, heart=1, lurk=1, cease=1, charm=1, there=1, to=1]
-
-Character frequency table for text
-If in this heart a hope be dear,
-            ⁠That sound shall charm it forth again:
-            If in these eyes there lurk a tear,
-            ⁠&#39;Twill flow, and cease to burn my brain
-[ =63, a=13, e=13, h=9, r=9, t=9, i=7, n=7, l=6, s=6, o=5, f=4, 
-=3, b=3, d=3, ,=3, u=3, I=2, T=2, ⁠=2, c=2, m=2, w=2, y=2, g=1, &#39;=1, k=1, p=1, :=1]
-
-Frequency table for array of numbers
-[6, 2, 4, 3, 0, 0, 5, 4, 3, 0]
-[0=3, 3=2, 4=2, 2=1, 5=1, 6=1]
-</code></pre></div></p>
-<h2 id="hello-world">Hello world</h2>
-<div class="highlight"><pre><span></span><code><span class="c1">;; Hello world</span><span class="w"></span>
-<span class="p">(</span><span class="nv">PRINTLN</span><span class="w"> </span><span class="s">&quot;Hello world&quot;</span><span class="p">)</span><span class="w"></span>
-</code></pre></div>
-<p>Output:
-<div class="highlight"><pre><span></span><code>Hello world
-</code></pre></div></p>
 <h2 id="multithreaded-quicksort">Multithreaded Quicksort</h2>
 <div class="highlight"><pre><span></span><code><span class="c1">;;; Multithreaded Quicksort</span><span class="w"></span>
 <span class="p">(</span><span class="nb">defun</span><span class="w"> </span><span class="nv">swap</span><span class="w"> </span><span class="p">(</span><span class="nv">a</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="nv">j</span><span class="p">)</span><span class="w"></span>
@@ -787,79 +873,8 @@ Frequency table for array of numbers
 <span class="w">  </span><span class="p">(</span><span class="nv">println</span><span class="w"> </span><span class="s">&quot;Quick sort out: &quot;</span><span class="w"> </span><span class="nv">data</span><span class="p">))</span><span class="w"></span>
 </code></pre></div>
 <p>Output:
-<div class="highlight"><pre><span></span><code>Quick sort in:  [67, 89, 10, 96, 80, 7, 91, 29, 34, 12, 67, 86, 48, 54, 69, 95, 0, 19, 49, 57, 61, 68, 40, 28, 35, 16, 60, 9, 59, 49, 43, 6]
-Quick sort out: [0, 6, 7, 9, 10, 12, 16, 19, 28, 29, 34, 35, 40, 43, 48, 49, 49, 54, 57, 59, 60, 61, 67, 67, 68, 69, 80, 86, 89, 91, 95, 96]
-</code></pre></div></p>
-<h2 id="quicksort">Quicksort</h2>
-<div class="highlight"><pre><span></span><code><span class="c1">;;; Quicksort</span><span class="w"></span>
-<span class="p">(</span><span class="nb">defun</span><span class="w"> </span><span class="nv">swap</span><span class="w"> </span><span class="p">(</span><span class="nv">a</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="nv">j</span><span class="p">)</span><span class="w"></span>
-<span class="w">  </span><span class="s">&quot;swap two elements in an indexable sequence&quot;</span><span class="w"></span>
-<span class="w">  </span><span class="p">(</span><span class="k">let</span><span class="w"> </span><span class="p">((</span><span class="nv">tmp</span><span class="w"> </span><span class="p">(</span><span class="nb">get</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">i</span><span class="p">)))</span><span class="w"></span>
-<span class="w">    </span><span class="p">(</span><span class="nv">put!</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">i</span><span class="w">  </span><span class="p">(</span><span class="nb">get</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">j</span><span class="p">))</span><span class="w"></span>
-<span class="w">    </span><span class="p">(</span><span class="nv">put!</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">j</span><span class="w"> </span><span class="nv">tmp</span><span class="p">)))</span><span class="w"></span>
-
-<span class="p">(</span><span class="nb">defun</span><span class="w"> </span><span class="nv">random-list</span><span class="w"> </span><span class="p">(</span><span class="nv">size</span><span class="w"> </span><span class="nv">maxr</span><span class="p">)</span><span class="w"></span>
-<span class="w">  </span><span class="s">&quot;make list of length size of random number from 0 upto maxr&quot;</span><span class="w"></span>
-<span class="w">  </span><span class="p">(</span><span class="nb">map</span><span class="w"> </span><span class="p">(</span><span class="k">lambda</span><span class="w"> </span><span class="p">(</span><span class="nv">x</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">random</span><span class="w"> </span><span class="nv">maxr</span><span class="p">))</span><span class="w"></span>
-<span class="w">       </span><span class="p">(</span><span class="nv">range</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="nv">size</span><span class="p">)))</span><span class="w"></span>
-
-<span class="p">(</span><span class="nb">defun</span><span class="w"> </span><span class="nv">partition</span><span class="w"> </span><span class="p">(</span><span class="nv">a</span><span class="w"> </span><span class="nv">lo</span><span class="w"> </span><span class="nv">hi</span><span class="p">)</span><span class="w"></span>
-<span class="w">  </span><span class="s">&quot;partition part of an indexable sequence a&quot;</span><span class="w"></span>
-<span class="w">  </span><span class="p">(</span><span class="k">let</span><span class="w"> </span><span class="p">((</span><span class="nv">pivot</span><span class="w"> </span><span class="p">(</span><span class="nb">get</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">hi</span><span class="p">))</span><span class="w"></span>
-<span class="w">        </span><span class="p">(</span><span class="nv">i</span><span class="w"> </span><span class="nv">lo</span><span class="p">)</span><span class="w"></span>
-<span class="w">        </span><span class="p">(</span><span class="nv">j</span><span class="w"> </span><span class="nv">lo</span><span class="p">))</span><span class="w"></span>
-<span class="w">    </span><span class="p">(</span><span class="nv">while</span><span class="w"> </span><span class="p">(</span><span class="nb">&lt;</span><span class="w"> </span><span class="nv">j</span><span class="w"> </span><span class="nv">hi</span><span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="p">(</span><span class="nb">when</span><span class="w"> </span><span class="p">(</span><span class="nb">&lt;</span><span class="w"> </span><span class="p">(</span><span class="nb">get</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">j</span><span class="p">)</span><span class="w"> </span><span class="nv">pivot</span><span class="p">)</span><span class="w"></span>
-<span class="w">        </span><span class="p">(</span><span class="nv">swap</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="nv">j</span><span class="p">)</span><span class="w"></span>
-<span class="w">        </span><span class="p">(</span><span class="nv">setv</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="mi">1</span><span class="p">)))</span><span class="w"></span>
-<span class="w">      </span><span class="p">(</span><span class="nv">setv</span><span class="w"> </span><span class="nv">j</span><span class="w"> </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="nv">j</span><span class="w"> </span><span class="mi">1</span><span class="p">)))</span><span class="w"></span>
-<span class="w">    </span><span class="p">(</span><span class="nv">swap</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="nv">hi</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="nv">i</span><span class="p">))</span><span class="w">  </span>
-
-<span class="p">(</span><span class="nb">defun</span><span class="w"> </span><span class="nv">quick-sort</span><span class="w"> </span><span class="p">(</span><span class="nv">a</span><span class="w"> </span><span class="nv">&amp;OPTIONAL</span><span class="w"> </span><span class="p">(</span><span class="nv">lo</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nv">hi</span><span class="w"> </span><span class="p">(</span><span class="nb">-</span><span class="w"> </span><span class="p">(</span><span class="nb">length</span><span class="w"> </span><span class="nv">a</span><span class="p">)</span><span class="w"> </span><span class="mi">1</span><span class="p">)))</span><span class="w"></span>
-<span class="w">  </span><span class="s">&quot;quick sort an indexable sequence or part of it if lo and hi parameters are set&quot;</span><span class="w"></span>
-<span class="w">  </span><span class="p">(</span><span class="nb">when</span><span class="w"> </span><span class="p">(</span><span class="nb">&lt;</span><span class="w"> </span><span class="nv">lo</span><span class="w"> </span><span class="nv">hi</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="p">(</span><span class="k">let</span><span class="w"> </span><span class="p">((</span><span class="nv">p</span><span class="w"> </span><span class="p">(</span><span class="nv">partition</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">lo</span><span class="w"> </span><span class="nv">hi</span><span class="p">)))</span><span class="w"></span>
-<span class="w">      </span><span class="p">(</span><span class="nv">quick-sort</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">lo</span><span class="w">      </span><span class="p">(</span><span class="nb">-</span><span class="w"> </span><span class="nv">p</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span><span class="w"></span>
-<span class="w">      </span><span class="p">(</span><span class="nv">quick-sort</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="nv">p</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="nv">hi</span><span class="p">)))</span><span class="w"></span>
-<span class="w">  </span><span class="nv">a</span><span class="p">)</span><span class="w"></span>
-
-<span class="p">(</span><span class="k">let</span><span class="w"> </span><span class="p">((</span><span class="nv">samples</span><span class="w"> </span><span class="p">(</span><span class="nb">list</span><span class="w"> </span><span class="p">(</span><span class="nv">random-list</span><span class="w"> </span><span class="mi">32</span><span class="w"> </span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="c1">; list of random integers</span><span class="w"></span>
-<span class="w">                     </span><span class="c1">;; array of random integers</span><span class="w"></span>
-<span class="w">                     </span><span class="p">(</span><span class="nb">append</span><span class="w"> </span><span class="p">(</span><span class="nb">make-array</span><span class="w"> </span><span class="ss">:size</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nv">random-list</span><span class="w"> </span><span class="mi">32</span><span class="w"> </span><span class="mi">100</span><span class="p">))</span><span class="w"> </span>
-<span class="w">                     </span><span class="c1">;; StringBuffer</span><span class="w"></span>
-<span class="w">                     </span><span class="p">(</span><span class="o">.</span><span class="nv">N</span><span class="w"> </span><span class="s">&quot;StringBuffer&quot;</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="s">&quot;Hello people! How do you do?&quot;</span><span class="p">))</span><span class="w"> </span>
-<span class="w">                     </span><span class="c1">;; list of Characters</span><span class="w"></span>
-<span class="w">                     </span><span class="p">(</span><span class="nb">append</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="s">&quot;Hello people! How do you do?&quot;</span><span class="p">)</span><span class="w"></span>
-<span class="w">                     </span><span class="c1">;; semantic versions</span><span class="w"></span>
-<span class="w">                     </span><span class="p">(</span><span class="nb">map</span><span class="w"> </span><span class="nf">#&#39;</span><span class="nv">version</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="s">&quot;0.1.2&quot;</span><span class="w"> </span><span class="s">&quot;0.1.2-pre1&quot;</span><span class="w"> </span><span class="s">&quot;0.1.2-pre2&quot;</span><span class="w"> </span><span class="s">&quot;0.1.3&quot;</span><span class="w"> </span><span class="s">&quot;0.1.2-pre1+10&quot;</span><span class="w"> </span><span class="s">&quot;1.2.3&quot;</span><span class="p">)))))</span><span class="w">   </span>
-<span class="w">  </span><span class="p">(</span><span class="nv">foreach</span><span class="w"> </span><span class="p">(</span><span class="nv">sample</span><span class="w"> </span><span class="nv">samples</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="p">(</span><span class="nv">println</span><span class="w"> </span><span class="s">&quot;Using quick sort on:  &quot;</span><span class="w"> </span><span class="p">(</span><span class="nb">type-of</span><span class="w"> </span><span class="nv">sample</span><span class="p">))</span><span class="w"></span>
-<span class="w">    </span><span class="p">(</span><span class="nv">println</span><span class="w"> </span><span class="s">&quot;input:  &quot;</span><span class="w"> </span><span class="nv">sample</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="p">(</span><span class="nv">quick-sort</span><span class="w"> </span><span class="nv">sample</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="p">(</span><span class="nv">println</span><span class="w"> </span><span class="s">&quot;output: &quot;</span><span class="w"> </span><span class="nv">sample</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="p">(</span><span class="nv">println</span><span class="p">)))</span><span class="w"></span>
-</code></pre></div>
-<p>Output:
-<div class="highlight"><pre><span></span><code>Using quick sort on:  class java.util.ArrayList
-input:  [50, 42, 78, 55, 71, 55, 21, 55, 13, 90, 41, 92, 32, 71, 86, 62, 24, 10, 56, 14, 81, 37, 3, 53, 76, 65, 9, 68, 12, 3, 13, 24]
-output: [3, 3, 9, 10, 12, 13, 13, 14, 21, 24, 24, 32, 37, 41, 42, 50, 53, 55, 55, 55, 56, 62, 65, 68, 71, 71, 76, 78, 81, 86, 90, 92]
-
-Using quick sort on:  class [Ljava.lang.Object;
-input:  [47, 4, 32, 63, 86, 78, 95, 88, 72, 33, 44, 49, 45, 16, 53, 39, 53, 0, 63, 16, 28, 44, 1, 18, 7, 67, 71, 83, 81, 24, 4, 5]
-output: [0, 1, 4, 4, 5, 7, 16, 16, 18, 24, 28, 32, 33, 39, 44, 44, 45, 47, 49, 53, 53, 63, 63, 67, 71, 72, 78, 81, 83, 86, 88, 95]
-
-Using quick sort on:  class java.lang.StringBuffer
-input:  Hello people! How do you do?
-output:      !?HHddeeelllooooooppuwy
-
-Using quick sort on:  class java.util.ArrayList
-input:  [H, e, l, l, o,  , p, e, o, p, l, e, !,  , H, o, w,  , d, o,  , y, o, u,  , d, o, ?]
-output: [ ,  ,  ,  ,  , !, ?, H, H, d, d, e, e, e, l, l, l, o, o, o, o, o, o, p, p, u, w, y]
-
-Using quick sort on:  class java.util.ArrayList
-input:  [0.1.2, 0.1.2-pre1, 0.1.2-pre2, 0.1.3, 0.1.2-pre1+10, 1.2.3]
-output: [0.1.2-pre1+10, 0.1.2-pre1, 0.1.2-pre2, 0.1.2, 0.1.3, 1.2.3]
+<div class="highlight"><pre><span></span><code>Quick sort in:  [96, 86, 16, 26, 23, 48, 94, 83, 59, 29, 69, 44, 91, 30, 58, 76, 26, 61, 95, 43, 37, 92, 81, 49, 94, 88, 59, 91, 97, 34, 47, 51]
+Quick sort out: [16, 23, 26, 26, 29, 30, 34, 37, 43, 44, 47, 48, 49, 51, 58, 59, 59, 61, 69, 76, 81, 83, 86, 88, 91, 91, 92, 94, 94, 95, 96, 97]
 </code></pre></div></p>
 
 

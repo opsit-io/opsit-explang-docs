@@ -440,6 +440,21 @@
   
   
     <li class="md-nav__item">
+      <a href="../acknowledgements/" class="md-nav__link">
+        Acknowledgements
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../LICENSE/" class="md-nav__link">
         License
       </a>
@@ -527,12 +542,12 @@
 <p>Download an Explang Core executable JAR jars from Github 
 <a href="https://github.com/opsit-io/opsit-explang-core/releases">releases</a></p>
 <p>Or use maven CLI to fetch the artifacts from maven central:</p>
-<div class="highlight"><pre><span></span><code>mvn org.apache.maven.plugins:maven-dependency-plugin:2.8:get -Dartifact=io.opsit:opsit-explang-core:0.0.5:jar:runnable   -Dtransitive=false -Ddest=opsit-explang-core-0.0.5-runnable.jar
+<div class="highlight"><pre><span></span><code>mvn org.apache.maven.plugins:maven-dependency-plugin:2.8:get -Dartifact=io.opsit:opsit-explang-core:0.0.6:jar:runnable   -Dtransitive=false -Ddest=opsit-explang-core-0.0.6-runnable.jar
 </code></pre></div>
 <h2 id="using-explang-runnable-jar">Using Explang Runnable Jar</h2>
 <h2 id="using-repl">Using REPL</h2>
 <p>Explang-core contains built-in REPL. Run it in a terminal emulator or in Windows console:</p>
-<div class="highlight"><pre><span></span><code>$ java -jar opsit-explang-core-0.0.5-runnable.jar 
+<div class="highlight"><pre><span></span><code>$ java -jar opsit-explang-core-0.0.6-runnable.jar 
 Welcome to the EXPLANG REPL!
 Active parser is LispParser
 Loaded packages are: [base.math, base.text, io, base.bindings, ffi, base.funcs, loops, threads, base.version, base.coercion, base.logic, base.lang, base.arithmetics, base.seq, base.control, base.regex, dwim, base.docs, base.beans, base.types]
@@ -552,7 +567,7 @@ VS Code <a href="https://github.com/RegisMelgaco/repeater--repl-tool">repeater R
 <a href="https://github.com/opsit-io/opsit-explang-jline-repl">Explang JLine REPL</a>.</p>
 <p>To exit press ^D (^Z on Windows console) on a new line.</p>
 <h2 id="executing-explang-scripts">Executing Explang Scripts</h2>
-<div class="highlight"><pre><span></span><code>$ java -jar opsit-explang-core-0.0.5-runnable.jar ./examples/hello.l
+<div class="highlight"><pre><span></span><code>$ java -jar opsit-explang-core-0.0.6-runnable.jar ./examples/hello.l
 Hello world
 </code></pre></div>
 <h2 id="further-steps">Further Steps</h2>

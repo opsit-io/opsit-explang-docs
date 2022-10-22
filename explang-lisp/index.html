@@ -689,6 +689,61 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#searching-and-matching-text-data-using-regular-expressions" class="md-nav__link">
+    Searching and Matching Text Data Using Regular Expressions
+  </a>
+  
+    <nav class="md-nav" aria-label="Searching and Matching Text Data Using Regular Expressions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-regex-patterns" class="md-nav__link">
+    Creating Regex Patterns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#globbing-patterns" class="md-nav__link">
+    Globbing Patterns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-a-case-insensitive-regex-and-other-flags" class="md-nav__link">
+    Creating a Case Insensitive Regex (and other flags)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#matching-a-regex-to-a-string-with-groups" class="md-nav__link">
+    Matching a Regex to a String with Groups
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#finding-a-regex-substring-within-a-string-with-groups" class="md-nav__link">
+    Finding a regex substring within a string with groups
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#finding-all-substrings-that-match-within-a-string" class="md-nav__link">
+    Finding all substrings that match within a string
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#conditionals" class="md-nav__link">
     Conditionals
   </a>
@@ -861,6 +916,21 @@
     <li class="md-nav__item">
       <a href="../using-explang-REPL/" class="md-nav__link">
         Using Explang REPL
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../acknowledgements/" class="md-nav__link">
+        Acknowledgements
       </a>
     </li>
   
@@ -1263,6 +1333,61 @@
   <a href="#modifying-data-with-non-mutating-functions" class="md-nav__link">
     Modifying data with non-mutating functions
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#searching-and-matching-text-data-using-regular-expressions" class="md-nav__link">
+    Searching and Matching Text Data Using Regular Expressions
+  </a>
+  
+    <nav class="md-nav" aria-label="Searching and Matching Text Data Using Regular Expressions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-regex-patterns" class="md-nav__link">
+    Creating Regex Patterns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#globbing-patterns" class="md-nav__link">
+    Globbing Patterns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-a-case-insensitive-regex-and-other-flags" class="md-nav__link">
+    Creating a Case Insensitive Regex (and other flags)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#matching-a-regex-to-a-string-with-groups" class="md-nav__link">
+    Matching a Regex to a String with Groups
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#finding-a-regex-substring-within-a-string-with-groups" class="md-nav__link">
+    Finding a regex substring within a string with groups
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#finding-all-substrings-that-match-within-a-string" class="md-nav__link">
+    Finding all substrings that match within a string
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2273,8 +2398,8 @@ The type of the returned sequence differs depending on the type of the source se
 For lists it returns sublist sharing the elements with the source list.
 For arrays this is not possible and the data is copied into new array.</p>
 <h3 id="haskey">haskey</h3>
-<p><code>haskeys</code> checks if a Map has given key or if an indexed sequence has specified index.
-Unlike <code>get</code> and <code>in</code> this allows to check if a map contains NIL as a key.</p>
+<p><code>haskey</code> checks if a Map has given key or if an indexed sequence has specified index.
+Unlike <code>get</code> and <code>in</code> this allows to check whether a map contains NIL as a key.</p>
 <div class="highlight"><pre><span></span><code><span class="nb">&gt;</span><span class="w"> </span><span class="p">(</span><span class="nv">setv</span><span class="w"> </span><span class="nv">M</span><span class="w"> </span><span class="p">(</span><span class="nv">hashmap</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="no">NIL</span><span class="w"> </span><span class="no">NIL</span><span class="p">))</span><span class="w"></span>
 
 <span class="nv">=&gt;</span><span class="w"> </span><span class="nv">{null=null,</span><span class="w"> </span><span class="nv">1=2}</span><span class="w"></span>
@@ -2529,6 +2654,195 @@ construction may be used to convert collection into other collection types:</p>
 <p>List of non-mutating functions for data modification:</p>
 <p><code>append</code>, <code>aset</code>, <code>assoc</code>, <code>insert</code>, <code>push</code>, <code>pop</code>, <code>put</code>, <code>put-in</code>, <code>remove</code>, <code>reverse</code>,
 <code>sort</code></p>
+<h2 id="searching-and-matching-text-data-using-regular-expressions">Searching and Matching Text Data Using Regular Expressions</h2>
+<p>Regular expression (regex) support in Explang is implemented using the
+Java regular expression engine.</p>
+<p>This guide assumes that you have general understanding of what the
+regular expressions are and how to use them.  There are good resources
+for learing about regular expressions and trying them online,
+for example <a href="https://regex101.com">Regex 101</a>.
+The reference documentation for Java regex syntax is here:
+<a href="https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html">java.util.regex.Pattern</a>.</p>
+<h3 id="creating-regex-patterns">Creating Regex Patterns</h3>
+<p>In explang you can create a regex using a literal syntax. 
+Strings with a '#' in front are interpreted as regexes:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">&gt;</span><span class="w"> </span><span class="l l-Other">#&quot;^Hello$&quot;</span><span class="w"></span>
+
+<span class="nv">=&gt;</span><span class="w"> </span><span class="nv">^Hello$</span><span class="w"></span>
+</code></pre></div>
+<p>This will create and instance of <code>java.util.regex.Pattern</code> that can be 
+immediately used for matching a text or saved for later use.</p>
+<p>Alternatively you can create regexes from string using the <code>re-pattern</code>
+function:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">&gt;</span><span class="w"> </span><span class="p">(</span><span class="nv">re-pattern</span><span class="w"> </span><span class="s">&quot;^Hello$&quot;</span><span class="p">)</span><span class="w"></span>
+
+<span class="nv">=&gt;</span><span class="w"> </span><span class="nv">^Hello$</span><span class="w"></span>
+</code></pre></div>
+<p>The literal syntax is the most convenient because you don't need to
+double escape regexp special characters. For example, if you want to
+represent the regex string to match a digit, using a string
+you would need to write this:</p>
+<p>For example, if you want to represent the regex string to match a
+digit, using a string you would need to write this:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">&gt;</span><span class="w"> </span><span class="p">(</span><span class="nv">re-pattern</span><span class="w"> </span><span class="s">&quot;\\d&quot;</span><span class="p">)</span><span class="w"></span>
+
+<span class="nv">=&gt;</span><span class="w"> </span><span class="nv">\d</span><span class="w"></span>
+</code></pre></div>
+<p>Notice that you have to escape the backslash to get a literal
+backslash in the string. However with literals you do not need to
+double escape:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">&gt;</span><span class="w"> </span><span class="l l-Other">#&quot;\d&quot;</span><span class="w"></span>
+
+<span class="nv">=&gt;</span><span class="w"> </span><span class="nv">\d</span><span class="w"></span>
+</code></pre></div>
+<p>On the other hand, the <code>re-pattern</code> function is good when you have to
+build regexes dynamically or get them from some external source.</p>
+<h3 id="globbing-patterns">Globbing Patterns</h3>
+<p>Globbing patterns are commonly used to specify sets of filenames with
+wildcard characters. </p>
+<ul>
+<li><code>*</code> a wildcard standing for any string of characters</li>
+<li><code>?</code> a wildcard that stands for one character</li>
+</ul>
+<p>For example "a*.txt" is a glob pattern that would match 
+names of files with '.txt' extension.</p>
+<p>Explang supports globbing patterns by internally converting them to
+regex patterns. One can use the produced pattern just like 
+regular regex patterns.</p>
+<p>You can create globbing patterns using  a literal syntax,
+Strings with a '#G' in front are interpreted as regexes:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">&gt;</span><span class="w"> </span><span class="err">#</span><span class="nv">G</span><span class="s">&quot;a*.txt&quot;</span><span class="w"></span>
+
+<span class="nv">==&gt;</span><span class="w"> </span><span class="nv">a.*\.txt</span><span class="w"></span>
+</code></pre></div>
+<p>Alternatively you can create globbing patterns 
+from strings using the <code>re-glob</code> function:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">&gt;</span><span class="w"> </span><span class="p">(</span><span class="nv">re-glob</span><span class="w"> </span><span class="s">&quot;a*.txt&quot;</span><span class="p">)</span><span class="w"></span>
+
+<span class="nv">=&gt;</span><span class="w"> </span><span class="nv">a.*\.txt</span><span class="w"></span>
+</code></pre></div>
+<h3 id="creating-a-case-insensitive-regex-and-other-flags">Creating a Case Insensitive Regex (and other flags)</h3>
+<p>The Java regex engine allows to supply extra flags when creatting
+regexp pattern.  The most commonly used flag is <code>i</code> - case insensitive
+matching.</p>
+<p>Java regexes allow for a special syntax (embedded flags expression) to
+enable flags within the regex.</p>
+<p>no flags (case-sensitive):
+<div class="highlight"><pre><span></span><code>&gt; (re-matches #&quot;abc&quot; &quot;ABC&quot;)
+
+=&gt; NIL
+</code></pre></div></p>
+<p>case-insensitive flag set</p>
+<div class="highlight"><pre><span></span><code>&gt; (re-matches #&quot;(?i)abc&quot;  &quot;ABC&quot;)
+
+=&gt; ABC
+</code></pre></div>
+<p>Explang regex literals support specifying flags after the expression:</p>
+<div class="highlight"><pre><span></span><code>&gt; (re-matches #&quot;abc&quot;i &quot;ABC&quot; )
+
+=&gt; ABC
+</code></pre></div>
+<p>The <code>re-pattern</code> and <code>re-glob</code> functions accept an optional string
+argument that contains string of regexp flags:</p>
+<div class="highlight"><pre><span></span><code>&gt; (re-matches (re-pattern &quot;abc&quot; &quot;i&quot;) &quot;ABC&quot; )
+
+=&gt; ABC
+</code></pre></div>
+<p>There are other flags but 'i', see the full list in the 
+<a href="https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html">Java documentation</a>.
+The characters used for flags are the same that are used for embedded flags.</p>
+<h3 id="matching-a-regex-to-a-string-with-groups">Matching a Regex to a String with Groups</h3>
+<p>Very often, you want to match an entire string. The function to do
+that is called <code>re-matches</code>. <code>re-matches</code> takes a regex and a
+string, then returns the result of the match.</p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="nv">re-matches</span><span class="w"> </span><span class="nv">&lt;REGEX&gt;</span><span class="w"> </span><span class="nv">&lt;STRING&gt;</span><span class="p">)</span><span class="w"> </span>
+
+<span class="nv">=&gt;</span><span class="w"> </span><span class="nv">&lt;RESULT&gt;</span><span class="w"></span>
+</code></pre></div>
+<p>The result it returns is a little complex. There are three things it can return.</p>
+<p>If the whole string does not match, re-matches returns NIL.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">&gt;</span><span class="w"> </span><span class="p">(</span><span class="nv">re-matches</span><span class="w"> </span><span class="l l-Other">#&quot;abc&quot;</span><span class="w"> </span><span class="s">&quot;xyz&quot;</span><span class="p">)</span><span class="w"></span>
+
+<span class="nv">=&gt;</span><span class="w"> </span><span class="no">NIL</span><span class="w"></span>
+
+<span class="p">(</span><span class="nv">re-matches</span><span class="w"> </span><span class="l l-Other">#&quot;abc&quot;</span><span class="w"> </span><span class="s">&quot;zzzabcxxx&quot;</span><span class="p">)</span><span class="w"></span>
+
+<span class="nv">=&gt;</span><span class="w"> </span><span class="no">NIL</span><span class="w"></span>
+
+<span class="p">(</span><span class="nv">re-matches</span><span class="w"> </span><span class="l l-Other">#&quot;(a)bc&quot;</span><span class="w"> </span><span class="s">&quot;hello, world&quot;</span><span class="p">)</span><span class="w"></span>
+
+<span class="nv">=&gt;</span><span class="w"> </span><span class="no">NIL</span><span class="w"></span>
+</code></pre></div>
+<p>If the string does match, and there are no groups (parens) in the
+regex, then it returns the matched string.</p>
+<div class="highlight"><pre><span></span><code>&gt; (re-matches #&quot;abc&quot; &quot;abc&quot;)
+
+=&gt; abc
+
+&gt; (re-matches #&quot;\d+&quot; &quot;3324&quot;) 
+
+=&gt; 3324
+</code></pre></div>
+<p>Note, that can use re-matches as the test expression of a conditional when matched string cannot be empty:</p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nv">re-matches</span><span class="w"> </span><span class="l l-Other">#&quot;\d+&quot;</span><span class="w"> </span><span class="nv">x</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="p">(</span><span class="nv">println</span><span class="w"> </span><span class="s">&quot;x is all digits&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">(</span><span class="nv">println</span><span class="w"> </span><span class="s">&quot;x is not all digits&quot;</span><span class="p">))</span><span class="w"></span>
+</code></pre></div>
+<p>Since the emplicit boolean value of an empty string is false, so if regexp matches 
+empty string, you need to explicitly test that the returned value is not null:</p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nv">notnilp</span><span class="w"> </span><span class="p">(</span><span class="nv">re-matches</span><span class="w"> </span><span class="l l-Other">#&quot;\d*&quot;</span><span class="w"> </span><span class="nv">x</span><span class="p">))</span><span class="w"></span>
+<span class="w">   </span><span class="p">(</span><span class="nv">println</span><span class="w"> </span><span class="s">&quot;x is all digits or empty&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">(</span><span class="nv">println</span><span class="w"> </span><span class="s">&quot;x is not all digits and not empty&quot;</span><span class="p">))</span><span class="w"></span>
+</code></pre></div>
+<p>If it matches and there are groups, then it returns a list, its first
+element is the entire match. The remaining elements are the group
+matches.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">&gt;</span><span class="w"> </span><span class="p">(</span><span class="nv">re-matches</span><span class="w"> </span><span class="l l-Other">#&quot;abc(.*)&quot;</span><span class="w"> </span><span class="s">&quot;abcxyz&quot;</span><span class="p">)</span><span class="w"> </span>
+
+<span class="nv">=&gt;</span><span class="w"> </span><span class="nv">[</span><span class="s">&quot;abcxyz&quot;</span><span class="w"> </span><span class="s">&quot;xyz&quot;</span><span class="nv">]</span><span class="w"></span>
+
+<span class="nb">&gt;</span><span class="w"> </span><span class="p">(</span><span class="nv">re-matches</span><span class="w"> </span><span class="l l-Other">#&quot;(a+)(b+)(\d+)&quot;</span><span class="w"> </span><span class="s">&quot;abb234&quot;</span><span class="p">)</span><span class="w"> </span>
+
+<span class="nv">=&gt;</span><span class="w"> </span><span class="nv">[</span><span class="s">&quot;abb234&quot;</span><span class="w"> </span><span class="s">&quot;a&quot;</span><span class="w"> </span><span class="s">&quot;bb&quot;</span><span class="w"> </span><span class="s">&quot;234&quot;</span><span class="nv">]</span><span class="w"></span>
+</code></pre></div>
+<h3 id="finding-a-regex-substring-within-a-string-with-groups">Finding a regex substring within a string with groups</h3>
+<p>Sometimes we want to find a match within a string. <code>re-find</code> returns the
+first match within the string. The return values are similar to
+re-matches.</p>
+<ol>
+<li>No match returns nil</li>
+</ol>
+<div class="highlight"><pre><span></span><code>&gt; (re-find #&quot;sss&quot; &quot;Loch Ness&quot;) 
+
+=&gt; NIL
+</code></pre></div>
+<ol>
+<li>Match without groups returns the matched string</li>
+</ol>
+<div class="highlight"><pre><span></span><code>(re-find #&quot;s+&quot; &quot;dress&quot;) 
+=&gt; &quot;ss&quot;
+</code></pre></div>
+<ol>
+<li>Match with groups returns a list</li>
+</ol>
+<div class="highlight"><pre><span></span><code>(re-find #&quot;s+(.*)(s+)&quot; &quot;success&quot;) 
+
+=&gt; [&quot;success&quot; &quot;ucces&quot; &quot;s&quot;]
+</code></pre></div>
+<h3 id="finding-all-substrings-that-match-within-a-string">Finding all substrings that match within a string</h3>
+<p>To find all substrings that match within a string use <code>re-seq</code>.
+<code>re-seq</code> returns a lazy seq of all of the matches.
+The elements of the seq are whatever type re-find would have returned.</p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="nv">re-seq</span><span class="w"> </span><span class="l l-Other">#&quot;s+&quot;</span><span class="w"> </span><span class="s">&quot;mississippi&quot;</span><span class="p">)</span><span class="w"> </span>
+
+<span class="nv">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;ss&quot;</span><span class="w"> </span><span class="s">&quot;ss&quot;</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="nb">append</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">(</span><span class="nv">re-seq</span><span class="w"> </span><span class="l l-Other">#&quot;[a-zA-Z](\d+)&quot;</span><span class="w"> </span><span class="s">&quot;abc x123 b44 234&quot;</span><span class="p">))</span><span class="w"> </span>
+
+<span class="nv">=&gt;</span><span class="w"> </span><span class="nv">[[</span><span class="s">&quot;x123&quot;</span><span class="w"> </span><span class="s">&quot;123&quot;</span><span class="nv">]</span><span class="w"> </span><span class="nv">[</span><span class="s">&quot;b44&quot;</span><span class="w"> </span><span class="s">&quot;44&quot;</span><span class="nv">]]</span><span class="w"></span>
+</code></pre></div>
+<p><code>append ()</code> materializes lazy sequence that re-seq returns so we can
+see text of matched strings.</p>
 <h2 id="conditionals">Conditionals</h2>
 <h3 id="if-operator"><code>If</code> Operator</h3>
 <p>The standard conditional operator is <code>if</code>. Like <code>setv</code> and <code>defun</code>, it
