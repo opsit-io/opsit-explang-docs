@@ -1,5 +1,5 @@
 Tutorial on Using Explang with Algebraic Syntax
-==========================================
+===============================================
 
 Expressions
 -----------
