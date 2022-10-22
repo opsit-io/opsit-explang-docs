@@ -1,5 +1,5 @@
 
-EXPLANG_VERSION=0.0.5
+EXPLANG_VERSION=0.0.6
 EXPLANG=./opsit-explang-alg-parser-$(EXPLANG_VERSION)-runnable.jar
 EXPLANG_JAVADOC=./opsit-explang-core-$(EXPLANG_VERSION)-javadoc.jar
 FORMATTER=printref
