@@ -258,8 +258,8 @@ To reference the value of the defined function one must use special syntax:
 => io.opsit.explang.Compiler$LAMBDA$1@5e9f23b4
 ```
 
-And to set the function binding one can use the `fset` function, all the def does is 
-basically:
+To set the function binding one can use the `fset` function, all the
+'function' operator does is basically:
 
 ```julia
 > fset( :average,  (x,y)-> (x+y)/2);
@@ -326,9 +326,10 @@ Printing values
 
 So far we've only had things printed out implicity as a result of
 evaluating them. The standard way to print things out in the middle of
-evaluation is with `print` or `println`. They take multiple arguments and print
-them in order; `println` also prints a newline at the end. Here's a variant
-of average that tells us what its arguments were:
+evaluation is with `print` or `println`. They take multiple arguments
+and print them in order; `println` also prints a newline at the
+end. Here's a variant of average that tells us what its arguments
+were:
 
 ```julia
 > function average (x,y)
@@ -386,7 +387,7 @@ Error: the equation has no real solutions!
 Optional and Vararg Arguments for Functions
 -------------------------------------------
 
-We’ve seen above some functions like `list` and `+` that take varying
+We've seen above some functions like `list` and `+` that take varying
 numbers of arguments. Now we'll learn to define such functions.
 
 Function parameters list can contain extra directives that specify how
@@ -483,7 +484,7 @@ Keyword arguments
 Keyword arguments are used when we want to pass a specific value to a
 specific argument. Consider a scenario where there are 3 optional
 arguments, what if the user wants to pass just a second optional
-argument’s value, here the first arguments even though is optional it
+argument's value, here the first arguments even though is optional it
 will be mandatory for him to pass its value making it a required
 argument.
 
