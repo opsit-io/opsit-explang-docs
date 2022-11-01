@@ -799,7 +799,7 @@ concatenates them into a string. Every argument will appear as it would
 look if printed out by pr, except nil, which is ignored.
 
 ```
-> str(99, " bottles of ", :bee, "#\r")
+> str(99, " bottles of ", :bee, 'r')
 
 => "99 bottles of beer"
 
@@ -810,8 +810,8 @@ the `format()` function, which converts its argument to string
 using the first argument as format specification: 
 
 ```julia
-(setv x 9786)
-(format "Decimal: %d, hexadecimal: %x  octal: %o  char: %c \n" x x x x)
+x:=9786;
+format("Decimal: %d, hexadecimal: %x  octal: %o  char: %c \n",x,x,x,x);
 
 => Decimal: 9786, hexadecimal: 263a  octal: 23072  char: ☺
 
@@ -824,14 +824,53 @@ for details on building the format strings.
 Strings in Explang are considered a kind of indexed sequences
 and can be operated upon using generic functions that work with sequences,
 for example to get substring one should use `subseq()`, 
-to get a specific character one uses `get()` or `areq()` and so on. 
-See below on how to work with sequences.
+to get a specific character one uses subscript operator or accessor functions
+like `get`, see below on how to work with sequences.
+
+
+String Interpolation
+-------------------
+
+Constructing strings using the `format` function or string concatenation
+may become cumbersome. To reduce need for these verbose calls and to allow
+string representation in code be more similar to the program output Explang
+allows string interpolation using the `$( expression )` syntax in 
+string literals that are prefixed with flag `i`:
+
+```julia
+>   a := 1; b:= 2; str:=i"$(a) + $(b) = $(a+b)";
+
+=> 1
+
+=> 2
+
+=> 1 + 2 = 3
+```
+
+Note that string interpolation is strictly a syntax level feature: one cannot
+build interpolated string dynamically at runtime (unless using `eval` to build
+and evaluate the code). Another interesting property of string interpolation
+is that one does not have to escape the double quotes in the interpolated
+expressions, the following interpolated string literal may look strange, but
+it is completely valid, note recursive use of interpolation inside the `if`
+expression:
+
+```
+> result:="oops";
+
+=> oops
+> i"Result: $(if result=="ok" "Alright" else i"too bad: the value is $(result)"; end)";
+
+=> Result: too bad: the value is oops
+```
+
+
 
 
 Character Type
 --------------
 
-Explang Characters represent Unicode 16bit characters and implemented using Java 
+Explang Characters represent Unicode 16-bit characters and implemented using Java 
 [java.lang.Character](https://docs.oracle.com/javase/8/docs/api/java/lang/Character.html).
 
 Character literals are delimited using the 'c', '\UHEX','\uHEX' or '\ESCAPECHAR' notation:
@@ -842,7 +881,6 @@ Character literals are delimited using the 'c', '\UHEX','\uHEX' or '\ESCAPECHAR'
 => [H, e, l, l, o, 
 , ☺]
 ```
-
 
 The `char` operator allows to create Characters from their numeric code:
 
