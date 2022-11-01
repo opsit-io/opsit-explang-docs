@@ -706,8 +706,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#globbing-patterns" class="md-nav__link">
-    Globbing Patterns
+  <a href="#the-globbing-patterns" class="md-nav__link">
+    The Globbing Patterns
   </a>
   
 </li>
@@ -1448,8 +1448,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#globbing-patterns" class="md-nav__link">
-    Globbing Patterns
+  <a href="#the-globbing-patterns" class="md-nav__link">
+    The Globbing Patterns
   </a>
   
 </li>
@@ -1585,10 +1585,10 @@
 
 <h1 id="tutorial-on-using-explang-with-algebraic-syntax">Tutorial on Using Explang with Algebraic Syntax</h1>
 <h2 id="expressions">Expressions</h2>
-<p>Explang program is a sequence of one or more expressions which are evaluated
+<p>An Explang program is a sequence of one or more expressions which are evaluated
 from the beginning to the end.</p>
 <p>The language works with expressions that return values. There are no statements.</p>
-<p>Expressions are separated by ';' and whitespace is not significant; </p>
+<p>Expressions are separated by ';' and white-space is not significant; </p>
 <p>The simplest expressions are things like numbers, booleans or strings, which
 evaluate to themselves.</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="mi">10</span><span class="w"></span>
@@ -1636,7 +1636,7 @@ but with any number of arguments:</p>
 <span class="o">=&gt;</span><span class="w"> </span><span class="s">&quot;foo&quot;</span><span class="w"></span>
 </code></pre></div>
 <p>Explang supports block comments as well, they are started by <code>#=</code> and run until 
-first occurence of <code>=#</code>:</p>
+first occurrence of <code>=#</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="cm">#= a block comment =#</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
 
 <span class="o">=&gt;</span><span class="w"> </span><span class="mi">3</span><span class="w"></span>
@@ -1661,10 +1661,10 @@ not cause an error. </p>
 
 <span class="o">=&gt;</span><span class="w"> </span><span class="ss">:something</span><span class="w"></span>
 </code></pre></div>
-<p>They may be used for different kinds of indentifiers: keys in map,
+<p>They may be used for different kinds of identifiers: keys in map,
 names of parameters, etc.</p>
 <h2 id="creating-lists">Creating lists</h2>
-<p>To create a list of valies use the <code>[ ]</code> operator</p>
+<p>To create a list of values use the <code>[ ]</code> operator</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;foo&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">:b</span><span class="p">]</span><span class="w"></span>
 
 <span class="o">=&gt;</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="n">foo</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">]</span><span class="w"></span>
@@ -1735,9 +1735,10 @@ version:</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="n">average</span><span class="w"></span>
 <span class="n">EXECUTION</span><span class="w"> </span><span class="n">ERROR</span><span class="o">:</span><span class="w"> </span><span class="n">java</span><span class="o">.</span><span class="n">lang</span><span class="o">.</span><span class="n">RuntimeException</span><span class="o">:</span><span class="w"> </span><span class="n">variable</span><span class="w"> </span><span class="err">&#39;</span><span class="n">average</span><span class="o">&#39;</span><span class="w"> </span><span class="n">does</span><span class="w"> </span><span class="n">not</span><span class="w"> </span><span class="n">exist</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">context</span><span class="w"> </span><span class="n">at</span><span class="o">:</span><span class="w"></span>
 </code></pre></div>
-<p>This is because of imprtant property of Explang: named functions and ordinary data variables are 
-living in separate namespaces, that is you may assign value to variable <code>average</code> without 
-overwriting the function <code>average</code>:</p>
+<p>This is because of an important property of Explang: named functions
+and ordinary data variables are living in separate namespaces, that is
+you may assign value to variable <code>average</code> without overwriting the
+function <code>average</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="n">average</span><span class="o">:=</span><span class="mi">100</span><span class="p">;</span><span class="w"></span>
 
 <span class="o">=&gt;</span><span class="w"> </span><span class="mi">100</span><span class="w"></span>
@@ -1750,8 +1751,8 @@ overwriting the function <code>average</code>:</p>
 
 <span class="o">=&gt;</span><span class="w"> </span><span class="n">io</span><span class="o">.</span><span class="n">opsit</span><span class="o">.</span><span class="n">explang</span><span class="o">.</span><span class="n">Compiler</span><span class="o">$</span><span class="n">LAMBDA</span><span class="o">$</span><span class="mi">1</span><span class="err">@</span><span class="mf">5e9</span><span class="n">f23b4</span><span class="w"></span>
 </code></pre></div>
-<p>And to set the function binding one can use the <code>fset</code> function, all the def does is 
-basically:</p>
+<p>To set the function binding one can use the <code>fset</code> function, all the
+'function' operator does is basically:</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="n">fset</span><span class="p">(</span><span class="w"> </span><span class="ss">:average</span><span class="p">,</span><span class="w">  </span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span><span class="o">-&gt;</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
 
 <span class="o">=&gt;</span><span class="w"> </span><span class="n">io</span><span class="o">.</span><span class="n">opsit</span><span class="o">.</span><span class="n">explang</span><span class="o">.</span><span class="n">Compiler</span><span class="o">$</span><span class="n">LAMBDA</span><span class="o">$</span><span class="mi">1</span><span class="err">@</span><span class="mi">28</span><span class="n">c4711c</span><span class="w"></span>
@@ -1766,7 +1767,7 @@ basically:</p>
 <span class="n">Arguments</span><span class="o">:</span><span class="w">  </span><span class="n">limit</span><span class="w"></span>
 
 <span class="n">Documentation</span><span class="o">:</span><span class="w"> </span>
-<span class="w">    </span><span class="n">Produce</span><span class="w"> </span><span class="n">Pseudo</span><span class="o">-</span><span class="n">Random</span><span class="w"> </span><span class="kt">Number</span><span class="o">.</span><span class="w"> </span><span class="n">Returns</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">pseudo</span><span class="o">-</span><span class="n">random</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">non</span><span class="o">-</span><span class="n">negative</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">less</span><span class="w"> </span><span class="n">than</span><span class="w"> </span><span class="n">limit</span><span class="w"> </span><span class="n">and</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">same</span><span class="w"> </span><span class="n">numeric</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">limit</span><span class="o">.</span><span class="w"> </span><span class="n">Implemented</span><span class="w"> </span><span class="n">uding</span><span class="w"> </span><span class="n">Java</span><span class="w"> </span><span class="n">Math</span><span class="o">.</span><span class="n">random</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="n">Produce</span><span class="w"> </span><span class="n">Pseudo</span><span class="o">-</span><span class="n">Random</span><span class="w"> </span><span class="kt">Number</span><span class="o">.</span><span class="w"> </span><span class="n">Returns</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">pseudo</span><span class="o">-</span><span class="n">random</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">non</span><span class="o">-</span><span class="n">negative</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">less</span><span class="w"> </span><span class="n">than</span><span class="w"> </span><span class="n">limit</span><span class="w"> </span><span class="n">and</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">same</span><span class="w"> </span><span class="n">numeric</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">limit</span><span class="o">.</span><span class="w"> </span><span class="n">Implemented</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="n">Java</span><span class="w"> </span><span class="n">Math</span><span class="o">.</span><span class="n">random</span><span class="p">()</span><span class="w"></span>
 <span class="n">Package</span><span class="o">:</span><span class="w"> </span><span class="n">base</span><span class="o">.</span><span class="n">math</span><span class="w"></span>
 </code></pre></div>
 <p><code>describe_function</code> works both with the built-in as well with the
@@ -1796,11 +1797,12 @@ considered to be documentation string:</p>
 <span class="o">...</span><span class="w"></span>
 </code></pre></div>
 <h2 id="printing-values">Printing values</h2>
-<p>So far we've only had things printed out implicity as a result of
-evaluating them. The standard way to print things out in the middle of
-evaluation is with <code>print</code> or <code>println</code>. They take multiple arguments and print
-them in order; <code>println</code> also prints a newline at the end. Here's a variant
-of average that tells us what its arguments were:</p>
+<p>So far we've only had things printed out implicitly as a result of
+their evaluation. The standard way to print things out in the middle
+of evaluation is with <code>print</code> or <code>println</code>. They take multiple
+arguments and print them in order; <code>println</code> also prints a newline at
+the end. Here's a variant of average that tells us what its arguments
+were:</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="k">function</span><span class="w"> </span><span class="n">average</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span><span class="w"></span>
 <span class="w">      </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;my arguments were: &quot;</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="s">&quot;, &quot;</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="w">      </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
@@ -1843,7 +1845,7 @@ message and exit prematurely returning an empty list.</p>
 <span class="o">=&gt;</span><span class="w"> </span><span class="p">[]</span><span class="w"></span>
 </code></pre></div>
 <h2 id="optional-and-vararg-arguments-for-functions">Optional and Vararg Arguments for Functions</h2>
-<p>We’ve seen above some functions like <code>list</code> and <code>+</code> that take varying
+<p>We've seen above some functions like <code>list</code> and <code>+</code> that take varying
 numbers of arguments. Now we'll learn to define such functions.</p>
 <p>Function parameters list can contain extra directives that specify how
 the following parameters will be handled.</p>
@@ -1882,7 +1884,7 @@ preceding parameters:</p>
 </code></pre></div>
 <p>Sometimes it is convenient to create functions that can take any number of arguments.
 Such functions are often called "varargs - variable number of arguments" functions.
-In Explang youcan make such a function by following the last positional
+In Explang you can make such a function by following the last positional
 argument by ellipsis:</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="k">function</span><span class="w"> </span><span class="n">foo</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="o">...</span><span class="p">)</span><span class="w"></span>
 <span class="w">    </span><span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">z</span><span class="p">];</span><span class="w"></span>
@@ -1919,7 +1921,7 @@ average that takes any number of arguments.</p>
 <p>Keyword arguments are used when we want to pass a specific value to a
 specific argument. Consider a scenario where there are 3 optional
 arguments, what if the user wants to pass just a second optional
-argument’s value, here the first arguments even though is optional it
+argument's value, here the first arguments even though is optional it
 will be mandatory for him to pass its value making it a required
 argument.</p>
 <p>To solve this problem keyword arguments are used where the caller has
@@ -1965,7 +1967,7 @@ optional positional arguments:</p>
 to get any number of keyword parameters in addition to those that are named
 in the argument list. </p>
 <p>In the following example the 'r' argument, which is marked with an ellipsis
-is used to collect pairs of argument names (keywords) and their walues.  </p>
+is used to collect pairs of argument names (keywords) and their values.</p>
 <div class="highlight"><pre><span></span><code><span class="nb">&gt;</span><span class="w"> </span><span class="k">function</span><span class="w">  </span><span class="nv">otherkeys_example</span><span class="w"> </span><span class="p">(</span><span class="nv">x</span><span class="w"> </span><span class="c1">; y, r...)</span><span class="w"></span>
 <span class="w">    </span><span class="nv">[x,</span><span class="w"> </span><span class="nv">y,</span><span class="w"> </span><span class="nv">r]</span><span class="c1">;</span><span class="w"></span>
 <span class="nv">end</span><span class="c1">;</span><span class="w"></span>
@@ -2001,7 +2003,7 @@ Arrays, etc. </p>
 
 <span class="o">=&gt;</span><span class="w"> </span><span class="nb">true</span><span class="w"></span>
 </code></pre></div>
-<p>Base Java type from the <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/package-frame.html">java.lang</a>
+<p>Base Java type from the <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/package-frame.html"><code>java.lang</code></a>
 can be specified without package:</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="n">typep</span><span class="p">(</span><span class="s">&quot;abc&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;String&quot;</span><span class="p">)</span><span class="w"></span>
 
@@ -2023,14 +2025,14 @@ can be specified without package:</p>
 <span class="o">=&gt;</span><span class="w"> </span><span class="n">NIL</span><span class="w"></span>
 </code></pre></div>
 <h2 id="nil-values">NIL values</h2>
-<p>NIL represents absense of a useful value, it is implemented as Java <code>null</code>. 
+<p>NIL represents absence of a useful value, it is implemented as Java <code>null</code>. 
 It is not really a data type.</p>
 <div class="highlight"><pre><span></span><code>type_of(NIL)
 
 =&gt; NIL
 </code></pre></div>
 <h2 id="booleans">Booleans</h2>
-<p>The boolean type has two values, <code>false</code> and <code>true</code>. It is implemented using
+<p>The Boolean type has two values, <code>false</code> and <code>true</code>. It is implemented using
 as Java Boolean objects. </p>
 <h2 id="numeric-types-and-values">Numeric Types And Values</h2>
 <p>Explang works with Java numeric types. </p>
@@ -2151,7 +2153,7 @@ using the first argument as format specification: </p>
 See <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html">java.util.Formatter</a>,
 for details on building the format strings.</p>
 <p><code>uppercase()</code> and <code>lowercase()</code> can be used to change case of a string:</p>
-<p>Strings in explang are considered a kind of indexed sequences
+<p>Strings in Explang are considered a kind of indexed sequences
 and can be operated upon using generic functions that work with sequences,
 for example to get substring one should use <code>subseq()</code>, 
 to get a specific character one uses <code>get()</code> or <code>areq()</code> and so on. 
@@ -2159,7 +2161,7 @@ See below on how to work with sequences.</p>
 <h2 id="character-type">Character Type</h2>
 <p>Explang Characters represent Unicode 16bit characters and implemented using Java 
 <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Character.html">java.lang.Character</a>.</p>
-<p>Character literals are delimited using the 'c', '\UHEX','\uHEX' or '\ESCAPE' notation:</p>
+<p>Character literals are delimited using the 'c', '\UHEX','\uHEX' or '\ESCAPECHAR' notation:</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="sc">&#39;H&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;e&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;l&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;l&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;o&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;\u263a&#39;</span><span class="w"> </span><span class="p">];</span><span class="w"></span>
 
 <span class="o">=&gt;</span><span class="w"> </span><span class="p">[</span><span class="n">H</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">,</span><span class="w"> </span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="n">o</span><span class="p">,</span><span class="w"> </span>
@@ -2257,7 +2259,7 @@ implement interface
 <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/CharSequence.html">java.lang.CharSequence</a>).</p>
 <p>There are other such types that, unlike strings, can be modified in place:</p>
 <p>The <code>string_buffer</code> function creates a 
-<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/StringBuffer.html">StringBuffer</a> object:</p>
+<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/StringBuffer.html"><code>StringBuffer</code></a> object:</p>
 <p><div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="n">string_buffer</span><span class="p">()</span><span class="w"> </span><span class="c"># creates empty StringBuffer</span><span class="w"></span>
 
 <span class="o">=&gt;</span><span class="w"> </span>
@@ -2267,9 +2269,9 @@ implement interface
 <span class="o">=&gt;</span><span class="w"> </span><span class="s">&quot;foobar&quot;</span><span class="w"></span>
 </code></pre></div>
 The <code>string_builder</code> function creates a 
-<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/StringBuilder.html">StringBuilder</a> object.
-StringBuilder is similar to StringBuffer, but unlike StringBuffer it can be safely 
-modified from differennt threads.</p>
+<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/StringBuilder.html"><code>StringBuilder</code></a> object.
+<code>StringBuilder</code> is similar to <code>StringBuffer</code>, but unlike <code>StringBuffer</code> it can be safely 
+modified from different threads.</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="n">string_builder</span><span class="p">()</span><span class="w"> </span><span class="p">;;</span><span class="w"> </span><span class="n">creates</span><span class="w"> </span><span class="n">empty</span><span class="w"> </span><span class="n">StringBuilder</span><span class="w"></span>
 
 <span class="o">=&gt;</span><span class="w"> </span>
@@ -2386,7 +2388,7 @@ objects, but it works somewhat differently:</p>
 </code></pre></div>
 <h3 id="empty-subscript">Empty subscript <code>[]</code></h3>
 <p>When there is no index specified the operator works as an iterator,
-that is it applies all the following subkey operations on all the values
+that is it applies all the following subscript operations on all the values
 in the collection:</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="n">data</span><span class="o">.</span><span class="n">people</span><span class="p">[]</span><span class="w">   </span><span class="c"># return list off map entries</span><span class="w"></span>
 
@@ -2406,7 +2408,7 @@ in the collection:</p>
 <span class="p">[</span><span class="n">John</span><span class="p">,</span><span class="w"> </span><span class="n">Jack</span><span class="p">,</span><span class="w"> </span><span class="n">Ann</span><span class="p">,</span><span class="w"> </span><span class="n">Bill</span><span class="p">]</span><span class="w"></span>
 </code></pre></div>
 <h3 id="get_in-function-access-values-in-nested-structures"><code>get_in</code> function access values in nested structures</h3>
-<p><code>get_in</code> performs data retrival like a chain of <code>[k]</code> operators, but 
+<p><code>get_in</code> performs data retrieval like a chain of <code>[k]</code> operators, but 
 list of keys is provided as a list that can be set dynamically at runtime.</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="n">get_in</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;people&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s">&quot;relatives&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;motherId&quot;</span><span class="p">])</span><span class="w"></span>
 
@@ -2504,7 +2506,7 @@ possible and the data is copied into new array.</p>
 
 =&gt; [8, 3]
 </code></pre></div>
-<h3 id="haskey">haskey</h3>
+<h3 id="haskey"><code>haskey</code></h3>
 <p><code>haskey</code> checks if a Map has given key or if an indexed sequence has specified index.
 Unlike <code>get</code> and <code>in</code> this allows to check whether a map contains NIL as a key.</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="n">M</span><span class="o">:=</span><span class="p">{</span><span class="mi">1</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">  </span><span class="kt">NIL</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="kt">NIL</span><span class="p">}</span><span class="w"></span>
@@ -2525,7 +2527,7 @@ Unlike <code>get</code> and <code>in</code> this allows to check whether a map c
 </code></pre></div>
 <h2 id="destructuring-of-data-structures">Destructuring of Data Structures</h2>
 <p>Destructuring allows to easily fetch data elements from data
-structures and asign them to variables without fetching them
+structures and assign them to variables without fetching them
 individually using functions like <code>get</code> or <code>get-in</code>.</p>
 <p>The idea is to provide on the receiving end of the assignment operator
 a sort of template for the data structure with the desired names of variables.</p>
@@ -2539,9 +2541,10 @@ a sort of template for the data structure with the desired names of variables.</
 
 <span class="o">=&gt;</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">]</span><span class="w"></span>
 </code></pre></div>
-<p>We could access individual coordinates using subscripts like <code>pos[0]</code>, but this is 
-kinde of cumbersome and not very readable. We could also assign individual values to variables 
-<code>x</code>,<code>y</code>,<code>z</code> using assignments,  but destructuring allows to do it in one easy statement:</p>
+<p>We could access individual coordinates using subscripts like <code>pos[0]</code>, but
+this is kind of cumbersome and not very readable. We could also assign
+individual values to variables <code>x</code>,<code>y</code>,<code>z</code> using assignments, but
+destructuring allows to do it in one easy statement:</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">]</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">getpos</span><span class="p">();</span><span class="w"></span>
 
 <span class="o">=&gt;</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">]</span><span class="w"></span>
@@ -2633,8 +2636,8 @@ list to the above data structure:</p>
 
 <span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="kt">brothers</span><span class="o">=</span><span class="p">[</span><span class="kt">jack</span><span class="p">,</span><span class="w"> </span><span class="kt">harry</span><span class="p">],</span><span class="w"> </span><span class="kt">surname</span><span class="o">=</span><span class="kt">Doe</span><span class="p">,</span><span class="w"> </span><span class="kt">name</span><span class="o">=</span><span class="kt">John</span><span class="p">,</span><span class="w"> </span><span class="kt">age</span><span class="o">=</span><span class="mi">44</span><span class="p">,</span><span class="w"> </span><span class="kt">parents</span><span class="o">=</span><span class="p">{</span><span class="kt">mother</span><span class="o">=</span><span class="kt">Mary</span><span class="w"> </span><span class="kt">Doe</span><span class="p">,</span><span class="w"> </span><span class="kt">father</span><span class="o">=</span><span class="kt">Richard</span><span class="w"> </span><span class="kt">Doe</span><span class="p">}}</span><span class="w"></span>
 </code></pre></div>
-<p>To extract names of parents we add to the left-side map in place of a symbol
-a submap to destructure the nested map:</p>
+<p>To extract names of parents we use a submap as a key of the left-side map in place of a symbol
+to destructure the nested map:</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">mom</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;mother&quot;</span><span class="p">,</span><span class="w"> </span><span class="kt">dad</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;father&quot;</span><span class="p">}</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;parents&quot;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="n">entry</span><span class="p">;</span><span class="w"></span>
 
 <span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="kt">brothers</span><span class="o">=</span><span class="p">[</span><span class="kt">jack</span><span class="p">,</span><span class="w"> </span><span class="kt">harry</span><span class="p">],</span><span class="w"> </span><span class="kt">surname</span><span class="o">=</span><span class="kt">Doe</span><span class="p">,</span><span class="w"> </span><span class="kt">name</span><span class="o">=</span><span class="kt">John</span><span class="p">,</span><span class="w"> </span><span class="kt">age</span><span class="o">=</span><span class="mi">44</span><span class="p">,</span><span class="w"> </span><span class="kt">parents</span><span class="o">=</span><span class="p">{</span><span class="kt">mother</span><span class="o">=</span><span class="kt">Mary</span><span class="w"> </span><span class="kt">Doe</span><span class="p">,</span><span class="w"> </span><span class="kt">father</span><span class="o">=</span><span class="kt">Richard</span><span class="w"> </span><span class="kt">Doe</span><span class="p">}}</span><span class="w"></span>
@@ -2745,7 +2748,7 @@ specify how to automatically create structures along the path in case
 they do not exist. For example this will add Rick Row (id=5) as a
 friend to Bill that does not have a list of friend identifiers.
 <code>put-in</code> would copy the provided object (an empty list) to create list
-of friendIds.</p>
+of <code>friendIds</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="n">put_in!</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;people&quot;</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="s">&quot;friendIds&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">],</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="p">[])</span><span class="w"></span>
 
 <span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="kt">people</span><span class="o">=</span><span class="p">{</span><span class="mi">1</span><span class="o">=</span><span class="p">{</span><span class="kt">friendIds</span><span class="o">=</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">],</span><span class="w"> </span><span class="kt">surname</span><span class="o">=</span><span class="kt">Doe</span><span class="p">,</span><span class="w"> </span><span class="kt">name</span><span class="o">=</span><span class="kt">John</span><span class="p">,</span><span class="w"> </span><span class="kt">relatives</span><span class="o">=</span><span class="p">{</span><span class="kt">motherId</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="kt">fatherId</span><span class="o">=</span><span class="mi">2</span><span class="p">}},</span><span class="w"> </span><span class="mi">2</span><span class="o">=</span><span class="p">{</span><span class="kt">surname</span><span class="o">=</span><span class="kt">Doe</span><span class="p">,</span><span class="w"> </span><span class="kt">name</span><span class="o">=</span><span class="kt">Jack</span><span class="p">},</span><span class="w"> </span><span class="mi">3</span><span class="o">=</span><span class="p">{</span><span class="kt">surname</span><span class="o">=</span><span class="kt">Roe</span><span class="p">,</span><span class="w"> </span><span class="kt">name</span><span class="o">=</span><span class="kt">Ann</span><span class="p">},</span><span class="w"> </span><span class="mi">4</span><span class="o">=</span><span class="p">{</span><span class="kt">friendIds</span><span class="o">=</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span><span class="w"> </span><span class="kt">surname</span><span class="o">=</span><span class="kt">Moe</span><span class="p">,</span><span class="w"> </span><span class="kt">name</span><span class="o">=</span><span class="kt">Bill</span><span class="p">},</span><span class="w"> </span><span class="mi">5</span><span class="o">=</span><span class="p">{</span><span class="kt">surname</span><span class="o">=</span><span class="kt">Hoe</span><span class="p">,</span><span class="w"> </span><span class="kt">name</span><span class="o">=</span><span class="kt">Rick</span><span class="p">}}}</span><span class="w"></span>
@@ -2859,7 +2862,7 @@ according to the natural order of its objects (if they implement
 <h2 id="collection-specific-access-functions">Collection Specific Access functions</h2>
 <p>In addition to the generic data access functions there are 
 data access functions that are specific for concrete collection types.</p>
-<h3 id="aref-and-aset-array-member-access">aref and aset! -- array member access.</h3>
+<h3 id="aref-and-aset-array-member-access"><code>aref</code> and <code>aset!</code> -- array member access.</h3>
 <p>Unlike <code>put!</code> and <code>get</code> they will fail with exception when index is invalid. </p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="n">L</span><span class="o">:=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">]</span><span class="w"></span>
 
@@ -2915,12 +2918,12 @@ construction may be used to convert collection into other collection types:</p>
 Java regular expression engine.</p>
 <p>This guide assumes that you have general understanding of what the
 regular expressions are and how to use them.  There are good resources
-for learing about regular expressions and trying them online,
+for learning about regular expressions and trying them online,
 for example <a href="https://regex101.com">Regex 101</a>.
 The reference documentation for Java regex syntax is here:
 <a href="https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html">java.util.regex.Pattern</a>.</p>
 <h3 id="creating-regex-patterns">Creating Regex Patterns</h3>
-<p>In explang you can create a regex using a literal syntax. 
+<p>In Explang you can create a regex using a literal syntax. 
 Strings with a '#' in front are interpreted as regexes:</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="sa">r</span><span class="sr">&quot;^Hello$&quot;</span><span class="w"></span>
 
@@ -2953,20 +2956,20 @@ double escape:</p>
 </code></pre></div>
 <p>On the other hand, the <code>re_pattern</code> function is good when you have to
 build regexes dynamically or get them from some external source.</p>
-<h3 id="globbing-patterns">Globbing Patterns</h3>
+<h3 id="the-globbing-patterns">The Globbing Patterns</h3>
 <p>Globbing patterns are commonly used to specify sets of filenames with
 wildcard characters. </p>
 <ul>
 <li><code>*</code> a wildcard standing for any string of characters</li>
 <li><code>?</code> a wildcard that stands for one character</li>
 </ul>
-<p>For example "a*.txt" is a glob pattern that would match 
-names of files with '.txt' extension.</p>
+<p>For example <code>a*.txt</code> is a glob pattern that would match 
+names of files with <code>.txt</code> extension.</p>
 <p>Explang supports globbing patterns by internally converting them to
 regex patterns. One can use the produced pattern just like 
 regular regex patterns.</p>
 <p>You can create globbing patterns using  a literal syntax,
-Strings with a '#g' in front are interpreted as regexes:</p>
+Strings with a <code>#g</code> in front are interpreted as regexes:</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="sa">g</span><span class="s">&quot;a*.txt&quot;</span><span class="w"></span>
 
 <span class="o">==&gt;</span><span class="w"> </span><span class="n">a</span><span class="o">.*\.</span><span class="n">txt</span><span class="w"></span>
@@ -2978,7 +2981,7 @@ from strings using the <code>re_glob</code> function:</p>
 <span class="o">=&gt;</span><span class="w"> </span><span class="n">a</span><span class="o">.*\.</span><span class="n">txt</span><span class="w"></span>
 </code></pre></div>
 <h3 id="creating-a-case-insensitive-regex-and-other-flags">Creating a Case Insensitive Regex (and other flags)</h3>
-<p>The Java regex engine allows to supply extra flags when creatting
+<p>The Java regex engine allows to supply extra flags when creating
 regexp pattern.  The most commonly used flag is <code>i</code> - case insensitive
 matching.</p>
 <p>Java regexes allow for a special syntax (embedded flags expression) to
@@ -3029,7 +3032,7 @@ string and returns the result of the match.</p>
 
 <span class="o">=&gt;</span><span class="w"> </span><span class="n">NIL</span><span class="w"></span>
 </code></pre></div>
-<p>If the string does match, and there are no groups (parens) in the
+<p>If the string does match, and there are no groups (parentheses) in the
 regex, then it returns the matched string.</p>
 <div class="highlight"><pre><span></span><code>&gt; re_matches(r&quot;abc&quot;,&quot;abc&quot;)
 
@@ -3046,8 +3049,8 @@ regex, then it returns the matched string.</p>
 <span class="w">  </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;x is not all digits&quot;</span><span class="p">)</span><span class="w"></span>
 <span class="k">end</span><span class="p">;</span><span class="w"></span>
 </code></pre></div>
-<p>Since the emplicit boolean value of an empty string is false, so if regexp matches 
-empty string, you need to explicitly test that the returned value is not null:</p>
+<p>Since the implicit Boolean value of an empty string is false, so if a regexp can match
+an empty string, you need to explicitly test that the returned value is not null:</p>
 <div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="n">notnilp</span><span class="p">(</span><span class="n">re_matches</span><span class="p">(</span><span class="sa">r</span><span class="sr">&quot;</span><span class="err">\</span><span class="sr">d+&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">))</span><span class="w"></span>
 <span class="w">  </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;x is all digits&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="k">else</span><span class="w"></span>
@@ -3106,7 +3109,7 @@ see text of matched strings.</p>
 <h2 id="conditionals">Conditionals</h2>
 <p>Conditional evaluation allows portion of code to be evaluated or not evaluated
 depending on a value of an expression (condition). 
-In explang The conditional operator has form</p>
+In Explang The conditional operator has form</p>
 <div class="highlight"><pre><span></span><code><span class="n">If</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">y</span><span class="w"></span>
 <span class="w">   </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;x is less than y&quot;</span><span class="p">);</span><span class="w"></span>
 <span class="k">elseif</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">y</span><span class="w"></span>
@@ -3147,7 +3150,7 @@ if; if none of the expression is true, the else block is evaluated. </p>
 <span class="o">=&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">equal</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">y</span><span class="w"></span>
 </code></pre></div>
 <p>The <code>elseif</code> and <code>else</code> blocks are optional, and as many <code>elseif</code> blocks as
-desired can be used. The condition expressions in the if-elseif-else
+desired can be used. The condition expressions in the <code>if-elseif-else</code>
 construct are evaluated until the first one evaluates to true, after
 which the associated block is evaluated, and no further condition
 expressions or blocks are evaluated.</p>
@@ -3177,14 +3180,13 @@ like <code>&lt;</code> or <code>&gt;=</code>  return Java Boolean objects <code>
 be used in conditional expressions.</p>
 <p>Generally, <code>false</code>, <code>NIL</code>, zero numbers of different types, 
 empty lists, sets, strings  and other sequences have implicit <code>False</code> truth value. 
-Other objects have  thruth value of <code>true</code>. </p>
+Other objects have  truth value of <code>true</code>. </p>
 <p>For example </p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="s">&quot;yes&quot;</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s">&quot;no&quot;</span><span class="w"> </span><span class="k">end</span><span class="p">;</span><span class="w"></span>
 
 <span class="o">=&gt;</span><span class="w"> </span><span class="n">no</span><span class="w"></span>
 </code></pre></div>
-<p>To check truthyness of an expression one can use built-in function <code>bool</code>
-that returns thruthiness value of an expression. </p>
+<p>To check truth value of an expression one can use built-in function <code>bool</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="n">bool</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">)</span><span class="w"></span>
 
 <span class="o">=&gt;</span><span class="w"> </span><span class="nb">false</span><span class="w"></span>
@@ -3239,11 +3241,11 @@ Similarly 'or' evaluates its argument from left to right and returns false if it
 
 <span class="o">=&gt;</span><span class="w"> </span><span class="nb">true</span><span class="w"></span>
 </code></pre></div>
-<p>This behavior may be  used to form an alternative to very short if statements. 
-Instead of using if one can write <condition> <code>AND</code> <statement>;
-(which could be read as: <condition> and then <statement>). 
-Similarly, instead of if <code>NOT</code> <condition> <statement> end, one can write 
-<condition> <code>OR</code> <statement>; (which could be read as: <cond> or else <statement>).</p>
+<p>This behavior may be used to form an alternative to very short if statements.
+Instead of using if one can write <code>&lt;condition&gt; AND &lt;statement&gt;</code> (which could
+be read as: <code>&lt;condition&gt; and then &lt;statement&gt;</code>).  Similarly, instead of <code>if
+NOT &lt;condition&gt; &lt;statement&gt; end</code>, one can write <code>&lt;condition&gt; OR &lt;statement&gt;;</code>
+(which could be read as: <code>&lt;cond&gt; or else &lt;statement&gt;</code>).</p>
 <p>For example, a recursive factorial routine could be defined like this:</p>
 <div class="highlight"><pre><span></span><code>&gt; function fact(n)
            n &gt;= 0 or return(&quot;ERROR: n must be non-negative&quot;);
@@ -3259,7 +3261,7 @@ Similarly, instead of if <code>NOT</code> <condition> <statement> end, one can w
 </code></pre></div>
 <h2 id="iteration-operators">Iteration Operators</h2>
 <h3 id="for-in-loop"><code>for-in</code> loop</h3>
-<p>To iterate through the elements of a colleaction or sequence  use <code>for-in</code> operator:</p>
+<p>To iterate through the elements of a collection or sequence  use <code>for-in</code> operator:</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s">&quot;one&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;two&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;three&quot;</span><span class="w"> </span><span class="p">]</span><span class="w"></span>
 <span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">c</span><span class="p">);</span><span class="w"></span>
 <span class="w">  </span><span class="k">end</span><span class="p">;</span><span class="w"></span>
@@ -3357,7 +3359,7 @@ returns the elements satisfying some test.</p>
 </code></pre></div>
 <h3 id="mapprod"><code>mapprod</code></h3>
 <p><code>mapprod</code> returns a sequence consisting of the result of applying 
-func to the cartesian product of the lists:</p>
+a function  to the Cartesian product of the lists:</p>
 <div class="highlight"><pre><span></span><code><span class="n">mapprod</span><span class="p">(</span><span class="w"> </span><span class="sa">f</span><span class="s">&quot;str&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;A&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;B&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;C&quot;</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">])</span><span class="w"></span>
 
 <span class="o">=&gt;</span><span class="w"> </span><span class="p">[</span><span class="n">A1</span><span class="p">,</span><span class="w"> </span><span class="n">B1</span><span class="p">,</span><span class="w"> </span><span class="n">C1</span><span class="p">,</span><span class="w"> </span><span class="n">A2</span><span class="p">,</span><span class="w"> </span><span class="n">B2</span><span class="p">,</span><span class="w"> </span><span class="n">C2</span><span class="p">,</span><span class="w"> </span><span class="n">A3</span><span class="p">,</span><span class="w"> </span><span class="n">B3</span><span class="p">,</span><span class="w"> </span><span class="n">C3</span><span class="p">,</span><span class="w"> </span><span class="n">A4</span><span class="p">,</span><span class="w"> </span><span class="n">B4</span><span class="p">,</span><span class="w"> </span><span class="n">C4</span><span class="p">]</span><span class="w"></span>

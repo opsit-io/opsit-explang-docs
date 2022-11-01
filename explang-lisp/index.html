@@ -547,7 +547,7 @@
         
           <li class="md-nav__item">
   <a href="#get-value-accessor" class="md-nav__link">
-    get - value accessor
+    get - value accessor.
   </a>
   
 </li>
@@ -1195,7 +1195,7 @@
         
           <li class="md-nav__item">
   <a href="#get-value-accessor" class="md-nav__link">
-    get - value accessor
+    get - value accessor.
   </a>
   
 </li>
@@ -1517,8 +1517,8 @@
 
 <h1 id="tutorial-on-using-explang-with-lisp-syntax">Tutorial on Using Explang with Lisp Syntax</h1>
 <h2 id="expressions">Expressions</h2>
-<p>Explang program is a sequence of one or more expressions which are evaluated
-from the beginning to the end.</p>
+<p>An Explang program is a sequence of one or more expressions which are
+evaluated from the beginning to the end.</p>
 <p>The language works with expressions that return values. There are no statements.</p>
 <p>The simplest expressions are things like numbers, booleans or strings, which
 evaluate to themselves.</p>
@@ -1545,8 +1545,8 @@ The return value of the operation is the value of the expression.</p>
 
 <span class="nv">=&gt;</span><span class="w"> </span><span class="mi">6</span><span class="w"></span>
 </code></pre></div></p>
-<p>First the subexpressions +, 1, 2 and 3 were evaluated, returning the
-plus function, 1, 2 and 3.  1, 2 and 3 were then passed to the plus
+<p>First the sub-expressions <code>+</code>, <code>1</code>, <code>2</code> and <code>3</code> were evaluated, returning the
+plus function, <code>1</code>, <code>2</code> and <code>3</code>.  <code>1</code>, <code>2</code> and <code>3</code> were then passed to the plus
 function, which returned 6.</p>
 <p>Such expressions may be complex:
 <div class="highlight"><pre><span></span><code><span class="nb">&gt;</span><span class="w"> </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="p">(</span><span class="nb">*</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
@@ -1554,7 +1554,7 @@ function, which returned 6.</p>
 <span class="nv">=&gt;</span><span class="w"> </span><span class="mi">7</span><span class="w"></span>
 </code></pre></div></p>
 <h2 id="comments">Comments</h2>
-<p>A semicolon ';' starts a comment. The comment continues until end of line.</p>
+<p>A semicolon <code>;</code> starts a comment. The comment continues until end of line.</p>
 <div class="highlight"><pre><span></span><code><span class="nb">&gt;</span><span class="w"> </span><span class="s">&quot;foo&quot;</span><span class="w"> </span><span class="c1">; a comment</span><span class="w"></span>
 
 <span class="nv">=&gt;</span><span class="w"> </span><span class="s">&quot;foo&quot;</span><span class="w"></span>
@@ -1582,7 +1582,7 @@ evaluated.</p>
 
 <span class="nv">=&gt;</span><span class="w"> </span><span class="ss">:something</span><span class="w"></span>
 </code></pre></div>
-<p>They may be used for different kinds of indentifiers: keys in map,
+<p>They may be used for different kinds of identifiers: keys in map,
 names of parameters, etc.</p>
 <h2 id="quoting">Quoting</h2>
 <p>You can turn off evaluation by using the <code>quote</code> special form:</p>
@@ -1660,7 +1660,7 @@ return the average of two numbers as:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">&gt;</span><span class="w"> </span><span class="nv">average</span><span class="w"></span>
 <span class="nv">EXECUTION</span><span class="w"> </span><span class="nv">ERROR:</span><span class="w"> </span><span class="nv">java.lang.RuntimeException:</span><span class="w"> </span><span class="nv">variable</span><span class="w"> </span><span class="ss">&#39;average</span><span class="o">&#39;</span><span class="w"> </span><span class="nv">does</span><span class="w"> </span><span class="nb">not</span><span class="w"> </span><span class="nv">exist</span><span class="w"> </span><span class="nv">in</span><span class="w"> </span><span class="nv">this</span><span class="w"> </span><span class="nv">context</span><span class="w"> </span><span class="nv">at:</span><span class="w"></span>
 </code></pre></div>
-<p>This is because of imprtant property of Explang: named functions and ordinary data variables are 
+<p>This is because of important property of Explang: named functions and ordinary data variables are 
 living in separate namespaces, that is you may assign value to variable <code>average</code> without 
 overwriting the function <code>average</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">&gt;</span><span class="w"> </span><span class="p">(</span><span class="nv">setv</span><span class="w"> </span><span class="nv">average</span><span class="w"> </span><span class="mi">100</span><span class="p">)</span><span class="w"></span>
@@ -1725,7 +1725,7 @@ considered to be documentation string:</p>
 <span class="o">...</span><span class="w"></span>
 </code></pre></div>
 <h2 id="printing-values">Printing values</h2>
-<p>So far we've only had things printed out implicity as a result of
+<p>So far we've only had things printed out implicitly as a result of
 evaluating them. The standard way to print things out in the middle of
 evaluation is with <code>print</code> or <code>println</code>. They take multiple arguments and print
 them in order; <code>println</code> also prints a newline at the end. Here's a variant
@@ -1902,7 +1902,7 @@ to get any number of keyword parameters in addition to those that are named
 in the argument list. </p>
 <p>In the following example the 'r' argument, which is marked with
 <code>&amp;REST</code> and <code>&amp;KEY</code>, is used to collect pairs of argument names
-(keywords) and their walues.  And the <code>&amp;ALLOW-OTHER-KEYS</code> allows the
+(keywords) and their values.  And the <code>&amp;ALLOW-OTHER-KEYS</code> allows the
 function to accept any keyword arguments.</p>
 <div class="highlight"><pre><span></span><code><span class="nb">&gt;</span><span class="w"> </span><span class="p">(</span><span class="nb">defun</span><span class="w"> </span><span class="nv">other-keys-example</span><span class="w"> </span><span class="p">(</span><span class="nv">x</span><span class="w"> </span><span class="nv">&amp;REST</span><span class="w"> </span><span class="nv">&amp;KEY</span><span class="w"> </span><span class="nv">r</span><span class="w"> </span><span class="nv">y</span><span class="w">  </span><span class="nv">&amp;ALLOW-OTHER-KEYS</span><span class="p">)</span><span class="w">   </span><span class="p">(</span><span class="nb">list</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="nv">y</span><span class="w"> </span><span class="nv">r</span><span class="p">))</span><span class="w"></span>
 
@@ -1937,7 +1937,7 @@ Arrays, etc. </p>
 
 <span class="nv">=&gt;</span><span class="w"> </span><span class="nv">true</span><span class="w"></span>
 </code></pre></div>
-<p>Base Java type from the <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/package-frame.html">java.lang</a>
+<p>Base Java type from the <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/package-frame.html"><code>java.lang</code></a>
 can be specified without package:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">&gt;</span><span class="w"> </span><span class="p">(</span><span class="nb">typep</span><span class="w"> </span><span class="s">&quot;abc&quot;</span><span class="w"> </span><span class="ss">&#39;String</span><span class="p">)</span><span class="w"></span>
 
@@ -1959,14 +1959,14 @@ can be specified without package:</p>
 <span class="nv">=&gt;</span><span class="w"> </span><span class="no">NIL</span><span class="w"></span>
 </code></pre></div>
 <h2 id="nil-values">NIL values</h2>
-<p>NIL represents absense of a useful value, it is implemented as Java <code>null</code>. 
+<p>NIL represents absence of a useful value, it is implemented as Java <code>null</code>. 
 It is not really a data type.</p>
 <div class="highlight"><pre><span></span><code>(type-of NIL)
 
 =&gt; NIL
 </code></pre></div>
 <h2 id="booleans">Booleans</h2>
-<p>The boolean type has two values, <code>false</code> and <code>true</code>. It is implemented using
+<p>The Boolean type has two values, <code>false</code> and <code>true</code>. It is implemented using
 as Java Boolean objects. </p>
 <h2 id="numeric-types-and-values">Numeric Types And Values</h2>
 <p>Explang works with Java numeric types. </p>
@@ -2087,7 +2087,7 @@ using the first argument as format specification: </p>
 See <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Formatter.html">java.util.Formatter</a>,
 for details on building the format strings.</p>
 <p><code>uppercase</code> and <code>lowercase</code> can be used to change case of a string:</p>
-<p>Strings in explang are considered a kind of indexed sequences
+<p>Strings in Explang are considered a kind of indexed sequences
 and can be operated upon using generic functions that work with sequences,
 for example to get substring one should use <code>subseq</code>, 
 to get a specific character one uses <code>get</code> or <code>areq</code> and so on. 
@@ -2095,7 +2095,7 @@ See below on how to work with sequences.</p>
 <h2 id="character-type">Character Type</h2>
 <p>Explang Characters represent Unicode 16bit characters and implemented using Java 
 <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Character.html">java.lang.Character</a>.</p>
-<p>Character literals are delimited using the #\C, #\UHEX or #\ESCAPE notation:</p>
+<p>Character literals are delimited using the <code>#\C</code>, <code>#\UHEX</code> or <code>#\ESCAPECHAR</code> notation:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">&gt;</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="sc">#\H</span><span class="w"> </span><span class="sc">#\e</span><span class="w"> </span><span class="sc">#\l</span><span class="w"> </span><span class="sc">#\l</span><span class="w"> </span><span class="sc">#\o</span><span class="w"> </span><span class="sc">#\NEWLINE</span><span class="w"> </span><span class="sc">#\u263a</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
 
 <span class="nv">=&gt;</span><span class="w"> </span><span class="nv">[H,</span><span class="w"> </span><span class="nv">e,</span><span class="w"> </span><span class="nv">l,</span><span class="w"> </span><span class="nv">l,</span><span class="w"> </span><span class="nv">o,</span><span class="w"> </span>
@@ -2182,7 +2182,7 @@ implement interface
 <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/CharSequence.html">java.lang.CharSequence</a>).</p>
 <p>There are other such types that, unlike strings, can be modified in place:</p>
 <p>The <code>string-buffer</code> function creates a 
-<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/StringBuffer.html">StringBuffer</a> object:
+<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/StringBuffer.html"><code>StringBuffer</code></a> object:
 <div class="highlight"><pre><span></span><code><span class="nb">&gt;</span><span class="w"> </span><span class="p">(</span><span class="nv">string-buffer</span><span class="p">)</span><span class="w"> </span><span class="c1">;; creates empty StringBuffer</span><span class="w"></span>
 
 <span class="nv">=&gt;</span><span class="w"> </span>
@@ -2192,9 +2192,9 @@ implement interface
 <span class="nv">=&gt;</span><span class="w"> </span><span class="s">&quot;foobar&quot;</span><span class="w"></span>
 </code></pre></div>
 The <code>string-builder</code> function creates a 
-<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/StringBuilder.html">StringBuilder</a> object.
-StringBuilder is similar to StringBuffer, but unlike StringBuffer it can be safely 
-modified from differennt threads.</p>
+<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/StringBuilder.html"><code>StringBuilder</code></a> object.
+<code>StringBuilder</code> is similar to <code>StringBuffer</code>, but unlike <code>StringBuffer</code> it can be safely 
+modified from different threads.</p>
 <div class="highlight"><pre><span></span><code><span class="nb">&gt;</span><span class="w"> </span><span class="p">(</span><span class="nv">string-builder</span><span class="p">)</span><span class="w"> </span><span class="c1">;; creates empty StringBuilder</span><span class="w"></span>
 
 <span class="nv">=&gt;</span><span class="w"> </span>
@@ -2203,7 +2203,7 @@ modified from differennt threads.</p>
 
 <span class="nv">=&gt;</span><span class="w"> </span><span class="s">&quot;foobar&quot;</span><span class="w"></span>
 </code></pre></div>
-<p>The <code>string-builder</code> function creates a StringBuilder object:
+<p>The <code>string-builder</code> function creates a <code>StringBuilder</code> object:
 <div class="highlight"><pre><span></span><code><span class="nb">&gt;</span><span class="w"> </span><span class="p">(</span><span class="nv">string-builder</span><span class="p">)</span><span class="w"> </span><span class="c1">;; creates empty StringBuilder</span><span class="w"></span>
 
 <span class="nv">=&gt;</span><span class="w"> </span>
@@ -2257,7 +2257,7 @@ property or ability. By convention their name ends by <em>p</em> - predicate.</p
 <p>Explang attempts to provide generic data access operators that can be used on
 all kinds of sequences and collections like lists, arrays, sets, hash
 maps and so on.</p>
-<h3 id="get-value-accessor"><code>get</code> - value accessor</h3>
+<h3 id="get-value-accessor"><code>get</code> - value accessor.</h3>
 <p>The <code>get</code> function returns a Sequence element by its index
 or a Map entry by its key:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">&gt;</span><span class="w"> </span><span class="p">(</span><span class="nv">setv</span><span class="w"> </span><span class="nv">lst</span><span class="w"> </span><span class="p">(</span><span class="nb">list</span><span class="w"> </span><span class="s">&quot;foo&quot;</span><span class="w"> </span><span class="ss">&#39;bar</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="nb">null</span><span class="p">))</span><span class="w"></span>
@@ -2288,10 +2288,10 @@ or a Map entry by its key:</p>
 <p><code>get</code> accepts an optional third argument -- default value. 
 If index is invalid or key is missing it will return the value of the
 third argument:</p>
-<blockquote>
-<p>(get lst 10 "No such index")</p>
-</blockquote>
-<p>=&gt; No such index</p>
+<div class="highlight"><pre><span></span><code>&gt; (get lst 10 &quot;No such index&quot;)
+
+=&gt; No such index
+</code></pre></div>
 <h3 id="get-in-access-values-in-nested-structures"><code>get-in</code> access values in nested structures</h3>
 <p>When the structure is complex like in the following example using get may become cumbersome and require
 use of several nesting expressions.</p>
@@ -2345,8 +2345,8 @@ use of several nesting expressions.</p>
 
 <span class="nv">=&gt;</span><span class="w"> </span><span class="nv">{2=c,</span><span class="w"> </span><span class="nv">0=a}</span><span class="w"></span>
 </code></pre></div>
-<p>The returned Map is actually kind of view into the original object, 
-that is it refkects changes in the original:</p>
+<p>The returned Map is actually kind of a view into the original object, 
+that is it reflects changes in the original:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">&gt;</span><span class="w"> </span><span class="p">(</span><span class="nv">setv</span><span class="w"> </span><span class="nv">m</span><span class="w"> </span><span class="p">(</span><span class="nv">hashmap</span><span class="w"> </span><span class="s">&quot;a&quot;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="s">&quot;b&quot;</span><span class="w"> </span><span class="mi">2</span><span class="p">))</span><span class="w"></span>
 
 <span class="nv">=&gt;</span><span class="w"> </span><span class="nv">{a=1,</span><span class="w"> </span><span class="nv">b=2}</span><span class="w"></span>
@@ -2397,7 +2397,7 @@ that is it refkects changes in the original:</p>
 The type of the returned sequence differs depending on the type of the source sequence.
 For lists it returns sublist sharing the elements with the source list.
 For arrays this is not possible and the data is copied into new array.</p>
-<h3 id="haskey">haskey</h3>
+<h3 id="haskey"><code>haskey</code></h3>
 <p><code>haskey</code> checks if a Map has given key or if an indexed sequence has specified index.
 Unlike <code>get</code> and <code>in</code> this allows to check whether a map contains NIL as a key.</p>
 <div class="highlight"><pre><span></span><code><span class="nb">&gt;</span><span class="w"> </span><span class="p">(</span><span class="nv">setv</span><span class="w"> </span><span class="nv">M</span><span class="w"> </span><span class="p">(</span><span class="nv">hashmap</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="no">NIL</span><span class="w"> </span><span class="no">NIL</span><span class="p">))</span><span class="w"></span>
@@ -2423,10 +2423,10 @@ new data structures with requested changes. By convention the former
 ones have names that end with exclamation mark.</p>
 <h3 id="put-put-element-value-into-an-associative-structure"><code>put!</code> - put element value into an associative structure.</h3>
 <p>Set value of element at index/key in the target structure to object. </p>
-<p>If target object is a list or and andarray and an out of bound exception happend"
-the function returns normally without any change to the target structure"</p>
+<p>If target object is a list or an array and index is out of bounds
+the function returns normally without any change to the target structure.</p>
 <p>This function returns previous value of the element or NIL if id did not exist
-or no change has been made."</p>
+or no change has been made.</p>
 <p>Example with a Map:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">&gt;</span><span class="w"> </span><span class="p">(</span><span class="nv">setv</span><span class="w"> </span><span class="nv">m</span><span class="w"> </span><span class="p">(</span><span class="nv">hashmap</span><span class="w"> </span><span class="s">&quot;foo&quot;</span><span class="w"> </span><span class="mi">1</span><span class="p">))</span><span class="w"></span>
 
@@ -2455,7 +2455,7 @@ or no change has been made."</p>
 
 <span class="nv">=&gt;</span><span class="w"> </span><span class="nv">[0,</span><span class="w"> </span><span class="mi">10</span><span class="o">,</span><span class="w"> </span><span class="mi">0</span><span class="o">,</span><span class="w"> </span><span class="mi">0</span><span class="o">,</span><span class="w"> </span><span class="nv">0]</span><span class="w"></span>
 </code></pre></div>
-<h3 id="put-in-modify-value-in-a-hierarchy-of-nested-associative-structures">put-in! modify value in a hierarchy of nested associative structures.</h3>
+<h3 id="put-in-modify-value-in-a-hierarchy-of-nested-associative-structures"><code>put-in!</code> modify value in a hierarchy of nested associative structures.</h3>
 <p>Like <code>get-in</code> this function accepts list of keys to navigate
 the nested associative structures (lists, arrays, maps, etc).</p>
 <p>Let's add some friends to John using the same structure 
@@ -2487,7 +2487,7 @@ from the <code>get-in</code> example above:</p>
 <p><code>put-in!</code> accepts one optional argument that allows to specify how to automatically create
 structures along the path in case they do not exist. For example this will 
 add Rick Row (id=5) as a friend to Bill that does not have a list of friend identifiers.
-<code>put-in</code> would copy the provided object (an empty list) to create list of friendIds.</p>
+<code>put-in</code> would copy the provided object (an empty list) to create list of <code>friendId</code>s.</p>
 <div class="highlight"><pre><span></span><code><span class="p">(</span><span class="nv">put-in!</span><span class="w"> </span><span class="nv">data</span><span class="w"> </span><span class="p">(</span><span class="nb">list</span><span class="w"> </span><span class="ss">&#39;people</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="ss">&#39;friendIds</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="p">(</span><span class="nb">list</span><span class="p">))</span><span class="w"></span>
 
 <span class="nv">=&gt;</span><span class="w"> </span><span class="nv">{people={1={friendIds=[4,</span><span class="w"> </span><span class="nv">5],</span><span class="w"> </span><span class="nv">surname=Doe,</span><span class="w"> </span><span class="nv">name=John,</span><span class="w"> </span><span class="nv">relatives={motherId=3,</span><span class="w"> </span><span class="nv">fatherId=2}},</span><span class="w"> </span><span class="nv">2={surname=Doe,</span><span class="w"> </span><span class="nv">name=Jack},</span><span class="w"> </span><span class="nv">3={surname=Roe,</span><span class="w"> </span><span class="nv">name=Ann},</span><span class="w"> </span><span class="nv">4={friendIds=[5],</span><span class="w"> </span><span class="nv">surname=Moe,</span><span class="w"> </span><span class="nv">name=Bill},</span><span class="w"> </span><span class="nv">5={surname=Hoe,</span><span class="w"> </span><span class="nv">name=Rick}}}</span><span class="w"></span>
@@ -2603,7 +2603,7 @@ according to the natural order of its objects (if they implement
 <h2 id="collection-specific-access-functions">Collection Specific Access functions</h2>
 <p>In addition to the generic data access functions there are 
 data access functions that are specific for concrete collection types.</p>
-<h3 id="aref-and-aset-array-member-access">aref and aset! -- array member access.</h3>
+<h3 id="aref-and-aset-array-member-access"><code>aref</code> and <code>aset!</code> -- array member access.</h3>
 <p>Unlike <code>put!</code> and <code>get</code> they will fail with exception when index is invalid. </p>
 <div class="highlight"><pre><span></span><code><span class="nb">&gt;</span><span class="w"> </span><span class="p">(</span><span class="nv">setv</span><span class="w"> </span><span class="nv">L</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="p">))</span><span class="w"></span>
 
@@ -2657,14 +2657,14 @@ construction may be used to convert collection into other collection types:</p>
 <h2 id="searching-and-matching-text-data-using-regular-expressions">Searching and Matching Text Data Using Regular Expressions</h2>
 <p>Regular expression (regex) support in Explang is implemented using the
 Java regular expression engine.</p>
-<p>This guide assumes that you have general understanding of what the
-regular expressions are and how to use them.  There are good resources
-for learing about regular expressions and trying them online,
-for example <a href="https://regex101.com">Regex 101</a>.
-The reference documentation for Java regex syntax is here:
+<p>This guide assumes that you have general understanding of what the regular
+expressions are and how to use them.  There are good resources for learning
+about regular expressions and trying them online, for example <a href="https://regex101.com">Regex
+101</a>.  The reference documentation for Java regex syntax
+is here:
 <a href="https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html">java.util.regex.Pattern</a>.</p>
 <h3 id="creating-regex-patterns">Creating Regex Patterns</h3>
-<p>In explang you can create a regex using a literal syntax. 
+<p>In Explang you can create a regex using a literal syntax. 
 Strings with a '#' in front are interpreted as regexes:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">&gt;</span><span class="w"> </span><span class="l l-Other">#&quot;^Hello$&quot;</span><span class="w"></span>
 
@@ -2704,8 +2704,8 @@ wildcard characters. </p>
 <li><code>*</code> a wildcard standing for any string of characters</li>
 <li><code>?</code> a wildcard that stands for one character</li>
 </ul>
-<p>For example "a*.txt" is a glob pattern that would match 
-names of files with '.txt' extension.</p>
+<p>For example <code>a*.txt</code> is a glob pattern that would match 
+names of files with <code>.txt</code> extension.</p>
 <p>Explang supports globbing patterns by internally converting them to
 regex patterns. One can use the produced pattern just like 
 regular regex patterns.</p>
@@ -2722,7 +2722,7 @@ from strings using the <code>re-glob</code> function:</p>
 <span class="nv">=&gt;</span><span class="w"> </span><span class="nv">a.*\.txt</span><span class="w"></span>
 </code></pre></div>
 <h3 id="creating-a-case-insensitive-regex-and-other-flags">Creating a Case Insensitive Regex (and other flags)</h3>
-<p>The Java regex engine allows to supply extra flags when creatting
+<p>The Java regex engine allows to supply extra flags when creating
 regexp pattern.  The most commonly used flag is <code>i</code> - case insensitive
 matching.</p>
 <p>Java regexes allow for a special syntax (embedded flags expression) to
@@ -2773,7 +2773,7 @@ string, then returns the result of the match.</p>
 
 <span class="nv">=&gt;</span><span class="w"> </span><span class="no">NIL</span><span class="w"></span>
 </code></pre></div>
-<p>If the string does match, and there are no groups (parens) in the
+<p>If the string does match, and there are no groups (parentheses) in the
 regex, then it returns the matched string.</p>
 <div class="highlight"><pre><span></span><code>&gt; (re-matches #&quot;abc&quot; &quot;abc&quot;)
 
@@ -2788,7 +2788,7 @@ regex, then it returns the matched string.</p>
 <span class="w">   </span><span class="p">(</span><span class="nv">println</span><span class="w"> </span><span class="s">&quot;x is all digits&quot;</span><span class="p">)</span><span class="w"></span>
 <span class="w">  </span><span class="p">(</span><span class="nv">println</span><span class="w"> </span><span class="s">&quot;x is not all digits&quot;</span><span class="p">))</span><span class="w"></span>
 </code></pre></div>
-<p>Since the emplicit boolean value of an empty string is false, so if regexp matches 
+<p>Since the implicit Boolean value of an empty string is false, so if regexp matches 
 empty string, you need to explicitly test that the returned value is not null:</p>
 <div class="highlight"><pre><span></span><code><span class="p">(</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nv">notnilp</span><span class="w"> </span><span class="p">(</span><span class="nv">re-matches</span><span class="w"> </span><span class="l l-Other">#&quot;\d*&quot;</span><span class="w"> </span><span class="nv">x</span><span class="p">))</span><span class="w"></span>
 <span class="w">   </span><span class="p">(</span><span class="nv">println</span><span class="w"> </span><span class="s">&quot;x is all digits or empty&quot;</span><span class="p">)</span><span class="w"></span>
@@ -2909,31 +2909,30 @@ like <code>&lt;</code> or <code>&gt;=</code>  return Java Boolean objects <code>
 be used in conditional expressions.</p>
 <p>Generally, <code>false</code>, <code>NIL</code>, zero numbers of different types, 
 empty lists, sets, strings  and other sequences have implicit <code>False</code> truth value. 
-Other objects have  thruth value of <code>true</code>. </p>
+Other objects have truth value of <code>true</code>. </p>
 <p>For example </p>
 <div class="highlight"><pre><span></span><code><span class="nb">&gt;</span><span class="w"> </span><span class="p">(</span><span class="k">if</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="ss">&#39;yes</span><span class="w"> </span><span class="ss">&#39;no</span><span class="p">)</span><span class="w"></span>
 
 <span class="nv">=&gt;</span><span class="w"> </span><span class="nv">no</span><span class="w"></span>
 </code></pre></div>
-<p>To check truthyness of an expression one can use built-in function <code>bool</code>
-that returns thruthiness value of an expression. </p>
+<p>To check truth value of an expression one can use built-in function <code>bool</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">&gt;</span><span class="w"> </span><span class="p">(</span><span class="nv">bool</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">)</span><span class="w"></span>
 
 <span class="nv">=&gt;</span><span class="w"> </span><span class="nv">false</span><span class="w"></span>
 </code></pre></div>
 <h3 id="cond-operator"><code>cond</code> Operator</h3>
 <p>The <code>cond</code> conditional operator is used to choose between arbitrary number of alternatives </p>
-<p>Syntax for cond is</p>
+<p>Syntax for <code>cond</code> is</p>
 <div class="highlight"><pre><span></span><code>(cond   ((test1    action1 ...)
    (test2    action2 ... )
    ...
    (testn   actionn ...)))
 </code></pre></div>
-<p>Each clause within the cond statement consists of a conditional test and an list of actions to be performed.</p>
-<p>If the first test following cond, test1, is evaluated to be true, then the related actions are executed, 
+<p>Each clause within the <code>cond</code> statement consists of a conditional test and an list of actions to be performed.</p>
+<p>If the first test following <code>cond</code>, test1, is evaluated to be true, then the related actions are executed, 
 and value of the its value is returned and the rest of the clauses are skipped over.</p>
 <p>If test1 evaluates to be nil, then control moves to the second clause without executing action1, and the same process is followed.</p>
-<p>If none of the test conditions are evaluated to be true, then the cond statement returns nil.</p>
+<p>If none of the test conditions are evaluated to be true, then the <code>cond</code> statement returns nil.</p>
 <div class="highlight"><pre><span></span><code>&gt; (setv x 2)
 
 =&gt; 2
@@ -3012,8 +3011,8 @@ equal structurally or numerically:</p>
 </code></pre></div></p>
 <h3 id="equal"><code>equal</code></h3>
 <p>The <code>equal</code> operator checks two objects for equality by applying the
-equals() java method of the first argument on the scond one.  It will
-return true also if both the arguments are NILs.</p>
+equals() java method of the first argument on the second one.  It will
+return true also if both the arguments are <code>NIL</code>s.</p>
 <p>Comparing using java Object's equals method: java.util.List.equals(),
 which checks that both objects are lists of equal length with equal
 elements at the same indexes.</p>
@@ -3167,7 +3166,7 @@ returns the elements satisfying some test.</p>
 =&gt; [1, 2, 3]
 </code></pre></div>
 <p><code>mapprod</code> returns a sequence consisting of the result of applying 
-func to the cartesian product of the lists:</p>
+a function to the Cartesian product of the lists:</p>
 <div class="highlight"><pre><span></span><code><span class="p">(</span><span class="nv">mapprod</span><span class="w"> </span><span class="nf">#&#39;</span><span class="nv">str</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="s">&quot;A&quot;</span><span class="w"> </span><span class="s">&quot;B&quot;</span><span class="w"> </span><span class="s">&quot;C&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">&#39;</span><span class="p">(</span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="s">&quot;2&quot;</span><span class="w"> </span><span class="s">&quot;3&quot;</span><span class="p">))</span><span class="w"></span>
 
 <span class="nv">=&gt;</span><span class="w"> </span><span class="nv">[A1,</span><span class="w"> </span><span class="nv">B1,</span><span class="w"> </span><span class="nv">C1,</span><span class="w"> </span><span class="nv">A2,</span><span class="w"> </span><span class="nv">B2,</span><span class="w"> </span><span class="nv">C2,</span><span class="w"> </span><span class="nv">A3,</span><span class="w"> </span><span class="nv">B3,</span><span class="w"> </span><span class="nv">C3]</span><span class="w"></span>

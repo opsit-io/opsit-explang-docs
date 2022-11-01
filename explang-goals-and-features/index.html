@@ -527,13 +527,13 @@
 <h2 id="focus-on-support-for-programming-in-the-small-friendliness-to-casual-users-of-the-language">Focus on support for Programming in the Small, friendliness to casual users of the language</h2>
 <ul>
 <li>Dynamic typing, implicit conversions to boolean and numeric values when required.</li>
-<li>Dynamic variables: allows for passing values as variables in the
-  context and defining user functions without arguments.</li>
-<li>Lisp2 language: different namespaces for variables and functions, so
-  there is no potential conflict between user-defined variables and
-  built-in functions.</li>
-<li>Batteries included: contains rich set of utility functions for
-  operating on collections, regexp and globbing support, etc.</li>
+<li>Dynamic variables: allows for passing values as variables in the context and
+  defining user functions without arguments.</li>
+<li>Lisp2 language: different namespaces for variables and functions, so there
+  is no potential conflict between user-defined variables and built-in
+  functions.</li>
+<li>Batteries included: contains rich set of utility functions for operating on
+  collections, regexp and globbing support, etc.</li>
 <li>Support for both imperative and functional style programming.</li>
 <li>Has a rich set of features for defining function arguments (keyword
   args, rest args, optional args, etc) instead of functions overloading.</li>
@@ -541,37 +541,33 @@
 </ul>
 <h2 id="pluggable-parsers-for-language-syntax">Pluggable parsers for language syntax</h2>
 <p>Explang comes with two parsers for LISP like languages:
-- lisp - recursive parser that a sub-set of Common Lisp parser
-  features.
+- lisp - recursive parser that a sub-set of Common Lisp parser features.
 - sexp - simple S-exp parser that is written imperatively (no depth
   limit because of JVM stack).</p>
 <p>There is a parser with a Julia-like Algebraic syntax:
 - <a href="https://github.com/opsit-io/opsit-explang-alg-parser">opsit-explang-alg-parser</a></p>
 <h2 id="modularity-safety-and-adaptability">Modularity, safety and adaptability</h2>
-<p>Language features come in packages so language integrators may select
-just the features that are needed for their use cases. For example, to
-implement a calculator one may include only arithmetical operations
-and variables.  For integrating webhooks one may allow conditionals,
-declaration of functions but not loops or FFI for calling arbitrary
-Java methods.</p>
-<p>The language strives to provide feature flags and configuration
-parameters to allow configuration of language behavious, such as case
-sensitivity, use of default values vs. exceptions on access to
-undefined variables, etc.</p>
+<p>Language features come in packages so language integrators may select just the
+features that are needed for their use cases. For example, to implement a
+calculator one may include only arithmetical operations and variables.  For
+integrating webhooks one may allow conditionals, declaration of functions but
+not loops or FFI for calling arbitrary Java methods.</p>
+<p>The language strives to provide feature flags and configuration parameters to
+allow configuration of language behavious, such as case sensitivity, use of
+default values vs. exceptions on access to undefined variables, etc.</p>
 <h2 id="simplicity-and-ease-of-integration-into-existing-systems">Simplicity and ease of integration into existing systems</h2>
 <ul>
-<li>Explang Core comes with minimum dependencies. </li>
-<li>Minimum types of its own: Explang works with built-in Java data
-  types: Strings, Numbers, Collections, arrays, Character sequences.</li>
-<li>Abstraction mechanisms to use same functions on different Java
-  native types (such as Collections, arrays and character sequences).</li>
-<li>Ability to use Java Beans like objects without writing glue code in
-  Java.</li>
-<li>Ability to add easily additional Java based functions and special
-  forms to be called from Explang code.</li>
+<li>Explang Core comes with minimum dependencies.</li>
+<li>Minimum types of its own: Explang works with built-in Java data types:
+  Strings, Numbers, Collections, arrays, Character sequences.</li>
+<li>Abstraction mechanisms to use same functions on different Java native types
+  (such as Collections, arrays and character sequences).</li>
+<li>Ability to use Java Beans like objects without writing glue code in Java.</li>
+<li>Ability to add easily additional Java based functions and special forms to
+  be called from Explang code.</li>
 <li>Explang source strives to be simple and understandable by Java
-  programmers. There are currently no language features that defined
-  in Explang itself.</li>
+  programmers. There are currently no language features that defined in
+  Explang itself.</li>
 </ul>
 
 
