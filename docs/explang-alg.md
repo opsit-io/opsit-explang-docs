@@ -4,12 +4,12 @@ Tutorial on Using Explang with Algebraic Syntax
 Expressions
 -----------
 
-Explang program is a sequence of one or more expressions which are evaluated
+An Explang program is a sequence of one or more expressions which are evaluated
 from the beginning to the end.
 
 The language works with expressions that return values. There are no statements.
 
-Expressions are separated by ';' and whitespace is not significant; 
+Expressions are separated by ';' and white-space is not significant; 
 
 The simplest expressions are things like numbers, booleans or strings, which
 evaluate to themselves.
@@ -78,7 +78,7 @@ A line comment starts with the `#` character and runs until end of the line:
 ```
 
 Explang supports block comments as well, they are started by `#=` and run until 
-first occurence of `=#`:
+first occurrence of `=#`:
 
 
 ```julia
@@ -120,13 +120,13 @@ The symbols that start with letter ':' are special, they are
 
 ``` 
 
-They may be used for different kinds of indentifiers: keys in map,
+They may be used for different kinds of identifiers: keys in map,
 names of parameters, etc.
 
 Creating lists
 --------------
 
-To create a list of valies use the `[ ]` operator
+To create a list of values use the `[ ]` operator
 
 ```julia
 > [1, 2 + 3, "foo", :b]
@@ -237,9 +237,10 @@ Notice that if you try to get the function object simply by referencing the `ave
 EXECUTION ERROR: java.lang.RuntimeException: variable 'average' does not exist in this context at:
 ```
 
-This is because of imprtant property of Explang: named functions and ordinary data variables are 
-living in separate namespaces, that is you may assign value to variable `average` without 
-overwriting the function `average`:
+This is because of an important property of Explang: named functions
+and ordinary data variables are living in separate namespaces, that is
+you may assign value to variable `average` without overwriting the
+function `average`:
 
 ```julia
 > average:=100;
@@ -283,7 +284,7 @@ To get short description of a function or a special operator use
 Arguments:  limit
 
 Documentation: 
-    Produce Pseudo-Random Number. Returns a pseudo-random number that is a non-negative number less than limit and of the same numeric type as limit. Implemented uding Java Math.random()
+    Produce Pseudo-Random Number. Returns a pseudo-random number that is a non-negative number less than limit and of the same numeric type as limit. Implemented using Java Math.random()
 Package: base.math
 ```
 
@@ -324,11 +325,11 @@ To get list of all the available function use `functions_names`:
 Printing values
 ---------------
 
-So far we've only had things printed out implicity as a result of
-evaluating them. The standard way to print things out in the middle of
-evaluation is with `print` or `println`. They take multiple arguments
-and print them in order; `println` also prints a newline at the
-end. Here's a variant of average that tells us what its arguments
+So far we've only had things printed out implicitly as a result of
+their evaluation. The standard way to print things out in the middle
+of evaluation is with `print` or `println`. They take multiple
+arguments and print them in order; `println` also prints a newline at
+the end. Here's a variant of average that tells us what its arguments
 were:
 
 ```julia
@@ -435,7 +436,7 @@ end;
 
 Sometimes it is convenient to create functions that can take any number of arguments.
 Such functions are often called "varargs - variable number of arguments" functions.
-In Explang youcan make such a function by following the last positional
+In Explang you can make such a function by following the last positional
 argument by ellipsis:
 
 ```julia
@@ -546,7 +547,7 @@ to get any number of keyword parameters in addition to those that are named
 in the argument list. 
 
 In the following example the 'r' argument, which is marked with an ellipsis
-is used to collect pairs of argument names (keywords) and their walues.  
+is used to collect pairs of argument names (keywords) and their values.
 
 ```lisp
 > function  otherkeys_example (x ; y, r...)
@@ -597,7 +598,7 @@ To check if object is of some specific type use the `typep` operator:
 => true
 ```
 
-Base Java type from the [java.lang](https://docs.oracle.com/javase/8/docs/api/java/lang/package-frame.html)
+Base Java type from the [`java.lang`](https://docs.oracle.com/javase/8/docs/api/java/lang/package-frame.html)
 can be specified without package:
 
 ```julia
@@ -633,7 +634,7 @@ The type of NIL is NIL.
 NIL values
 ----------
 
-NIL represents absense of a useful value, it is implemented as Java `null`. 
+NIL represents absence of a useful value, it is implemented as Java `null`. 
 It is not really a data type.
 
 ```
@@ -646,7 +647,7 @@ type_of(NIL)
 Booleans 
 --------
 
-The boolean type has two values, `false` and `true`. It is implemented using
+The Boolean type has two values, `false` and `true`. It is implemented using
 as Java Boolean objects. 
 
 
@@ -820,7 +821,7 @@ for details on building the format strings.
 
 `uppercase()` and `lowercase()` can be used to change case of a string:
 
-Strings in explang are considered a kind of indexed sequences
+Strings in Explang are considered a kind of indexed sequences
 and can be operated upon using generic functions that work with sequences,
 for example to get substring one should use `subseq()`, 
 to get a specific character one uses `get()` or `areq()` and so on. 
@@ -833,7 +834,7 @@ Character Type
 Explang Characters represent Unicode 16bit characters and implemented using Java 
 [java.lang.Character](https://docs.oracle.com/javase/8/docs/api/java/lang/Character.html).
 
-Character literals are delimited using the 'c', '\UHEX','\uHEX' or '\ESCAPE' notation:
+Character literals are delimited using the 'c', '\UHEX','\uHEX' or '\ESCAPECHAR' notation:
 
 ```julia
 > [ 'H', 'e', 'l', 'l', 'o', '\n', '\u263a' ];
@@ -984,7 +985,7 @@ implement interface
 There are other such types that, unlike strings, can be modified in place:
 
 The `string_buffer` function creates a 
-[StringBuffer](https://docs.oracle.com/javase/8/docs/api/java/lang/StringBuffer.html) object:
+[`StringBuffer`](https://docs.oracle.com/javase/8/docs/api/java/lang/StringBuffer.html) object:
 
 ```julia
 > string_buffer() # creates empty StringBuffer
@@ -996,9 +997,9 @@ The `string_buffer` function creates a
 => "foobar"
 ```
 The `string_builder` function creates a 
-[StringBuilder](https://docs.oracle.com/javase/8/docs/api/java/lang/StringBuilder.html) object.
-StringBuilder is similar to StringBuffer, but unlike StringBuffer it can be safely 
-modified from differennt threads.
+[`StringBuilder`](https://docs.oracle.com/javase/8/docs/api/java/lang/StringBuilder.html) object.
+`StringBuilder` is similar to `StringBuffer`, but unlike `StringBuffer` it can be safely 
+modified from different threads.
 
 ```julia
 > string_builder() ;; creates empty StringBuilder
@@ -1166,7 +1167,7 @@ data.people[1].friendIds
 ### Empty subscript `[]`
 
 When there is no index specified the operator works as an iterator,
-that is it applies all the following subkey operations on all the values
+that is it applies all the following subscript operations on all the values
 in the collection:
 
 ```julia
@@ -1190,7 +1191,7 @@ in the collection:
 
 ### `get_in` function access values in nested structures
 
-`get_in` performs data retrival like a chain of `[k]` operators, but 
+`get_in` performs data retrieval like a chain of `[k]` operators, but 
 list of keys is provided as a list that can be set dynamically at runtime.
 
 ```julia
@@ -1322,7 +1323,7 @@ b:=subseq(a,1,3)
 => [8, 3]
 ```
 
-### haskey 
+### `haskey` 
 
 `haskey` checks if a Map has given key or if an indexed sequence has specified index.
 Unlike `get` and `in` this allows to check whether a map contains NIL as a key.
@@ -1351,7 +1352,7 @@ Destructuring of Data Structures
 --------------------------------
 
 Destructuring allows to easily fetch data elements from data
-structures and asign them to variables without fetching them
+structures and assign them to variables without fetching them
 individually using functions like `get` or `get-in`.
 
 The idea is to provide on the receiving end of the assignment operator
@@ -1371,9 +1372,10 @@ Suppose we have a function that returns a vector with three values that represen
 => [1, 2, 3]
 ```
 
-We could access individual coordinates using subscripts like `pos[0]`, but this is 
-kinde of cumbersome and not very readable. We could also assign individual values to variables 
-`x`,`y`,`z` using assignments,  but destructuring allows to do it in one easy statement:
+We could access individual coordinates using subscripts like `pos[0]`, but
+this is kind of cumbersome and not very readable. We could also assign
+individual values to variables `x`,`y`,`z` using assignments, but
+destructuring allows to do it in one easy statement:
 
 
 ```julia
@@ -1496,8 +1498,8 @@ list to the above data structure:
 
 ```
 
-To extract names of parents we add to the left-side map in place of a symbol
-a submap to destructure the nested map:
+To extract names of parents we use a submap as a key of the left-side map in place of a symbol
+to destructure the nested map:
 
 ```julia
 > { { mom : "mother", dad : "father"} : "parents" } := entry;
@@ -1647,7 +1649,7 @@ specify how to automatically create structures along the path in case
 they do not exist. For example this will add Rick Row (id=5) as a
 friend to Bill that does not have a list of friend identifiers.
 `put-in` would copy the provided object (an empty list) to create list
-of friendIds.
+of `friendIds`.
 
 
 ```julia
@@ -1802,7 +1804,7 @@ Collection Specific Access functions
 In addition to the generic data access functions there are 
 data access functions that are specific for concrete collection types.
 
-### aref and aset! -- array member access.
+### `aref` and `aset!` -- array member access.
 
 Unlike `put!` and `get` they will fail with exception when index is invalid. 
 
@@ -1886,7 +1888,7 @@ Java regular expression engine.
 
 This guide assumes that you have general understanding of what the
 regular expressions are and how to use them.  There are good resources
-for learing about regular expressions and trying them online,
+for learning about regular expressions and trying them online,
 for example [Regex 101](https://regex101.com).
 The reference documentation for Java regex syntax is here:
 [java.util.regex.Pattern](https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html).
@@ -1895,7 +1897,7 @@ The reference documentation for Java regex syntax is here:
 ### Creating Regex Patterns
 
 
-In explang you can create a regex using a literal syntax. 
+In Explang you can create a regex using a literal syntax. 
 Strings with a '#' in front are interpreted as regexes:
 
 
@@ -1948,7 +1950,7 @@ build regexes dynamically or get them from some external source.
 
 
 
-### Globbing Patterns
+### The Globbing Patterns
 
 Globbing patterns are commonly used to specify sets of filenames with
 wildcard characters. 
@@ -1956,15 +1958,15 @@ wildcard characters.
 - `*` a wildcard standing for any string of characters
 - `?` a wildcard that stands for one character
 
-For example "a*.txt" is a glob pattern that would match 
-names of files with '.txt' extension.
+For example `a*.txt` is a glob pattern that would match 
+names of files with `.txt` extension.
 
 Explang supports globbing patterns by internally converting them to
 regex patterns. One can use the produced pattern just like 
 regular regex patterns.
 
 You can create globbing patterns using  a literal syntax,
-Strings with a '#g' in front are interpreted as regexes:
+Strings with a `#g` in front are interpreted as regexes:
 
 
 ```julia
@@ -1987,7 +1989,7 @@ from strings using the `re_glob` function:
 ### Creating a Case Insensitive Regex (and other flags)
 
 
-The Java regex engine allows to supply extra flags when creatting
+The Java regex engine allows to supply extra flags when creating
 regexp pattern.  The most commonly used flag is `i` - case insensitive
 matching.
 
@@ -2061,7 +2063,7 @@ If the whole string does not match, re-matches returns NIL.
 => NIL
 ```
 
-If the string does match, and there are no groups (parens) in the
+If the string does match, and there are no groups (parentheses) in the
 regex, then it returns the matched string.
 
 ```
@@ -2084,8 +2086,8 @@ else
 end;
 ```
 
-Since the emplicit boolean value of an empty string is false, so if regexp matches 
-empty string, you need to explicitly test that the returned value is not null:
+Since the implicit Boolean value of an empty string is false, so if a regexp can match
+an empty string, you need to explicitly test that the returned value is not null:
 
 ```julia
 if notnilp(re_matches(r"\d+", x))
@@ -2168,7 +2170,7 @@ Conditionals
 
 Conditional evaluation allows portion of code to be evaluated or not evaluated
 depending on a value of an expression (condition). 
-In explang The conditional operator has form
+In Explang The conditional operator has form
 
 ```julia
 If x < y
@@ -2216,7 +2218,7 @@ x is equal to y
 ```
 
 The `elseif` and `else` blocks are optional, and as many `elseif` blocks as
-desired can be used. The condition expressions in the if-elseif-else
+desired can be used. The condition expressions in the `if-elseif-else`
 construct are evaluated until the first one evaluates to true, after
 which the associated block is evaluated, and no further condition
 expressions or blocks are evaluated.
@@ -2258,7 +2260,7 @@ be used in conditional expressions.
 
 Generally, `false`, `NIL`, zero numbers of different types, 
 empty lists, sets, strings  and other sequences have implicit `False` truth value. 
-Other objects have  thruth value of `true`. 
+Other objects have  truth value of `true`. 
 
 For example 
 
@@ -2268,8 +2270,7 @@ For example
 => no
 ```
 
-To check truthyness of an expression one can use built-in function `bool`
-that returns thruthiness value of an expression. 
+To check truth value of an expression one can use built-in function `bool`:
 
 ```julia
 > bool("")
@@ -2344,11 +2345,11 @@ Similarly 'or' evaluates its argument from left to right and returns false if it
 => true
 ```
 
-This behavior may be  used to form an alternative to very short if statements. 
-Instead of using if one can write <condition> `AND` <statement>;
-(which could be read as: <condition> and then <statement>). 
-Similarly, instead of if `NOT` <condition> <statement> end, one can write 
-<condition> `OR` <statement>; (which could be read as: <cond> or else <statement>).
+This behavior may be used to form an alternative to very short if statements.
+Instead of using if one can write `<condition> AND <statement>` (which could
+be read as: `<condition> and then <statement>`).  Similarly, instead of `if
+NOT <condition> <statement> end`, one can write `<condition> OR <statement>;`
+(which could be read as: `<cond> or else <statement>`).
 
 For example, a recursive factorial routine could be defined like this:
 
@@ -2371,7 +2372,7 @@ Iteration Operators
 
 ### `for-in` loop
 
-To iterate through the elements of a colleaction or sequence  use `for-in` operator:
+To iterate through the elements of a collection or sequence  use `for-in` operator:
 
 ```julia
 > for c in [ "one", "two", "three" ]
@@ -2500,7 +2501,7 @@ returns the elements satisfying some test.
 ### `mapprod`
 
 `mapprod` returns a sequence consisting of the result of applying 
-func to the cartesian product of the lists:
+a function  to the Cartesian product of the lists:
 
 ```julia
 mapprod( f"str", ["A", "B", "C"], [1, 2, 3, 4])
@@ -2534,11 +2535,4 @@ since NIL has implicit numeric value of 0).
 
 => {0=5, 1=7, 2=5, 3=3, 4=1}
 ```
-
-
-
-
-
-
-
 

@@ -4,8 +4,8 @@ Tutorial on Using Explang with Lisp Syntax
 Expressions
 -----------
 
-Explang program is a sequence of one or more expressions which are evaluated
-from the beginning to the end.
+An Explang program is a sequence of one or more expressions which are
+evaluated from the beginning to the end.
 
 The language works with expressions that return values. There are no statements.
 
@@ -40,8 +40,8 @@ For example,
 => 6
 ```
 
-First the subexpressions +, 1, 2 and 3 were evaluated, returning the
-plus function, 1, 2 and 3.  1, 2 and 3 were then passed to the plus
+First the sub-expressions `+`, `1`, `2` and `3` were evaluated, returning the
+plus function, `1`, `2` and `3`.  `1`, `2` and `3` were then passed to the plus
 function, which returned 6.
 
 
@@ -55,7 +55,7 @@ Such expressions may be complex:
 Comments
 --------
 
-A semicolon ';' starts a comment. The comment continues until end of line.
+A semicolon `;` starts a comment. The comment continues until end of line.
 
 ```lisp
 > "foo" ; a comment
@@ -99,7 +99,7 @@ The symbols that start with letter ':' are special, they are
 
 ``` 
 
-They may be used for different kinds of indentifiers: keys in map,
+They may be used for different kinds of identifiers: keys in map,
 names of parameters, etc.
 
 
@@ -220,7 +220,7 @@ Notice that if you try to get the function object simply by referencing the `ave
 EXECUTION ERROR: java.lang.RuntimeException: variable 'average' does not exist in this context at:
 ```
 
-This is because of imprtant property of Explang: named functions and ordinary data variables are 
+This is because of important property of Explang: named functions and ordinary data variables are 
 living in separate namespaces, that is you may assign value to variable `average` without 
 overwriting the function `average`:
 
@@ -309,7 +309,7 @@ To get list of all the available function use `functions-names`:
 Printing values
 ---------------
 
-So far we've only had things printed out implicity as a result of
+So far we've only had things printed out implicitly as a result of
 evaluating them. The standard way to print things out in the middle of
 evaluation is with `print` or `println`. They take multiple arguments and print
 them in order; `println` also prints a newline at the end. Here's a variant
@@ -539,7 +539,7 @@ in the argument list.
 
 In the following example the 'r' argument, which is marked with
 `&REST` and `&KEY`, is used to collect pairs of argument names
-(keywords) and their walues.  And the `&ALLOW-OTHER-KEYS` allows the
+(keywords) and their values.  And the `&ALLOW-OTHER-KEYS` allows the
 function to accept any keyword arguments.
 
 
@@ -589,7 +589,7 @@ To check if object is of some specific type use the `typep` operator:
 => true
 ```
 
-Base Java type from the [java.lang](https://docs.oracle.com/javase/8/docs/api/java/lang/package-frame.html)
+Base Java type from the [`java.lang`](https://docs.oracle.com/javase/8/docs/api/java/lang/package-frame.html)
 can be specified without package:
 
 ```lisp
@@ -625,7 +625,7 @@ The type of NIL is NIL.
 NIL values
 ----------
 
-NIL represents absense of a useful value, it is implemented as Java `null`. 
+NIL represents absence of a useful value, it is implemented as Java `null`. 
 It is not really a data type.
 
 ```
@@ -638,7 +638,7 @@ It is not really a data type.
 Booleans 
 --------
 
-The boolean type has two values, `false` and `true`. It is implemented using
+The Boolean type has two values, `false` and `true`. It is implemented using
 as Java Boolean objects. 
 
 
@@ -809,7 +809,7 @@ for details on building the format strings.
 
 `uppercase` and `lowercase` can be used to change case of a string:
 
-Strings in explang are considered a kind of indexed sequences
+Strings in Explang are considered a kind of indexed sequences
 and can be operated upon using generic functions that work with sequences,
 for example to get substring one should use `subseq`, 
 to get a specific character one uses `get` or `areq` and so on. 
@@ -821,7 +821,7 @@ Character Type
 Explang Characters represent Unicode 16bit characters and implemented using Java 
 [java.lang.Character](https://docs.oracle.com/javase/8/docs/api/java/lang/Character.html).
 
-Character literals are delimited using the #\C, #\UHEX or #\ESCAPE notation:
+Character literals are delimited using the `#\C`, `#\UHEX` or `#\ESCAPECHAR` notation:
 
 ```lisp
 > '(#\H #\e #\l #\l #\o #\NEWLINE #\u263a )
@@ -949,7 +949,7 @@ implement interface
 There are other such types that, unlike strings, can be modified in place:
 
 The `string-buffer` function creates a 
-[StringBuffer](https://docs.oracle.com/javase/8/docs/api/java/lang/StringBuffer.html) object:
+[`StringBuffer`](https://docs.oracle.com/javase/8/docs/api/java/lang/StringBuffer.html) object:
 ```lisp
 > (string-buffer) ;; creates empty StringBuffer
 
@@ -960,9 +960,9 @@ The `string-buffer` function creates a
 => "foobar"
 ```
 The `string-builder` function creates a 
-[StringBuilder](https://docs.oracle.com/javase/8/docs/api/java/lang/StringBuilder.html) object.
-StringBuilder is similar to StringBuffer, but unlike StringBuffer it can be safely 
-modified from differennt threads.
+[`StringBuilder`](https://docs.oracle.com/javase/8/docs/api/java/lang/StringBuilder.html) object.
+`StringBuilder` is similar to `StringBuffer`, but unlike `StringBuffer` it can be safely 
+modified from different threads.
 
 ```lisp
 > (string-builder) ;; creates empty StringBuilder
@@ -974,7 +974,7 @@ modified from differennt threads.
 => "foobar"
 ```
 
-The `string-builder` function creates a StringBuilder object:
+The `string-builder` function creates a `StringBuilder` object:
 ```lisp
 > (string-builder) ;; creates empty StringBuilder
 
@@ -1057,7 +1057,7 @@ Explang attempts to provide generic data access operators that can be used on
 all kinds of sequences and collections like lists, arrays, sets, hash
 maps and so on.
 
-### `get` - value accessor
+### `get` - value accessor.
 
 The `get` function returns a Sequence element by its index
 or a Map entry by its key:
@@ -1097,10 +1097,11 @@ When provided an invalid index `get` returns NIL:
 If index is invalid or key is missing it will return the value of the
 third argument:
 
+```
 > (get lst 10 "No such index")
 
 => No such index
-
+```
 
 ### `get-in` access values in nested structures
 
@@ -1175,8 +1176,8 @@ Returns map of  entries selected  by their keys/indices
 
 ```
 
-The returned Map is actually kind of view into the original object, 
-that is it refkects changes in the original:
+The returned Map is actually kind of a view into the original object, 
+that is it reflects changes in the original:
 
 ```lisp
 > (setv m (hashmap "a" 1 "b" 2))
@@ -1243,7 +1244,7 @@ The type of the returned sequence differs depending on the type of the source se
 For lists it returns sublist sharing the elements with the source list.
 For arrays this is not possible and the data is copied into new array.
 
-### haskey 
+### `haskey` 
 
 `haskey` checks if a Map has given key or if an indexed sequence has specified index.
 Unlike `get` and `in` this allows to check whether a map contains NIL as a key.
@@ -1281,11 +1282,11 @@ ones have names that end with exclamation mark.
 
 Set value of element at index/key in the target structure to object. 
 
-If target object is a list or and andarray and an out of bound exception happend"
-the function returns normally without any change to the target structure"
+If target object is a list or an array and index is out of bounds
+the function returns normally without any change to the target structure.
 
 This function returns previous value of the element or NIL if id did not exist
-or no change has been made."
+or no change has been made.
 
 Example with a Map:
 
@@ -1322,7 +1323,7 @@ Example with an array of integer numbers:
 => [0, 10, 0, 0, 0]
 ```
 
-### put-in! modify value in a hierarchy of nested associative structures.
+### `put-in!` modify value in a hierarchy of nested associative structures.
 
 Like `get-in` this function accepts list of keys to navigate
 the nested associative structures (lists, arrays, maps, etc).
@@ -1359,7 +1360,7 @@ relatives={motherId=3, fatherId=2}}, 2={surname=Doe, name=Jack},
 `put-in!` accepts one optional argument that allows to specify how to automatically create
 structures along the path in case they do not exist. For example this will 
 add Rick Row (id=5) as a friend to Bill that does not have a list of friend identifiers.
-`put-in` would copy the provided object (an empty list) to create list of friendIds.
+`put-in` would copy the provided object (an empty list) to create list of `friendId`s.
 
 
 ```lisp
@@ -1514,7 +1515,7 @@ Collection Specific Access functions
 In addition to the generic data access functions there are 
 data access functions that are specific for concrete collection types.
 
-### aref and aset! -- array member access.
+### `aref` and `aset!` -- array member access.
 
 Unlike `put!` and `get` they will fail with exception when index is invalid. 
 
@@ -1595,18 +1596,18 @@ Searching and Matching Text Data Using Regular Expressions
 Regular expression (regex) support in Explang is implemented using the
 Java regular expression engine.
 
-This guide assumes that you have general understanding of what the
-regular expressions are and how to use them.  There are good resources
-for learing about regular expressions and trying them online,
-for example [Regex 101](https://regex101.com).
-The reference documentation for Java regex syntax is here:
+This guide assumes that you have general understanding of what the regular
+expressions are and how to use them.  There are good resources for learning
+about regular expressions and trying them online, for example [Regex
+101](https://regex101.com).  The reference documentation for Java regex syntax
+is here:
 [java.util.regex.Pattern](https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html).
 
 
 ### Creating Regex Patterns
 
 
-In explang you can create a regex using a literal syntax. 
+In Explang you can create a regex using a literal syntax. 
 Strings with a '#' in front are interpreted as regexes:
 
 
@@ -1667,8 +1668,8 @@ wildcard characters.
 - `*` a wildcard standing for any string of characters
 - `?` a wildcard that stands for one character
 
-For example "a*.txt" is a glob pattern that would match 
-names of files with '.txt' extension.
+For example `a*.txt` is a glob pattern that would match 
+names of files with `.txt` extension.
 
 Explang supports globbing patterns by internally converting them to
 regex patterns. One can use the produced pattern just like 
@@ -1698,7 +1699,7 @@ from strings using the `re-glob` function:
 ### Creating a Case Insensitive Regex (and other flags)
 
 
-The Java regex engine allows to supply extra flags when creatting
+The Java regex engine allows to supply extra flags when creating
 regexp pattern.  The most commonly used flag is `i` - case insensitive
 matching.
 
@@ -1772,7 +1773,7 @@ If the whole string does not match, re-matches returns NIL.
 => NIL
 ```
 
-If the string does match, and there are no groups (parens) in the
+If the string does match, and there are no groups (parentheses) in the
 regex, then it returns the matched string.
 
 ```
@@ -1793,7 +1794,7 @@ Note, that can use re-matches as the test expression of a conditional when match
   (println "x is not all digits"))
 ```
 
-Since the emplicit boolean value of an empty string is false, so if regexp matches 
+Since the implicit Boolean value of an empty string is false, so if regexp matches 
 empty string, you need to explicitly test that the returned value is not null:
 
 ```lisp
@@ -1961,7 +1962,7 @@ be used in conditional expressions.
 
 Generally, `false`, `NIL`, zero numbers of different types, 
 empty lists, sets, strings  and other sequences have implicit `False` truth value. 
-Other objects have  thruth value of `true`. 
+Other objects have truth value of `true`. 
 
 For example 
 
@@ -1971,8 +1972,7 @@ For example
 => no
 ```
 
-To check truthyness of an expression one can use built-in function `bool`
-that returns thruthiness value of an expression. 
+To check truth value of an expression one can use built-in function `bool`:
 
 ```lisp
 > (bool "")
@@ -1984,7 +1984,7 @@ that returns thruthiness value of an expression.
 
 The `cond` conditional operator is used to choose between arbitrary number of alternatives 
 
-Syntax for cond is
+Syntax for `cond` is
 
 ```
 (cond   ((test1    action1 ...)
@@ -1993,14 +1993,14 @@ Syntax for cond is
    (testn   actionn ...)))
 ```
 
-Each clause within the cond statement consists of a conditional test and an list of actions to be performed.
+Each clause within the `cond` statement consists of a conditional test and an list of actions to be performed.
 
-If the first test following cond, test1, is evaluated to be true, then the related actions are executed, 
+If the first test following `cond`, test1, is evaluated to be true, then the related actions are executed, 
 and value of the its value is returned and the rest of the clauses are skipped over.
 
 If test1 evaluates to be nil, then control moves to the second clause without executing action1, and the same process is followed.
 
-If none of the test conditions are evaluated to be true, then the cond statement returns nil.
+If none of the test conditions are evaluated to be true, then the `cond` statement returns nil.
 
 ```list
 > (setv x 2)
@@ -2115,8 +2115,8 @@ Numerically unequal Integer and Long numbers:
 ### `equal`
 
 The `equal` operator checks two objects for equality by applying the
-equals() java method of the first argument on the scond one.  It will
-return true also if both the arguments are NILs.
+equals() java method of the first argument on the second one.  It will
+return true also if both the arguments are `NIL`s.
 
 Comparing using java Object's equals method: java.util.List.equals(),
 which checks that both objects are lists of equal length with equal
@@ -2326,7 +2326,7 @@ returns the elements satisfying some test.
 ```
 
 `mapprod` returns a sequence consisting of the result of applying 
-func to the cartesian product of the lists:
+a function to the Cartesian product of the lists:
 
 ```lisp
 (mapprod #'str '("A" "B" "C") '("1" "2" "3"))
