@@ -64,8 +64,6 @@ but with any number of arguments:
 =>0
 ```
 
-
-
 Comments
 --------
 
@@ -863,8 +861,6 @@ expression:
 
 => Result: too bad: the value is oops
 ```
-
-
 
 
 Character Type
@@ -2200,6 +2196,27 @@ append([], re_seq(r"[a-zA-Z](\d+)", "abc x123 b44 234"))
 `append ()` materializes lazy sequence that re-seq returns so we can
 see text of matched strings.
 
+
+Compound Expressions
+--------------------
+
+Sometimes it is convenient or necessary to have a single expression that
+evaluates in order a number of subordinate expressions and returns the value
+of the last subexpression as value.  The previous subexpressions may be run
+for their side effects or to compute intermediate values that will be used
+to compute the return value in the last subexpression.
+
+```julia
+> q:=begin
+       x := 1;
+       y := 2;
+       println("Computing sum");
+       x + y;
+  end;
+Computing sum
+
+=> 3
+```
 
 
 

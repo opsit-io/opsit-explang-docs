@@ -1869,6 +1869,33 @@ The elements of the seq are whatever type re-find would have returned.
 see text of matched strings.
 
 
+Compound Expressions
+--------------------
+
+Sometimes it is convenient or necessary to have a single expression that
+evaluates in order a number of subordinate expressions and returns the value
+of the last subexpression as value.  The previous subexpressions may be run
+for their side effects or to compute intermediate values that will be used
+to compute the return value in the last subexpression.
+
+```lisp
+> (setv r (progn
+            (setl x 1)
+            (setl y 2)
+            (println "Computing random value")
+            (+ x y)))
+
+Computing random value
+=> 3
+```
+
+When there are no subordinate expressions `NIL` is returned.
+
+```lisp
+> (progn)
+
+=> NIL
+```
 
 Conditionals
 ------------
@@ -2353,4 +2380,7 @@ In this example we compute frequencies table for elements of a list of objects.
 
 => {0=5, 1=7, 2=5, 3=3, 4=1}
 ```
+
+
+
 
