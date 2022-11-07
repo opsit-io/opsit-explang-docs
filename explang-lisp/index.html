@@ -744,6 +744,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#compound-expressions" class="md-nav__link">
+    Compound Expressions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#conditionals" class="md-nav__link">
     Conditionals
   </a>
@@ -850,6 +857,33 @@
   <a href="#iteration-operators" class="md-nav__link">
     Iteration Operators
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exceptions" class="md-nav__link">
+    Exceptions
+  </a>
+  
+    <nav class="md-nav" aria-label="Exceptions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#throwing-exceptions" class="md-nav__link">
+    Throwing Exceptions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#handling-of-exceptions" class="md-nav__link">
+    Handling of Exceptions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1392,6 +1426,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#compound-expressions" class="md-nav__link">
+    Compound Expressions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#conditionals" class="md-nav__link">
     Conditionals
   </a>
@@ -1498,6 +1539,33 @@
   <a href="#iteration-operators" class="md-nav__link">
     Iteration Operators
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exceptions" class="md-nav__link">
+    Exceptions
+  </a>
+  
+    <nav class="md-nav" aria-label="Exceptions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#throwing-exceptions" class="md-nav__link">
+    Throwing Exceptions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#handling-of-exceptions" class="md-nav__link">
+    Handling of Exceptions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1837,7 +1905,7 @@ contain list of all the values of the remaining arguments:</p>
 <p>This type of parameter is called a “rest parameter” because it gets the rest of the arguments. 
 If you want all the arguments to a function to be collected in one parameter, 
 just use it in place of the whole parameter list.</p>
-<p>To supply a list of arguments to a function we can use the apply function:</p>
+<p>To supply a list of arguments to a function we can use the <code>apply</code> function:</p>
 <div class="highlight"><pre><span></span><code><span class="p">(</span><span class="nv">setv</span><span class="w"> </span><span class="nv">L</span><span class="w"> </span><span class="p">(</span><span class="nb">list</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="p">))</span><span class="w"></span>
 
 <span class="nv">=&gt;</span><span class="w"> </span><span class="nv">[1,</span><span class="w"> </span><span class="mi">2</span><span class="o">,</span><span class="w"> </span><span class="nv">3]</span><span class="w"></span>
@@ -2843,6 +2911,26 @@ The elements of the seq are whatever type re-find would have returned.</p>
 </code></pre></div>
 <p><code>append ()</code> materializes lazy sequence that re-seq returns so we can
 see text of matched strings.</p>
+<h2 id="compound-expressions">Compound Expressions</h2>
+<p>Sometimes it is convenient or necessary to have a single expression that
+evaluates in order a number of subordinate expressions and returns the value
+of the last subexpression as value.  The previous subexpressions may be run
+for their side effects or to compute intermediate values that will be used
+to compute the return value in the last subexpression.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">&gt;</span><span class="w"> </span><span class="p">(</span><span class="nv">setv</span><span class="w"> </span><span class="nv">r</span><span class="w"> </span><span class="p">(</span><span class="k">progn</span><span class="w"></span>
+<span class="w">            </span><span class="p">(</span><span class="nv">setl</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="p">(</span><span class="nv">setl</span><span class="w"> </span><span class="nv">y</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="p">(</span><span class="nv">println</span><span class="w"> </span><span class="s">&quot;Computing random value&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="nv">y</span><span class="p">)))</span><span class="w"></span>
+
+<span class="nv">Computing</span><span class="w"> </span><span class="nb">random</span><span class="w"> </span><span class="nv">value</span><span class="w"></span>
+<span class="nv">=&gt;</span><span class="w"> </span><span class="mi">3</span><span class="w"></span>
+</code></pre></div>
+<p>When there are no subordinate expressions <code>NIL</code> is returned.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">&gt;</span><span class="w"> </span><span class="p">(</span><span class="k">progn</span><span class="p">)</span><span class="w"></span>
+
+<span class="nv">=&gt;</span><span class="w"> </span><span class="no">NIL</span><span class="w"></span>
+</code></pre></div>
 <h2 id="conditionals">Conditionals</h2>
 <h3 id="if-operator"><code>If</code> Operator</h3>
 <p>The standard conditional operator is <code>if</code>. Like <code>setv</code> and <code>defun</code>, it
@@ -3185,6 +3273,118 @@ result of it's last function application.</p>
 <span class="w">    </span><span class="p">(</span><span class="nb">list</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="p">))</span><span class="w"> </span>
 
 <span class="nv">=&gt;</span><span class="w"> </span><span class="nv">{0=5,</span><span class="w"> </span><span class="nv">1=7,</span><span class="w"> </span><span class="nv">2=5,</span><span class="w"> </span><span class="nv">3=3,</span><span class="w"> </span><span class="nv">4=1}</span><span class="w"></span>
+</code></pre></div>
+<h2 id="exceptions">Exceptions</h2>
+<p>When an unexpected condition occurs, a function may be unable to return a
+reasonable value to its caller. In such case it may have sense for a function
+to raise an exception that will either terminate the execution of the code or
+allow exception handling code to handle such a condition.</p>
+<h3 id="throwing-exceptions">Throwing Exceptions</h3>
+<p>In Explang the exception handling mechanism is based on the Java exception 
+handling and Explang exceptions are Java exception objects (Objects that extend
+<code>java.lang.Throwable</code>).</p>
+<p>Exceptions may be thrown implicitly when an unexpected condition occurs in a built-in
+function or in the language runtime:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">&gt;</span><span class="w"> </span><span class="p">(</span><span class="nb">apply</span><span class="w"> </span><span class="nf">#&#39;</span><span class="nv">unicorn</span><span class="p">)</span><span class="w"></span>
+<span class="nv">EXECUTION</span><span class="w"> </span><span class="nv">ERROR:</span><span class="w"> </span><span class="nv">java.lang.RuntimeException:</span><span class="w"> </span><span class="nv">Symbol</span><span class="w"> </span><span class="nv">unicorn</span><span class="w"> </span><span class="k">function</span><span class="w"> </span><span class="nv">value</span><span class="w"> </span><span class="nv">is</span><span class="w"> </span><span class="nv">NULL</span><span class="w"> </span><span class="nv">at:</span><span class="w"></span>
+<span class="o">...</span><span class="w"></span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nb">&gt;</span><span class="w"> </span><span class="p">(</span><span class="nb">/</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
+
+<span class="nv">EXECUTION</span><span class="w"> </span><span class="nv">ERROR:</span><span class="w"> </span><span class="nv">java.lang.ArithmeticException:</span><span class="w"> </span><span class="nb">/</span><span class="w"> </span><span class="nv">by</span><span class="w"> </span><span class="nv">zero</span><span class="w"> </span><span class="nv">at:</span><span class="w"></span>
+<span class="o">...</span><span class="w"></span>
+</code></pre></div>
+<p>One can throw an exception explicitly from the Explang code using the <code>throw</code> function:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">&gt;</span><span class="w"> </span><span class="p">(</span><span class="k">throw</span><span class="w"> </span><span class="s">&quot;my error&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="nv">EXECUTION</span><span class="w"> </span><span class="nv">ERROR:</span><span class="w"> </span><span class="nv">my</span><span class="w"> </span><span class="nb">error</span><span class="w"> </span><span class="nv">at:</span><span class="w"></span>
+</code></pre></div>
+<p>The <code>throw</code> function expects one argument: either an Exception object or a
+<code>String</code>. In the latter case a new <code>io.opsit.explang.ExecutionException</code> with the given
+message will be created and thrown.</p>
+<p>To create an exception object without throwing one may uses the <code>exception</code> function.
+The exception may be thrown immediately with the same error as in the code above</p>
+<p><div class="highlight"><pre><span></span><code>&gt;  (setl e (exception :message &quot;ssss&quot; ))
+
+=&gt; io.opsit.explang.ExecutionException: ssss
+</code></pre></div>
+The saved exception may be later thrown:</p>
+<div class="highlight"><pre><span></span><code>(throw e)
+EXECUTION ERROR: ssss at:
+</code></pre></div>
+<h3 id="handling-of-exceptions">Handling of Exceptions</h3>
+<p>When exception it thrown and not handled the execution of Explang code stops
+and control is passed to the calling Java code. When working in REPL it will
+print information about the exception a dump of execution stack and return
+control to the user, for example, lets define function to compute 
+average of list of numbers.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">&gt;</span><span class="w"> </span><span class="p">(</span><span class="nb">defun</span><span class="w"> </span><span class="nv">average</span><span class="w"> </span><span class="p">(</span><span class="nv">args</span><span class="p">)</span><span class="w"> </span>
+<span class="w">    </span><span class="s">&quot;Compute average of the numbers in &#39;args&#39;&quot;</span><span class="w"></span>
+<span class="w">       </span><span class="p">(</span><span class="nb">/</span><span class="w"> </span><span class="p">(</span><span class="nb">apply</span><span class="w"> </span><span class="nf">#&#39;</span><span class="nb">+</span><span class="w"> </span><span class="nv">args</span><span class="p">)</span><span class="w"> </span>
+<span class="w">          </span><span class="p">(</span><span class="nb">length</span><span class="w"> </span><span class="nv">args</span><span class="p">)))</span><span class="w"></span>
+
+<span class="nv">=&gt;</span><span class="w"> </span><span class="nv">io.opsit.explang.Compiler$LAMBDA$1@2e5d6d97</span><span class="w"></span>
+</code></pre></div>
+<p>If we pass an empty list to this function we'll get an arithmetic exception:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">&gt;</span><span class="w"> </span><span class="p">(</span><span class="nv">average</span><span class="w"> </span><span class="p">())</span><span class="w"></span>
+<span class="nv">EXECUTION</span><span class="w"> </span><span class="nv">ERROR:</span><span class="w"> </span><span class="nv">java.lang.ArithmeticException:</span><span class="w"> </span><span class="nb">/</span><span class="w"> </span><span class="nv">by</span><span class="w"> </span><span class="nv">zero</span><span class="w"> </span><span class="nv">at:</span><span class="w"></span>
+<span class="nv">1:</span><span class="w"> </span><span class="nb">/</span><span class="w">         </span><span class="nv">INPUT23:line=4:pos=25:o=123:len=0</span><span class="w"> </span><span class="nv">Eargs&lt;824318946&gt;</span><span class="w"></span>
+<span class="nv">2:</span><span class="w"> </span><span class="nv">average</span><span class="w">   </span><span class="nv">INPUT26:line=1:pos=12:o=12:len=0</span><span class="w">  </span><span class="nv">Ctx&lt;2128227771&gt;</span><span class="w"></span>
+</code></pre></div>
+<p>The <code>try-catch-finally</code> statement allows to catch the exception and handle it
+in user code. For example we can modify the function <code>average</code> that we used in
+one of the previous chapters to handle the exception and return a Not-A-Number
+value when called without the arguments:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">&gt;</span><span class="w"> </span><span class="p">(</span><span class="nb">defun</span><span class="w"> </span><span class="nv">average</span><span class="w"> </span><span class="p">(</span><span class="nv">args</span><span class="p">)</span><span class="w"> </span>
+<span class="w">    </span><span class="s">&quot;Compute average of the numbers in &#39;args&#39;. Returns a NaN if an error occurs.&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">(</span><span class="nv">try</span><span class="w"> </span>
+<span class="w">      </span><span class="p">(</span><span class="nb">/</span><span class="w"> </span><span class="p">(</span><span class="nb">apply</span><span class="w"> </span><span class="nf">#&#39;</span><span class="nb">+</span><span class="w"> </span><span class="nv">args</span><span class="p">)</span><span class="w"> </span>
+<span class="w">             </span><span class="p">(</span><span class="nb">length</span><span class="w"> </span><span class="nv">args</span><span class="p">))</span><span class="w"></span>
+<span class="w">    </span><span class="p">(</span><span class="k">catch</span><span class="w"> </span><span class="nv">Exception</span><span class="w"> </span><span class="nv">ex</span><span class="w"></span>
+<span class="w">      </span><span class="p">(</span><span class="nv">println</span><span class="w"> </span><span class="s">&quot;Warning: average: &quot;</span><span class="w"> </span><span class="p">(</span><span class="nb">get</span><span class="w"> </span><span class="nv">ex</span><span class="w"> </span><span class="s">&quot;message&quot;</span><span class="p">))</span><span class="w"></span>
+<span class="w">      </span><span class="p">(</span><span class="nv">double</span><span class="w"> </span><span class="s">&quot;NaN&quot;</span><span class="p">))))</span><span class="w"></span>
+
+<span class="nv">=&gt;</span><span class="w"> </span><span class="nv">io.opsit.explang.Compiler$LAMBDA$1@6e2c634b</span><span class="w"></span>
+<span class="nb">&gt;</span><span class="w"> </span><span class="p">(</span><span class="nv">average</span><span class="w"> </span><span class="p">(</span><span class="nb">list</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">5</span><span class="p">))</span><span class="w"></span>
+
+<span class="nv">=&gt;</span><span class="w"> </span><span class="mi">4</span><span class="w"></span>
+
+<span class="nb">&gt;</span><span class="w"> </span><span class="p">(</span><span class="nv">average</span><span class="w"> </span><span class="p">(</span><span class="nb">list</span><span class="p">))</span><span class="w"></span>
+<span class="nv">Warning:</span><span class="w"> </span><span class="nv">average:</span><span class="w"> </span><span class="nb">/</span><span class="w"> </span><span class="nv">by</span><span class="w"> </span><span class="nv">zero</span><span class="w"></span>
+
+<span class="nv">=&gt;</span><span class="w"> </span><span class="nv">NaN</span><span class="w"></span>
+</code></pre></div>
+<p>In the <code>catch</code> clause we specify the exception class that we want to catch,
+variable to put the exception and list of expressions to be evaluated.  The
+statement supports handling multiple exceptions with multiple catch
+blocks. All Java exceptions inherit from the <code>java.lang.Exception</code> class, so
+the above <code>catch</code> clause would handle any exception that can be thrown inside
+the try block. It also means that order of catch blocks is important: first
+should be handled more specific exceptions and then less specific according to
+the inheritance hierarchy.</p>
+<p>In code that works with resources like files or database connections or
+modifies state of data structures there is often some clean-up tasks that need
+to be performed after the code has finished its work. Exception handling may
+complicate performing these tasks because it may cause cause block of code to
+exit before reaching its normal end.</p>
+<p>The <code>finally</code> block allows to perform some action after all the <code>try</code> and
+<code>catch</code> code has been evaluated regardless of how it exits.  The code of the
+finally block is evaluated only for side effects: it does not affect the
+return value of the <code>try-catch-finally</code> statement.</p>
+<p>Suppose we want to produce some HTML report on basis of some remote resource.
+In case of error we want still to output HTML with error messages:</p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="nv">println</span><span class="w"> </span><span class="s">&quot;&lt;html&gt;&lt;body&gt;&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="p">(</span><span class="nv">try</span><span class="w"> </span>
+<span class="w">  </span><span class="p">(</span><span class="k">let</span><span class="w"> </span><span class="p">((</span><span class="nv">data</span><span class="w"> </span><span class="p">(</span><span class="nv">fetch-data</span><span class="w"> </span><span class="nv">url</span><span class="p">))</span><span class="w"></span>
+<span class="w">        </span><span class="p">(</span><span class="nv">formatted-data</span><span class="w"> </span><span class="p">(</span><span class="nv">html-format</span><span class="w"> </span><span class="nv">data</span><span class="p">)))</span><span class="w"></span>
+<span class="w">    </span><span class="p">(</span><span class="nv">println</span><span class="w"> </span><span class="nv">formatted-data</span><span class="p">))</span><span class="w"></span>
+<span class="w">  </span><span class="p">(</span><span class="k">catch</span><span class="w"> </span><span class="nv">IOException</span><span class="w"> </span><span class="nv">ex</span><span class="w"></span>
+<span class="w">    </span><span class="p">(</span><span class="nv">println</span><span class="w"> </span><span class="s">&quot;ERROR: IO error reading data: &quot;</span><span class="w"> </span>
+<span class="w">           </span><span class="p">(</span><span class="nb">get</span><span class="w"> </span><span class="nv">ex</span><span class="w"> </span><span class="s">&quot;message&quot;</span><span class="p">)))</span><span class="w"></span>
+<span class="w">  </span><span class="p">(</span><span class="k">catch</span><span class="w"> </span><span class="nv">Exception</span><span class="w"> </span><span class="nv">ex</span><span class="w"> </span>
+<span class="w">    </span><span class="p">(</span><span class="nv">println</span><span class="w"> </span><span class="s">&quot;ERROR: some exception producing report: &quot;</span><span class="w"> </span>
+<span class="w">           </span><span class="p">(</span><span class="nb">get</span><span class="w"> </span><span class="nv">ex</span><span class="w"> </span><span class="s">&quot;message&quot;</span><span class="p">)))</span><span class="w"></span>
+<span class="w">  </span><span class="p">(</span><span class="nv">finally</span><span class="w"> </span>
+<span class="w">    </span><span class="p">(</span><span class="nv">println</span><span class="w"> </span><span class="s">&quot;&lt;/body&gt;&lt;/html&gt;&quot;</span><span class="p">)))</span><span class="w"></span>
 </code></pre></div>
 
 

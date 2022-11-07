@@ -2,87 +2,87 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://github.com/opsit-io/opsit-explang-docs/</loc>
-         <lastmod>2022-11-01</lastmod>
+         <lastmod>2022-11-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://github.com/opsit-io/opsit-explang-docs/LICENSE/</loc>
-         <lastmod>2022-11-01</lastmod>
+         <lastmod>2022-11-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://github.com/opsit-io/opsit-explang-docs/acknowledgements/</loc>
-         <lastmod>2022-11-01</lastmod>
+         <lastmod>2022-11-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://github.com/opsit-io/opsit-explang-docs/explang-alg-funcs-by-name/</loc>
-         <lastmod>2022-11-01</lastmod>
+         <lastmod>2022-11-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://github.com/opsit-io/opsit-explang-docs/explang-alg-funcs-by-package/</loc>
-         <lastmod>2022-11-01</lastmod>
+         <lastmod>2022-11-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://github.com/opsit-io/opsit-explang-docs/explang-alg-syntax-quick-start/</loc>
-         <lastmod>2022-11-01</lastmod>
+         <lastmod>2022-11-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://github.com/opsit-io/opsit-explang-docs/explang-alg/</loc>
-         <lastmod>2022-11-01</lastmod>
+         <lastmod>2022-11-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://github.com/opsit-io/opsit-explang-docs/explang-core-quick-start/</loc>
-         <lastmod>2022-11-01</lastmod>
+         <lastmod>2022-11-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://github.com/opsit-io/opsit-explang-docs/explang-examples-alg/</loc>
-         <lastmod>2022-11-01</lastmod>
+         <lastmod>2022-11-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://github.com/opsit-io/opsit-explang-docs/explang-examples-lisp/</loc>
-         <lastmod>2022-11-01</lastmod>
+         <lastmod>2022-11-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://github.com/opsit-io/opsit-explang-docs/explang-extending/</loc>
-         <lastmod>2022-11-01</lastmod>
+         <lastmod>2022-11-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://github.com/opsit-io/opsit-explang-docs/explang-from-java/</loc>
-         <lastmod>2022-11-01</lastmod>
+         <lastmod>2022-11-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://github.com/opsit-io/opsit-explang-docs/explang-goals-and-features/</loc>
-         <lastmod>2022-11-01</lastmod>
+         <lastmod>2022-11-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://github.com/opsit-io/opsit-explang-docs/explang-lisp-funcs-by-name/</loc>
-         <lastmod>2022-11-01</lastmod>
+         <lastmod>2022-11-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://github.com/opsit-io/opsit-explang-docs/explang-lisp-funcs-by-package/</loc>
-         <lastmod>2022-11-01</lastmod>
+         <lastmod>2022-11-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://github.com/opsit-io/opsit-explang-docs/explang-lisp/</loc>
-         <lastmod>2022-11-01</lastmod>
+         <lastmod>2022-11-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://github.com/opsit-io/opsit-explang-docs/using-explang-REPL/</loc>
-         <lastmod>2022-11-01</lastmod>
+         <lastmod>2022-11-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>

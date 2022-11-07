@@ -657,6 +657,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#exception" class="md-nav__link">
+    EXCEPTION
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#exp" class="md-nav__link">
     EXP
   </a>
@@ -2266,6 +2273,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#exception" class="md-nav__link">
+    EXCEPTION
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#exp" class="md-nav__link">
     EXP
   </a>
@@ -3503,72 +3517,83 @@
 <h3 id="-"><code>@-&gt;</code></h3>
 <p><strong>(@-&gt; args ...)</strong></p>
 <p>Threading form on &amp;PIPE or first argument</p>
-<p><strong>builtin form</strong> in package <strong>base.control</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Compiler.TH_PIPE.html">class io.opsit.explang.Compiler$TH_PIPE</a> </p>
+<p><strong>builtin form</strong> in package <strong>base.control</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Compiler.TH_PIPE.html">class io.opsit.explang.Compiler$TH_PIPE</a> </p>
 <h2 id="a">A</h2>
 <h3 id="and"><code>AND</code></h3>
-<p><strong>Logical AND.</strong></p>
+<p><strong>Logical <code>AND</code> operation.</strong></p>
 <p><strong>(AND  &amp;REST &amp;LAZY forms)</strong></p>
-<p>Function AND lazily evaluates each argument form, one at a time from left to right. As soon as any form evaluates to NIL, AND returns NIL without evaluating the remaining forms. If all forms but the last evaluate to true values, AND returns the results produced by evaluating the last form. If no forms are supplied, (AND) returns true.</p>
-<p><strong>builtin function</strong> in package <strong>base.logic</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.AND.html">class io.opsit.explang.Funcs$AND</a> </p>
+<div class="highlight"><pre><span></span><code>Function `AND` lazily evaluates each argument expression, one at a time from
+left to right. As soon as any of them evaluates to implicit logical `false`,
+`AND` returns this value without evaluating the remaining expressions (if any).
+If all evaluate to true values, `AND` returns the result produced by
+evaluating the last expression. If no arguments supplied, `AND` returns `true`.
+</code></pre></div>
+<p><strong>builtin function</strong> in package <strong>base.logic</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.AND.html">class io.opsit.explang.Funcs$AND</a> </p>
 <h3 id="append"><code>APPEND</code></h3>
 <p><strong>Concatenate sequences (non-destructive).</strong></p>
 <p><strong>(APPEND  &amp;REST sequences)</strong></p>
-<p>append returns a new sequence that is the concatenation of the elements of the arguments. All the argument remain unchanged. The resulting sequence is of the same type as the first argument. In no arguments were given an empty list is returned. If target sequence is an array necessary coercions will be performed automatically.</p>
-<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.APPEND.html">class io.opsit.explang.Funcs$APPEND</a> </p>
+<div class="highlight"><pre><span></span><code>`append` returns a new sequence that is the concatenation of the 
+elements of the arguments. All the arguments remain unchanged. The 
+resulting sequence is of the same type as the first argument. In no 
+arguments were given, an empty list is returned. If target sequence is
+an array, necessary coercions according to the type of array elements
+will be performed automatically.
+</code></pre></div>
+<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.APPEND.html">class io.opsit.explang.Funcs$APPEND</a> </p>
 <h3 id="append_1"><code>APPEND!</code></h3>
 <p><strong>Concatenate sequences (destructive).</strong></p>
 <p><strong>(APPEND!  &amp;REST sequences)</strong></p>
-<p>Adds to the first given sequence (target sequence) all the elements ofall of the following sequences and return the target sequence.  If no sequences were given an empty list will be returned. Target sequence must be extendable, that means that objects like Arrays or String cannot be target of this operation</p>
-<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.NAPPEND.html">class io.opsit.explang.Funcs$NAPPEND</a> </p>
+<p>Adds to the first given sequence (target sequence) all the elements of all of the following sequences and return the target sequence.  If no sequences were given an empty list will be returned. Target sequence must be extendable, that means that objects like Arrays or String cannot be target of this operation</p>
+<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.NAPPEND.html">class io.opsit.explang.Funcs$NAPPEND</a> </p>
 <h3 id="apply"><code>APPLY</code></h3>
 <p><strong>Apply function to arguments.</strong></p>
 <p><strong>(APPLY  f &amp;REST arguments)</strong></p>
 <p>arguments must be a spreadable list designator, i.e. if the last argument is a list, it contents will be appended to the list of arguments.</p>
-<p><strong>builtin function</strong> in package <strong>base.funcs</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.APPLY.html">class io.opsit.explang.Funcs$APPLY</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.funcs</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.APPLY.html">class io.opsit.explang.Funcs$APPLY</a> </p>
 <h3 id="aref"><code>AREF</code></h3>
 <p><strong>Get Array element value.</strong></p>
 <p><strong>(AREF  array index)</strong></p>
 <p>Return array element at specified index. Throws ArrayOutOfBoundsException if index is invalid</p>
-<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.AREF.html">class io.opsit.explang.Funcs$AREF</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.AREF.html">class io.opsit.explang.Funcs$AREF</a> </p>
 <h3 id="argv"><code>ARGV</code></h3>
 <p><strong>Access command line arguments.</strong></p>
 <p><strong>(ARGV  &amp;OPTIONAL n)</strong></p>
 <p>When n is provided return nth argument as String, when not -- return list of command line arguments. If n is out of range return NIL.</p>
-<p><strong>builtin function</strong> in package <strong>runtime</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.ARGV.html">class io.opsit.explang.Funcs$ARGV</a> </p>
+<p><strong>builtin function</strong> in package <strong>runtime</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.ARGV.html">class io.opsit.explang.Funcs$ARGV</a> </p>
 <h3 id="as-"><code>AS-&gt;</code></h3>
 <p><strong>(AS-&gt; args ...)</strong></p>
 <p>Threading form on named argument</p>
-<p><strong>builtin form</strong> in package <strong>base.control</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Compiler.TH_AS.html">class io.opsit.explang.Compiler$TH_AS</a> </p>
+<p><strong>builtin form</strong> in package <strong>base.control</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Compiler.TH_AS.html">class io.opsit.explang.Compiler$TH_AS</a> </p>
 <h3 id="aset"><code>ASET!</code></h3>
 <p><strong>Set indexed sequence (array, list, character sequence) element value.</strong></p>
 <p><strong>(ASET!  obj key object)</strong></p>
 <p>Set value of element at index to object.  If target ibject is a Java array and object type does not match type of this array this function will attempt to perform necessary coercion operations.  The coercions  work in the same way as INT, FLOAT, STRING and rest of the  built-in coercion functions. May fail with index out of bound exception. The function returns previous value of the element.</p>
-<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.ASET.html">class io.opsit.explang.Funcs$ASET</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.ASET.html">class io.opsit.explang.Funcs$ASET</a> </p>
 <h3 id="assoc"><code>ASSOC</code></h3>
 <p><strong>Associates value with key in an map structure.</strong></p>
 <p><strong>(ASSOC  map key val &amp;REST kvpairs)</strong></p>
 <p>Return new instance of the structure, the original is left unchanged.</p>
-<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.ASSOC.html">class io.opsit.explang.Funcs$ASSOC</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.ASSOC.html">class io.opsit.explang.Funcs$ASSOC</a> </p>
 <h3 id="assoc_1"><code>ASSOC!</code></h3>
 <p><strong>Associates value with key in an map structure.</strong></p>
 <p><strong>(ASSOC!  map key val &amp;REST kvpairs)</strong></p>
 <p>Modifies the object and returns it as the result.</p>
-<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.NASSOC.html">class io.opsit.explang.Funcs$NASSOC</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.NASSOC.html">class io.opsit.explang.Funcs$NASSOC</a> </p>
 <h3 id="associativep"><code>ASSOCIATIVEP</code></h3>
 <p><strong>(ASSOCIATIVEP  object)</strong></p>
 <p>Check if an object is an associative collection.</p>
-<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.ASSOCIATIVEP.html">class io.opsit.explang.Funcs$ASSOCIATIVEP</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.ASSOCIATIVEP.html">class io.opsit.explang.Funcs$ASSOCIATIVEP</a> </p>
 <h2 id="b">B</h2>
 <h3 id="backtrace"><code>BACKTRACE</code></h3>
 <p><strong>Return callstack backtrace.</strong></p>
 <p><strong>(BACKTRACE  &amp;OPTIONAL vars)</strong></p>
 <p>Returns string representation of current stack frame.If vars is a sequence print  bindings that are contained in a sequence.If vars is not a sequence print all bindings only if vars boolean value is true.</p>
-<p><strong>builtin function</strong> in package <strong>base.funcs</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.BACKTRACE.html">class io.opsit.explang.Funcs$BACKTRACE</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.funcs</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.BACKTRACE.html">class io.opsit.explang.Funcs$BACKTRACE</a> </p>
 <h3 id="bean"><code>BEAN</code></h3>
 <p><strong>Convert Java Bean to a Map.</strong></p>
 <p><strong>(BEAN  object &amp;OPTIONAL prefix suffix)</strong></p>
 <p>Returns a Map based on getters in the passed java object. Accepts optional prefix and suffics arguments that are used to modify the generated keys.</p>
-<p><strong>builtin function</strong> in package <strong>base.bindings</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.BEAN.html">class io.opsit.explang.Funcs$BEAN</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.bindings</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.BEAN.html">class io.opsit.explang.Funcs$BEAN</a> </p>
 <h3 id="bool"><code>BOOL</code></h3>
 <p><strong>Coerce Value to Boolean.</strong></p>
 <p><strong>(BOOL  value)</strong></p>
@@ -3581,17 +3606,17 @@
 * An empty collection is false 
 * Any other object is true.
 </code></pre></div>
-<p><strong>builtin function</strong> in package <strong>base.coercion</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.BOOL.html">class io.opsit.explang.Funcs$BOOL</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.coercion</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.BOOL.html">class io.opsit.explang.Funcs$BOOL</a> </p>
 <h3 id="boundp"><code>BOUNDP</code></h3>
 <p><strong>Check if Symbols are Bound.</strong></p>
 <p><strong>(BOUNDP  &amp;REST symbols)</strong></p>
 <p>Returns True if all the arguments are bound symbols or names of bound symbols; otherwise, returns False.</p>
-<p><strong>builtin function</strong> in package <strong>base.bindings</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.BOUNDP.html">class io.opsit.explang.Funcs$BOUNDP</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.bindings</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.BOUNDP.html">class io.opsit.explang.Funcs$BOUNDP</a> </p>
 <h3 id="byte"><code>BYTE</code></h3>
 <p><strong>Coerce Value to Byte.</strong></p>
 <p><strong>(BYTE  value)</strong></p>
 <p>Value may be a Number, String, any object or NIL.String will be parsed as number using same rules as numeric literals. The floating point values will be truncated.</p>
-<p><strong>builtin function</strong> in package <strong>base.coercion</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.BYTE.html">class io.opsit.explang.Funcs$BYTE</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.coercion</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.BYTE.html">class io.opsit.explang.Funcs$BYTE</a> </p>
 <h2 id="c">C</h2>
 <h3 id="char"><code>CHAR</code></h3>
 <p><strong>Coerce Value to Character.</strong></p>
@@ -3605,16 +3630,16 @@
 * a String will be parsed as number using same rules as numeric literals and the resulting value will be used as described above. Conversion to number may fail.
 * Any other object will cause conversion error.
 </code></pre></div>
-<p><strong>builtin function</strong> in package <strong>base.coercion</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.CHAR.html">class io.opsit.explang.Funcs$CHAR</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.coercion</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.CHAR.html">class io.opsit.explang.Funcs$CHAR</a> </p>
 <h3 id="class"><code>CLASS</code></h3>
 <p><strong>Return Class by Class Name.Return class object according to it's fully qualified class name.</strong></p>
 <p><strong>(CLASS  class-spec)</strong></p>
 <p>class-spec may be string, symbol or any object,which string representation will be used</p>
-<p><strong>builtin function</strong> in package <strong>ffi</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.CLASS.html">class io.opsit.explang.Funcs$CLASS</a> </p>
+<p><strong>builtin function</strong> in package <strong>ffi</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.CLASS.html">class io.opsit.explang.Funcs$CLASS</a> </p>
 <h3 id="collp"><code>COLLP</code></h3>
 <p><strong>(COLLP  object)</strong></p>
 <p>Check if an object is a sequence.</p>
-<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.COLLP.html">class io.opsit.explang.Funcs$COLLP</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.COLLP.html">class io.opsit.explang.Funcs$COLLP</a> </p>
 <h3 id="cond"><code>COND</code></h3>
 <p><strong>Conditional switch construct.</strong></p>
 <p><strong>(COND  &amp;REST args)</strong></p>
@@ -3631,39 +3656,39 @@ yielded true, no additional test-forms are
 evaluated. If no test-form yields true, nil is
 returned.
 </code></pre></div>
-<p><strong>builtin form</strong> in package <strong>base.control</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Compiler.COND.html">class io.opsit.explang.Compiler$COND</a> </p>
+<p><strong>builtin form</strong> in package <strong>base.control</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Compiler.COND.html">class io.opsit.explang.Compiler$COND</a> </p>
 <h3 id="cons"><code>CONS</code></h3>
 <p><strong>(CONS  object-1 object-2)</strong></p>
 <p>Prepend element to a list.</p>
-<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.CONS.html">class io.opsit.explang.Funcs$CONS</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.CONS.html">class io.opsit.explang.Funcs$CONS</a> </p>
 <h3 id="copy"><code>COPY</code></h3>
 <p><strong>(COPY  object)</strong></p>
 <p>Perform shallow copy of an object.</p>
-<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.COPY.html">class io.opsit.explang.Funcs$COPY</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.COPY.html">class io.opsit.explang.Funcs$COPY</a> </p>
 <h2 id="d">D</h2>
 <h3 id="defun"><code>DEFUN</code></h3>
 <p><strong>(DEFUN  name ( arglist ) body)</strong></p>
 <p>Define named function</p>
-<p><strong>builtin form</strong> in package <strong>base.funcs</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Compiler.DEFUN.html">class io.opsit.explang.Compiler$DEFUN</a> </p>
+<p><strong>builtin form</strong> in package <strong>base.funcs</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Compiler.DEFUN.html">class io.opsit.explang.Compiler$DEFUN</a> </p>
 <h3 id="describe-function"><code>DESCRIBE-FUNCTION</code></h3>
 <p><strong>Describe function.</strong></p>
 <p><strong>(DESCRIBE-FUNCTION  function)</strong></p>
 <p>Return textual description of given function or built-in form. function is a symbol or function name or a lambda</p>
-<p><strong>builtin function</strong> in package <strong>base.docs</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.DESCRIBE_FUNCTION.html">class io.opsit.explang.Funcs$DESCRIBE_FUNCTION</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.docs</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.DESCRIBE_FUNCTION.html">class io.opsit.explang.Funcs$DESCRIBE_FUNCTION</a> </p>
 <h3 id="dlet"><code>DLET</code></h3>
 <p><strong>(DLET args ...)</strong></p>
 <p>Destructuring LET construct.</p>
-<p><strong>builtin form</strong> in package <strong>base.bindings</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Compiler.DLET.html">class io.opsit.explang.Compiler$DLET</a> </p>
+<p><strong>builtin form</strong> in package <strong>base.bindings</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Compiler.DLET.html">class io.opsit.explang.Compiler$DLET</a> </p>
 <h3 id="documentation"><code>DOCUMENTATION</code></h3>
 <p><strong>Get Function Docstring.</strong></p>
 <p><strong>(DOCUMENTATION  function-name)</strong></p>
 <p>Return documentation string of given function or built-in form. function is a symbol or function name or a lambda</p>
-<p><strong>builtin function</strong> in package <strong>base.docs</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.DOCUMENTATION.html">class io.opsit.explang.Funcs$DOCUMENTATION</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.docs</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.DOCUMENTATION.html">class io.opsit.explang.Funcs$DOCUMENTATION</a> </p>
 <h3 id="double"><code>DOUBLE</code></h3>
 <p><strong>Coerce Value to Double.</strong></p>
 <p><strong>(DOUBLE  value)</strong></p>
 <p>Value may be a Number, String, any object or NIL.String will be parsed as number using same rules as numeric literals. The floating point values will be truncated.</p>
-<p><strong>builtin function</strong> in package <strong>base.coercion</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.DOUBLE.html">class io.opsit.explang.Funcs$DOUBLE</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.coercion</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.DOUBLE.html">class io.opsit.explang.Funcs$DOUBLE</a> </p>
 <h3 id="dwim-matches"><code>DWIM-MATCHES</code></h3>
 <p><strong>Perform Do What I Mean style search.</strong></p>
 <p><strong>(DWIM-MATCHES  object &amp;OPTIONAL pattern)</strong></p>
@@ -3674,7 +3699,7 @@ returned.
  If there were matches the function returns list of matches. 
 If there is no match an empty list is returned.
 </code></pre></div>
-<p><strong>builtin function</strong> in package <strong>base.logic</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/DWIM.DWIM_MATCHES.html">class io.opsit.explang.DWIM$DWIM_MATCHES</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.logic</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/DWIM.DWIM_MATCHES.html">class io.opsit.explang.DWIM$DWIM_MATCHES</a> </p>
 <h3 id="dwim_fields"><code>DWIM_FIELDS</code></h3>
 <p><strong>Return a new object with those fields in 'src', which were specified in 'fieldspecs'.</strong></p>
 <p><strong>(DWIM_FIELDS  src fieldspecs)</strong></p>
@@ -3688,74 +3713,79 @@ sequence.
 
 Format of &#39;fieldspecs&#39;: list of one or mod field specifications:
 </code></pre></div>
-<p><strong>builtin function</strong> in package <strong>dwim</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/DWIM.DWIM_FIELDS.html">class io.opsit.explang.DWIM$DWIM_FIELDS</a> </p>
+<p><strong>builtin function</strong> in package <strong>dwim</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/DWIM.DWIM_FIELDS.html">class io.opsit.explang.DWIM$DWIM_FIELDS</a> </p>
 <h2 id="e">E</h2>
 <h3 id="equal"><code>EQUAL</code></h3>
 <p><strong>Check Object Equality.</strong></p>
 <p><strong>(EQUAL  x y)</strong></p>
 <p>Returns true if x equal to y according to call to Java method x.equals(y) or if both objects are NIL.</p>
-<p><strong>builtin function</strong> in package <strong>base.logic</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.EQUAL.html">class io.opsit.explang.Funcs$EQUAL</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.logic</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.EQUAL.html">class io.opsit.explang.Funcs$EQUAL</a> </p>
 <h3 id="eval"><code>EVAL</code></h3>
 <p><strong>Evaluate a Parsed Expression.</strong></p>
 <p><strong>(EVAL  form)</strong></p>
 <p>Evaluates parsed form in the current dynamic context and return result of evaluation'</p>
-<p><strong>builtin function</strong> in package <strong>base.lang</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.EVAL.html">class io.opsit.explang.Funcs$EVAL</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.lang</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.EVAL.html">class io.opsit.explang.Funcs$EVAL</a> </p>
+<h3 id="exception"><code>EXCEPTION</code></h3>
+<p><strong>Creates an Exception Object.</strong></p>
+<p><strong>(EXCEPTION  &amp;KEY message)</strong></p>
+<p>Returns new ExecutionException with given message.</p>
+<p><strong>builtin function</strong> in package <strong>base.control</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.EXCEPTION.html">class io.opsit.explang.Funcs$EXCEPTION</a> </p>
 <h3 id="exp"><code>EXP</code></h3>
 <p><strong>Perform exponentiation.</strong></p>
 <p><strong>(EXP  x &amp;OPTIONAL base)</strong></p>
 <p>If base is not given it returns e raised to power x. Returns a Double value.</p>
-<p><strong>builtin function</strong> in package <strong>base.math</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.EXP.html">class io.opsit.explang.Funcs$EXP</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.math</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.EXP.html">class io.opsit.explang.Funcs$EXP</a> </p>
 <h2 id="f">F</h2>
 <h3 id="filter"><code>FILTER</code></h3>
 <p><strong>Filter operation.</strong></p>
 <p><strong>(FILTER  test sequence)</strong></p>
 <p>test is a function of one argument that returns boolean, seq is input sequence. Return a sequence from which the elements that do not satisfy the test have been removed.</p>
-<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.FILTER.html">class io.opsit.explang.Funcs$FILTER</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.FILTER.html">class io.opsit.explang.Funcs$FILTER</a> </p>
 <h3 id="first"><code>FIRST</code></h3>
 <p><strong>Returns the first element of the sequence.</strong></p>
 <p><strong>(FIRST  sequence)</strong></p>
 <p>Returns NIL when sequence is NIL or empty</p>
-<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.FIRST.html">class io.opsit.explang.Funcs$FIRST</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.FIRST.html">class io.opsit.explang.Funcs$FIRST</a> </p>
 <h3 id="float"><code>FLOAT</code></h3>
 <p><strong>Coerce Value to Float.</strong></p>
 <p><strong>(FLOAT  value)</strong></p>
 <p>Value may be a Number, String, any object or NIL.String will be parsed as number using same rules as numeric literals. The floating point values will be truncated.</p>
-<p><strong>builtin function</strong> in package <strong>base.coercion</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.FLOAT.html">class io.opsit.explang.Funcs$FLOAT</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.coercion</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.FLOAT.html">class io.opsit.explang.Funcs$FLOAT</a> </p>
 <h3 id="foreach"><code>FOREACH</code></h3>
 <p><strong>Foreach Loop Over a Sequence.</strong></p>
 <p><strong>(FOREACH  ( var sequence &amp;OPTIONAL result ) &amp;REST body)</strong></p>
 <div class="highlight"><pre><span></span><code>Evaluates &#39;body&#39; in new context with VAR bound to each element from SEQUENCE, in turn.
 Then evaluate RESULT in the same context to get return value, default is NIL.
 </code></pre></div>
-<p><strong>builtin form</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Compiler.FOREACH.html">class io.opsit.explang.Compiler$FOREACH</a> </p>
+<p><strong>builtin form</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Compiler.FOREACH.html">class io.opsit.explang.Compiler$FOREACH</a> </p>
 <h3 id="format"><code>FORMAT</code></h3>
 <p><strong>Format String.</strong></p>
 <p><strong>(FORMAT  format &amp;REST values)</strong></p>
 <p>Returns a formatted string using the specified format string (in the format of java.util.Formatter) and arguments. Arguments referenced by the format specifiers in the format string. If there are more arguments than format specifiers, the extra arguments are ignored. Throws IllegalFormatException - If a format string contains an illegal syntax, a format specifier that is incompatible with the given arguments, insufficient arguments given the format string, or other illegal conditions.</p>
-<p><strong>builtin function</strong> in package <strong>base.text</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.FORMAT.html">class io.opsit.explang.Funcs$FORMAT</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.text</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.FORMAT.html">class io.opsit.explang.Funcs$FORMAT</a> </p>
 <h3 id="fset"><code>FSET</code></h3>
 <p><strong>(FSET  symbol value)</strong></p>
 <p>Set symbol's function value to value and return previous value or NIL.</p>
-<p><strong>builtin function</strong> in package <strong>base.bindings</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.FSET.html">class io.opsit.explang.Funcs$FSET</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.bindings</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.FSET.html">class io.opsit.explang.Funcs$FSET</a> </p>
 <h3 id="funcall"><code>FUNCALL</code></h3>
 <p><strong>Apply Arguments to a Function.</strong></p>
 <p><strong>(FUNCALL  function &amp;REST arguments)</strong></p>
 <p>Function must be a function object</p>
-<p><strong>builtin function</strong> in package <strong>base.funcs</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.FUNCALL.html">class io.opsit.explang.Funcs$FUNCALL</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.funcs</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.FUNCALL.html">class io.opsit.explang.Funcs$FUNCALL</a> </p>
 <h3 id="function"><code>FUNCTION</code></h3>
 <p><strong>(FUNCTION  symbol)</strong></p>
 <p>Get Function Given it's symbol.</p>
-<p><strong>builtin form</strong> in package <strong>base.bindings</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Compiler.FUNCTION.html">class io.opsit.explang.Compiler$FUNCTION</a> </p>
+<p><strong>builtin form</strong> in package <strong>base.bindings</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Compiler.FUNCTION.html">class io.opsit.explang.Compiler$FUNCTION</a> </p>
 <h3 id="functionp"><code>FUNCTIONP</code></h3>
 <p><strong>Check if object is a function.</strong></p>
 <p><strong>(FUNCTIONP  object)</strong></p>
 <p>Returns true if object is a function (built-in or user defined); otherwise, returns false. A function is an object that represents code to be executed when an appropriate number of arguments is supplied. A function can be directly invoked by using it as the first argument to funcall, apply.</p>
-<p><strong>builtin function</strong> in package <strong>base.funcs</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.FUNCTIONP.html">class io.opsit.explang.Funcs$FUNCTIONP</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.funcs</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.FUNCTIONP.html">class io.opsit.explang.Funcs$FUNCTIONP</a> </p>
 <h3 id="functions-names"><code>FUNCTIONS-NAMES</code></h3>
 <p><strong>Get list of names of defined functions.</strong></p>
 <p><strong>(FUNCTIONS-NAMES  &amp;REST names)</strong></p>
 <p>If names are given use them as filter expressions:  only those which match at least one of filter expressions will be returned. Filters may be strings (substring match) or regular expressions (java.util.regex.Pattern objects).</p>
-<p><strong>builtin function</strong> in package <strong>base.docs</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.FUNCTIONS_NAMES.html">class io.opsit.explang.Funcs$FUNCTIONS_NAMES</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.docs</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.FUNCTIONS_NAMES.html">class io.opsit.explang.Funcs$FUNCTIONS_NAMES</a> </p>
 <h2 id="g">G</h2>
 <h3 id="get"><code>GET</code></h3>
 <p><strong>Returns the value from an associative structure.</strong></p>
@@ -3763,7 +3793,7 @@ Then evaluate RESULT in the same context to get return value, default is NIL.
 <div class="highlight"><pre><span></span><code>Return value from an associative structure struct, 
  Returns NIL if the key is not present, or the not-found value if supplied.
 </code></pre></div>
-<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.GET.html">class io.opsit.explang.Funcs$GET</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.GET.html">class io.opsit.explang.Funcs$GET</a> </p>
 <h3 id="get-in"><code>GET-IN</code></h3>
 <p><strong>Returns the value from an hierarchy of associative structures.</strong></p>
 <p><strong>(GET-IN  structure ks &amp;OPTIONAL not-found)</strong></p>
@@ -3771,232 +3801,238 @@ Then evaluate RESULT in the same context to get return value, default is NIL.
 where ks is a sequence of keys. Returns NIL if the key
  is not present, or the not-found value if supplied.
 </code></pre></div>
-<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.GET_IN.html">class io.opsit.explang.Funcs$GET_IN</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.GET_IN.html">class io.opsit.explang.Funcs$GET_IN</a> </p>
 <h3 id="getprop"><code>GETPROP</code></h3>
 <p><strong>Get Variable Property.</strong></p>
 <p><strong>(GETPROP  symbol property-key)</strong></p>
 <p>Returns value of a property from variable property map</p>
-<p><strong>builtin function</strong> in package <strong>base.bindings</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.GETPROP.html">class io.opsit.explang.Funcs$GETPROP</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.bindings</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.GETPROP.html">class io.opsit.explang.Funcs$GETPROP</a> </p>
 <h3 id="getprops"><code>GETPROPS</code></h3>
 <p><strong>(GETPROPS  symbol)</strong></p>
 <p>Get Properties Map for a Variable.</p>
-<p><strong>builtin function</strong> in package <strong>base.bindings</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.GETPROPS.html">class io.opsit.explang.Funcs$GETPROPS</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.bindings</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.GETPROPS.html">class io.opsit.explang.Funcs$GETPROPS</a> </p>
 <h2 id="h">H</h2>
 <h3 id="hashmap"><code>HASHMAP</code></h3>
 <p><strong>Create a HashMap.</strong></p>
 <p><strong>(HASHMAP  &amp;REST pairs)</strong></p>
 <p>Returns new HashMap filled with given keys and values. Throws InvalidParametersException if non-even number of arguments is given.</p>
-<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.HASHMAP.html">class io.opsit.explang.Funcs$HASHMAP</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.HASHMAP.html">class io.opsit.explang.Funcs$HASHMAP</a> </p>
 <h3 id="hashset"><code>HASHSET</code></h3>
 <p><strong>Create a HashSet.</strong></p>
 <p><strong>(HASHSET  &amp;REST args)</strong></p>
 <p>Returns a set containing the supplied objects. </p>
-<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.HASHSET.html">class io.opsit.explang.Funcs$HASHSET</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.HASHSET.html">class io.opsit.explang.Funcs$HASHSET</a> </p>
 <h3 id="haskey"><code>HASKEY</code></h3>
 <p><strong>(HASKEY  seq keyidx)</strong></p>
 <p>Check whether Map or indexed sequence has given key or index.</p>
-<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.HASKEY.html">class io.opsit.explang.Funcs$HASKEY</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.HASKEY.html">class io.opsit.explang.Funcs$HASKEY</a> </p>
 <h2 id="i">I</h2>
 <h3 id="if"><code>IF</code></h3>
 <p><strong>(IF  condition then-expr &amp;REST else-exprs)</strong></p>
 <p>If-else conditional construct.</p>
-<p><strong>builtin form</strong> in package <strong>base.control</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Compiler.IF.html">class io.opsit.explang.Compiler$IF</a> </p>
+<p><strong>builtin form</strong> in package <strong>base.control</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Compiler.IF.html">class io.opsit.explang.Compiler$IF</a> </p>
 <h3 id="in"><code>IN</code></h3>
 <p><strong>Check if an element is contained in a collection.</strong></p>
 <p><strong>(IN  elt col)</strong></p>
-<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.IN.html">class io.opsit.explang.Funcs$IN</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.IN.html">class io.opsit.explang.Funcs$IN</a> </p>
 <h3 id="indexedp"><code>INDEXEDP</code></h3>
 <p><strong>(INDEXEDP  object)</strong></p>
 <p>Check if an object is an indexed collection.</p>
-<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.INDEXEDP.html">class io.opsit.explang.Funcs$INDEXEDP</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.INDEXEDP.html">class io.opsit.explang.Funcs$INDEXEDP</a> </p>
 <h3 id="insert"><code>INSERT!</code></h3>
 <p><strong>Insert element into given position in the indexed sequence.</strong></p>
 <p><strong>(INSERT!  seq index object)</strong></p>
 <p>Returns the sequence</p>
-<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.NINSERT.html">class io.opsit.explang.Funcs$NINSERT</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.NINSERT.html">class io.opsit.explang.Funcs$NINSERT</a> </p>
 <h3 id="int"><code>INT</code></h3>
 <p><strong>Coerce value to Integer.</strong></p>
 <p><strong>(INT  value)</strong></p>
 <p>Value may be a Number, String, any object or NIL.String will be parsed as number using same rules as numeric literals. The floating point value will be truncated.</p>
-<p><strong>builtin function</strong> in package <strong>base.coercion</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.INT.html">class io.opsit.explang.Funcs$INT</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.coercion</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.INT.html">class io.opsit.explang.Funcs$INT</a> </p>
 <h3 id="interpose"><code>INTERPOSE</code></h3>
 <p><strong>Return sequence elements of seq separated by elements in sep.</strong></p>
 <p><strong>(INTERPOSE  seq &amp;REST sep)</strong></p>
 <p>Currently only lists are supported.</p>
-<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.INTERPOSE.html">class io.opsit.explang.Funcs$INTERPOSE</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.INTERPOSE.html">class io.opsit.explang.Funcs$INTERPOSE</a> </p>
 <h2 id="j">J</h2>
 <h3 id="join"><code>JOIN</code></h3>
 <p><strong>Return sequence elements of seq joined by elements in sep.</strong></p>
 <p><strong>(JOIN  &amp;OPTIONAL sep &amp;REQUIRED seqs)</strong></p>
 <p>Currently only strings are supported.</p>
-<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.JOIN.html">class io.opsit.explang.Funcs$JOIN</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.JOIN.html">class io.opsit.explang.Funcs$JOIN</a> </p>
 <h2 id="l">L</h2>
 <h3 id="lambda"><code>LAMBDA</code></h3>
 <p><strong>Define anonymous function.</strong></p>
 <p><strong>(LAMBDA  ( arglist ) body)</strong></p>
-<p><strong>builtin form</strong> in package <strong>base.control</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Compiler.LAMBDA.html">class io.opsit.explang.Compiler$LAMBDA</a> </p>
+<p><strong>builtin form</strong> in package <strong>base.control</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Compiler.LAMBDA.html">class io.opsit.explang.Compiler$LAMBDA</a> </p>
 <h3 id="length"><code>LENGTH</code></h3>
 <p><strong>Return length of a sequence.</strong></p>
 <p><strong>(LENGTH  sequence)</strong></p>
 <p>Parameter may be any supported sequence (collection, array, character sequence) or NIL (0 will be returned).</p>
-<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.LENGTH.html">class io.opsit.explang.Funcs$LENGTH</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.LENGTH.html">class io.opsit.explang.Funcs$LENGTH</a> </p>
 <h3 id="let"><code>LET</code></h3>
 <p><strong>Evaluate code with given var.</strong></p>
 <p><strong>(LET args ...)</strong></p>
 <p>bindings.</p>
-<p><strong>builtin form</strong> in package <strong>base.bindings</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Compiler.LET.html">class io.opsit.explang.Compiler$LET</a> </p>
+<p><strong>builtin form</strong> in package <strong>base.bindings</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Compiler.LET.html">class io.opsit.explang.Compiler$LET</a> </p>
 <h3 id="list"><code>LIST</code></h3>
 <p><strong>Create a list.</strong></p>
 <p><strong>(LIST  &amp;REST args)</strong></p>
 <p>Returns a list containing the supplied objects. </p>
-<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.LIST.html">class io.opsit.explang.Funcs$LIST</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.LIST.html">class io.opsit.explang.Funcs$LIST</a> </p>
 <h3 id="load"><code>LOAD</code></h3>
 <p><strong>Execute program from a file/stream.</strong></p>
 <p><strong>(LOAD  file-spec)</strong></p>
 <p>Sequentially executes each form it encounters in the input file/or stream named by resource-spec. Returns exception if input could not be read or there were exceptions while compiling or executing forms an exception will be raised. file-spec may be a java.io.File object, file path as String or opened InputStream.</p>
-<p><strong>builtin function</strong> in package <strong>io</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.LOAD.html">class io.opsit.explang.Funcs$LOAD</a> </p>
+<p><strong>builtin function</strong> in package <strong>io</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.LOAD.html">class io.opsit.explang.Funcs$LOAD</a> </p>
 <h3 id="loadr"><code>LOADR</code></h3>
 <p><strong>Execute program from Java resource.</strong></p>
 <p><strong>(LOADR  resource-spec)</strong></p>
 <p>Sequentially executes each form it encounters in the java resource file named by resource-spec. Returns exception if file could not be read or there were exceptions while compiling or executing forms an exception will be raised.</p>
-<p><strong>builtin function</strong> in package <strong>io</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.LOADR.html">class io.opsit.explang.Funcs$LOADR</a> </p>
+<p><strong>builtin function</strong> in package <strong>io</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.LOADR.html">class io.opsit.explang.Funcs$LOADR</a> </p>
 <h3 id="log"><code>LOG</code></h3>
 <p><strong>Computes logarithm.</strong></p>
 <p><strong>(LOG  x &amp;OPTIONAL base)</strong></p>
 <p>If base is not given it computes natural logarithm. Returns a Double value.</p>
-<p><strong>builtin function</strong> in package <strong>base.math</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.LOG.html">class io.opsit.explang.Funcs$LOG</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.math</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.LOG.html">class io.opsit.explang.Funcs$LOG</a> </p>
 <h3 id="long"><code>LONG</code></h3>
 <p><strong>Coerce Value to Long.</strong></p>
 <p><strong>(LONG  value)</strong></p>
 <p>Value may be a Number, String, any object or NIL.String will be parsed as number using same rules as numeric literals. The floating point values will be truncated.</p>
-<p><strong>builtin function</strong> in package <strong>base.coercion</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.LONG.html">class io.opsit.explang.Funcs$LONG</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.coercion</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.LONG.html">class io.opsit.explang.Funcs$LONG</a> </p>
 <h3 id="lowercase"><code>LOWERCASE</code></h3>
 <p><strong>(LOWERCASE  value)</strong></p>
 <p>Convert character, string or character sequence to lower case.</p>
-<p><strong>builtin function</strong> in package <strong>base.text</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.LOWERCASE.html">class io.opsit.explang.Funcs$LOWERCASE</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.text</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.LOWERCASE.html">class io.opsit.explang.Funcs$LOWERCASE</a> </p>
 <h2 id="m">M</h2>
 <h3 id="make-array"><code>MAKE-ARRAY</code></h3>
 <p><strong>Create an Array.</strong></p>
 <p><strong>(MAKE-ARRAY  &amp;KEY size elementType &amp;REST elements)</strong></p>
 <p>Creates array of objects of specified size. Optional :elementType argument specifies type of array elements. The default is java.lang.Object</p>
-<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.MAKE_ARRAY.html">class io.opsit.explang.Funcs$MAKE_ARRAY</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.MAKE_ARRAY.html">class io.opsit.explang.Funcs$MAKE_ARRAY</a> </p>
 <h3 id="makunbound"><code>MAKUNBOUND</code></h3>
 <p><strong>Unbind variable given by symbol.</strong></p>
 <p><strong>(MAKUNBOUND  symbol)</strong></p>
 <p>Always returns symbol.</p>
-<p><strong>builtin function</strong> in package <strong>base.bindings</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.MAKUNBOUND.html">class io.opsit.explang.Funcs$MAKUNBOUND</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.bindings</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.MAKUNBOUND.html">class io.opsit.explang.Funcs$MAKUNBOUND</a> </p>
 <h3 id="map"><code>MAP</code></h3>
 <p><strong>Apply function on elements of collections.</strong></p>
 <p><strong>(MAP  func &amp;REST lists)</strong></p>
 <p>Returns a sequence consisting of the result of applying func to the set of first items of each list, followed by applying func to the set of second items in each list, until any one of the lists is exhausted.  Any remaining items in other lists are ignored. Function func should accept number arguments that is equal to number of lists.</p>
-<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.MAP.html">class io.opsit.explang.Funcs$MAP</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.MAP.html">class io.opsit.explang.Funcs$MAP</a> </p>
 <h3 id="mapp"><code>MAPP</code></h3>
 <p><strong>(MAPP  object)</strong></p>
 <p>Check if an object is a Map.</p>
-<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.MAPP.html">class io.opsit.explang.Funcs$MAPP</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.MAPP.html">class io.opsit.explang.Funcs$MAPP</a> </p>
 <h3 id="mapprod"><code>MAPPROD</code></h3>
 <p><strong>Apply function on cartesioan product of lists.</strong></p>
 <p><strong>(MAPPROD  f &amp;REST lists)</strong></p>
 <p>Returns a sequence consisting of the result of applying func to the cartesian product of the lists. Function func should accept number arguments that is equal to number of lists.</p>
-<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.MAPPROD.html">class io.opsit.explang.Funcs$MAPPROD</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.MAPPROD.html">class io.opsit.explang.Funcs$MAPPROD</a> </p>
 <h3 id="max"><code>MAX</code></h3>
 <p><strong>Find maximum.</strong></p>
 <p><strong>(MAX  x &amp;REST args)</strong></p>
 <div class="highlight"><pre><span></span><code>Returns the maximum of numeric values of it&#39;s arguments,
 performing any necessary type conversions in the process.
 </code></pre></div>
-<p><strong>builtin function</strong> in package <strong>base.arithmetics</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.MAXOP.html">class io.opsit.explang.Funcs$MAXOP</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.arithmetics</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.MAXOP.html">class io.opsit.explang.Funcs$MAXOP</a> </p>
 <h3 id="min"><code>MIN</code></h3>
 <p><strong>Find minimum.</strong></p>
 <p><strong>(MIN  x &amp;REST args)</strong></p>
 <div class="highlight"><pre><span></span><code>Returns the maximum of numeric values of it&#39;s arguments,
 performing any necessary type conversions in the process.
 </code></pre></div>
-<p><strong>builtin function</strong> in package <strong>base.arithmetics</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.MINOP.html">class io.opsit.explang.Funcs$MINOP</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.arithmetics</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.MINOP.html">class io.opsit.explang.Funcs$MINOP</a> </p>
 <h3 id="mod"><code>MOD</code></h3>
 <p><strong>Compute Modulus.</strong></p>
 <p><strong>(MOD  number divisor)</strong></p>
 <div class="highlight"><pre><span></span><code>Generalizations of the modulus function. When both operands are integer returns result of the modulus operation. If one of them is floating point returns result of 
      number - ⌊ (number / divisor) ⌋ * divisor 
 </code></pre></div>
-<p><strong>builtin function</strong> in package <strong>base.arithmetics</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.MODOP.html">class io.opsit.explang.Funcs$MODOP</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.arithmetics</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.MODOP.html">class io.opsit.explang.Funcs$MODOP</a> </p>
 <h2 id="n">N</h2>
 <h3 id="new-ctx"><code>NEW-CTX</code></h3>
 <p><strong>(NEW-CTX )</strong></p>
 <p>Create New Empty Context</p>
-<p><strong>builtin function</strong> in package <strong>base.bindings</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.NEW_CTX.html">class io.opsit.explang.Funcs$NEW_CTX</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.bindings</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.NEW_CTX.html">class io.opsit.explang.Funcs$NEW_CTX</a> </p>
 <h3 id="new-thread"><code>NEW-THREAD</code></h3>
 <p><strong>Create new Java thread.</strong></p>
 <p><strong>(NEW-THREAD  fn &amp;OPTIONAL name)</strong></p>
 <p>Creates new Java thread and prepare it for execution of given function fn.fn must not require parameters for it's execution. The created thread is not started.</p>
-<p><strong>builtin function</strong> in package <strong>threads</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.NEW_THREAD.html">class io.opsit.explang.Funcs$NEW_THREAD</a> </p>
+<p><strong>builtin function</strong> in package <strong>threads</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.NEW_THREAD.html">class io.opsit.explang.Funcs$NEW_THREAD</a> </p>
 <h3 id="nilp"><code>NILP</code></h3>
 <p><strong>(NILP  object)</strong></p>
 <p>Check if a value is a NIL.</p>
-<p><strong>builtin function</strong> in package <strong>base.logic</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.NILP.html">class io.opsit.explang.Funcs$NILP</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.logic</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.NILP.html">class io.opsit.explang.Funcs$NILP</a> </p>
 <h3 id="not"><code>NOT</code></h3>
 <p><strong>Logical Negation.</strong></p>
 <p><strong>(NOT  x)</strong></p>
 <p>Returns True if x has false logical value; otherwise, returns False.Parameter x can be any object. Only NIL, the empty list (), the empty String "", 0  and FALSE have false logical value. All other objects have true logical value</p>
-<p><strong>builtin function</strong> in package <strong>base.logic</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.NOT.html">class io.opsit.explang.Funcs$NOT</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.logic</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.NOT.html">class io.opsit.explang.Funcs$NOT</a> </p>
 <h3 id="notnilp"><code>NOTNILP</code></h3>
 <p><strong>(NOTNILP  object)</strong></p>
 <p>Check if a value is not a NIL.</p>
-<p><strong>builtin function</strong> in package <strong>base.logic</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.NOTNILP.html">class io.opsit.explang.Funcs$NOTNILP</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.logic</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.NOTNILP.html">class io.opsit.explang.Funcs$NOTNILP</a> </p>
 <h3 id="nth"><code>NTH</code></h3>
 <p><strong>Locates the nth element of a sequence.</strong></p>
 <p><strong>(NTH  n sequence)</strong></p>
 <p>n may be any non-negative number. Returns NIL when sequence is NIL or n is out of bounds</p>
-<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.NTH.html">class io.opsit.explang.Funcs$NTH</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.NTH.html">class io.opsit.explang.Funcs$NTH</a> </p>
 <h2 id="o">O</h2>
 <h3 id="or"><code>OR</code></h3>
-<p><strong>Logical OR.</strong></p>
+<p><strong>Logical <code>OR</code> operation.</strong></p>
 <p><strong>(OR  &amp;REST &amp;LAZY args)</strong></p>
-<p>Function OR lazily evaluates each form, one at a time, from left to right. The evaluation of all forms terminates when a form evaluates to true (i.e., something other than nil) and OR immediately returns that value without evaluating the remaining forms.</p>
-<p><strong>builtin function</strong> in package <strong>base.logic</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.OR.html">class io.opsit.explang.Funcs$OR</a> </p>
+<div class="highlight"><pre><span></span><code>Function `OR` lazily evaluates each argument expression, one at a time, from
+left to right. The evaluation of the argument expressions terminates when one
+of them evaluates to an implicit logical `true` and `OR` immediately returns
+that value without evaluating the remaining expressions (if any). If all
+evaluate to logical false `OR` returns the result of the last expression.
+If no arguments were supplied, it returns logical false.
+</code></pre></div>
+<p><strong>builtin function</strong> in package <strong>base.logic</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.OR.html">class io.opsit.explang.Funcs$OR</a> </p>
 <h2 id="p">P</h2>
 <h3 id="print"><code>PRINT</code></h3>
 <p><strong>(PRINT  &amp;REST args)</strong></p>
 <p>Print Arguments on standard output.</p>
-<p><strong>builtin function</strong> in package <strong>io</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.PRINT.html">class io.opsit.explang.Funcs$PRINT</a> </p>
+<p><strong>builtin function</strong> in package <strong>io</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.PRINT.html">class io.opsit.explang.Funcs$PRINT</a> </p>
 <h3 id="println"><code>PRINTLN</code></h3>
 <p><strong>(PRINTLN  &amp;REST args)</strong></p>
 <p>Print Arguments on standard output and print newline.</p>
-<p><strong>builtin function</strong> in package <strong>io</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.PRINTLN.html">class io.opsit.explang.Funcs$PRINTLN</a> </p>
+<p><strong>builtin function</strong> in package <strong>io</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.PRINTLN.html">class io.opsit.explang.Funcs$PRINTLN</a> </p>
 <h3 id="progn"><code>PROGN</code></h3>
 <p><strong>(PROGN args ...)</strong></p>
 <p>Evaluate sequence of expressions.</p>
-<p><strong>builtin form</strong> in package <strong>base.control</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Compiler.PROGN.html">class io.opsit.explang.Compiler$PROGN</a> </p>
+<p><strong>builtin form</strong> in package <strong>base.control</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Compiler.PROGN.html">class io.opsit.explang.Compiler$PROGN</a> </p>
 <h3 id="push"><code>PUSH!</code></h3>
 <p><strong>Append element to the end of a seqence modifying the sequence.</strong></p>
 <p><strong>(PUSH!  seq object)</strong></p>
 <p>Returns the sequence</p>
-<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.NPUSH.html">class io.opsit.explang.Funcs$NPUSH</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.NPUSH.html">class io.opsit.explang.Funcs$NPUSH</a> </p>
 <h3 id="put"><code>PUT!</code></h3>
 <p><strong>Put element value into an associative structure.</strong></p>
 <p><strong>(PUT!  target key object)</strong></p>
 <p>Set value of element at index/key in the target structure to object.  If target ibject is a Java array and the object type does not match the type of this array this function will attempt to perform necessary coercion operations. The coercions  work in the same way as INT, FLOAT, STRING and rest of the built-in coercion functions. If target object is a list or and array and happens out of bound exception the function returns normally without any change to the target structure The function returns previous value of the element or NIL if it did not exist or no change has been made.</p>
-<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.NPUT.html">class io.opsit.explang.Funcs$NPUT</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.NPUT.html">class io.opsit.explang.Funcs$NPUT</a> </p>
 <h3 id="put-in"><code>PUT-IN!</code></h3>
 <p><strong>(PUT-IN!  structure ks value &amp;OPTIONAL new-col)</strong></p>
 <p>Put value into an hierarchy of associative structures according list of keys ks.</p>
-<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.NPUT_IN.html">class io.opsit.explang.Funcs$NPUT_IN</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.NPUT_IN.html">class io.opsit.explang.Funcs$NPUT_IN</a> </p>
 <h2 id="q">Q</h2>
 <h3 id="quote"><code>QUOTE</code></h3>
 <p><strong>(QUOTE args ...)</strong></p>
 <p>Return its argument without evaluation.</p>
-<p><strong>builtin form</strong> in package <strong>base.lang</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Compiler.QUOTE.html">class io.opsit.explang.Compiler$QUOTE</a> </p>
+<p><strong>builtin form</strong> in package <strong>base.lang</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Compiler.QUOTE.html">class io.opsit.explang.Compiler$QUOTE</a> </p>
 <h2 id="r">R</h2>
 <h3 id="random"><code>RANDOM</code></h3>
 <p><strong>Produce Pseudo-Random Number.</strong></p>
 <p><strong>(RANDOM  limit)</strong></p>
 <p>Returns a pseudo-random number that is a non-negative number less than limit and of the same numeric type as limit. Implemented uding Java Math.random()</p>
-<p><strong>builtin function</strong> in package <strong>base.math</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.RANDOM.html">class io.opsit.explang.Funcs$RANDOM</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.math</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.RANDOM.html">class io.opsit.explang.Funcs$RANDOM</a> </p>
 <h3 id="range"><code>RANGE</code></h3>
 <p><strong>Return sequence of numbers.</strong></p>
 <p><strong>(RANGE  start stop &amp;OPTIONAL step)</strong></p>
 <p>Returns sequence of numbers  from start to stop (inclusively) with .</p>
-<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.RANGE.html">class io.opsit.explang.Funcs$RANGE</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.RANGE.html">class io.opsit.explang.Funcs$RANGE</a> </p>
 <h3 id="re-find"><code>RE-FIND</code></h3>
 <p><strong>Perform Regexp Find.</strong></p>
 <p><strong>(RE-FIND  arg0 &amp;OPTIONAL arg2)</strong></p>
@@ -4007,12 +4043,12 @@ performing any necessary type conversions in the process.
  If groups were defined it returns a list consisting of the full match and matched groups
  If there is no match NIL is returned
 </code></pre></div>
-<p><strong>builtin function</strong> in package <strong>base.regex</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.RE_FIND.html">class io.opsit.explang.Funcs$RE_FIND</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.regex</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.RE_FIND.html">class io.opsit.explang.Funcs$RE_FIND</a> </p>
 <h3 id="re-glob"><code>RE-GLOB</code></h3>
 <p><strong>Compile a Globbing Pattern.</strong></p>
 <p><strong>(RE-GLOB  pattern &amp;OPTIONAL flags)</strong></p>
 <p>On success returns a java.util.regex.Pattern object. On error raises exception.</p>
-<p><strong>builtin function</strong> in package <strong>base.regex</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.RE_GLOB.html">class io.opsit.explang.Funcs$RE_GLOB</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.regex</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.RE_GLOB.html">class io.opsit.explang.Funcs$RE_GLOB</a> </p>
 <h3 id="re-groups"><code>RE-GROUPS</code></h3>
 <p><strong>Return Groups for a Regexp Match.</strong></p>
 <p><strong>(RE-GROUPS  matcher)</strong></p>
@@ -4021,12 +4057,12 @@ If there are no nested groups, returns a string of the entire
 match. If there are nested groups, returns a list of the groups,
 the first element being the entire match.
 </code></pre></div>
-<p><strong>builtin function</strong> in package <strong>base.regex</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.RE_GROUPS.html">class io.opsit.explang.Funcs$RE_GROUPS</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.regex</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.RE_GROUPS.html">class io.opsit.explang.Funcs$RE_GROUPS</a> </p>
 <h3 id="re-matcher"><code>RE-MATCHER</code></h3>
 <p><strong>Return Regexp Matcher.</strong></p>
 <p><strong>(RE-MATCHER  pattern char-seq)</strong></p>
 <p>Returns an instance of java.util.regex.Matcher, for use, e.g. in RE-FIND.</p>
-<p><strong>builtin function</strong> in package <strong>base.regex</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.RE_MATCHER.html">class io.opsit.explang.Funcs$RE_MATCHER</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.regex</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.RE_MATCHER.html">class io.opsit.explang.Funcs$RE_MATCHER</a> </p>
 <h3 id="re-matches"><code>RE-MATCHES</code></h3>
 <p><strong>Perform regexp match.</strong></p>
 <p><strong>(RE-MATCHES  arg0 &amp;OPTIONAL arg2)</strong></p>
@@ -4037,12 +4073,12 @@ the first element being the entire match.
  If groups were defined it returns a list consisting of the full match and matched groups
  If there is no match NIL is returned
 </code></pre></div>
-<p><strong>builtin function</strong> in package <strong>base.regex</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.RE_MATCHES.html">class io.opsit.explang.Funcs$RE_MATCHES</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.regex</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.RE_MATCHES.html">class io.opsit.explang.Funcs$RE_MATCHES</a> </p>
 <h3 id="re-pattern"><code>RE-PATTERN</code></h3>
 <p><strong>Compile A Regexp Pattern.</strong></p>
 <p><strong>(RE-PATTERN  pattern &amp;OPTIONAL flags)</strong></p>
 <p>On success returns a java.util.regex.Pattern objec. On error raises exception.</p>
-<p><strong>builtin function</strong> in package <strong>base.regex</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.RE_PATTERN.html">class io.opsit.explang.Funcs$RE_PATTERN</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.regex</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.RE_PATTERN.html">class io.opsit.explang.Funcs$RE_PATTERN</a> </p>
 <h3 id="re-seq"><code>RE-SEQ</code></h3>
 <p><strong>Return Results of Regexp Find as a Lazy Sequence.</strong></p>
 <p><strong>(RE-SEQ  arg0 &amp;OPTIONAL arg2)</strong></p>
@@ -4053,12 +4089,12 @@ the first element being the entire match.
  If groups were defined it returns a list consisting of the full match and matched groups
  If there is no match empty sequence is returned
 </code></pre></div>
-<p><strong>builtin function</strong> in package <strong>base.regex</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.RE_SEQ.html">class io.opsit.explang.Funcs$RE_SEQ</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.regex</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.RE_SEQ.html">class io.opsit.explang.Funcs$RE_SEQ</a> </p>
 <h3 id="read-from-string"><code>READ-FROM-STRING</code></h3>
 <p><strong>Parse expression from string.</strong></p>
 <p><strong>(READ-FROM-STRING  string)</strong></p>
 <p>Reads expression from string using default parser. Returns expression or NIL if no expression has been read</p>
-<p><strong>builtin function</strong> in package <strong>io</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.READ_FROM_STRING.html">class io.opsit.explang.Funcs$READ_FROM_STRING</a> </p>
+<p><strong>builtin function</strong> in package <strong>io</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.READ_FROM_STRING.html">class io.opsit.explang.Funcs$READ_FROM_STRING</a> </p>
 <h3 id="reduce"><code>REDUCE</code></h3>
 <p><strong>Reduce operation.</strong></p>
 <p><strong>(REDUCE  func &amp;OPTIONAL val &amp;REQUIRED seq)</strong></p>
@@ -4066,62 +4102,62 @@ the first element being the entire match.
 When val is not given:  apply func to the first 2 items in the seq, then to the result and 3rd, etc. If seq contains no items, func must accept no arguments, return (func).If seq has 1 item, return it without calling func;
 If value is supplied, apply func on value and the first seq element, then on the result and the second element, etc. If there is no elements - return val;
 </code></pre></div>
-<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.REDUCE.html">class io.opsit.explang.Funcs$REDUCE</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.REDUCE.html">class io.opsit.explang.Funcs$REDUCE</a> </p>
 <h3 id="rem"><code>REM</code></h3>
 <p><strong>Compute Remainder.</strong></p>
 <p><strong>(REM  x y)</strong></p>
 <div class="highlight"><pre><span></span><code>Generalizations of the remainder function. When both operands are integer returns result of the remainder operation . If one of them is floating point returns result of 
      number - truncate_to_zero (number / divisor) * divisor (same semantic as for the Java % operator.
 </code></pre></div>
-<p><strong>builtin function</strong> in package <strong>base.arithmetics</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.REMOP.html">class io.opsit.explang.Funcs$REMOP</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.arithmetics</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.REMOP.html">class io.opsit.explang.Funcs$REMOP</a> </p>
 <h3 id="remove"><code>REMOVE!</code></h3>
 <p><strong>delete element from  sequence by qey or index.</strong></p>
 <p><strong>(REMOVE!  seq key)</strong></p>
 <p>Returns the removed element</p>
-<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.NREMOVE.html">class io.opsit.explang.Funcs$NREMOVE</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.NREMOVE.html">class io.opsit.explang.Funcs$NREMOVE</a> </p>
 <h3 id="replace"><code>REPLACE</code></h3>
 <p><strong>Replace eache subsequence in seq that equals to target with replacement sequence.</strong></p>
 <p><strong>(REPLACE  seq target &amp;OPTIONAL replacement)</strong></p>
 <p>Return resulting sequence.  The original sequence is not modified. If replacement is not provided or is NIL  the target sequences will be deleted.</p>
-<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.REPLACE.html">class io.opsit.explang.Funcs$REPLACE</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.REPLACE.html">class io.opsit.explang.Funcs$REPLACE</a> </p>
 <h3 id="rest"><code>REST</code></h3>
 <p><strong>(REST  sequence)</strong></p>
 <p>Return 2nd and further elements of sqeuence.</p>
-<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.REST.html">class io.opsit.explang.Funcs$REST</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.REST.html">class io.opsit.explang.Funcs$REST</a> </p>
 <h3 id="return"><code>RETURN</code></h3>
 <p><strong>(RETURN  value)</strong></p>
 <p>Return value from function</p>
-<p><strong>builtin function</strong> in package <strong>base.control</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.RETURN.html">class io.opsit.explang.Funcs$RETURN</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.control</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.RETURN.html">class io.opsit.explang.Funcs$RETURN</a> </p>
 <h3 id="reverse"><code>REVERSE</code></h3>
 <p><strong>(REVERSE  sequence)</strong></p>
 <p>Reverse a sequence (non-destructive).</p>
-<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.REVERSE.html">class io.opsit.explang.Funcs$REVERSE</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.REVERSE.html">class io.opsit.explang.Funcs$REVERSE</a> </p>
 <h3 id="reverse_1"><code>REVERSE!</code></h3>
 <p><strong>(REVERSE!  sequence)</strong></p>
 <p>Reverse a sequence (destructive).</p>
-<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.NREVERSE.html">class io.opsit.explang.Funcs$NREVERSE</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.NREVERSE.html">class io.opsit.explang.Funcs$NREVERSE</a> </p>
 <h2 id="s">S</h2>
 <h3 id="search"><code>SEARCH</code></h3>
 <p><strong>Perform DWIM search of an item in a sequence of objects.</strong></p>
 <p><strong>(SEARCH  sequence test)</strong></p>
-<p><strong>builtin form</strong> in package <strong>dwim</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Compiler.SEARCH.html">class io.opsit.explang.Compiler$SEARCH</a> </p>
+<p><strong>builtin form</strong> in package <strong>dwim</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Compiler.SEARCH.html">class io.opsit.explang.Compiler$SEARCH</a> </p>
 <h3 id="select-keys"><code>SELECT-KEYS</code></h3>
 <p><strong>Returns a map containing only those entries in map whose key is in keys.</strong></p>
 <p><strong>(SELECT-KEYS  object keyseq)</strong></p>
-<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.SELECT_KEYS.html">class io.opsit.explang.Funcs$SELECT_KEYS</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.SELECT_KEYS.html">class io.opsit.explang.Funcs$SELECT_KEYS</a> </p>
 <h3 id="seqp"><code>SEQP</code></h3>
 <p><strong>(SEQP  object)</strong></p>
 <p>Check if an object is a sequence.</p>
-<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.SEQP.html">class io.opsit.explang.Funcs$SEQP</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.SEQP.html">class io.opsit.explang.Funcs$SEQP</a> </p>
 <h3 id="set"><code>SET</code></h3>
 <p><strong>Change variable value in specified context.</strong></p>
 <p><strong>(SET  symbol value &amp;KEY uplevel level)</strong></p>
 <p>Set changes the contents of variable symbol in the dynamic context to the given value. If uplevel is set the value will be set in the uplevel-ths previous context. If level is set the value will be changed in the level-th context from the level0 </p>
-<p><strong>builtin function</strong> in package <strong>base.bindings</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.SET.html">class io.opsit.explang.Funcs$SET</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.bindings</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.SET.html">class io.opsit.explang.Funcs$SET</a> </p>
 <h3 id="setf"><code>SETF</code></h3>
 <p><strong>(SETF args ...)</strong></p>
 <p>Set value of a variable o location (place in a list , array, etc.) to value.</p>
-<p><strong>builtin form</strong> in package <strong>base.bindings</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Compiler.SETF.html">class io.opsit.explang.Compiler$SETF</a> </p>
+<p><strong>builtin form</strong> in package <strong>base.bindings</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Compiler.SETF.html">class io.opsit.explang.Compiler$SETF</a> </p>
 <h3 id="setl"><code>SETL</code></h3>
 <p><strong>Assign values to local variables.</strong></p>
 <p><strong>(SETL  &amp;REST args)</strong></p>
@@ -4137,20 +4173,20 @@ Arguments:
 Returns:
   value of the last &#39;expr&#39;, or NIL if no pairs were supplied.
 </code></pre></div>
-<p><strong>builtin form</strong> in package <strong>base.bindings</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Compiler.SETL.html">class io.opsit.explang.Compiler$SETL</a> </p>
+<p><strong>builtin form</strong> in package <strong>base.bindings</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Compiler.SETL.html">class io.opsit.explang.Compiler$SETL</a> </p>
 <h3 id="setp"><code>SETP</code></h3>
 <p><strong>(SETP  object)</strong></p>
 <p>Check if an object is a Set.</p>
-<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.SETP.html">class io.opsit.explang.Funcs$SETP</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.SETP.html">class io.opsit.explang.Funcs$SETP</a> </p>
 <h3 id="setprop"><code>SETPROP</code></h3>
 <p><strong>Set variable property.</strong></p>
 <p><strong>(SETPROP  symbol property-key property-value)</strong></p>
 <p>Sets property value in variable property map</p>
-<p><strong>builtin function</strong> in package <strong>base.bindings</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.SETPROP.html">class io.opsit.explang.Funcs$SETPROP</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.bindings</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.SETPROP.html">class io.opsit.explang.Funcs$SETPROP</a> </p>
 <h3 id="setprops"><code>SETPROPS</code></h3>
 <p><strong>(SETPROPS  symbol properties-map)</strong></p>
 <p>Set Properties Map for a Variable</p>
-<p><strong>builtin function</strong> in package <strong>base.bindings</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.SETPROPS.html">class io.opsit.explang.Funcs$SETPROPS</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.bindings</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.SETPROPS.html">class io.opsit.explang.Funcs$SETPROPS</a> </p>
 <h3 id="setq"><code>SETQ</code></h3>
 <p><strong>Assign values to variables, create new global one if the binding does not exist.</strong></p>
 <p><strong>(SETQ  &amp;REST args)</strong></p>
@@ -4164,7 +4200,7 @@ Arguments:
 Returns:
   value of the last form, or nil if no pairs were supplied.
 </code></pre></div>
-<p><strong>builtin form</strong> in package <strong>base.bindings</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Compiler.SETQ.html">class io.opsit.explang.Compiler$SETQ</a> </p>
+<p><strong>builtin form</strong> in package <strong>base.bindings</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Compiler.SETQ.html">class io.opsit.explang.Compiler$SETQ</a> </p>
 <h3 id="setv"><code>SETV</code></h3>
 <p><strong>Assign values to variables, create new local one if the binding does not exist.</strong></p>
 <p><strong>(SETV  &amp;REST args)</strong></p>
@@ -4178,117 +4214,130 @@ Arguments:
 Returns:
   value of the last form, or nil if no pairs were supplied.
 </code></pre></div>
-<p><strong>builtin form</strong> in package <strong>base.bindings</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Compiler.SETV.html">class io.opsit.explang.Compiler$SETV</a> </p>
+<p><strong>builtin form</strong> in package <strong>base.bindings</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Compiler.SETV.html">class io.opsit.explang.Compiler$SETV</a> </p>
 <h3 id="short"><code>SHORT</code></h3>
 <p><strong>Coerce Value to Short.</strong></p>
 <p><strong>(SHORT  value)</strong></p>
 <p>Value may be a Number, String, any object or NIL.String will be parsed as number using same rules as numeric literals. The floating point values will be truncated.</p>
-<p><strong>builtin function</strong> in package <strong>base.coercion</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.SHORT.html">class io.opsit.explang.Funcs$SHORT</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.coercion</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.SHORT.html">class io.opsit.explang.Funcs$SHORT</a> </p>
 <h3 id="signum"><code>SIGNUM</code></h3>
 <p><strong>Return Number Sign.</strong></p>
 <p><strong>(SIGNUM  x)</strong></p>
 <p>Determines a numerical value that indicates whether number is negative, zero, or positive. Returns one of -1, 0, or 1 according to whether number is negative, zero, or positive. The type of the result is of the same numeric type as x</p>
-<p><strong>builtin function</strong> in package <strong>base.arithmetics</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.SIGNUM.html">class io.opsit.explang.Funcs$SIGNUM</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.arithmetics</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.SIGNUM.html">class io.opsit.explang.Funcs$SIGNUM</a> </p>
 <h3 id="sort"><code>SORT</code></h3>
 <p><strong>(SORT  &amp;OPTIONAL f &amp;REQUIRED sequence)</strong></p>
 <p>Sort a sequence (non destructively).</p>
-<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.SORT.html">class io.opsit.explang.Funcs$SORT</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.SORT.html">class io.opsit.explang.Funcs$SORT</a> </p>
 <h3 id="sort_1"><code>SORT!</code></h3>
 <p><strong>(SORT!  &amp;OPTIONAL f &amp;REQUIRED sequence)</strong></p>
 <p>Sort a sequence (destructively).</p>
-<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.NSORT.html">class io.opsit.explang.Funcs$NSORT</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.NSORT.html">class io.opsit.explang.Funcs$NSORT</a> </p>
 <h3 id="sqrt"><code>SQRT</code></h3>
 <p><strong>Computes square root of the argument.</strong></p>
 <p><strong>(SQRT  x)</strong></p>
 <p>Returns double value.</p>
-<p><strong>builtin function</strong> in package <strong>base.math</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.SQRT.html">class io.opsit.explang.Funcs$SQRT</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.math</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.SQRT.html">class io.opsit.explang.Funcs$SQRT</a> </p>
 <h3 id="str"><code>STR</code></h3>
 <p><strong>Concatenate Strings.</strong></p>
 <p><strong>(STR  &amp;REST values)</strong></p>
 <p>Returns concatenation of string representationx of the function arguments. NIL arguments are ignored.</p>
-<p><strong>builtin function</strong> in package <strong>base.text</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.STR.html">class io.opsit.explang.Funcs$STR</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.text</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.STR.html">class io.opsit.explang.Funcs$STR</a> </p>
 <h3 id="string"><code>STRING</code></h3>
 <p><strong>Coerce Value to String.</strong></p>
 <p><strong>(STRING  value)</strong></p>
 <p>Value may be any object or NIL: NIL is converted to String "NIL", any other object converted using it's toString() method</p>
-<p><strong>builtin function</strong> in package <strong>base.coercion</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.STRING.html">class io.opsit.explang.Funcs$STRING</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.coercion</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.STRING.html">class io.opsit.explang.Funcs$STRING</a> </p>
 <h3 id="string-buffer"><code>STRING-BUFFER</code></h3>
 <p><strong>Create and initialize a StringBuffer object.</strong></p>
 <p><strong>(STRING-BUFFER  &amp;REST args)</strong></p>
 <p>Return stringbuilder with all the arguments concatenated.</p>
-<p><strong>builtin function</strong> in package <strong>base.text</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.STRINGBUFFER.html">class io.opsit.explang.Funcs$STRINGBUFFER</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.text</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.STRINGBUFFER.html">class io.opsit.explang.Funcs$STRINGBUFFER</a> </p>
 <h3 id="string-builder"><code>STRING-BUILDER</code></h3>
 <p><strong>Create and initialize a StringBuilder object.</strong></p>
 <p><strong>(STRING-BUILDER  &amp;REST args)</strong></p>
 <p>Return stringbuilder with all the arguments concatenated.</p>
-<p><strong>builtin function</strong> in package <strong>base.text</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.STRINGBUILDER.html">class io.opsit.explang.Funcs$STRINGBUILDER</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.text</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.STRINGBUILDER.html">class io.opsit.explang.Funcs$STRINGBUILDER</a> </p>
 <h3 id="subseq"><code>SUBSEQ</code></h3>
-<p><strong>Return subsequnce of a sequence.</strong></p>
+<p><strong>Return subsequence of a sequence.</strong></p>
 <p><strong>(SUBSEQ  sequence start &amp;OPTIONAL end)</strong></p>
 <p>subseq creates a sequence that is a copy of the subsequence of sequence bounded by start and end. Start specifies an offset into the original sequence and marks the beginning position of the subsequence. end marks the position following the last element of the subsequence. subseq always allocates a new sequence for a result; it never shares storage with an old sequence. The result subsequence is of the same kind as sequence.</p>
-<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.SUBSEQ.html">class io.opsit.explang.Funcs$SUBSEQ</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.SUBSEQ.html">class io.opsit.explang.Funcs$SUBSEQ</a> </p>
 <h3 id="symbol"><code>SYMBOL</code></h3>
 <p><strong>(SYMBOL  symbol-name)</strong></p>
 <p>Makes new Symbol for a string</p>
-<p><strong>builtin function</strong> in package <strong>base.bindings</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.SYMBOL.html">class io.opsit.explang.Funcs$SYMBOL</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.bindings</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.SYMBOL.html">class io.opsit.explang.Funcs$SYMBOL</a> </p>
 <h3 id="symbol-function"><code>SYMBOL-FUNCTION</code></h3>
 <p><strong>Returns function bound to given symbol.</strong></p>
 <p><strong>(SYMBOL-FUNCTION  symbol)</strong></p>
 <p>If no function bound raises an error. The returned object may be a built-in function, compiled function or built-in special form.</p>
-<p><strong>builtin function</strong> in package <strong>base.funcs</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.SYMBOL_FUNCTION.html">class io.opsit.explang.Funcs$SYMBOL_FUNCTION</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.funcs</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.SYMBOL_FUNCTION.html">class io.opsit.explang.Funcs$SYMBOL_FUNCTION</a> </p>
 <h2 id="t">T</h2>
 <h3 id="take"><code>TAKE</code></h3>
 <p><strong>Return  first n elements of a sequence.</strong></p>
 <p><strong>(TAKE  n seq)</strong></p>
 <p>take creates new sequence with first n elements of seq. If n is bigger than length of the sequence all the elementsare returned. The result subsequence is of the same kind as sequence.</p>
-<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.TAKE.html">class io.opsit.explang.Funcs$TAKE</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.TAKE.html">class io.opsit.explang.Funcs$TAKE</a> </p>
 <h3 id="throw"><code>THROW</code></h3>
 <p><strong>Throw Java Exception.</strong></p>
 <p><strong>(THROW  exception)</strong></p>
 <p>The exception may be a java Throwable object or String. In the latter case a new ExecutionException with given message will be created and thrown.</p>
-<p><strong>builtin function</strong> in package <strong>base.control</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.THROW.html">class io.opsit.explang.Funcs$THROW</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.control</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.THROW.html">class io.opsit.explang.Funcs$THROW</a> </p>
 <h3 id="try"><code>TRY</code></h3>
-<p><strong>(TRY  body, cach_blocks, final_blocks)</strong></p>
-<p>Try-Catch-Final construction.</p>
-<p><strong>builtin form</strong> in package <strong>base.bindings</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Compiler.TRY.html">class io.opsit.explang.Compiler$TRY</a> </p>
+<p><strong>Try-Catch-Final construction.</strong></p>
+<p><strong>(TRY  body ( catch exception var catch_body ) ( finally finally_body ))</strong></p>
+<div class="highlight"><pre><span></span><code>The expressions in the `try` body are evaluated and, if no exceptions
+occur, the value of the last is returned.
+If an exception occurs and `catch` clauses are provided, each one is examined
+in turn and the first for which the thrown exception is an instance of the
+named class is considered a matching `catch` clause. If there is a matching
+`catch` clause, the thrown exception is put into variable with the name `var`
+and the expressions in the `catch_body` are evaluated and the value of the
+last one is the return value of the function.
+If there is no matching `catch` clause, the exception propagates out of the
+function.
+Before returning, normally or abnormally, any expressions in the `finally_body`
+will be evaluated for their side effects.
+</code></pre></div>
+<p><strong>builtin form</strong> in package <strong>base.control</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Compiler.TRY.html">class io.opsit.explang.Compiler$TRY</a> </p>
 <h3 id="type-of"><code>TYPE-OF</code></h3>
 <p><strong>Return Object Type.</strong></p>
 <p><strong>(TYPE-OF  object)</strong></p>
 <p>Returns type (as class) of the given object. For NIL argument return NIL.</p>
-<p><strong>builtin function</strong> in package <strong>base.types</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.TYPE_OF.html">class io.opsit.explang.Funcs$TYPE_OF</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.types</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.TYPE_OF.html">class io.opsit.explang.Funcs$TYPE_OF</a> </p>
 <h3 id="typep"><code>TYPEP</code></h3>
 <p><strong>Check if Object is of Specified Type.</strong></p>
 <p><strong>(TYPEP  object type-specifier)</strong></p>
 <p>Returns True if object is of the specified type. Type specifier may be a Class object or string or symbol which is a valid type-specifier.</p>
-<p><strong>builtin function</strong> in package <strong>base.types</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.TYPEP.html">class io.opsit.explang.Funcs$TYPEP</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.types</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.TYPEP.html">class io.opsit.explang.Funcs$TYPEP</a> </p>
 <h2 id="u">U</h2>
 <h3 id="uppercase"><code>UPPERCASE</code></h3>
 <p><strong>(UPPERCASE  value)</strong></p>
 <p>Convert character, string or character sequence to upper case.</p>
-<p><strong>builtin function</strong> in package <strong>base.text</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.UPPERCASE.html">class io.opsit.explang.Funcs$UPPERCASE</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.text</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.UPPERCASE.html">class io.opsit.explang.Funcs$UPPERCASE</a> </p>
 <h2 id="v">V</h2>
 <h3 id="version"><code>VERSION</code></h3>
 <p><strong>Create Version from text specification.</strong></p>
 <p><strong>(VERSION  spec)</strong></p>
-<p><strong>builtin function</strong> in package <strong>base.version</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.VERSION.html">class io.opsit.explang.Funcs$VERSION</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.version</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.VERSION.html">class io.opsit.explang.Funcs$VERSION</a> </p>
 <h2 id="w">W</h2>
 <h3 id="when"><code>WHEN</code></h3>
 <p><strong>(WHEN args ...)</strong></p>
 <p>When conditional construct.</p>
-<p><strong>builtin form</strong> in package <strong>base.control</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Compiler.WHEN.html">class io.opsit.explang.Compiler$WHEN</a> </p>
+<p><strong>builtin form</strong> in package <strong>base.control</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Compiler.WHEN.html">class io.opsit.explang.Compiler$WHEN</a> </p>
 <h3 id="while"><code>WHILE</code></h3>
 <p><strong>While loop construction.</strong></p>
 <p><strong>(WHILE  condition &amp;REST body)</strong></p>
 <p>Execute sequnce of expressions while the consition is true</p>
-<p><strong>builtin form</strong> in package <strong>loops</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Compiler.WHILE.html">class io.opsit.explang.Compiler$WHILE</a> </p>
+<p><strong>builtin form</strong> in package <strong>loops</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Compiler.WHILE.html">class io.opsit.explang.Compiler$WHILE</a> </p>
 <h3 id="with-bindings"><code>WITH-BINDINGS</code></h3>
 <p><strong>(WITH-BINDINGS args ...)</strong></p>
 <p>Evaluate code with bindings from a Java Map.</p>
-<p><strong>builtin form</strong> in package <strong>base.bindings</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Compiler.WITH_BINDINGS.html">class io.opsit.explang.Compiler$WITH_BINDINGS</a> </p>
+<p><strong>builtin form</strong> in package <strong>base.bindings</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Compiler.WITH_BINDINGS.html">class io.opsit.explang.Compiler$WITH_BINDINGS</a> </p>
 <h3 id="with-ctx"><code>WITH-CTX</code></h3>
 <p><strong>(WITH-CTX args ...)</strong></p>
 <p>Evaluate code in given context.</p>
-<p><strong>builtin form</strong> in package <strong>base.bindings</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Compiler.WITH_CTX.html">class io.opsit.explang.Compiler$WITH_CTX</a> </p>
+<p><strong>builtin form</strong> in package <strong>base.bindings</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Compiler.WITH_CTX.html">class io.opsit.explang.Compiler$WITH_CTX</a> </p>
 <h2 id="_2">%</h2>
 <h3 id="_3"><code>%</code></h3>
 <p><strong>Compute Remainder.</strong></p>
@@ -4296,7 +4345,7 @@ Returns:
 <div class="highlight"><pre><span></span><code>Generalizations of the remainder function. When both operands are integer returns result of the remainder operation . If one of them is floating point returns result of 
      number - truncate_to_zero (number / divisor) * divisor (same semantic as for the Java % operator.
 </code></pre></div>
-<p><strong>builtin function</strong> in package <strong>base.arithmetics</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.REMOP.html">class io.opsit.explang.Funcs$REMOP</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.arithmetics</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.REMOP.html">class io.opsit.explang.Funcs$REMOP</a> </p>
 <h2 id="_4">*</h2>
 <h3 id="_5"><code>*</code></h3>
 <p><strong>Compute Product.</strong></p>
@@ -4304,7 +4353,7 @@ Returns:
 <div class="highlight"><pre><span></span><code>Returns the product of all its arguments performing any necessary type
 conversions in the process. If no numbers are supplied, 1 is returned.
 </code></pre></div>
-<p><strong>builtin function</strong> in package <strong>base.arithmetics</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.MULOP.html">class io.opsit.explang.Funcs$MULOP</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.arithmetics</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.MULOP.html">class io.opsit.explang.Funcs$MULOP</a> </p>
 <h2 id="_6">+</h2>
 <h3 id="_7"><code>+</code></h3>
 <p><strong>Compute Sum.</strong></p>
@@ -4312,7 +4361,7 @@ conversions in the process. If no numbers are supplied, 1 is returned.
 <div class="highlight"><pre><span></span><code>Computes sum of function arguments performing any necessary type conversions
 in the process. If no numbers are supplied, 0 is returned.
 </code></pre></div>
-<p><strong>builtin function</strong> in package <strong>base.arithmetics</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.ADDOP.html">class io.opsit.explang.Funcs$ADDOP</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.arithmetics</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.ADDOP.html">class io.opsit.explang.Funcs$ADDOP</a> </p>
 <h2 id="-_1">-</h2>
 <h3 id="-_2"><code>-</code></h3>
 <p><strong>Performs subtraction or negation.</strong></p>
@@ -4323,29 +4372,29 @@ it subtracts rest of the arguments from the first one
 and returns the result. The function performs necessary 
 type conversions.
 </code></pre></div>
-<p><strong>builtin function</strong> in package <strong>base.arithmetics</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.SUBOP.html">class io.opsit.explang.Funcs$SUBOP</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.arithmetics</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.SUBOP.html">class io.opsit.explang.Funcs$SUBOP</a> </p>
 <h3 id="-_3"><code>-&gt;</code></h3>
 <p><strong>(-&gt; args ...)</strong></p>
 <p>Threading form on first argument</p>
-<p><strong>builtin form</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Compiler.TH_1ST.html">class io.opsit.explang.Compiler$TH_1ST</a> </p>
+<p><strong>builtin form</strong> in package <strong>base.seq</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Compiler.TH_1ST.html">class io.opsit.explang.Compiler$TH_1ST</a> </p>
 <h3 id="-_4"><code>-&gt;&gt;</code></h3>
 <p><strong>(-&gt;&gt; args ...)</strong></p>
 <p>Threading form on last argument.</p>
-<p><strong>builtin form</strong> in package <strong>base.control</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Compiler.TH_LAST.html">class io.opsit.explang.Compiler$TH_LAST</a> </p>
+<p><strong>builtin form</strong> in package <strong>base.control</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Compiler.TH_LAST.html">class io.opsit.explang.Compiler$TH_LAST</a> </p>
 <h2 id="_8">.</h2>
 <h3 id="_9"><code>.</code></h3>
 <p><strong>Call Java Object Method/Read FieldCall method of java object or read contend of object field.</strong></p>
 <p><strong>(.  object &amp;REST call-args)</strong></p>
-<p><strong>builtin function</strong> in package <strong>ffi</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.DOT.html">class io.opsit.explang.Funcs$DOT</a> </p>
+<p><strong>builtin function</strong> in package <strong>ffi</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.DOT.html">class io.opsit.explang.Funcs$DOT</a> </p>
 <h3 id="n_1"><code>.N</code></h3>
 <p><strong>Return New Class Instance.</strong></p>
 <p><strong>(.N  class &amp;OPTIONAL arglist typeslist)</strong></p>
 <p>Optional arglist and typeslist parameters specify parameters to be passed to cosnstructor and their types. When typelist not given it tries to find most narrowly matching constructor on the basis of types of the arguments in arglist. If typeslist is provided exactly matching constructor will be used.</p>
-<p><strong>builtin function</strong> in package <strong>ffi</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.DOTN.html">class io.opsit.explang.Funcs$DOTN</a> </p>
+<p><strong>builtin function</strong> in package <strong>ffi</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.DOTN.html">class io.opsit.explang.Funcs$DOTN</a> </p>
 <h3 id="s_1"><code>.S</code></h3>
 <p><strong>Call Static Java Method/Read Static FieldCall method of java object or read contend of object field.</strong></p>
 <p><strong>(.S  class &amp;REST call-args)</strong></p>
-<p><strong>builtin function</strong> in package <strong>ffi</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.DOTS.html">class io.opsit.explang.Funcs$DOTS</a> </p>
+<p><strong>builtin function</strong> in package <strong>ffi</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.DOTS.html">class io.opsit.explang.Funcs$DOTS</a> </p>
 <h2 id="_10">/</h2>
 <h3 id="_11"><code>/</code></h3>
 <p><strong>Performs Division or Reciprocation.</strong></p>
@@ -4356,45 +4405,45 @@ type conversions.
   numerator by all of the denominators and returns the resulting quotient.
 The function / performs necessary type conversions. 
 </code></pre></div>
-<p><strong>builtin function</strong> in package <strong>base.arithmetics</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.DIVOP.html">class io.opsit.explang.Funcs$DIVOP</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.arithmetics</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.DIVOP.html">class io.opsit.explang.Funcs$DIVOP</a> </p>
 <h2 id="_12">&lt;</h2>
 <h3 id="_13"><code>&lt;</code></h3>
 <p><strong>Less Than - Numeric Comparison.</strong></p>
 <p><strong>(&lt;  x &amp;REST args)</strong></p>
 <p>Returns True if all arguments are monotonically increasing order.  Returns True if only one argument is given</p>
-<p><strong>builtin function</strong> in package <strong>base.logic</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.NUMLT.html">class io.opsit.explang.Funcs$NUMLT</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.logic</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.NUMLT.html">class io.opsit.explang.Funcs$NUMLT</a> </p>
 <h3 id="_14"><code>&lt;=</code></h3>
 <p><strong>Less or Equal - Numeric comparison.</strong></p>
 <p><strong>(&lt;=  x &amp;REST args)</strong></p>
 <p>Returns True if all arguments are monotonically non-decreasing order.  Returns True if only one argument is given</p>
-<p><strong>builtin function</strong> in package <strong>base.logic</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.NUMLE.html">class io.opsit.explang.Funcs$NUMLE</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.logic</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.NUMLE.html">class io.opsit.explang.Funcs$NUMLE</a> </p>
 <h2 id="_15">=</h2>
 <h3 id="_16"><code>=</code></h3>
 <p><strong>Test numeric equality.</strong></p>
 <p><strong>(=  x &amp;REST args)</strong></p>
 <p>Returns True if all arguments are numerically equal. Returns True if only one argument is given</p>
-<p><strong>builtin function</strong> in package <strong>base.logic</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.NUMEQ.html">class io.opsit.explang.Funcs$NUMEQ</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.logic</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.NUMEQ.html">class io.opsit.explang.Funcs$NUMEQ</a> </p>
 <h3 id="_17"><code>==</code></h3>
 <p><strong>Check Value Equality.</strong></p>
 <p><strong>(==  x y)</strong></p>
 <p>Returns true if x equal to y according to call to Java method x.equals(y) or if both objects are NIL. If they are not, it  returns true if  thy are equal numerically or structurally.</p>
-<p><strong>builtin function</strong> in package <strong>base.logic</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.SEQUAL.html">class io.opsit.explang.Funcs$SEQUAL</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.logic</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.SEQUAL.html">class io.opsit.explang.Funcs$SEQUAL</a> </p>
 <h3 id="_18"><code>===</code></h3>
 <p><strong>Check Object Equality.</strong></p>
 <p><strong>(===  x y)</strong></p>
 <p>Objects identity check: returns true if Object x is same as Object y. Uses java operator == to check objects identity</p>
-<p><strong>builtin function</strong> in package <strong>base.logic</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.EQ.html">class io.opsit.explang.Funcs$EQ</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.logic</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.EQ.html">class io.opsit.explang.Funcs$EQ</a> </p>
 <h2 id="_19">&gt;</h2>
 <h3 id="_20"><code>&gt;</code></h3>
 <p><strong>Greater Than - Numeric comparison.</strong></p>
 <p><strong>(&gt;  x &amp;REST args)</strong></p>
 <p>Returns True if all arguments are monotonically decreasing order.  Returns True if only one argument is given</p>
-<p><strong>builtin function</strong> in package <strong>base.logic</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.NUMGT.html">class io.opsit.explang.Funcs$NUMGT</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.logic</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.NUMGT.html">class io.opsit.explang.Funcs$NUMGT</a> </p>
 <h3 id="_21"><code>&gt;=</code></h3>
 <p><strong>Greater or Equal - Numeric comparison.</strong></p>
 <p><strong>(&gt;=  x &amp;REST args)</strong></p>
 <p>Returns True if all arguments are monotonically non-increasing order. Returns True if only one argument is given</p>
-<p><strong>builtin function</strong> in package <strong>base.logic</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.6/io/opsit/explang/Funcs.NUMGE.html">class io.opsit.explang.Funcs$NUMGE</a> </p>
+<p><strong>builtin function</strong> in package <strong>base.logic</strong> defined at  <a href="https://javadocs.dev/io.opsit/opsit-explang-core/0.0.7/io/opsit/explang/Funcs.NUMGE.html">class io.opsit.explang.Funcs$NUMGE</a> </p>
 
 
 

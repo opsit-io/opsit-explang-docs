@@ -526,7 +526,7 @@
 <h1 id="explang-goals-and-features">Explang Goals and Features</h1>
 <h2 id="focus-on-support-for-programming-in-the-small-friendliness-to-casual-users-of-the-language">Focus on support for Programming in the Small, friendliness to casual users of the language</h2>
 <ul>
-<li>Dynamic typing, implicit conversions to boolean and numeric values when required.</li>
+<li>Dynamic typing, implicit conversions to Boolean and numeric values when required.</li>
 <li>Dynamic variables: allows for passing values as variables in the context and
   defining user functions without arguments.</li>
 <li>Lisp2 language: different namespaces for variables and functions, so there
@@ -547,13 +547,13 @@
 <p>There is a parser with a Julia-like Algebraic syntax:
 - <a href="https://github.com/opsit-io/opsit-explang-alg-parser">opsit-explang-alg-parser</a></p>
 <h2 id="modularity-safety-and-adaptability">Modularity, safety and adaptability</h2>
-<p>Language features come in packages so language integrators may select just the
+<p>Language features come in packages, so language integrators may select just the
 features that are needed for their use cases. For example, to implement a
 calculator one may include only arithmetical operations and variables.  For
 integrating webhooks one may allow conditionals, declaration of functions but
 not loops or FFI for calling arbitrary Java methods.</p>
 <p>The language strives to provide feature flags and configuration parameters to
-allow configuration of language behavious, such as case sensitivity, use of
+allow configuration of language behavior, such as case sensitivity, use of
 default values vs. exceptions on access to undefined variables, etc.</p>
 <h2 id="simplicity-and-ease-of-integration-into-existing-systems">Simplicity and ease of integration into existing systems</h2>
 <ul>

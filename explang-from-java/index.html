@@ -244,8 +244,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#add-to-the-dependencies-listin-pomxml" class="md-nav__link">
-    Add to the dependencies listin pom.xml
+  <a href="#add-to-the-dependencies-list-in-pomxml" class="md-nav__link">
+    Add to the dependencies list in pom.xml
   </a>
   
 </li>
@@ -490,8 +490,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#add-to-the-dependencies-listin-pomxml" class="md-nav__link">
-    Add to the dependencies listin pom.xml
+  <a href="#add-to-the-dependencies-list-in-pomxml" class="md-nav__link">
+    Add to the dependencies list in pom.xml
   </a>
   
 </li>
@@ -529,13 +529,15 @@
                 
 
 
+  <h1>Calling Explang from Java</h1>
+
 <h2 id="using-explang-from-java-code">Using Explang from Java Code</h2>
-<h3 id="add-to-the-dependencies-listin-pomxml">Add to the dependencies listin <em>pom.xml</em></h3>
+<h3 id="add-to-the-dependencies-list-in-pomxml">Add to the dependencies list in <em>pom.xml</em></h3>
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;dependencies&gt;</span>
   <span class="nt">&lt;dependency&gt;</span>
     <span class="nt">&lt;groupId&gt;</span>io.opsit<span class="nt">&lt;/groupId&gt;</span>
     <span class="nt">&lt;artifactId&gt;</span>opsit-explang-core<span class="nt">&lt;/artifactId&gt;</span>
-    <span class="nt">&lt;version&gt;</span>0.0.6<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;version&gt;</span>0.0.7<span class="nt">&lt;/version&gt;</span>
   <span class="nt">&lt;/dependency&gt;</span>
 ...
 <span class="nt">&lt;/dependencies&gt;</span>
@@ -584,7 +586,7 @@
 <span class="w">  </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Result: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">expVal</span><span class="p">);</span><span class="w"></span>
 <span class="p">}</span><span class="w"></span>
 </code></pre></div>
-<h1 id="evaluating-explang-expressions-via-the-java-scripting-api-jsr223">Evaluating Explang expressions via the Java Scripting API (JSR223)</h1>
+<h2 id="evaluating-explang-expressions-via-the-java-scripting-api-jsr223">Evaluating Explang expressions via the Java Scripting API (JSR223)</h2>
 <p>A simpler, but less flexible way of executing Explang is to use it via the
 <a href="https://jcp.org/aboutJava/communityprocess/final/jsr223/index.html">Java Scripting API</a></p>
 <div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nn">io.opsit.explang.examples</span><span class="p">;</span><span class="w"></span>

@@ -403,6 +403,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#string-interpolation" class="md-nav__link">
+    String Interpolation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#character-type" class="md-nav__link">
     Character Type
   </a>
@@ -746,6 +753,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#compound-expressions" class="md-nav__link">
+    Compound Expressions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#conditionals" class="md-nav__link">
     Conditionals
   </a>
@@ -818,6 +832,13 @@
           <li class="md-nav__item">
   <a href="#reduce" class="md-nav__link">
     reduce
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#handling-of-exceptions" class="md-nav__link">
+    Handling of Exceptions
   </a>
   
 </li>
@@ -1145,6 +1166,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#string-interpolation" class="md-nav__link">
+    String Interpolation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#character-type" class="md-nav__link">
     Character Type
   </a>
@@ -1488,6 +1516,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#compound-expressions" class="md-nav__link">
+    Compound Expressions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#conditionals" class="md-nav__link">
     Conditionals
   </a>
@@ -1560,6 +1595,13 @@
           <li class="md-nav__item">
   <a href="#reduce" class="md-nav__link">
     reduce
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#handling-of-exceptions" class="md-nav__link">
+    Handling of Exceptions
   </a>
   
 </li>
@@ -2138,15 +2180,15 @@ string.</p>
 <p>The most general is <code>str</code>, which takes any number of arguments and 
 concatenates them into a string. Every argument will appear as it would 
 look if printed out by pr, except nil, which is ignored.</p>
-<div class="highlight"><pre><span></span><code>&gt; str(99, &quot; bottles of &quot;, :bee, &quot;#\r&quot;)
+<div class="highlight"><pre><span></span><code>&gt; str(99, &quot; bottles of &quot;, :bee, &#39;r&#39;)
 
 =&gt; &quot;99 bottles of beer&quot;
 </code></pre></div>
 <p>To control exactly the way the objects are converted to string use
 the <code>format()</code> function, which converts its argument to string
 using the first argument as format specification: </p>
-<p><div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">setv</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="mi">9786</span><span class="p">)</span><span class="w"></span>
-<span class="p">(</span><span class="n">format</span><span class="w"> </span><span class="s">&quot;Decimal: </span><span class="si">%d</span><span class="s">, hexadecimal: </span><span class="si">%x</span><span class="s">  octal: </span><span class="si">%o</span><span class="s">  char: </span><span class="si">%c</span><span class="s"> </span><span class="se">\n</span><span class="s">&quot;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"></span>
+<p><div class="highlight"><pre><span></span><code><span class="n">x</span><span class="o">:=</span><span class="mi">9786</span><span class="p">;</span><span class="w"></span>
+<span class="n">format</span><span class="p">(</span><span class="s">&quot;Decimal: </span><span class="si">%d</span><span class="s">, hexadecimal: </span><span class="si">%x</span><span class="s">  octal: </span><span class="si">%o</span><span class="s">  char: </span><span class="si">%c</span><span class="s"> </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">x</span><span class="p">);</span><span class="w"></span>
 
 <span class="o">=&gt;</span><span class="w"> </span><span class="n">Decimal</span><span class="o">:</span><span class="w"> </span><span class="mi">9786</span><span class="p">,</span><span class="w"> </span><span class="n">hexadecimal</span><span class="o">:</span><span class="w"> </span><span class="mi">263</span><span class="n">a</span><span class="w">  </span><span class="n">octal</span><span class="o">:</span><span class="w"> </span><span class="mi">23072</span><span class="w">  </span><span class="n">char</span><span class="o">:</span><span class="w"> </span><span class="n">☺</span><span class="w"></span>
 </code></pre></div>
@@ -2156,10 +2198,38 @@ for details on building the format strings.</p>
 <p>Strings in Explang are considered a kind of indexed sequences
 and can be operated upon using generic functions that work with sequences,
 for example to get substring one should use <code>subseq()</code>, 
-to get a specific character one uses <code>get()</code> or <code>areq()</code> and so on. 
-See below on how to work with sequences.</p>
+to get a specific character one uses subscript operator or accessor functions
+like <code>get</code>, see below on how to work with sequences.</p>
+<h2 id="string-interpolation">String Interpolation</h2>
+<p>Constructing strings using the <code>format</code> function or string concatenation
+may become cumbersome. To reduce need for these verbose calls and to allow
+string representation in code be more similar to the program output Explang
+allows string interpolation using the <code>$( expression )</code> syntax in 
+string literals that are prefixed with flag <code>i</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w">   </span><span class="n">a</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">b</span><span class="o">:=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="n">str</span><span class="o">:=</span><span class="sa">i</span><span class="s">&quot;</span><span class="si">$</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s"> + </span><span class="si">$</span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="s"> = </span><span class="si">$</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
+
+<span class="o">=&gt;</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+
+<span class="o">=&gt;</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+
+<span class="o">=&gt;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="w"></span>
+</code></pre></div>
+<p>Note that string interpolation is strictly a syntax level feature: one cannot
+build interpolated string dynamically at runtime (unless using <code>eval</code> to build
+and evaluate the code). Another interesting property of string interpolation
+is that one does not have to escape the double quotes in the interpolated
+expressions, the following interpolated string literal may look strange, but
+it is completely valid, note recursive use of interpolation inside the <code>if</code>
+expression:</p>
+<div class="highlight"><pre><span></span><code>&gt; result:=&quot;oops&quot;;
+
+=&gt; oops
+&gt; i&quot;Result: $(if result==&quot;ok&quot; &quot;Alright&quot; else i&quot;too bad: the value is $(result)&quot;; end)&quot;;
+
+=&gt; Result: too bad: the value is oops
+</code></pre></div>
 <h2 id="character-type">Character Type</h2>
-<p>Explang Characters represent Unicode 16bit characters and implemented using Java 
+<p>Explang Characters represent Unicode 16-bit characters and implemented using Java 
 <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Character.html">java.lang.Character</a>.</p>
 <p>Character literals are delimited using the 'c', '\UHEX','\uHEX' or '\ESCAPECHAR' notation:</p>
 <div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="sc">&#39;H&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;e&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;l&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;l&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;o&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;\n&#39;</span><span class="p">,</span><span class="w"> </span><span class="sc">&#39;\u263a&#39;</span><span class="w"> </span><span class="p">];</span><span class="w"></span>
@@ -3106,6 +3176,22 @@ The elements of the seq are whatever type re-find would have returned.</p>
 </code></pre></div>
 <p><code>append ()</code> materializes lazy sequence that re-seq returns so we can
 see text of matched strings.</p>
+<h2 id="compound-expressions">Compound Expressions</h2>
+<p>Sometimes it is convenient or necessary to have a single expression that
+evaluates in order a number of subordinate expressions and returns the value
+of the last subexpression as value.  The previous subexpressions may be run
+for their side effects or to compute intermediate values that will be used
+to compute the return value in the last subexpression.</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="n">q</span><span class="o">:=</span><span class="k">begin</span><span class="w"></span>
+<span class="w">       </span><span class="n">x</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">       </span><span class="n">y</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
+<span class="w">       </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Computing sum&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">       </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">end</span><span class="p">;</span><span class="w"></span>
+<span class="n">Computing</span><span class="w"> </span><span class="n">sum</span><span class="w"></span>
+
+<span class="o">=&gt;</span><span class="w"> </span><span class="mi">3</span><span class="w"></span>
+</code></pre></div>
 <h2 id="conditionals">Conditionals</h2>
 <p>Conditional evaluation allows portion of code to be evaluated or not evaluated
 depending on a value of an expression (condition). 
@@ -3383,6 +3469,79 @@ since NIL has implicit numeric value of 0).</p>
 <span class="o">&gt;</span><span class="w"> </span><span class="n">reduce</span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">assoc</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="p">{},</span><span class="w"> </span><span class="n">L</span><span class="p">);</span><span class="w"></span>
 
 <span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="o">=</span><span class="mi">1</span><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<h3 id="handling-of-exceptions">Handling of Exceptions</h3>
+<p>When exception it thrown and not handled the execution of Explang code stops
+and control is passed to the calling Java code. When working in REPL it will
+print information about the exception a dump of execution stack and return
+control to the user, for example, lets define function to compute 
+average of list of numbers.</p>
+<p><div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="k">function</span><span class="w"> </span><span class="n">average</span><span class="p">(</span><span class="n">args</span><span class="p">)</span><span class="w"> </span>
+<span class="w">    </span><span class="s">&quot;Compute average of the numbers in &#39;args&#39;&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">apply</span><span class="p">(</span><span class="sa">f</span><span class="s">&quot;+&quot;</span><span class="p">,</span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">length</span><span class="p">(</span><span class="n">args</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">end</span><span class="w"></span>
+<span class="o">=&gt;</span><span class="w"> </span><span class="n">io</span><span class="o">.</span><span class="n">opsit</span><span class="o">.</span><span class="n">explang</span><span class="o">.</span><span class="n">Compiler</span><span class="o">$</span><span class="n">LAMBDA</span><span class="o">$</span><span class="mi">1</span><span class="err">@</span><span class="mf">2e5</span><span class="n">d6d97</span><span class="w"></span>
+</code></pre></div>
+If we pass an empty list to this function we'll get an arithmetic exception:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="n">average</span><span class="p">(</span><span class="n">list</span><span class="p">());</span><span class="w"></span>
+<span class="n">EXECUTION</span><span class="w"> </span><span class="n">ERROR</span><span class="o">:</span><span class="w"> </span><span class="n">java</span><span class="o">.</span><span class="n">lang</span><span class="o">.</span><span class="n">ArithmeticException</span><span class="o">:</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">zero</span><span class="w"> </span><span class="n">at</span><span class="o">:</span><span class="w"></span>
+<span class="mi">1</span><span class="o">:</span><span class="w"> </span><span class="o">/</span><span class="w">         </span><span class="n">INPUT23</span><span class="o">:</span><span class="n">line</span><span class="o">=</span><span class="mi">4</span><span class="o">:</span><span class="n">pos</span><span class="o">=</span><span class="mi">25</span><span class="o">:</span><span class="n">o</span><span class="o">=</span><span class="mi">123</span><span class="o">:</span><span class="n">len</span><span class="o">=</span><span class="mi">0</span><span class="w"> </span><span class="n">Eargs</span><span class="o">&lt;</span><span class="mi">824318946</span><span class="o">&gt;</span><span class="w"></span>
+<span class="mi">2</span><span class="o">:</span><span class="w"> </span><span class="n">average</span><span class="w">   </span><span class="n">INPUT26</span><span class="o">:</span><span class="n">line</span><span class="o">=</span><span class="mi">1</span><span class="o">:</span><span class="n">pos</span><span class="o">=</span><span class="mi">12</span><span class="o">:</span><span class="n">o</span><span class="o">=</span><span class="mi">12</span><span class="o">:</span><span class="n">len</span><span class="o">=</span><span class="mi">0</span><span class="w">  </span><span class="n">Ctx</span><span class="o">&lt;</span><span class="mi">2128227771</span><span class="o">&gt;</span><span class="w"></span>
+</code></pre></div>
+<p>The <code>try-catch-finally</code> statement allows to catch the exception and handle it
+in user code. For example we can modify the function <code>average</code> that we used in
+one of the previous chapters to handle the exception and return a Not-A-Number
+value when called without the arguments:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="k">function</span><span class="w"> </span><span class="n">average</span><span class="p">(</span><span class="n">args</span><span class="p">)</span><span class="w"> </span>
+<span class="w">    </span><span class="s">&quot;Compute average of the numbers in &#39;args&#39;. Returns a NaN if an error occurs.&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">try</span><span class="w"> </span>
+<span class="w">      </span><span class="n">apply</span><span class="p">(</span><span class="sa">f</span><span class="s">&quot;+&quot;</span><span class="p">,</span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">length</span><span class="p">(</span><span class="n">args</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">catch</span><span class="w"> </span><span class="n">ex</span><span class="w"></span>
+<span class="w">      </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Warning: average: &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ex</span><span class="o">.</span><span class="n">message</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">double</span><span class="p">(</span><span class="s">&quot;NaN&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">end</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">end</span><span class="w"></span>
+<span class="o">=&gt;</span><span class="w"> </span><span class="n">io</span><span class="o">.</span><span class="n">opsit</span><span class="o">.</span><span class="n">explang</span><span class="o">.</span><span class="n">Compiler</span><span class="o">$</span><span class="n">LAMBDA</span><span class="o">$</span><span class="mi">1</span><span class="err">@</span><span class="mf">6e2</span><span class="n">c634b</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">average</span><span class="p">(</span><span class="n">list</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span><span class="w"></span>
+
+<span class="o">=&gt;</span><span class="w"> </span><span class="mi">4</span><span class="w"></span>
+
+<span class="o">&gt;</span><span class="w"> </span><span class="n">average</span><span class="p">(</span><span class="n">list</span><span class="p">())</span><span class="w"></span>
+<span class="n">Warning</span><span class="o">:</span><span class="w"> </span><span class="n">average</span><span class="o">:</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">zero</span><span class="w"></span>
+
+<span class="o">=&gt;</span><span class="w"> </span><span class="nb">NaN</span><span class="w"></span>
+</code></pre></div>
+<p>In the <code>catch</code> clause we specify the exception class that we want to catch,
+variable to put the exception and list of expressions to be evaluated.  The
+statement supports handling multiple exceptions with multiple catch
+blocks. All Java exceptions inherit from the <code>java.lang.Exception</code> class, so
+the above <code>catch</code> clause would handle any exception that can be thrown inside
+the try block. It also means that order of catch blocks is important: first
+should be handled more specific exceptions and then less specific according to
+the inheritance hierarchy.</p>
+<p>In code that works with resources like files or database connections or
+modifies state of data structures there is often some clean-up tasks that need
+to be performed after the code has finished its work. Exception handling may
+complicate performing these tasks because it may cause cause block of code to
+exit before reaching its normal end.</p>
+<p>The <code>finally</code> block allows to perform some action after all the <code>try</code> and
+<code>catch</code> code has been evaluated regardless of how it exits.  The code of the
+finally block is evaluated only for side effects: it does not affect the
+return value of the <code>try-catch-finally</code> statement.</p>
+<p>Suppose we want to produce some HTML report on basis of some remote resource.
+In case of error we want still to output HTML with error messages:</p>
+<div class="highlight"><pre><span></span><code><span class="n">println</span><span class="p">(</span><span class="s">&quot;&lt;html&gt;&lt;body&gt;&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="k">try</span><span class="w"> </span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">data</span><span class="o">:=</span><span class="n">fetch_data</span><span class="p">(</span><span class="n">url</span><span class="p">),</span><span class="w"> </span><span class="n">formatted_data</span><span class="o">:=</span><span class="n">html_format</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">formatted_data</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="k">end</span><span class="p">;</span><span class="w"></span>
+<span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">IOException</span><span class="w"> </span><span class="n">ex</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;ERROR: IO error reading data: &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ex</span><span class="o">.</span><span class="n">message</span><span class="p">);</span><span class="w"></span>
+<span class="k">catch</span><span class="w"> </span><span class="n">ex</span><span class="w"> </span>
+<span class="w">  </span><span class="n">println</span><span class="p">(</span><span class="s">&quot;ERROR: some exception producing report: &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ex</span><span class="o">.</span><span class="n">message</span><span class="p">);</span><span class="w"></span>
+<span class="k">finally</span><span class="w"></span>
+<span class="w">    </span><span class="p">(</span><span class="n">println</span><span class="w"> </span><span class="s">&quot;&lt;/body&gt;&lt;/html&gt;&quot;</span><span class="p">)));</span><span class="w"></span>
+<span class="k">end</span><span class="p">;</span><span class="w"></span>
 </code></pre></div>
 
 
