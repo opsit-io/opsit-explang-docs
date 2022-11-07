@@ -6,10 +6,10 @@ To be Done
 - variables scopes, set variants
 - variable scope with ifs, while
 - LET
-- destructuring
++ destructuring
 - v"0.0.3-alpha2" - Version literals
-- string interpolation
-- exception handling
++ string interpolation
++ exception handling
 - dwim search
 - FFI
 - BEANS

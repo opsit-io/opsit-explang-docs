@@ -450,7 +450,7 @@ This type of parameter is called a “rest parameter” because it gets the rest
 If you want all the arguments to a function to be collected in one parameter, 
 just use it in place of the whole parameter list.
 
-To supply a list of arguments to a function we can use the apply function:
+To supply a list of arguments to a function we can use the `apply` function:
 
 ```lisp
 (setv L (list 1 2 3))

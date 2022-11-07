@@ -1,5 +1,5 @@
 
-Acknowledgements
+Acknowledgments
 ================
 
 Code

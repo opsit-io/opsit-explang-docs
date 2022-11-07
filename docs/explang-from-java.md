@@ -1,7 +1,7 @@
 Using Explang from Java Code
 ----------------------------
 
-### Add to the dependencies listin *pom.xml*
+### Add to the dependencies list in *pom.xml*
 
 
 ```xml
@@ -66,7 +66,8 @@ if (exprs.hasProblems()) {
 
 ```
 
-# Evaluating Explang expressions via the Java Scripting API (JSR223)
+Evaluating Explang expressions via the Java Scripting API (JSR223)
+------------------------------------------------------------------
 
 A simpler, but less flexible way of executing Explang is to use it via the
 [Java Scripting API](https://jcp.org/aboutJava/communityprocess/final/jsr223/index.html)

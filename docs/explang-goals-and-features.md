@@ -4,7 +4,7 @@ Explang Goals and Features
 Focus on support for Programming in the Small, friendliness to casual users of the language
 -------------------------------------------------------------------------------------------
 
-- Dynamic typing, implicit conversions to boolean and numeric values when required.
+- Dynamic typing, implicit conversions to Boolean and numeric values when required.
 - Dynamic variables: allows for passing values as variables in the context and
   defining user functions without arguments.
 - Lisp2 language: different namespaces for variables and functions, so there
@@ -31,14 +31,14 @@ There is a parser with a Julia-like Algebraic syntax:
 Modularity, safety and adaptability
 ---------------------------
 
-Language features come in packages so language integrators may select just the
+Language features come in packages, so language integrators may select just the
 features that are needed for their use cases. For example, to implement a
 calculator one may include only arithmetical operations and variables.  For
 integrating webhooks one may allow conditionals, declaration of functions but
 not loops or FFI for calling arbitrary Java methods.
 
 The language strives to provide feature flags and configuration parameters to
-allow configuration of language behavious, such as case sensitivity, use of
+allow configuration of language behavior, such as case sensitivity, use of
 default values vs. exceptions on access to undefined variables, etc.
 
 
