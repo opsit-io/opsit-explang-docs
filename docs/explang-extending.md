@@ -4,7 +4,7 @@ Extending and Customizing the Language
 Adding Java-based builtin function to the language
 --------------------------------------------------
 
-This example will add builtin function "rect"
+This example will add a builtin function "rect"
 
 ```java
 import io.opsit.explang.Backtrace;
