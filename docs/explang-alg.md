@@ -2591,3 +2591,96 @@ since NIL has implicit numeric value of 0).
 => {0=5, 1=7, 2=5, 3=3, 4=1}
 ```
 
+
+### Handling of Exceptions
+
+When exception it thrown and not handled the execution of Explang code stops
+and control is passed to the calling Java code. When working in REPL it will
+print information about the exception a dump of execution stack and return
+control to the user, for example, lets define function to compute 
+average of list of numbers.
+
+
+```julia
+> function average(args) 
+    "Compute average of the numbers in 'args'";
+    apply(f"+",args) / length(args);
+  end
+=> io.opsit.explang.Compiler$LAMBDA$1@2e5d6d97
+```
+If we pass an empty list to this function we'll get an arithmetic exception:
+
+```julia
+> average(list());
+EXECUTION ERROR: java.lang.ArithmeticException: / by zero at:
+1: /         INPUT23:line=4:pos=25:o=123:len=0 Eargs<824318946>
+2: average   INPUT26:line=1:pos=12:o=12:len=0  Ctx<2128227771>
+
+```
+
+The `try-catch-finally` statement allows to catch the exception and handle it
+in user code. For example we can modify the function `average` that we used in
+one of the previous chapters to handle the exception and return a Not-A-Number
+value when called without the arguments:
+
+```julia
+> function average(args) 
+    "Compute average of the numbers in 'args'. Returns a NaN if an error occurs.";
+    try 
+      apply(f"+",args) / length(args);
+    catch ex
+	  println("Warning: average: ", ex.message);
+      double("NaN");
+    end;
+  end
+=> io.opsit.explang.Compiler$LAMBDA$1@6e2c634b
+> average(list(3,5))
+
+=> 4
+
+> average(list())
+Warning: average: / by zero
+
+=> NaN
+```
+
+In the `catch` clause we specify the exception class that we want to catch,
+variable to put the exception and list of expressions to be evaluated.  The
+statement supports handling multiple exceptions with multiple catch
+blocks. All Java exceptions inherit from the `java.lang.Exception` class, so
+the above `catch` clause would handle any exception that can be thrown inside
+the try block. It also means that order of catch blocks is important: first
+should be handled more specific exceptions and then less specific according to
+the inheritance hierarchy.
+
+In code that works with resources like files or database connections or
+modifies state of data structures there is often some clean-up tasks that need
+to be performed after the code has finished its work. Exception handling may
+complicate performing these tasks because it may cause cause block of code to
+exit before reaching its normal end.
+
+The `finally` block allows to perform some action after all the `try` and
+`catch` code has been evaluated regardless of how it exits.  The code of the
+finally block is evaluated only for side effects: it does not affect the
+return value of the `try-catch-finally` statement.
+
+Suppose we want to produce some HTML report on basis of some remote resource.
+In case of error we want still to output HTML with error messages:
+
+
+```julia
+println("<html><body>");
+try 
+  let data:=fetch_data(url), formatted_data:=html_format(data)
+    println(formatted_data)
+  end;
+catch (IOException ex)
+  println("ERROR: IO error reading data: ", ex.message);
+catch ex 
+  println("ERROR: some exception producing report: ", ex.message);
+finally
+    (println "</body></html>")));
+end;
+```
+
+
