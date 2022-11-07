@@ -136,3 +136,4 @@ runrepl.sh
 docs/functions.md
 site/
 gh-pages/
+*.output
