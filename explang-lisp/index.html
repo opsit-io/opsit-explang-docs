@@ -887,6 +887,27 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#scope-and-binding-of-variables" class="md-nav__link">
+    Scope and Binding of Variables
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#let-construction" class="md-nav__link">
+    LET construction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setl-setv-and-setq-constructions" class="md-nav__link">
+    SETL, SETV and SETQ constructions
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1566,6 +1587,27 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scope-and-binding-of-variables" class="md-nav__link">
+    Scope and Binding of Variables
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#let-construction" class="md-nav__link">
+    LET construction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setl-setv-and-setq-constructions" class="md-nav__link">
+    SETL, SETV and SETQ constructions
+  </a>
   
 </li>
       
@@ -3386,6 +3428,121 @@ In case of error we want still to output HTML with error messages:</p>
 <span class="w">  </span><span class="p">(</span><span class="nv">finally</span><span class="w"> </span>
 <span class="w">    </span><span class="p">(</span><span class="nv">println</span><span class="w"> </span><span class="s">&quot;&lt;/body&gt;&lt;/html&gt;&quot;</span><span class="p">)))</span><span class="w"></span>
 </code></pre></div>
+<h2 id="scope-and-binding-of-variables">Scope and Binding of Variables</h2>
+<p>When an Explang program is executing, the variable bindings live in a
+hierarchy of contexts (scopes).  The initial scope, in which the program code
+starts executing, is called the 'global scope'. Some language constructions
+introduce their own local scopes.</p>
+<p>For example, when a function is called, its arguments receive local values,
+which are the actual arguments supplied to the function call and those binding
+have effect only during execution of this function.  The context of the code,
+from which this function has been called, becomes parent context of the newly
+created scope. Establishing the binding in local context may shadow the
+bindings in the parent context.</p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="nv">setv</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="mi">1</span><span class="w">     </span><span class="c1">; x and y receive values 1 and 2</span><span class="w"></span>
+<span class="w">      </span><span class="nv">y</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w">    </span><span class="c1">; accordingly in the global context</span><span class="w"></span>
+
+<span class="p">(</span><span class="nb">defun</span><span class="w"> </span><span class="nv">printit</span><span class="p">(</span><span class="nv">x</span><span class="p">)</span><span class="w">  </span><span class="c1">; x is bound locally and</span><span class="w"></span>
+<span class="w">  </span><span class="p">(</span><span class="nb">list</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="nv">y</span><span class="p">))</span><span class="w">      </span><span class="c1">; y is used freely inside the function</span><span class="w"></span>
+
+<span class="p">(</span><span class="nv">printit</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w">        </span><span class="c1">; y inside function refers to the global context</span><span class="w"></span>
+<span class="c1">;=&gt; (3 2)          ; will return list (3 2)</span><span class="w"></span>
+
+<span class="nv">x</span><span class="w">                  </span><span class="c1">; will still return 1</span><span class="w"></span>
+
+<span class="p">(</span><span class="nv">setv</span><span class="w"> </span><span class="nv">y</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w">        </span><span class="c1">; now we change the y value to 3 in the global</span><span class="w"></span>
+
+<span class="p">(</span><span class="nv">printit</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w">       </span><span class="c1">; now y inside the function refers to the new value</span><span class="w"></span>
+<span class="c1">;=&gt; (3 3)         ; will return list (3 3)</span><span class="w"></span>
+</code></pre></div>
+<p>The function <code>printit</code> refers to <code>y</code>. This is a free reference in the sense that
+there is no binding to y inside the function. When we refer to <code>y</code> inside the
+function it refers to the binding in the parent context. On the other hand <code>x</code></p>
+<p>Such type of variable binding is called <em>Dynamic Binding</em>. When variable is
+dynamically bound, its current binding is simply the most recently created
+local binding for that name. Or the global binding if there is no such local
+binding.</p>
+<h2 id="let-construction"><code>LET</code> construction</h2>
+<p><code>let</code> is another construction that introduces local scope of execution. It receives
+list of variable bindings that will be established in the newly created scope:</p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="nv">setv</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="mi">-99</span><span class="p">)</span><span class="w">          </span><span class="c1">; x receives an initial value of -99</span><span class="w"></span>
+
+<span class="p">(</span><span class="nb">defun</span><span class="w"> </span><span class="nv">incx</span><span class="w"> </span><span class="p">()</span><span class="w"></span>
+<span class="w">  </span><span class="p">(</span><span class="nv">setv</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="nv">x</span><span class="p">)))</span><span class="w">   </span><span class="c1">; increment x and return its value</span><span class="w"></span>
+
+
+<span class="p">(</span><span class="k">let</span><span class="w"> </span><span class="p">((</span><span class="nv">x</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nv">y</span><span class="w"> </span><span class="mi">10</span><span class="p">))</span><span class="w">   </span><span class="c1">; x is bound to 1 locally, y to 10</span><span class="w"></span>
+<span class="w">  </span><span class="p">(</span><span class="nv">incx</span><span class="p">)</span><span class="w">             </span><span class="c1">; executes inside newly created context</span><span class="w"></span>
+<span class="w">  </span><span class="p">(</span><span class="nv">incx</span><span class="p">)</span><span class="w">             </span><span class="c1">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">(</span><span class="nb">list</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="nv">y</span><span class="p">))</span><span class="w"></span>
+<span class="c1">;=&gt; (3 10)           ; will return list (3 10)</span><span class="w"></span>
+
+<span class="p">(</span><span class="nv">incx</span><span class="p">)</span><span class="w">               </span><span class="c1">; will return -98</span><span class="w"></span>
+<span class="nv">x</span><span class="w">                    </span><span class="c1">; x now is -98</span><span class="w"></span>
+<span class="nv">y</span><span class="w">                    </span><span class="c1">; will fail because let</span><span class="w"></span>
+<span class="w">                     </span><span class="c1">; did not establish global binding for y</span><span class="w"></span>
+</code></pre></div>
+<h2 id="setl-setv-and-setq-constructions"><code>SETL</code>, <code>SETV</code> and <code>SETQ</code> constructions</h2>
+<p>The <code>SETL</code>, <code>SETV</code> and <code>SETQ</code> construction all serve to establish variable
+bindings.  They all get list of pairs { variable value } and establish binding
+for these variables.  The difference in their handling of variable scopes.</p>
+<p><code>SETL</code> (set local) always sets binding in the local context. If there is an
+variable with same name in one of parent contexts it will be shadowed.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">&gt;</span><span class="w"> </span><span class="p">(</span><span class="nv">setl</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w">          </span><span class="c1">; set value of x in the global context</span><span class="w"></span>
+
+<span class="nb">&gt;</span><span class="w"> </span><span class="p">(</span><span class="k">let</span><span class="w"> </span><span class="p">((</span><span class="nv">z</span><span class="w"> </span><span class="mi">0</span><span class="p">))</span><span class="w">        </span><span class="c1">; introduce local context with z = 0</span><span class="w"></span>
+<span class="w">    </span><span class="p">(</span><span class="nv">setl</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="nv">y</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="nv">z</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="c1">; set values in local context</span><span class="w"></span>
+<span class="w">    </span><span class="p">(</span><span class="nb">list</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="nv">y</span><span class="w"> </span><span class="nv">z</span><span class="p">))</span><span class="w"></span>
+<span class="c1">;=&gt; (2 3 4)</span><span class="w"></span>
+
+<span class="nb">&gt;</span><span class="w"> </span><span class="nv">x</span><span class="w">                   </span><span class="c1">; x is still 1 in the global context</span><span class="w"></span>
+<span class="c1">;=&gt; 1</span><span class="w"></span>
+
+<span class="nb">&gt;</span><span class="w"> </span><span class="nv">y</span><span class="w">                   </span><span class="c1">; will return error, y is unbound in the global context</span><span class="w"></span>
+<span class="nb">&gt;</span><span class="w"> </span><span class="nv">z</span><span class="w">                   </span><span class="c1">; will return error, z is unbound in the global context</span><span class="w"></span>
+</code></pre></div>
+<p><code>SETV</code> on the other hand will change variable value if it exists in parent
+contexts. It will start looking for the variable binding in the local context
+and continue looking up in the contexts hierarchy. If it finds such a binding
+it will change it to the new value.If no such binding exists it will establish
+a new binding in the local context.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">&gt;</span><span class="w"> </span><span class="p">(</span><span class="nv">setv</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w">          </span><span class="c1">; set value of x in the global context</span><span class="w"></span>
+
+<span class="nb">&gt;</span><span class="w"> </span><span class="p">(</span><span class="k">let</span><span class="w"> </span><span class="p">((</span><span class="nv">z</span><span class="w"> </span><span class="mi">0</span><span class="p">))</span><span class="w">        </span><span class="c1">; introduce local context with z = 0</span><span class="w"></span>
+<span class="w">    </span><span class="p">(</span><span class="nv">setv</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="nv">y</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="nv">z</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="c1">; set x  in the global, y and z in the local context</span><span class="w"></span>
+<span class="w">    </span><span class="p">(</span><span class="nb">list</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="nv">y</span><span class="w"> </span><span class="mi">4</span><span class="p">))</span><span class="w"></span>
+<span class="c1">;=&gt; (2 3 4)</span><span class="w"></span>
+
+<span class="nb">&gt;</span><span class="w"> </span><span class="nv">x</span><span class="w">                   </span><span class="c1">; x is changed to 2 in the global context</span><span class="w"></span>
+<span class="c1">;=&gt; 2</span><span class="w"></span>
+
+<span class="nb">&gt;</span><span class="w"> </span><span class="nv">y</span><span class="w">                   </span><span class="c1">; will return error, y is unbound in the global context</span><span class="w"></span>
+<span class="nb">&gt;</span><span class="w"> </span><span class="nv">z</span><span class="w">                   </span><span class="c1">; will return error, z is unbound in the global context</span><span class="w"></span>
+</code></pre></div>
+<p><code>SETQ</code> will look for an existing binding and update it in the same way as <code>SETV</code>.
+But in case when no such binding exists it will establish new binding in the
+initial context.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">&gt;</span><span class="w"> </span><span class="p">(</span><span class="k">setq</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w">          </span><span class="c1">; set value of x in the global context</span><span class="w"></span>
+
+<span class="nb">&gt;</span><span class="w"> </span><span class="p">(</span><span class="k">let</span><span class="w"> </span><span class="p">((</span><span class="nv">z</span><span class="w"> </span><span class="mi">0</span><span class="p">))</span><span class="w">        </span><span class="c1">; introduce local context</span><span class="w"></span>
+<span class="w">    </span><span class="p">(</span><span class="k">setq</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="nv">y</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="nv">z</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="c1">; set x, y in the global and z in the local context</span><span class="w"></span>
+<span class="w">    </span><span class="p">(</span><span class="nb">list</span><span class="w"> </span><span class="nv">x</span><span class="w"> </span><span class="nv">y</span><span class="w"> </span><span class="nv">z</span><span class="p">))</span><span class="w"></span>
+<span class="c1">;=&gt; (2 3 4)</span><span class="w"></span>
+
+<span class="nb">&gt;</span><span class="w"> </span><span class="nv">x</span><span class="w">                   </span><span class="c1">; x is changed to 2 in the global context</span><span class="w"></span>
+<span class="c1">;=&gt; 2</span><span class="w"></span>
+
+<span class="nb">&gt;</span><span class="w"> </span><span class="nv">y</span><span class="w">                   </span><span class="c1">; y is now bound to 3 in the global context</span><span class="w"></span>
+<span class="c1">;=&gt; 3</span><span class="w"></span>
+<span class="nb">&gt;</span><span class="w"> </span><span class="nv">z</span><span class="w">                   </span><span class="c1">; will return error, z is unbound in the global context</span><span class="w"></span>
+</code></pre></div>
+<p>In general, when writing generally useful functions, one would want to use
+<code>LET</code> or <code>SETL</code> to declare local variables and avoid modifying variables with
+same name in outer scopes.</p>
+<p>On the other hand, when writing specialized functions that will be run in
+execution contexts that are known beforehand, ability to access and modify
+global variables from inside functions allows to avoid passing lots of
+variables or complex data structures as function arguments.</p>
 
 
 
