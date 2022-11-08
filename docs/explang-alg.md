@@ -2684,3 +2684,161 @@ end;
 ```
 
 
+
+Scope and Binding of Variables
+------------------------------
+
+When an Explang program is executing, the variable bindings live in a
+hierarchy of contexts (scopes).  The initial scope, in which the program code
+starts executing, is called the 'global scope'. Some language constructions
+introduce their own local scopes.
+
+For example, when a function is called, its arguments receive local values,
+which are the actual arguments supplied to the function call and those binding
+have effect only during execution of this function.  The context of the code,
+from which this function has been called, becomes parent context of the newly
+created scope. Establishing the binding in local context may shadow the
+bindings in the parent context.
+
+
+```julia
+x := 1;             # x and y receive values 1 and 2
+y := 2;             # accordingly in the global context
+
+function printit(x) # x is bound locally and
+  list(x,y);        # y is used freely inside the function
+end;
+
+printit(3);         # y inside function refers to the global context
+#=> [3, 2)          # will return list (3 2)
+
+x                   # will still return 1
+
+y := 3;             # now we change the y value to 3 in the global
+
+printit(3);         # now y inside the function refers to the new value
+#=> [3, 3]          # will return list (3 3)
+
+```
+
+The function `printit` refers to `y`. This is a free reference in the sense that
+there is no binding to y inside the function. When we refer to `y` inside the
+function it refers to the binding in the parent context. On the other hand `x`
+
+Such type of variable binding is called *Dynamic Binding*. When variable is
+dynamically bound, its current binding is simply the most recently created
+local binding for that name. Or the global binding if there is no such local
+binding.
+
+
+`LET` construction
+------------------
+
+`let` is another construction that introduces local scope of execution. It receives
+list of variable bindings that will be established in the newly created scope:
+
+```julia
+x:= -99;            # x receives an initial value of -99
+
+function incx()
+ x:=x + 1;          # increment x and return its value
+end;
+
+let x:=1, y:=10     # x is bound to 1 locally, y to 10
+  incx();           # executes inside newly created context
+  incx();
+  list(x,y);
+end;
+#=> [3, 10]          # will return list (3 10)
+
+(incx)               # will return -98
+x                    # x now is -98
+y                    # will fail because let
+                     # did not establish global binding for y
+
+```
+
+The Assignment Operator `:=` and its `GLOBAL` and `LOCAL` Modifiers
+-------------------------------------------------------------------
+
+As we have seen the ':=' operator serves to establish variable bindings.  The
+assignment can be prefixed with optional modifiers `global` or `local` that
+change handling of variable scope by the assignment operation.
+
+With the `local` modifier the binding is always performed in the local
+context. If there is an variable with same name in one of parent contexts it
+will be shadowed.
+
+
+```julia
+x:=1                # set value of x in the global context
+
+let z:=0            # introduce local context with z = 0
+  local x:=2;       # set values in local context
+  local y:=3;
+  local z:=4;
+  list(x, y, z);
+end;
+;=> [2,3,4]
+
+x                   # x is still 1 in the global context
+#=> 1
+
+y                   # will return error, y is unbound in the global context
+z                   # will return error, z is unbound in the global context
+```
+
+`:=` without modifiers, on the other hand, will change variable value if it
+exists in parent contexts. It will start looking for the variable binding in
+the local context and continue looking up in the contexts hierarchy. If it
+finds such a binding it will change it to the new value.If no such binding
+exists it will establish a new binding in the local context.
+
+```julia
+x:=1                # set value of x in the global context
+
+let z:=0            # introduce local context with z = 0
+  x:=2;             # set value in global context
+  y:=3;             # set value in local context
+  z:=4;             # set value in local context
+  list(x, y, z);
+end;
+;=> [2,3,4]
+
+x                   # x is changed to 2 in the global context
+#=> 2
+y                   # will return error, y is unbound in the global context
+z                   # will return error, z is unbound in the global context
+```
+
+With the `global` modifier it will look for an existing binding and update it
+in the same way as with no modifiers.  But in the case when no such binding
+exists it will establish a new binding in the initial context.
+
+```julia
+x:=1                # set value of x in the global context
+
+let z:=0            # introduce local context with z = 0
+  global x:=2;      # set x, y in the global
+  global y:=3;
+  global z:=4;      # and z in the local context
+  list(x, y, z);
+end;
+;=> [2,3,4]
+
+x                   # x is changed to 2 in the global context
+#=> 2
+y                   # y is now bound to 3 in the global context
+z                   # will return error, z is unbound in the global context
+```
+
+
+In general, when writing generally useful functions, one would want to use
+`LET` or `local` assignments to declare local variables and avoid modifying
+variables with same name in outer scopes.
+
+On the other hand, when writing specialized functions that will be run in
+execution contexts that are known beforehand, ability to access and modify
+global variables from inside functions allows to avoid passing lots of
+variables or complex data structures as function arguments.
+
