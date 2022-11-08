@@ -2829,6 +2829,7 @@ end;
 x                   # x is changed to 2 in the global context
 #=> 2
 y                   # y is now bound to 3 in the global context
+#=> 3
 z                   # will return error, z is unbound in the global context
 ```
 
