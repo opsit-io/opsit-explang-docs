@@ -3,9 +3,9 @@ To be Done
 
 - begin - end blocks
 - pipe
-- variables scopes, set variants
++ variables scopes, set variants
 - variable scope with ifs, while
-- LET
++ LET
 + destructuring
 - v"0.0.3-alpha2" - Version literals
 + string interpolation
