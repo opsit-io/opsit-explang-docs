@@ -1,50 +1,50 @@
-### Data Search and Extraction 2
+### Data Search and Extraction: Software Vulnerabilities
 
 # Examples of data extraction from nested data structures. The structure is
 # an output file of the Grype (https://github.com/anchore/grype) vulnerability
 # scanner with some parts (not required for the examples) removed.
 
 function main()
-    data := readData();
+    vulnerabilities := readData();
     println("\n* List of all vulnerabilities with their severity ",
             "and fix statuses");
-    data.matches
+    vulnerabilities.matches
     | fields vulnerability (id, severity, fix.state)
     | println();
 
     println("\n* List of all High and Critical vulnerabilities with fix ",
             "status wont-fix");
-    data.matches
+    vulnerabilities.matches
     | search vulnerability.severity in ["Critical","High"]
              and (vulnerability.fix.state == "wont-fix")
     | fields vulnerability.id, artifact (name as "artifact",  version)
     | println();
     
     println("\n* Count of all High and Critical vulnerabilities");
-    data.matches
+    vulnerabilities.matches
     | search vulnerability.severity in ["Critical","High"] | length()
     | println();
 
     println("\n* Return Boolean status if there are Critical vulnerabilities");
-    data.matches
+    vulnerabilities.matches
     | search vulnerability.severity in ["Critical","High"] | bool()
     | println();
 
     println("\n* Return True if there is 10 or more High or Critical ",
             "vulnerabilities");
-    data.matches
+    vulnerabilities.matches
     | search vulnerability.severity in ["Critical","High"] | length() | >=(10)
     | println();
 
     println("\n* Return counts of vulnerabilities per severity");
-    data.matches
+    vulnerabilities.matches
     | []["vulnerability"]["severity"]
     | reduce( (m,severity) -> begin m[severity] := m[severity] + 1; m; end, {} )
     | println();
     
     println("\n* make CSV report of High and Critical vulnerabilities ",
             "with fix status wont-fix");
-    data.matches
+    vulnerabilities.matches
     | fields vulnerability (id, severity, fix.state), artifact (name as "artifact", version)
     | search severity in ["Critical", "High", "Medium"] and state == "wont-fix"
     | map(x -> i"$(x.id),$(x.artifact),$(x.version)")

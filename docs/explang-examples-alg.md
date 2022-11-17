@@ -1,99 +1,12 @@
 Examples with Algebraic Syntax
 ==============================
 
-Hello, World!
--------------
-
-```lisp
---8<-- "examples/alg/01_hello.jl"
-```
-
-Output:
-```
---8<-- "examples/alg/01_hello.jl.output"
-```
-
-Compute Factorial (recursive)
------------------------------
-
-```lisp
---8<-- "examples/alg/02_fact-recursive.jl"
-```
-
-Output:
-```
---8<-- "examples/alg/02_fact-recursive.jl.output"
-```
-
-Factorial (lazy sequence)
--------------------------
-
-```lisp
---8<-- "examples/alg/03_fact-lazy-seq.jl"
-```
-
-Output:
-```
---8<-- "examples/alg/03_fact-lazy-seq.jl.output"
-```
-
-Quicksort
----------
-
-```lisp
---8<-- "examples/alg/04_quicksort.jl"
-```
-
-Output:
-```
---8<-- "examples/alg/04_quicksort.jl.output"
-```
-
-Frequency Table
----------------
-
-```lisp
---8<-- "examples/alg/05_freqtable.jl"
-```
-
-Output:
-```
---8<-- "examples/alg/05_freqtable.jl.output"
-```
-
-The 8 Queens Problem
---------------------
-
-```lisp
---8<-- "examples/alg/06_8queens.jl"
-```
-
-Output:
-```
---8<-- "examples/alg/06_8queens.jl.output"
-```
-
-Data Search and Extraction
---------------------------
-
-```lisp
---8<-- "examples/alg/07-data-extraction.jl"
-```
-
-Output:
-```
---8<-- "examples/alg/07-data-extraction.jl.output"
-```
-
-Data Search and Extraction 2
-----------------------------
-
-```lisp
---8<-- "examples/alg/08-data-extraction2.jl"
-```
-
-Output:
-```
---8<-- "examples/alg/08-data-extraction2.jl.output"
-```
-
+- [Hello, World!](examples/alg/01_hello.jl.md)
+- [Compute Factorial (recursive)](examples/alg/02_fact-recursive.jl.md)
+- [Factorial (lazy sequence)](examples/alg/03_fact-lazy-seq.jl.md)
+- [Quicksort](examples/alg/04_quicksort.jl.md)
+- [Frequency Table](examples/alg/05_freqtable.jl.md)
+- [The 8 Queens Problem](examples/alg/06_8queens.jl.md)
+- [Data Search and Extraction: A Library Catalog](examples/alg/07-data-extraction.jl.md)
+- [Data Search and Extraction: Software Vulnerabilities](examples/alg/08-data-extraction2.jl.md)
+- [Data Search and Extraction: Software Bill of Meterials](examples/alg/09-data-extraction3.jl.md)

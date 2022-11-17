@@ -1,4 +1,4 @@
-### Data Search and Extraction
+### Data Search and Extraction: A Library Catalog
 
 # Examples of data extraction from nested data structures. The structure is
 # based on examples in the book
