@@ -1555,11 +1555,10 @@ Adds one or more mappings to a Map:
 Modifying data with non-mutating functions
 ------------------------------------------
 
-The mutating functions that were described above have non-mutating
-counterparts that have same names without the '!' suffixes, accept
-same arguments and, instead of modifying target objects, 
-return new object with required modifications 
-leaving the original objects unmodified.
+The mutating functions that were described above have their non-mutating
+counterparts that have the same names without the '!' suffixes, accept the
+same arguments and, instead of modifying target objects, return new object
+with required modifications leaving the original objects unmodified.
 
 
 For example `append` concatenates its argument into new sequence:
