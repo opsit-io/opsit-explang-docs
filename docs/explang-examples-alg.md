@@ -9,4 +9,4 @@ Examples with Algebraic Syntax
 - [The 8 Queens Problem](examples/alg/06_8queens.jl.md)
 - [Data Search and Extraction: A Library Catalog](examples/alg/07-data-extraction.jl.md)
 - [Data Search and Extraction: Software Vulnerabilities](examples/alg/08-data-extraction2.jl.md)
-- [Data Search and Extraction: Software Bill of Meterials](examples/alg/09-data-extraction3.jl.md)
+- [Data Search and Extraction: Software Bill of Materials](examples/alg/09-data-extraction3.jl.md)

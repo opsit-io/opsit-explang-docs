@@ -1,4 +1,4 @@
-### Data Search and Extraction: Software Bill of Meterials
+### Data Search and Extraction: Software Bill of Materials
 
 # Examples of data extraction from nested data structures. The structure is
 # a SBOM (Software Bill of Materials) file 
