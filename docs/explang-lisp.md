@@ -1370,7 +1370,7 @@ add Rick Row (id=5) as a friend to Bill that does not have a list of friend iden
 
 ```
 
-### remove!
+### delete!
 
 Removes an object from a collection according to its key or index. 
 For sets it will remove the object by its value.
@@ -1380,7 +1380,7 @@ For sets it will remove the object by its value.
 
 => [1, 2, 3]
 
-> (remove! L 1)
+> (delete! L 1)
 
 => 2
 
@@ -1585,7 +1585,7 @@ construction may be used to convert collection into other collection types:
 
 List of non-mutating functions for data modification:
 
-`append`, `aset`, `assoc`, `insert`, `push`, `pop`, `put`, `put-in`, `remove`, `reverse`,
+`append`, `aset`, `assoc`, `insert`, `push`, `pop`, `put`, `put-in`, `delete`, `reverse`,
 `sort`
 
 
