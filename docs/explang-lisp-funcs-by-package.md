@@ -4,7 +4,6 @@
 
 ## base.math
 
-=======EXP
 
 ### `EXP`
 
@@ -16,7 +15,6 @@ If base is not given it returns e raised to power x. Returns a Double value.
 
 
 **builtin function** in package **base.math** defined at  [class io.opsit.explang.Funcs$EXP](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.EXP.html) 
-=======LOG
 
 ### `LOG`
 
@@ -28,7 +26,6 @@ If base is not given it computes natural logarithm. Returns a Double value.
 
 
 **builtin function** in package **base.math** defined at  [class io.opsit.explang.Funcs$LOG](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.LOG.html) 
-=======RANDOM
 
 ### `RANDOM`
 
@@ -40,7 +37,6 @@ Returns a pseudo-random number that is a non-negative number less than limit and
 
 
 **builtin function** in package **base.math** defined at  [class io.opsit.explang.Funcs$RANDOM](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.RANDOM.html) 
-=======SQRT
 
 ### `SQRT`
 
@@ -55,7 +51,6 @@ Returns double value.
 
 ## base.text
 
-=======FORMAT
 
 ### `FORMAT`
 
@@ -67,7 +62,6 @@ Returns a formatted string using the specified format string (in the format of j
 
 
 **builtin function** in package **base.text** defined at  [class io.opsit.explang.Funcs$FORMAT](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.FORMAT.html) 
-=======LOWERCASE
 
 ### `LOWERCASE`
 
@@ -79,7 +73,6 @@ Convert character, string or character sequence to lower case.
 
 
 **builtin function** in package **base.text** defined at  [class io.opsit.explang.Funcs$LOWERCASE](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.LOWERCASE.html) 
-=======STR
 
 ### `STR`
 
@@ -91,7 +84,6 @@ Returns concatenation of string representationx of the function arguments. NIL a
 
 
 **builtin function** in package **base.text** defined at  [class io.opsit.explang.Funcs$STR](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.STR.html) 
-=======STRING-BUFFER
 
 ### `STRING-BUFFER`
 
@@ -103,7 +95,6 @@ Return stringbuilder with all the arguments concatenated.
 
 
 **builtin function** in package **base.text** defined at  [class io.opsit.explang.Funcs$STRINGBUFFER](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.STRINGBUFFER.html) 
-=======STRING-BUILDER
 
 ### `STRING-BUILDER`
 
@@ -115,7 +106,6 @@ Return stringbuilder with all the arguments concatenated.
 
 
 **builtin function** in package **base.text** defined at  [class io.opsit.explang.Funcs$STRINGBUILDER](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.STRINGBUILDER.html) 
-=======UPPERCASE
 
 ### `UPPERCASE`
 
@@ -130,7 +120,6 @@ Convert character, string or character sequence to upper case.
 
 ## io
 
-=======LOAD
 
 ### `LOAD`
 
@@ -142,7 +131,6 @@ Sequentially executes each form it encounters in the input file/or stream named 
 
 
 **builtin function** in package **io** defined at  [class io.opsit.explang.Funcs$LOAD](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.LOAD.html) 
-=======LOADR
 
 ### `LOADR`
 
@@ -154,7 +142,6 @@ Sequentially executes each form it encounters in the java resource file named by
 
 
 **builtin function** in package **io** defined at  [class io.opsit.explang.Funcs$LOADR](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.LOADR.html) 
-=======PRINT
 
 ### `PRINT`
 
@@ -166,7 +153,6 @@ Print Arguments on standard output.
 
 
 **builtin function** in package **io** defined at  [class io.opsit.explang.Funcs$PRINT](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.PRINT.html) 
-=======PRINTLN
 
 ### `PRINTLN`
 
@@ -178,7 +164,6 @@ Print Arguments on standard output and print newline.
 
 
 **builtin function** in package **io** defined at  [class io.opsit.explang.Funcs$PRINTLN](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.PRINTLN.html) 
-=======READ-FROM-STRING
 
 ### `READ-FROM-STRING`
 
@@ -193,7 +178,6 @@ Reads expression from string using default parser. Returns expression or NIL if 
 
 ## ffi
 
-=======.
 
 ### `.`
 
@@ -205,7 +189,6 @@ Reads expression from string using default parser. Returns expression or NIL if 
 
 
 **builtin function** in package **ffi** defined at  [class io.opsit.explang.Funcs$DOT](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.DOT.html) 
-=======.N
 
 ### `.N`
 
@@ -217,7 +200,6 @@ Optional arglist and typeslist parameters specify parameters to be passed to cos
 
 
 **builtin function** in package **ffi** defined at  [class io.opsit.explang.Funcs$DOTN](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.DOTN.html) 
-=======.S
 
 ### `.S`
 
@@ -229,7 +211,6 @@ Optional arglist and typeslist parameters specify parameters to be passed to cos
 
 
 **builtin function** in package **ffi** defined at  [class io.opsit.explang.Funcs$DOTS](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.DOTS.html) 
-=======CLASS
 
 ### `CLASS`
 
@@ -244,7 +225,6 @@ class-spec may be string, symbol or any object,which string representation will 
 
 ## base.bindings
 
-=======BEAN
 
 ### `BEAN`
 
@@ -256,7 +236,6 @@ Returns a Map based on getters in the passed java object. Accepts optional prefi
 
 
 **builtin function** in package **base.bindings** defined at  [class io.opsit.explang.Funcs$BEAN](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.BEAN.html) 
-=======BOUNDP
 
 ### `BOUNDP`
 
@@ -268,7 +247,6 @@ Returns True if all the arguments are bound symbols or names of bound symbols; o
 
 
 **builtin function** in package **base.bindings** defined at  [class io.opsit.explang.Funcs$BOUNDP](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.BOUNDP.html) 
-=======DLET
 
 ### `DLET`
 
@@ -280,7 +258,6 @@ Destructuring LET construct.
 
 
 **builtin form** in package **base.bindings** defined at  [class io.opsit.explang.Compiler$DLET](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Compiler.DLET.html) 
-=======FSET
 
 ### `FSET`
 
@@ -292,7 +269,6 @@ Set symbol's function value to value and return previous value or NIL.
 
 
 **builtin function** in package **base.bindings** defined at  [class io.opsit.explang.Funcs$FSET](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.FSET.html) 
-=======FUNCTION
 
 ### `FUNCTION`
 
@@ -304,7 +280,6 @@ Get Function Given it's symbol.
 
 
 **builtin form** in package **base.bindings** defined at  [class io.opsit.explang.Compiler$FUNCTION](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Compiler.FUNCTION.html) 
-=======GETPROP
 
 ### `GETPROP`
 
@@ -316,7 +291,6 @@ Returns value of a property from variable property map
 
 
 **builtin function** in package **base.bindings** defined at  [class io.opsit.explang.Funcs$GETPROP](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.GETPROP.html) 
-=======GETPROPS
 
 ### `GETPROPS`
 
@@ -328,7 +302,6 @@ Get Properties Map for a Variable.
 
 
 **builtin function** in package **base.bindings** defined at  [class io.opsit.explang.Funcs$GETPROPS](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.GETPROPS.html) 
-=======LET
 
 ### `LET`
 
@@ -340,7 +313,6 @@ bindings.
 
 
 **builtin form** in package **base.bindings** defined at  [class io.opsit.explang.Compiler$LET](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Compiler.LET.html) 
-=======MAKUNBOUND
 
 ### `MAKUNBOUND`
 
@@ -352,7 +324,6 @@ Always returns symbol.
 
 
 **builtin function** in package **base.bindings** defined at  [class io.opsit.explang.Funcs$MAKUNBOUND](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.MAKUNBOUND.html) 
-=======NEW-CTX
 
 ### `NEW-CTX`
 
@@ -364,7 +335,6 @@ Create New Empty Context
 
 
 **builtin function** in package **base.bindings** defined at  [class io.opsit.explang.Funcs$NEW_CTX](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.NEW_CTX.html) 
-=======SET
 
 ### `SET`
 
@@ -376,7 +346,6 @@ Set changes the contents of variable symbol in the dynamic context to the given 
 
 
 **builtin function** in package **base.bindings** defined at  [class io.opsit.explang.Funcs$SET](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.SET.html) 
-=======SETF
 
 ### `SETF`
 
@@ -388,7 +357,6 @@ Set value of a variable o location (place in a list , array, etc.) to value.
 
 
 **builtin form** in package **base.bindings** defined at  [class io.opsit.explang.Compiler$SETF](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Compiler.SETF.html) 
-=======SETL
 
 ### `SETL`
 
@@ -414,7 +382,6 @@ Returns:
 
 
 **builtin form** in package **base.bindings** defined at  [class io.opsit.explang.Compiler$SETL](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Compiler.SETL.html) 
-=======SETPROP
 
 ### `SETPROP`
 
@@ -426,7 +393,6 @@ Sets property value in variable property map
 
 
 **builtin function** in package **base.bindings** defined at  [class io.opsit.explang.Funcs$SETPROP](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.SETPROP.html) 
-=======SETPROPS
 
 ### `SETPROPS`
 
@@ -438,7 +404,6 @@ Set Properties Map for a Variable
 
 
 **builtin function** in package **base.bindings** defined at  [class io.opsit.explang.Funcs$SETPROPS](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.SETPROPS.html) 
-=======SETQ
 
 ### `SETQ`
 
@@ -462,7 +427,6 @@ Returns:
 
 
 **builtin form** in package **base.bindings** defined at  [class io.opsit.explang.Compiler$SETQ](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Compiler.SETQ.html) 
-=======SETV
 
 ### `SETV`
 
@@ -486,7 +450,6 @@ Returns:
 
 
 **builtin form** in package **base.bindings** defined at  [class io.opsit.explang.Compiler$SETV](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Compiler.SETV.html) 
-=======SYMBOL
 
 ### `SYMBOL`
 
@@ -498,7 +461,6 @@ Makes new Symbol for a string
 
 
 **builtin function** in package **base.bindings** defined at  [class io.opsit.explang.Funcs$SYMBOL](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.SYMBOL.html) 
-=======WITH-BINDINGS
 
 ### `WITH-BINDINGS`
 
@@ -510,7 +472,6 @@ Evaluate code with bindings from a Java Map.
 
 
 **builtin form** in package **base.bindings** defined at  [class io.opsit.explang.Compiler$WITH_BINDINGS](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Compiler.WITH_BINDINGS.html) 
-=======WITH-CTX
 
 ### `WITH-CTX`
 
@@ -525,7 +486,6 @@ Evaluate code in given context.
 
 ## base.funcs
 
-=======APPLY
 
 ### `APPLY`
 
@@ -542,7 +502,6 @@ is a list, its contents will be appended to the list of arguments of `f`.
 
 
 **builtin function** in package **base.funcs** defined at  [class io.opsit.explang.Funcs$APPLY](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.APPLY.html) 
-=======BACKTRACE
 
 ### `BACKTRACE`
 
@@ -554,7 +513,6 @@ Returns string representation of current stack frame.If vars is a sequence print
 
 
 **builtin function** in package **base.funcs** defined at  [class io.opsit.explang.Funcs$BACKTRACE](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.BACKTRACE.html) 
-=======DEFUN
 
 ### `DEFUN`
 
@@ -566,7 +524,6 @@ Define named function
 
 
 **builtin form** in package **base.funcs** defined at  [class io.opsit.explang.Compiler$DEFUN](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Compiler.DEFUN.html) 
-=======FUNCALL
 
 ### `FUNCALL`
 
@@ -578,7 +535,6 @@ Define named function
 
 
 **builtin function** in package **base.funcs** defined at  [class io.opsit.explang.Funcs$FUNCALL](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.FUNCALL.html) 
-=======FUNCTIONP
 
 ### `FUNCTIONP`
 
@@ -590,7 +546,6 @@ Returns true if object is a function (built-in or user defined); otherwise, retu
 
 
 **builtin function** in package **base.funcs** defined at  [class io.opsit.explang.Funcs$FUNCTIONP](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.FUNCTIONP.html) 
-=======SYMBOL-FUNCTION
 
 ### `SYMBOL-FUNCTION`
 
@@ -605,7 +560,6 @@ If no function bound raises an error. The returned object may be a built-in func
 
 ## runtime
 
-=======ARGV
 
 ### `ARGV`
 
@@ -620,7 +574,6 @@ When n is provided return nth argument as String, when not -- return list of com
 
 ## threads
 
-=======NEW-THREAD
 
 ### `NEW-THREAD`
 
@@ -635,7 +588,6 @@ Creates new Java thread and prepare it for execution of given function fn.fn mus
 
 ## loops
 
-=======WHILE
 
 ### `WHILE`
 
@@ -650,7 +602,6 @@ Execute sequnce of expressions while the consition is true
 
 ## base.version
 
-=======VERSION
 
 ### `VERSION`
 
@@ -665,7 +616,6 @@ Execute sequnce of expressions while the consition is true
 
 ## base.coercion
 
-=======BOOL
 
 ### `BOOL`
 
@@ -689,7 +639,6 @@ Value may be a Character, a Number, a Boolean, a Byte, a String, any object or N
 
 
 **builtin function** in package **base.coercion** defined at  [class io.opsit.explang.Funcs$BOOL](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.BOOL.html) 
-=======BYTE
 
 ### `BYTE`
 
@@ -701,7 +650,6 @@ Value may be a Number, String, any object or NIL.String will be parsed as number
 
 
 **builtin function** in package **base.coercion** defined at  [class io.opsit.explang.Funcs$BYTE](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.BYTE.html) 
-=======CHAR
 
 ### `CHAR`
 
@@ -725,7 +673,6 @@ Value may be a Character, a Number, a Boolean, a Byte, a Stringor NIL:
 
 
 **builtin function** in package **base.coercion** defined at  [class io.opsit.explang.Funcs$CHAR](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.CHAR.html) 
-=======DOUBLE
 
 ### `DOUBLE`
 
@@ -737,7 +684,6 @@ Value may be a Number, String, any object or NIL.String will be parsed as number
 
 
 **builtin function** in package **base.coercion** defined at  [class io.opsit.explang.Funcs$DOUBLE](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.DOUBLE.html) 
-=======FLOAT
 
 ### `FLOAT`
 
@@ -749,7 +695,6 @@ Value may be a Number, String, any object or NIL.String will be parsed as number
 
 
 **builtin function** in package **base.coercion** defined at  [class io.opsit.explang.Funcs$FLOAT](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.FLOAT.html) 
-=======INT
 
 ### `INT`
 
@@ -761,7 +706,6 @@ Value may be a Number, String, any object or NIL.String will be parsed as number
 
 
 **builtin function** in package **base.coercion** defined at  [class io.opsit.explang.Funcs$INT](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.INT.html) 
-=======LONG
 
 ### `LONG`
 
@@ -773,7 +717,6 @@ Value may be a Number, String, any object or NIL.String will be parsed as number
 
 
 **builtin function** in package **base.coercion** defined at  [class io.opsit.explang.Funcs$LONG](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.LONG.html) 
-=======SHORT
 
 ### `SHORT`
 
@@ -785,7 +728,6 @@ Value may be a Number, String, any object or NIL.String will be parsed as number
 
 
 **builtin function** in package **base.coercion** defined at  [class io.opsit.explang.Funcs$SHORT](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.SHORT.html) 
-=======STRING
 
 ### `STRING`
 
@@ -800,7 +742,6 @@ Value may be any object or NIL: NIL is converted to String "NIL", any other obje
 
 ## base.logic
 
-=======<
 
 ### `<`
 
@@ -812,7 +753,6 @@ Returns True if all arguments are monotonically increasing order.  Returns True 
 
 
 **builtin function** in package **base.logic** defined at  [class io.opsit.explang.Funcs$NUMLT](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.NUMLT.html) 
-=======<=
 
 ### `<=`
 
@@ -824,7 +764,6 @@ Returns True if all arguments are monotonically non-decreasing order.  Returns T
 
 
 **builtin function** in package **base.logic** defined at  [class io.opsit.explang.Funcs$NUMLE](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.NUMLE.html) 
-========
 
 ### `=`
 
@@ -836,7 +775,6 @@ Returns True if all arguments are numerically equal. Returns True if only one ar
 
 
 **builtin function** in package **base.logic** defined at  [class io.opsit.explang.Funcs$NUMEQ](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.NUMEQ.html) 
-=========
 
 ### `==`
 
@@ -848,7 +786,6 @@ Returns true if x equal to y according to call to Java method x.equals(y) or if 
 
 
 **builtin function** in package **base.logic** defined at  [class io.opsit.explang.Funcs$SEQUAL](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.SEQUAL.html) 
-==========
 
 ### `===`
 
@@ -860,7 +797,6 @@ Objects identity check: returns true if Object x is same as Object y. Uses java 
 
 
 **builtin function** in package **base.logic** defined at  [class io.opsit.explang.Funcs$EQ](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.EQ.html) 
-=======>
 
 ### `>`
 
@@ -872,7 +808,6 @@ Returns True if all arguments are monotonically decreasing order.  Returns True 
 
 
 **builtin function** in package **base.logic** defined at  [class io.opsit.explang.Funcs$NUMGT](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.NUMGT.html) 
-=======>=
 
 ### `>=`
 
@@ -884,7 +819,6 @@ Returns True if all arguments are monotonically non-increasing order. Returns Tr
 
 
 **builtin function** in package **base.logic** defined at  [class io.opsit.explang.Funcs$NUMGE](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.NUMGE.html) 
-=======AND
 
 ### `AND`
 
@@ -904,7 +838,6 @@ evaluating the last expression. If no arguments supplied, `AND` returns `true`.
 
 
 **builtin function** in package **base.logic** defined at  [class io.opsit.explang.Funcs$AND](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.AND.html) 
-=======DWIM-MATCHES
 
 ### `DWIM-MATCHES`
 
@@ -925,7 +858,6 @@ If there is no match an empty list is returned.
 
 
 **builtin function** in package **base.logic** defined at  [class io.opsit.explang.DWIM$DWIM_MATCHES](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/DWIM.DWIM_MATCHES.html) 
-=======EQUAL
 
 ### `EQUAL`
 
@@ -937,7 +869,6 @@ Returns true if x equal to y according to call to Java method x.equals(y) or if 
 
 
 **builtin function** in package **base.logic** defined at  [class io.opsit.explang.Funcs$EQUAL](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.EQUAL.html) 
-=======NILP
 
 ### `NILP`
 
@@ -949,7 +880,6 @@ Check if a value is a NIL.
 
 
 **builtin function** in package **base.logic** defined at  [class io.opsit.explang.Funcs$NILP](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.NILP.html) 
-=======NOT
 
 ### `NOT`
 
@@ -961,7 +891,6 @@ Returns True if x has false logical value; otherwise, returns False.Parameter x 
 
 
 **builtin function** in package **base.logic** defined at  [class io.opsit.explang.Funcs$NOT](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.NOT.html) 
-=======NOTNILP
 
 ### `NOTNILP`
 
@@ -973,7 +902,6 @@ Check if a value is not a NIL.
 
 
 **builtin function** in package **base.logic** defined at  [class io.opsit.explang.Funcs$NOTNILP](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.NOTNILP.html) 
-=======OR
 
 ### `OR`
 
@@ -997,7 +925,6 @@ If no arguments were supplied, it returns logical false.
 
 ## base.lang
 
-=======EVAL
 
 ### `EVAL`
 
@@ -1009,7 +936,6 @@ Evaluates parsed form in the current dynamic context and return result of evalua
 
 
 **builtin function** in package **base.lang** defined at  [class io.opsit.explang.Funcs$EVAL](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.EVAL.html) 
-=======QUOTE
 
 ### `QUOTE`
 
@@ -1024,7 +950,6 @@ Return its argument without evaluation.
 
 ## base.arithmetics
 
-=======%
 
 ### `%`
 
@@ -1041,7 +966,6 @@ Generalizations of the remainder function. When both operands are integer return
 
 
 **builtin function** in package **base.arithmetics** defined at  [class io.opsit.explang.Funcs$REMOP](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.REMOP.html) 
-=======*
 
 ### `*`
 
@@ -1058,7 +982,6 @@ conversions in the process. If no numbers are supplied, 1 is returned.
 
 
 **builtin function** in package **base.arithmetics** defined at  [class io.opsit.explang.Funcs$MULOP](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.MULOP.html) 
-=======+
 
 ### `+`
 
@@ -1075,7 +998,6 @@ in the process. If no numbers are supplied, 0 is returned.
 
 
 **builtin function** in package **base.arithmetics** defined at  [class io.opsit.explang.Funcs$ADDOP](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.ADDOP.html) 
-=======-
 
 ### `-`
 
@@ -1095,7 +1017,6 @@ type conversions.
 
 
 **builtin function** in package **base.arithmetics** defined at  [class io.opsit.explang.Funcs$SUBOP](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.SUBOP.html) 
-=======/
 
 ### `/`
 
@@ -1115,7 +1036,6 @@ The function / performs necessary type conversions.
 
 
 **builtin function** in package **base.arithmetics** defined at  [class io.opsit.explang.Funcs$DIVOP](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.DIVOP.html) 
-=======MAX
 
 ### `MAX`
 
@@ -1132,7 +1052,6 @@ performing any necessary type conversions in the process.
 
 
 **builtin function** in package **base.arithmetics** defined at  [class io.opsit.explang.Funcs$MAXOP](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.MAXOP.html) 
-=======MIN
 
 ### `MIN`
 
@@ -1149,7 +1068,6 @@ performing any necessary type conversions in the process.
 
 
 **builtin function** in package **base.arithmetics** defined at  [class io.opsit.explang.Funcs$MINOP](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.MINOP.html) 
-=======MOD
 
 ### `MOD`
 
@@ -1166,7 +1084,6 @@ Generalizations of the modulus function. When both operands are integer returns 
 
 
 **builtin function** in package **base.arithmetics** defined at  [class io.opsit.explang.Funcs$MODOP](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.MODOP.html) 
-=======REM
 
 ### `REM`
 
@@ -1183,7 +1100,6 @@ Generalizations of the remainder function. When both operands are integer return
 
 
 **builtin function** in package **base.arithmetics** defined at  [class io.opsit.explang.Funcs$REMOP](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.REMOP.html) 
-=======SIGNUM
 
 ### `SIGNUM`
 
@@ -1198,7 +1114,6 @@ Determines a numerical value that indicates whether number is negative, zero, or
 
 ## base.seq
 
-=======->
 
 ### `->`
 
@@ -1210,7 +1125,6 @@ Threading form on first argument
 
 
 **builtin form** in package **base.seq** defined at  [class io.opsit.explang.Compiler$TH_1ST](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Compiler.TH_1ST.html) 
-=======APPEND
 
 ### `APPEND`
 
@@ -1231,7 +1145,6 @@ will be performed automatically.
 
 
 **builtin function** in package **base.seq** defined at  [class io.opsit.explang.Funcs$APPEND](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.APPEND.html) 
-=======APPEND!
 
 ### `APPEND!`
 
@@ -1243,7 +1156,6 @@ Adds to the first given sequence (target sequence) all the elements of all of th
 
 
 **builtin function** in package **base.seq** defined at  [class io.opsit.explang.Funcs$NAPPEND](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.NAPPEND.html) 
-=======AREF
 
 ### `AREF`
 
@@ -1255,7 +1167,6 @@ Return array element at specified index. Throws ArrayOutOfBoundsException if ind
 
 
 **builtin function** in package **base.seq** defined at  [class io.opsit.explang.Funcs$AREF](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.AREF.html) 
-=======ASET
 
 ### `ASET`
 
@@ -1280,7 +1191,6 @@ object is not modified
 
 
 **builtin function** in package **base.seq** defined at  [class io.opsit.explang.Funcs$ASET](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.ASET.html) 
-=======ASET!
 
 ### `ASET!`
 
@@ -1303,7 +1213,6 @@ The function returns previous value of the element.
 
 
 **builtin function** in package **base.seq** defined at  [class io.opsit.explang.Funcs$NASET](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.NASET.html) 
-=======ASSOC
 
 ### `ASSOC`
 
@@ -1315,7 +1224,6 @@ Return new instance of the structure, the original is left unchanged.
 
 
 **builtin function** in package **base.seq** defined at  [class io.opsit.explang.Funcs$ASSOC](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.ASSOC.html) 
-=======ASSOC!
 
 ### `ASSOC!`
 
@@ -1327,7 +1235,6 @@ Modifies the object and returns it as the result.
 
 
 **builtin function** in package **base.seq** defined at  [class io.opsit.explang.Funcs$NASSOC](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.NASSOC.html) 
-=======ASSOCIATIVEP
 
 ### `ASSOCIATIVEP`
 
@@ -1339,7 +1246,6 @@ Check if an object is an associative collection.
 
 
 **builtin function** in package **base.seq** defined at  [class io.opsit.explang.Funcs$ASSOCIATIVEP](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.ASSOCIATIVEP.html) 
-=======COLLP
 
 ### `COLLP`
 
@@ -1351,7 +1257,6 @@ Check if an object is a sequence.
 
 
 **builtin function** in package **base.seq** defined at  [class io.opsit.explang.Funcs$COLLP](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.COLLP.html) 
-=======CONS
 
 ### `CONS`
 
@@ -1363,7 +1268,6 @@ Prepend element to a list.
 
 
 **builtin function** in package **base.seq** defined at  [class io.opsit.explang.Funcs$CONS](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.CONS.html) 
-=======COPY
 
 ### `COPY`
 
@@ -1375,7 +1279,6 @@ Perform shallow copy of an object.
 
 
 **builtin function** in package **base.seq** defined at  [class io.opsit.explang.Funcs$COPY](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.COPY.html) 
-=======DEEP-COPY
 
 ### `DEEP-COPY`
 
@@ -1387,7 +1290,6 @@ Perform deep copy of an object.
 
 
 **builtin function** in package **base.seq** defined at  [class io.opsit.explang.Funcs$DEEP_COPY](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.DEEP_COPY.html) 
-=======DELETE
 
 ### `DELETE`
 
@@ -1399,7 +1301,6 @@ Returns a copy of the target object with the requested element removed.
 
 
 **builtin function** in package **base.seq** defined at  [class io.opsit.explang.Funcs$DELETE](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.DELETE.html) 
-=======DELETE!
 
 ### `DELETE!`
 
@@ -1411,7 +1312,6 @@ Returns the removed element.
 
 
 **builtin function** in package **base.seq** defined at  [class io.opsit.explang.Funcs$NDELETE](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.NDELETE.html) 
-=======FILTER
 
 ### `FILTER`
 
@@ -1423,7 +1323,6 @@ test is a function of one argument that returns boolean, seq is input sequence. 
 
 
 **builtin function** in package **base.seq** defined at  [class io.opsit.explang.Funcs$FILTER](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.FILTER.html) 
-=======FIRST
 
 ### `FIRST`
 
@@ -1435,7 +1334,6 @@ Returns NIL when sequence is NIL or empty
 
 
 **builtin function** in package **base.seq** defined at  [class io.opsit.explang.Funcs$FIRST](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.FIRST.html) 
-=======FOREACH
 
 ### `FOREACH`
 
@@ -1452,7 +1350,6 @@ Then evaluate RESULT in the same context to get return value, default is NIL.
 
 
 **builtin form** in package **base.seq** defined at  [class io.opsit.explang.Compiler$FOREACH](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Compiler.FOREACH.html) 
-=======GET
 
 ### `GET`
 
@@ -1469,7 +1366,6 @@ Return value from an associative structure struct,
 
 
 **builtin function** in package **base.seq** defined at  [class io.opsit.explang.Funcs$GET](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.GET.html) 
-=======GET-IN
 
 ### `GET-IN`
 
@@ -1487,7 +1383,6 @@ where ks is a sequence of keys. Returns NIL if the key
 
 
 **builtin function** in package **base.seq** defined at  [class io.opsit.explang.Funcs$GET_IN](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.GET_IN.html) 
-=======HASHMAP
 
 ### `HASHMAP`
 
@@ -1499,7 +1394,6 @@ Returns new HashMap filled with given keys and values. Throws InvalidParametersE
 
 
 **builtin function** in package **base.seq** defined at  [class io.opsit.explang.Funcs$HASHMAP](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.HASHMAP.html) 
-=======HASHSET
 
 ### `HASHSET`
 
@@ -1511,7 +1405,6 @@ Returns a set containing the supplied objects.
 
 
 **builtin function** in package **base.seq** defined at  [class io.opsit.explang.Funcs$HASHSET](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.HASHSET.html) 
-=======HASKEY
 
 ### `HASKEY`
 
@@ -1523,7 +1416,6 @@ Check whether Map or indexed sequence has given key or index.
 
 
 **builtin function** in package **base.seq** defined at  [class io.opsit.explang.Funcs$HASKEY](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.HASKEY.html) 
-=======IN
 
 ### `IN`
 
@@ -1535,7 +1427,6 @@ Check whether Map or indexed sequence has given key or index.
 
 
 **builtin function** in package **base.seq** defined at  [class io.opsit.explang.Funcs$IN](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.IN.html) 
-=======INDEXEDP
 
 ### `INDEXEDP`
 
@@ -1547,7 +1438,6 @@ Check if an object is an indexed collection.
 
 
 **builtin function** in package **base.seq** defined at  [class io.opsit.explang.Funcs$INDEXEDP](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.INDEXEDP.html) 
-=======INSERT
 
 ### `INSERT`
 
@@ -1559,7 +1449,6 @@ Returns a copy of the target sequence with the requested modification.
 
 
 **builtin function** in package **base.seq** defined at  [class io.opsit.explang.Funcs$INSERT](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.INSERT.html) 
-=======INSERT!
 
 ### `INSERT!`
 
@@ -1571,7 +1460,6 @@ Returns the sequence
 
 
 **builtin function** in package **base.seq** defined at  [class io.opsit.explang.Funcs$NINSERT](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.NINSERT.html) 
-=======INTERPOSE
 
 ### `INTERPOSE`
 
@@ -1583,7 +1471,6 @@ Currently only lists are supported.
 
 
 **builtin function** in package **base.seq** defined at  [class io.opsit.explang.Funcs$INTERPOSE](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.INTERPOSE.html) 
-=======JOIN
 
 ### `JOIN`
 
@@ -1595,7 +1482,6 @@ Currently only strings are supported.
 
 
 **builtin function** in package **base.seq** defined at  [class io.opsit.explang.Funcs$JOIN](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.JOIN.html) 
-=======LENGTH
 
 ### `LENGTH`
 
@@ -1607,7 +1493,6 @@ Parameter may be any supported sequence (collection, array, character sequence) 
 
 
 **builtin function** in package **base.seq** defined at  [class io.opsit.explang.Funcs$LENGTH](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.LENGTH.html) 
-=======LIST
 
 ### `LIST`
 
@@ -1619,7 +1504,6 @@ Returns a list containing the supplied objects.
 
 
 **builtin function** in package **base.seq** defined at  [class io.opsit.explang.Funcs$LIST](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.LIST.html) 
-=======MAKE-ARRAY
 
 ### `MAKE-ARRAY`
 
@@ -1631,7 +1515,6 @@ Creates array of objects of specified size. Optional :elementType argument speci
 
 
 **builtin function** in package **base.seq** defined at  [class io.opsit.explang.Funcs$MAKE_ARRAY](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.MAKE_ARRAY.html) 
-=======MAP
 
 ### `MAP`
 
@@ -1643,7 +1526,6 @@ Returns a sequence consisting of the result of applying func to the set of first
 
 
 **builtin function** in package **base.seq** defined at  [class io.opsit.explang.Funcs$MAP](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.MAP.html) 
-=======MAPP
 
 ### `MAPP`
 
@@ -1655,7 +1537,6 @@ Check if an object is a Map.
 
 
 **builtin function** in package **base.seq** defined at  [class io.opsit.explang.Funcs$MAPP](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.MAPP.html) 
-=======MAPPROD
 
 ### `MAPPROD`
 
@@ -1667,7 +1548,6 @@ Returns a sequence consisting of the result of applying func to the cartesian pr
 
 
 **builtin function** in package **base.seq** defined at  [class io.opsit.explang.Funcs$MAPPROD](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.MAPPROD.html) 
-=======NOT-IN
 
 ### `NOT-IN`
 
@@ -1679,7 +1559,6 @@ Returns a sequence consisting of the result of applying func to the cartesian pr
 
 
 **builtin function** in package **base.seq** defined at  [class io.opsit.explang.Funcs$NOTIN](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.NOTIN.html) 
-=======NTH
 
 ### `NTH`
 
@@ -1691,7 +1570,6 @@ n may be any non-negative number. Returns NIL when sequence is NIL or n is out o
 
 
 **builtin function** in package **base.seq** defined at  [class io.opsit.explang.Funcs$NTH](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.NTH.html) 
-=======POP
 
 ### `POP`
 
@@ -1703,7 +1581,6 @@ Returns list with the removed element and a copy of the sequence withthis elemen
 
 
 **builtin function** in package **base.seq** defined at  [class io.opsit.explang.Funcs$POP](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.POP.html) 
-=======POP!
 
 ### `POP!`
 
@@ -1715,7 +1592,6 @@ Returns the removed element.
 
 
 **builtin function** in package **base.seq** defined at  [class io.opsit.explang.Funcs$NPOP](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.NPOP.html) 
-=======PUSH
 
 ### `PUSH`
 
@@ -1727,7 +1603,6 @@ Returns copy of the target object with the requested change.
 
 
 **builtin function** in package **base.seq** defined at  [class io.opsit.explang.Funcs$PUSH](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.PUSH.html) 
-=======PUSH!
 
 ### `PUSH!`
 
@@ -1739,7 +1614,6 @@ Returns the sequence.
 
 
 **builtin function** in package **base.seq** defined at  [class io.opsit.explang.Funcs$NPUSH](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.NPUSH.html) 
-=======PUT
 
 ### `PUT`
 
@@ -1764,7 +1638,6 @@ The function returns copy of the target object with the requested change.
 
 
 **builtin function** in package **base.seq** defined at  [class io.opsit.explang.Funcs$PUT](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.PUT.html) 
-=======PUT!
 
 ### `PUT!`
 
@@ -1790,7 +1663,6 @@ or no change has been made.
 
 
 **builtin function** in package **base.seq** defined at  [class io.opsit.explang.Funcs$NPUT](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.NPUT.html) 
-=======PUT-IN
 
 ### `PUT-IN`
 
@@ -1818,7 +1690,6 @@ Arguments:
 
 
 **builtin function** in package **base.seq** defined at  [class io.opsit.explang.Funcs$PUT_IN](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.PUT_IN.html) 
-=======PUT-IN!
 
 ### `PUT-IN!`
 
@@ -1845,7 +1716,6 @@ Arguments:
 
 
 **builtin function** in package **base.seq** defined at  [class io.opsit.explang.Funcs$NPUT_IN](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.NPUT_IN.html) 
-=======RANGE
 
 ### `RANGE`
 
@@ -1857,7 +1727,6 @@ Returns sequence of numbers  from start to stop (inclusively) with .
 
 
 **builtin function** in package **base.seq** defined at  [class io.opsit.explang.Funcs$RANGE](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.RANGE.html) 
-=======REDUCE
 
 ### `REDUCE`
 
@@ -1875,7 +1744,6 @@ If value is supplied, apply func on value and the first seq element, then on the
 
 
 **builtin function** in package **base.seq** defined at  [class io.opsit.explang.Funcs$REDUCE](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.REDUCE.html) 
-=======REPLACE
 
 ### `REPLACE`
 
@@ -1887,7 +1755,6 @@ Return resulting sequence.  The original sequence is not modified. If replacemen
 
 
 **builtin function** in package **base.seq** defined at  [class io.opsit.explang.Funcs$REPLACE](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.REPLACE.html) 
-=======REST
 
 ### `REST`
 
@@ -1899,7 +1766,6 @@ Return 2nd and further elements of sqeuence.
 
 
 **builtin function** in package **base.seq** defined at  [class io.opsit.explang.Funcs$REST](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.REST.html) 
-=======REVERSE
 
 ### `REVERSE`
 
@@ -1911,7 +1777,6 @@ Reverse a sequence (non-destructive).
 
 
 **builtin function** in package **base.seq** defined at  [class io.opsit.explang.Funcs$REVERSE](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.REVERSE.html) 
-=======REVERSE!
 
 ### `REVERSE!`
 
@@ -1923,7 +1788,6 @@ Reverse a sequence (destructive).
 
 
 **builtin function** in package **base.seq** defined at  [class io.opsit.explang.Funcs$NREVERSE](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.NREVERSE.html) 
-=======SELECT-KEYS
 
 ### `SELECT-KEYS`
 
@@ -1935,7 +1799,6 @@ Reverse a sequence (destructive).
 
 
 **builtin function** in package **base.seq** defined at  [class io.opsit.explang.Funcs$SELECT_KEYS](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.SELECT_KEYS.html) 
-=======SEQP
 
 ### `SEQP`
 
@@ -1947,7 +1810,6 @@ Check if an object is a sequence.
 
 
 **builtin function** in package **base.seq** defined at  [class io.opsit.explang.Funcs$SEQP](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.SEQP.html) 
-=======SETP
 
 ### `SETP`
 
@@ -1959,7 +1821,6 @@ Check if an object is a Set.
 
 
 **builtin function** in package **base.seq** defined at  [class io.opsit.explang.Funcs$SETP](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.SETP.html) 
-=======SORT
 
 ### `SORT`
 
@@ -1971,7 +1832,6 @@ Sort a sequence (non destructively).
 
 
 **builtin function** in package **base.seq** defined at  [class io.opsit.explang.Funcs$SORT](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.SORT.html) 
-=======SORT!
 
 ### `SORT!`
 
@@ -1983,7 +1843,6 @@ Sort a sequence (destructively).
 
 
 **builtin function** in package **base.seq** defined at  [class io.opsit.explang.Funcs$NSORT](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.NSORT.html) 
-=======SUBSEQ
 
 ### `SUBSEQ`
 
@@ -1995,7 +1854,6 @@ subseq creates a sequence that is a copy of the subsequence of sequence bounded 
 
 
 **builtin function** in package **base.seq** defined at  [class io.opsit.explang.Funcs$SUBSEQ](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.SUBSEQ.html) 
-=======TAKE
 
 ### `TAKE`
 
@@ -2010,7 +1868,6 @@ take creates new sequence with first n elements of seq. If n is bigger than leng
 
 ## base.control
 
-=======->>
 
 ### `->>`
 
@@ -2022,7 +1879,6 @@ Threading form on last argument.
 
 
 **builtin form** in package **base.control** defined at  [class io.opsit.explang.Compiler$TH_LAST](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Compiler.TH_LAST.html) 
-=======@->
 
 ### `@->`
 
@@ -2034,7 +1890,6 @@ Threading form on &PIPE or first argument
 
 
 **builtin form** in package **base.control** defined at  [class io.opsit.explang.Compiler$TH_PIPE](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Compiler.TH_PIPE.html) 
-=======AS->
 
 ### `AS->`
 
@@ -2046,7 +1901,6 @@ Threading form on named argument
 
 
 **builtin form** in package **base.control** defined at  [class io.opsit.explang.Compiler$TH_AS](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Compiler.TH_AS.html) 
-=======COND
 
 ### `COND`
 
@@ -2073,7 +1927,6 @@ returned.
 
 
 **builtin form** in package **base.control** defined at  [class io.opsit.explang.Compiler$COND](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Compiler.COND.html) 
-=======EXCEPTION
 
 ### `EXCEPTION`
 
@@ -2085,7 +1938,6 @@ Returns new ExecutionException with given message.
 
 
 **builtin function** in package **base.control** defined at  [class io.opsit.explang.Funcs$EXCEPTION](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.EXCEPTION.html) 
-=======IF
 
 ### `IF`
 
@@ -2097,7 +1949,6 @@ If-else conditional construct.
 
 
 **builtin form** in package **base.control** defined at  [class io.opsit.explang.Compiler$IF](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Compiler.IF.html) 
-=======LAMBDA
 
 ### `LAMBDA`
 
@@ -2109,7 +1960,6 @@ If-else conditional construct.
 
 
 **builtin form** in package **base.control** defined at  [class io.opsit.explang.Compiler$LAMBDA](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Compiler.LAMBDA.html) 
-=======PROGN
 
 ### `PROGN`
 
@@ -2121,7 +1971,6 @@ Evaluate sequence of expressions.
 
 
 **builtin form** in package **base.control** defined at  [class io.opsit.explang.Compiler$PROGN](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Compiler.PROGN.html) 
-=======RETURN
 
 ### `RETURN`
 
@@ -2133,7 +1982,6 @@ Return value from function
 
 
 **builtin function** in package **base.control** defined at  [class io.opsit.explang.Funcs$RETURN](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.RETURN.html) 
-=======THROW
 
 ### `THROW`
 
@@ -2145,7 +1993,6 @@ The exception may be a java Throwable object or String. In the latter case a new
 
 
 **builtin function** in package **base.control** defined at  [class io.opsit.explang.Funcs$THROW](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.THROW.html) 
-=======TRY
 
 ### `TRY`
 
@@ -2172,7 +2019,6 @@ will be evaluated for their side effects.
 
 
 **builtin form** in package **base.control** defined at  [class io.opsit.explang.Compiler$TRY](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Compiler.TRY.html) 
-=======WHEN
 
 ### `WHEN`
 
@@ -2187,7 +2033,6 @@ When conditional construct.
 
 ## base.regex
 
-=======RE-FIND
 
 ### `RE-FIND`
 
@@ -2208,7 +2053,6 @@ When called With two arguments creates java.util.regex.Matcher using pattern and
 
 
 **builtin function** in package **base.regex** defined at  [class io.opsit.explang.Funcs$RE_FIND](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.RE_FIND.html) 
-=======RE-GLOB
 
 ### `RE-GLOB`
 
@@ -2220,7 +2064,6 @@ On success returns a java.util.regex.Pattern object. On error raises exception.
 
 
 **builtin function** in package **base.regex** defined at  [class io.opsit.explang.Funcs$RE_GLOB](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.RE_GLOB.html) 
-=======RE-GROUPS
 
 ### `RE-GROUPS`
 
@@ -2239,7 +2082,6 @@ the first element being the entire match.
 
 
 **builtin function** in package **base.regex** defined at  [class io.opsit.explang.Funcs$RE_GROUPS](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.RE_GROUPS.html) 
-=======RE-MATCHER
 
 ### `RE-MATCHER`
 
@@ -2251,7 +2093,6 @@ Returns an instance of java.util.regex.Matcher, for use, e.g. in RE-FIND.
 
 
 **builtin function** in package **base.regex** defined at  [class io.opsit.explang.Funcs$RE_MATCHER](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.RE_MATCHER.html) 
-=======RE-MATCHES
 
 ### `RE-MATCHES`
 
@@ -2272,7 +2113,6 @@ When called With two arguments created java.util.regex.Matcher using pattern and
 
 
 **builtin function** in package **base.regex** defined at  [class io.opsit.explang.Funcs$RE_MATCHES](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.RE_MATCHES.html) 
-=======RE-PATTERN
 
 ### `RE-PATTERN`
 
@@ -2284,7 +2124,6 @@ On success returns a java.util.regex.Pattern objec. On error raises exception.
 
 
 **builtin function** in package **base.regex** defined at  [class io.opsit.explang.Funcs$RE_PATTERN](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.RE_PATTERN.html) 
-=======RE-SEQ
 
 ### `RE-SEQ`
 
@@ -2308,7 +2147,6 @@ When called With two arguments created java.util.regex.Matcher using pattern and
 
 ## dwim
 
-=======DWIM_FIELDS
 
 ### `DWIM_FIELDS`
 
@@ -2333,7 +2171,6 @@ Format of 'fieldspecs': list of one or mod field specifications:
 
 
 **builtin function** in package **dwim** defined at  [class io.opsit.explang.DWIM$DWIM_FIELDS](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/DWIM.DWIM_FIELDS.html) 
-=======SEARCH
 
 ### `SEARCH`
 
@@ -2348,7 +2185,6 @@ Format of 'fieldspecs': list of one or mod field specifications:
 
 ## base.docs
 
-=======DESCRIBE-FUNCTION
 
 ### `DESCRIBE-FUNCTION`
 
@@ -2360,7 +2196,6 @@ Return textual description of given function or built-in form. function is a sym
 
 
 **builtin function** in package **base.docs** defined at  [class io.opsit.explang.Funcs$DESCRIBE_FUNCTION](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.DESCRIBE_FUNCTION.html) 
-=======DOCUMENTATION
 
 ### `DOCUMENTATION`
 
@@ -2372,7 +2207,6 @@ Return documentation string of given function or built-in form. function is a sy
 
 
 **builtin function** in package **base.docs** defined at  [class io.opsit.explang.Funcs$DOCUMENTATION](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.DOCUMENTATION.html) 
-=======FUNCTIONS-NAMES
 
 ### `FUNCTIONS-NAMES`
 
@@ -2387,7 +2221,6 @@ If names are given use them as filter expressions:  only those which match at le
 
 ## base.types
 
-=======TYPE-OF
 
 ### `TYPE-OF`
 
@@ -2399,7 +2232,6 @@ Returns type (as class) of the given object. For NIL argument return NIL.
 
 
 **builtin function** in package **base.types** defined at  [class io.opsit.explang.Funcs$TYPE_OF](https://javadocs.dev/io.opsit/opsit-explang-core/0.0.8/io/opsit/explang/Funcs.TYPE_OF.html) 
-=======TYPEP
 
 ### `TYPEP`
 
