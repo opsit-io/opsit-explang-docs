@@ -672,7 +672,7 @@ Get entry by key (ISBN) and get one of its fields:
 Watchmen
 
 Get entry by key (ISBN) and make new object of several fields:
-{publicationYear=1987, title=Watchmen}
+{title=Watchmen, publicationYear=1987}
 
 Get entry by key (ISBN) and make of it new object:
 {title=Watchmen, authors=Alan Moore, Dave Gibbons}
@@ -705,7 +705,7 @@ Search entries for ones that have tag &#39;Programming Language&#39; and publish
 [{isbn=978-0131103627, publicationYear=1978, title=The C Programming Language, bookItems=[{libId=nyc-central-lib, id=book-item-6, isLent=true}, {libId=nyc-central-lib, id=book-item-7, isLent=true}], authorIds=[brian-kernigan, dennis-ritchie], tags=[programming languages, C]}]
 
 Search entries for ones that have more than one author
-[{authorIds=[alan-moore, dave-gibbons], title=Watchmen}, {authorIds=[brian-kernigan, dennis-ritchie], title=The C Programming Language}, {authorIds=[harold-abelson, jay-sussman], title=Structure and Interpretation of Computer Programs}, {authorIds=[brian-kernigan, alan-a-a-donovan], title=The Go Programming Language}]
+[{authorIds=[alan-moore, dave-gibbons], title=Watchmen}, {title=The C Programming Language, authorIds=[brian-kernigan, dennis-ritchie]}, {authorIds=[harold-abelson, jay-sussman], title=Structure and Interpretation of Computer Programs}, {title=The Go Programming Language, authorIds=[brian-kernigan, alan-a-a-donovan]}]
 
 Search entries for ones that have available copies using subsearch on array of book items
 [{isbn=979-8745274824, title=The Great Gatsby}, {isbn=978-0134190440, title=The Go Programming Language}]

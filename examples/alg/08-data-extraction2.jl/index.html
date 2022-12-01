@@ -2596,10 +2596,10 @@
 </code></pre></div>
 <p>Output:
 <div class="highlight"><pre><span></span><code>* List of all vulnerabilities with their severity and fix statuses
-[{severity=Negligible, state=not-fixed, id=CVE-2010-0928}, {severity=Medium, state=not-fixed, id=CVE-2011-3389}, {state=not-fixed, id=CVE-2011-4116, severity=Negligible}, {state=wont-fix, id=CVE-2013-0337, severity=Low}, {state=wont-fix, severity=Low, id=CVE-2016-2781}, {state=wont-fix, severity=Medium, id=CVE-2016-3709}, {severity=Negligible, id=CVE-2016-9085, state=not-fixed}, {id=CVE-2019-19882, severity=Negligible, state=not-fixed}, {severity=Critical, id=CVE-2019-8457, state=wont-fix}, {id=CVE-2019-9192, severity=Negligible, state=not-fixed}, {id=CVE-2019-9192, state=not-fixed, severity=Negligible}, {state=not-fixed, id=CVE-2020-13529, severity=Negligible}, {severity=Negligible, state=not-fixed, id=CVE-2020-13529}, {severity=Negligible, id=CVE-2020-15719, state=not-fixed}, {id=CVE-2020-16156, severity=High, state=wont-fix}, {severity=Medium, id=CVE-2020-36309, state=wont-fix}, {id=CVE-2021-22922, state=not-fixed, severity=Negligible}, {id=CVE-2021-22922, severity=Negligible, state=not-fixed}, {id=CVE-2021-22923, state=not-fixed, severity=Negligible}, {state=not-fixed, severity=Negligible, id=CVE-2021-22923}, {state=wont-fix, severity=High, id=CVE-2021-33560}, {id=CVE-2021-36084, severity=Low, state=wont-fix}, {severity=Low, state=wont-fix, id=CVE-2021-36085}, {id=CVE-2021-36086, state=wont-fix, severity=Low}, {severity=Low, id=CVE-2021-36087, state=wont-fix}, {state=wont-fix, severity=Medium, id=CVE-2021-38115}]
+[{state=not-fixed, severity=Negligible, id=CVE-2010-0928}, {severity=Medium, id=CVE-2011-3389, state=not-fixed}, {severity=Negligible, state=not-fixed, id=CVE-2011-4116}, {severity=Low, id=CVE-2013-0337, state=wont-fix}, {state=wont-fix, id=CVE-2016-2781, severity=Low}, {state=wont-fix, id=CVE-2016-3709, severity=Medium}, {severity=Negligible, state=not-fixed, id=CVE-2016-9085}, {state=not-fixed, severity=Negligible, id=CVE-2019-19882}, {severity=Critical, id=CVE-2019-8457, state=wont-fix}, {severity=Negligible, state=not-fixed, id=CVE-2019-9192}, {severity=Negligible, id=CVE-2019-9192, state=not-fixed}, {severity=Negligible, id=CVE-2020-13529, state=not-fixed}, {id=CVE-2020-13529, state=not-fixed, severity=Negligible}, {id=CVE-2020-15719, severity=Negligible, state=not-fixed}, {state=wont-fix, severity=High, id=CVE-2020-16156}, {id=CVE-2020-36309, severity=Medium, state=wont-fix}, {severity=Negligible, state=not-fixed, id=CVE-2021-22922}, {severity=Negligible, id=CVE-2021-22922, state=not-fixed}, {id=CVE-2021-22923, state=not-fixed, severity=Negligible}, {state=not-fixed, id=CVE-2021-22923, severity=Negligible}, {state=wont-fix, severity=High, id=CVE-2021-33560}, {severity=Low, state=wont-fix, id=CVE-2021-36084}, {severity=Low, id=CVE-2021-36085, state=wont-fix}, {severity=Low, id=CVE-2021-36086, state=wont-fix}, {severity=Low, id=CVE-2021-36087, state=wont-fix}, {severity=Medium, state=wont-fix, id=CVE-2021-38115}]
 
 * List of all High and Critical vulnerabilities with fix status wont-fix
-[{id=CVE-2019-8457, artifact=libdb5.3, version=5.3.28+dfsg1-0.8}, {id=CVE-2020-16156, version=5.32.1-4+deb11u2, artifact=perl-base}, {id=CVE-2021-33560, artifact=libgcrypt20, version=1.8.7-6}]
+[{id=CVE-2019-8457, version=5.3.28+dfsg1-0.8, artifact=libdb5.3}, {version=5.32.1-4+deb11u2, id=CVE-2020-16156, artifact=perl-base}, {artifact=libgcrypt20, version=1.8.7-6, id=CVE-2021-33560}]
 
 * Count of all High and Critical vulnerabilities
 3
@@ -2608,7 +2608,7 @@
 true
 
 * Return True if there is 10 or more High or Critical vulnerabilities
-false
+true
 
 * Return counts of vulnerabilities per severity
 {High=2, Low=6, Medium=4, Critical=1, Negligible=13}

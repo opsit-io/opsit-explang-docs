@@ -615,8 +615,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#remove" class="md-nav__link">
-    remove!
+  <a href="#delete" class="md-nav__link">
+    delete!
   </a>
   
 </li>
@@ -1318,8 +1318,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#remove" class="md-nav__link">
-    remove!
+  <a href="#delete" class="md-nav__link">
+    delete!
   </a>
   
 </li>
@@ -2602,14 +2602,14 @@ add Rick Row (id=5) as a friend to Bill that does not have a list of friend iden
 
 <span class="nv">=&gt;</span><span class="w"> </span><span class="nv">{people={1={friendIds=[4,</span><span class="w"> </span><span class="nv">5],</span><span class="w"> </span><span class="nv">surname=Doe,</span><span class="w"> </span><span class="nv">name=John,</span><span class="w"> </span><span class="nv">relatives={motherId=3,</span><span class="w"> </span><span class="nv">fatherId=2}},</span><span class="w"> </span><span class="nv">2={surname=Doe,</span><span class="w"> </span><span class="nv">name=Jack},</span><span class="w"> </span><span class="nv">3={surname=Roe,</span><span class="w"> </span><span class="nv">name=Ann},</span><span class="w"> </span><span class="nv">4={friendIds=[5],</span><span class="w"> </span><span class="nv">surname=Moe,</span><span class="w"> </span><span class="nv">name=Bill},</span><span class="w"> </span><span class="nv">5={surname=Hoe,</span><span class="w"> </span><span class="nv">name=Rick}}}</span><span class="w"></span>
 </code></pre></div>
-<h3 id="remove">remove!</h3>
+<h3 id="delete">delete!</h3>
 <p>Removes an object from a collection according to its key or index. 
 For sets it will remove the object by its value.</p>
 <div class="highlight"><pre><span></span><code>(setv L (list 1 2 3))
 
 =&gt; [1, 2, 3]
 
-&gt; (remove! L 1)
+&gt; (delete! L 1)
 
 =&gt; 2
 
@@ -2761,7 +2761,7 @@ construction may be used to convert collection into other collection types:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">&gt;</span><span class="w"> </span><span class="p">(</span><span class="nb">append</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">(</span><span class="nv">hashset</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="p">)))</span><span class="w">  </span><span class="c1">;; convert hashset into list</span><span class="w"></span>
 </code></pre></div>
 <p>List of non-mutating functions for data modification:</p>
-<p><code>append</code>, <code>aset</code>, <code>assoc</code>, <code>insert</code>, <code>push</code>, <code>pop</code>, <code>put</code>, <code>put-in</code>, <code>remove</code>, <code>reverse</code>,
+<p><code>append</code>, <code>aset</code>, <code>assoc</code>, <code>insert</code>, <code>push</code>, <code>pop</code>, <code>put</code>, <code>put-in</code>, <code>delete</code>, <code>reverse</code>,
 <code>sort</code></p>
 <h2 id="searching-and-matching-text-data-using-regular-expressions">Searching and Matching Text Data Using Regular Expressions</h2>
 <p>Regular expression (regex) support in Explang is implemented using the

@@ -624,8 +624,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#remove" class="md-nav__link">
-    remove!
+  <a href="#delete" class="md-nav__link">
+    delete!
   </a>
   
 </li>
@@ -694,6 +694,19 @@
   <a href="#modifying-data-with-non-mutating-functions" class="md-nav__link">
     Modifying data with non-mutating functions
   </a>
+  
+    <nav class="md-nav" aria-label="Modifying data with non-mutating functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#put" class="md-nav__link">
+    put
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1408,8 +1421,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#remove" class="md-nav__link">
-    remove!
+  <a href="#delete" class="md-nav__link">
+    delete!
   </a>
   
 </li>
@@ -1478,6 +1491,19 @@
   <a href="#modifying-data-with-non-mutating-functions" class="md-nav__link">
     Modifying data with non-mutating functions
   </a>
+  
+    <nav class="md-nav" aria-label="Modifying data with non-mutating functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#put" class="md-nav__link">
+    put
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2865,14 +2891,14 @@ of <code>friendIds</code>.</p>
 
 <span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span><span class="kt">people</span><span class="o">=</span><span class="p">{</span><span class="mi">1</span><span class="o">=</span><span class="p">{</span><span class="kt">friendIds</span><span class="o">=</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">],</span><span class="w"> </span><span class="kt">surname</span><span class="o">=</span><span class="kt">Doe</span><span class="p">,</span><span class="w"> </span><span class="kt">name</span><span class="o">=</span><span class="kt">John</span><span class="p">,</span><span class="w"> </span><span class="kt">relatives</span><span class="o">=</span><span class="p">{</span><span class="kt">motherId</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="kt">fatherId</span><span class="o">=</span><span class="mi">2</span><span class="p">}},</span><span class="w"> </span><span class="mi">2</span><span class="o">=</span><span class="p">{</span><span class="kt">surname</span><span class="o">=</span><span class="kt">Doe</span><span class="p">,</span><span class="w"> </span><span class="kt">name</span><span class="o">=</span><span class="kt">Jack</span><span class="p">},</span><span class="w"> </span><span class="mi">3</span><span class="o">=</span><span class="p">{</span><span class="kt">surname</span><span class="o">=</span><span class="kt">Roe</span><span class="p">,</span><span class="w"> </span><span class="kt">name</span><span class="o">=</span><span class="kt">Ann</span><span class="p">},</span><span class="w"> </span><span class="mi">4</span><span class="o">=</span><span class="p">{</span><span class="kt">friendIds</span><span class="o">=</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span><span class="w"> </span><span class="kt">surname</span><span class="o">=</span><span class="kt">Moe</span><span class="p">,</span><span class="w"> </span><span class="kt">name</span><span class="o">=</span><span class="kt">Bill</span><span class="p">},</span><span class="w"> </span><span class="mi">5</span><span class="o">=</span><span class="p">{</span><span class="kt">surname</span><span class="o">=</span><span class="kt">Hoe</span><span class="p">,</span><span class="w"> </span><span class="kt">name</span><span class="o">=</span><span class="kt">Rick</span><span class="p">}}}</span><span class="w"></span>
 </code></pre></div>
-<h3 id="remove">remove!</h3>
+<h3 id="delete">delete!</h3>
 <p>Removes an object from a collection according to its key or index. 
 For sets it will remove the object by its value.</p>
 <div class="highlight"><pre><span></span><code>L:=[1, 2, 3]
 
 =&gt; [1, 2, 3]
 
-&gt; remove!(L, 1)
+&gt; delete!(L, 1)
 
 =&gt; 2
 
@@ -3007,24 +3033,25 @@ same arguments and, instead of modifying target objects,
 return new object with required modifications 
 leaving the original objects unmodified.</p>
 <p>For example <code>append</code> concatenates its argument into new sequence:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">&gt;</span><span class="w"> </span><span class="nv">L:=[0]</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="n">L</span><span class="o">:=</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"></span>
 
-<span class="nb">&gt;</span><span class="w"> </span><span class="nb">append</span><span class="p">(</span><span class="nv">L,</span><span class="w"> </span><span class="nv">[1,</span><span class="w"> </span><span class="mi">2</span><span class="o">,</span><span class="w"> </span><span class="nv">3],</span><span class="w"> </span><span class="s">&quot;Hello&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">append</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">],</span><span class="w"> </span><span class="s">&quot;Hello&quot;</span><span class="p">)</span><span class="w"></span>
 
-<span class="nv">=&gt;</span><span class="w"> </span><span class="nv">[0,</span><span class="w"> </span><span class="mi">1</span><span class="o">,</span><span class="w"> </span><span class="mi">2</span><span class="o">,</span><span class="w"> </span><span class="mi">3</span><span class="o">,</span><span class="w"> </span><span class="nv">H,</span><span class="w"> </span><span class="nv">e,</span><span class="w"> </span><span class="nv">l,</span><span class="w"> </span><span class="nv">l,</span><span class="w"> </span><span class="nv">o]</span><span class="w"></span>
+<span class="o">=&gt;</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">H</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">,</span><span class="w"> </span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="n">o</span><span class="p">]</span><span class="w"></span>
 
-<span class="nb">&gt;</span><span class="w"> </span><span class="nv">L</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="nb">not</span><span class="w"> </span><span class="nv">changed</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span><span class="n">L</span><span class="w">  </span><span class="c"># not changed</span><span class="w"></span>
 
-<span class="nv">=&gt;</span><span class="w"> </span><span class="nv">[0]</span><span class="w"></span>
-<span class="nb">&gt;</span><span class="w"> </span>
+<span class="o">=&gt;</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"></span>
+<span class="o">&gt;</span><span class="w"> </span>
 </code></pre></div>
 <p>The returned sequence is of the same kind as the first function argument, so this 
 construction may be used to convert collection into other collection types:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">&gt;</span><span class="w"> </span><span class="nb">append</span><span class="p">(</span><span class="w"> </span><span class="nv">[]</span><span class="w"> </span><span class="nv">hashset</span><span class="p">(</span><span class="mi">1</span><span class="o">,</span><span class="w"> </span><span class="mi">2</span><span class="o">,</span><span class="w"> </span><span class="mi">3</span><span class="p">))</span><span class="w">  </span><span class="c1">;; convert a set into a list</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;</span><span class="w"> </span><span class="n">append</span><span class="p">(</span><span class="w"> </span><span class="p">[],</span><span class="w"> </span><span class="n">hashset</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">))</span><span class="w">  </span><span class="p">;;</span><span class="w"> </span><span class="n">convert</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">into</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">list</span><span class="w"></span>
 </code></pre></div>
 <p>List of non-mutating functions for data modification:</p>
-<p><code>append</code>, <code>aset</code>, <code>assoc</code>, <code>insert</code>, <code>push</code>, <code>pop</code>, <code>put</code>, <code>put-in</code>, <code>remove</code>, <code>reverse</code>,
+<p><code>append</code>, <code>aset</code>, <code>assoc</code>, <code>insert</code>, <code>push</code>, <code>pop</code>, <code>put</code>, <code>put-in</code>, <code>delete</code>, <code>reverse</code>,
 <code>sort</code></p>
+<h3 id="put">put</h3>
 <h2 id="searching-and-matching-text-data-using-regular-expressions">Searching and Matching Text Data Using Regular Expressions</h2>
 <p>Regular expression (regex) support in Explang is implemented using the
 Java regular expression engine.</p>
