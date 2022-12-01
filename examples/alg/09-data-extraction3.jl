@@ -13,15 +13,15 @@ function main()
     println("\n* List of all artifacts with BSD licenses");
     bom.artifacts
     # use subsearch on list of license names and save BSD ones them in a new field
+    # fixme: why do we need () around `:=` ?
     | search (_.bsd_lics:=licenses search  r"BSD")
     | fields name, version, bsd_lics
     | println();
 
     println("\n* List of all licenses used");
-    # FIXME: add more friendly way to join list entries  and filter
-    #        non-unique results (like sort() | uniq() )
-    bom.artifacts[]["licenses"] | apply(f"append") | apply(f"hashset")
-    | println();
+    # FIXME: add more friendly way to filter non-unique results (like sort() | uniq() )
+    bom.artifacts[]["licenses"] | append | hashset
+    | println;
 
     
     println("\n* Check if there is a specific file");

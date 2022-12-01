@@ -1887,7 +1887,7 @@ leaving the original objects unmodified.
 
 For example `append` concatenates its argument into new sequence:
 
-```lisp
+```julia
 > L:=[0]
 
 > append(L, [1, 2, 3], "Hello")
@@ -1903,14 +1903,19 @@ For example `append` concatenates its argument into new sequence:
 The returned sequence is of the same kind as the first function argument, so this 
 construction may be used to convert collection into other collection types:
 
-```lisp
-> append( [] hashset(1, 2, 3))  ;; convert a set into a list
+```julia
+> append( [], hashset(1, 2, 3))  ;; convert a set into a list
 ```
 
 List of non-mutating functions for data modification:
 
 `append`, `aset`, `assoc`, `insert`, `push`, `pop`, `put`, `put-in`, `delete`, `reverse`,
 `sort`
+
+### put
+
+
+
 
 
 
