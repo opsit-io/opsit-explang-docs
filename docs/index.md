@@ -45,4 +45,7 @@ Further Information
 - [Extending and Customizing the Language](explang-extending.md)
 - [Using Explang REPL](using-explang-REPL.md).
 - [Explang License](LICENSE.md)
+- [Explang Core Source Code](https://github.com/opsit-io/opsit-explang-core)
+- [Explang Algebraic Syntax Source Code](https://github.com/opsit-io/opsit-explang-alg-parser)
+  
 
